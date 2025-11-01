@@ -7,6 +7,7 @@ import { downloadArtifacts } from './downloader.js';
 import { extractLogs } from './log-extractor.js';
 import { catalogArtifacts } from './cataloger.js';
 import { collectLinterOutputs } from './linter-collector.js';
+import { generateSummary, determineExitCode } from './summary-generator.js';
 
 const program = new Command();
 
@@ -112,10 +113,11 @@ program
       }
 
       // Catalog artifacts and convert HTML
+      let catalogResult;
       if (!options.dryRun) {
         logger.info('\n=== Cataloging artifacts and converting HTML ===');
         const allRunIds = Array.from(result.runStates.keys());
-        const catalogResult = await catalogArtifacts(outputDir, allRunIds, logger);
+        catalogResult = await catalogArtifacts(outputDir, allRunIds, logger);
 
         const convertedCount = catalogResult.catalog.filter(c => c.converted).length;
         const skippedCount = catalogResult.catalog.filter(c => c.skipped).length;
@@ -124,6 +126,31 @@ program
         logger.info(`Total artifacts cataloged: ${catalogResult.catalog.length}`);
         logger.info(`  HTML converted to JSON: ${convertedCount}`);
         logger.info(`  Binary files skipped: ${skippedCount}`);
+
+        // Generate master summary
+        logger.info('\n=== Generating summary ===');
+        const summary = generateSummary(
+          {
+            repo,
+            pr,
+            headSha: result.headSha,
+            inventory: result.inventory,
+            runStates: result.runStates,
+            logs: logResult?.logs || new Map(),
+            catalog: catalogResult.catalog,
+          },
+          outputDir
+        );
+
+        logger.info(`\n=== Complete ===`);
+        logger.info(`Status: ${summary.status}`);
+        logger.info(`Summary saved to: ${outputDir}/summary.json`);
+        logger.info(`Catalog saved to: ${outputDir}/catalog.json`);
+        logger.info(`Inventory saved to: ${outputDir}/artifacts.json`);
+
+        // Exit with appropriate code
+        const exitCode = determineExitCode(summary.status);
+        process.exit(exitCode);
       }
 
     } catch (error) {

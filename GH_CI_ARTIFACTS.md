@@ -175,8 +175,8 @@
 - ✅ Pattern-based extraction for each linter type
 - ✅ Boundary detection for start/end of linter output
 
-### Phase 6: Master summary generation
-- Combine all data into `<output>/summary.json`:
+### Phase 6: Master summary generation ✅ COMPLETE
+- ✅ Combine all data into `<output>/summary.json`:
   ```typescript
   {
     repo: string,
@@ -214,10 +214,13 @@
     }
   }
   ```
-- Exit codes:
+- ✅ Exit codes:
   - 0: All runs complete, all downloads succeeded
   - 1: Partial success (some downloads failed but no in_progress runs)
   - 2: Incomplete (in_progress runs detected)
+- ✅ Correlate artifacts with catalog entries
+- ✅ Aggregate logs and linter outputs
+- ✅ Calculate comprehensive stats
 
 ### Phase 7: Error handling & polish
 - Network failure retry logic with configurable `--max-retries` and `--retry-delay`
