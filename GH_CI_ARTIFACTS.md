@@ -165,13 +165,15 @@
   }]
   ```
 
-### Phase 5: Linter/build output collectors
-- Detect linter types from job names/log patterns
-- For each linter (eslint, prettier, ruff, flake8, isort, black, tsc):
+### Phase 5: Linter/build output collectors ✅ COMPLETE
+- ✅ Detect linter types from job names/log patterns
+- ✅ For each linter (eslint, prettier, ruff, flake8, isort, black, tsc, mypy, pylint):
   - Extract raw output sections from logs
   - Save: `<output>/linting/<run-id>/<job-name>-<linter>.txt`
   - Track in catalog: `{detectedType: "eslint-txt", filePath, ...}`
-- No semantic parsing - just extraction for Claude consumption
+- ✅ No semantic parsing - just extraction for Claude consumption
+- ✅ Pattern-based extraction for each linter type
+- ✅ Boundary detection for start/end of linter output
 
 ### Phase 6: Master summary generation
 - Combine all data into `<output>/summary.json`:

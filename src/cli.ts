@@ -6,6 +6,7 @@ import { Logger } from './utils/logger.js';
 import { downloadArtifacts } from './downloader.js';
 import { extractLogs } from './log-extractor.js';
 import { catalogArtifacts } from './cataloger.js';
+import { collectLinterOutputs } from './linter-collector.js';
 
 const program = new Command();
 
@@ -75,9 +76,10 @@ program
       logger.info(`  Failed: ${failedCount}`);
 
       // Extract logs for runs without artifacts
+      let logResult;
       if (result.runsWithoutArtifacts.length > 0 && !options.dryRun) {
         logger.info(`\n=== Extracting logs for ${result.runsWithoutArtifacts.length} runs without artifacts ===`);
-        const logResult = await extractLogs(
+        logResult = await extractLogs(
           repo,
           result.runsWithoutArtifacts,
           outputDir,
@@ -91,6 +93,22 @@ program
 
         logger.info(`\n=== Log extraction complete ===`);
         logger.info(`Total logs extracted: ${totalLogsExtracted}`);
+
+        // Collect linter outputs from logs
+        logger.info('\n=== Collecting linter outputs ===');
+        const linterResult = await collectLinterOutputs(
+          outputDir,
+          logResult.logs,
+          logger
+        );
+
+        let totalLinterOutputs = 0;
+        linterResult.linterOutputs.forEach(outputs => {
+          totalLinterOutputs += outputs.length;
+        });
+
+        logger.info(`\n=== Linter collection complete ===`);
+        logger.info(`Total linter outputs extracted: ${totalLinterOutputs}`);
       }
 
       // Catalog artifacts and convert HTML
