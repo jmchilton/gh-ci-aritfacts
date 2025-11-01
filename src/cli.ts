@@ -16,14 +16,14 @@ program
   .description('Download and parse GitHub Actions CI artifacts and logs for LLM analysis')
   .version('0.1.0')
   .argument('<pr>', 'Pull request number', parseInt)
-  .argument('[repo]', 'Repository in owner/repo format (defaults to current repo)')
+  .option('-r, --repo <owner/repo>', 'Repository in owner/repo format (defaults to current repo)')
   .option('-o, --output-dir <dir>', 'Output directory')
   .option('--max-retries <count>', 'Maximum retry attempts', parseInt)
   .option('--retry-delay <seconds>', 'Retry delay in seconds', parseInt)
   .option('--resume', 'Resume incomplete/failed downloads')
   .option('--debug', 'Enable debug logging')
   .option('--dry-run', 'Show what would be downloaded without downloading')
-  .action(async (pr: number, repo: string | undefined, options) => {
+  .action(async (pr: number, options) => {
     const logger = new Logger(options.debug);
 
     try {
@@ -31,7 +31,7 @@ program
       validateGhSetup();
 
       // Use current repo if not specified
-      const targetRepo = repo || getCurrentRepo();
+      const targetRepo = options.repo || getCurrentRepo();
 
       const fileConfig = loadConfig();
       const config = mergeConfig(fileConfig, {

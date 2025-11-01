@@ -32,7 +32,7 @@ npm install -g gh-ci-artifacts
 gh-ci-artifacts 123
 
 # Specify a different repository
-gh-ci-artifacts 123 owner/repo
+gh-ci-artifacts 123 --repo owner/repo
 
 # With custom output directory
 gh-ci-artifacts 123 --output-dir ./ci-data
@@ -175,21 +175,21 @@ Array<{
 ## CLI Options
 
 ```
-Usage: gh-ci-artifacts [options] <pr> [repo]
+Usage: gh-ci-artifacts [options] <pr>
 
 Arguments:
-  pr                       Pull request number
-  repo                     Repository in owner/repo format (defaults to current repo)
+  pr                           Pull request number
 
 Options:
-  -V, --version            output the version number
-  -o, --output-dir <dir>   Output directory
-  --max-retries <count>    Maximum retry attempts (default: 3)
-  --retry-delay <seconds>  Retry delay in seconds (default: 5)
-  --resume                 Resume incomplete/failed downloads
-  --debug                  Enable debug logging
-  --dry-run                Show what would be downloaded without downloading
-  -h, --help               display help for command
+  -V, --version                output the version number
+  -r, --repo <owner/repo>      Repository in owner/repo format (defaults to current repo)
+  -o, --output-dir <dir>       Output directory
+  --max-retries <count>        Maximum retry attempts (default: 3)
+  --retry-delay <seconds>      Retry delay in seconds (default: 5)
+  --resume                     Resume incomplete/failed downloads
+  --debug                      Enable debug logging
+  --dry-run                    Show what would be downloaded without downloading
+  -h, --help                   display help for command
 ```
 
 ## Use Cases
