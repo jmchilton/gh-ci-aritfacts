@@ -4,20 +4,35 @@
   "description": "Download and parse GitHub Actions CI artifacts and logs for LLM analysis",
   "type": "module",
   "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "bin": {
     "gh-ci-artifacts": "./dist/cli.js"
   },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "tsc",
     "dev": "tsx src/cli.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm test"
   },
-  "keywords": ["github", "actions", "ci", "artifacts", "testing", "llm"],
-  "author": "",
+  "keywords": ["github", "actions", "ci", "artifacts", "testing", "llm", "claude", "playwright", "jest"],
+  "author": "John Chilton",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jmchilton/gh-ci-aritfacts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jmchilton/gh-ci-aritfacts/issues"
+  },
+  "homepage": "https://github.com/jmchilton/gh-ci-aritfacts#readme",
   "engines": {
     "node": ">=18.0.0"
   },

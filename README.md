@@ -17,6 +17,12 @@ Download and parse GitHub Actions CI artifacts and logs for LLM analysis.
 
 ## Installation
 
+**Option 1: Use with npx (no installation required)**
+```bash
+npx gh-ci-artifacts 123
+```
+
+**Option 2: Install globally**
 ```bash
 npm install -g gh-ci-artifacts
 ```
@@ -29,23 +35,25 @@ npm install -g gh-ci-artifacts
 
 ```bash
 # Download artifacts for a PR (from current repo)
-gh-ci-artifacts 123
+npx gh-ci-artifacts 123
 
 # Specify a different repository
-gh-ci-artifacts 123 --repo owner/repo
+npx gh-ci-artifacts 123 --repo owner/repo
 
 # With custom output directory
-gh-ci-artifacts 123 --output-dir ./ci-data
+npx gh-ci-artifacts 123 --output-dir ./ci-data
 
 # Dry run to see what would be downloaded
-gh-ci-artifacts 123 --dry-run
+npx gh-ci-artifacts 123 --dry-run
 
 # Resume interrupted download
-gh-ci-artifacts 123 --resume
+npx gh-ci-artifacts 123 --resume
 
 # Enable debug logging
-gh-ci-artifacts 123 --debug
+npx gh-ci-artifacts 123 --debug
 ```
+
+**Note:** If installed globally, you can omit `npx` and use `gh-ci-artifacts` directly.
 
 ## Configuration
 
@@ -201,7 +209,7 @@ import { execSync } from 'child_process';
 import { readFileSync } from 'fs';
 
 // Download artifacts (uses current repo)
-execSync('gh-ci-artifacts 123', { stdio: 'inherit' });
+execSync('npx gh-ci-artifacts 123', { stdio: 'inherit' });
 
 // Load summary for analysis
 const summary = JSON.parse(
