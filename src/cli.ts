@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { Command } from 'commander';
 import { existsSync, statSync, renameSync } from 'fs';
+import { exec } from 'child_process';
 import { loadConfig, mergeConfig, getOutputDir } from './config.js';
 import { validateGhSetup, getCurrentRepo } from './utils/gh.js';
 import { Logger } from './utils/logger.js';
@@ -23,6 +24,7 @@ program
   .option('--retry-delay <seconds>', 'Retry delay in seconds', parseInt)
   .option('--resume', 'Resume incomplete/failed downloads (without this, existing artifacts are backed up)')
   .option('--include-successes', 'Include artifacts from successful runs (by default, only failed/cancelled runs)')
+  .option('--open', 'Open the generated HTML viewer in default browser')
   .option('--debug', 'Enable debug logging')
   .option('--dry-run', 'Show what would be downloaded without downloading')
   .action(async (pr: number, options) => {
@@ -193,7 +195,27 @@ program
         logger.info(`Catalog saved to: ${outputDir}/catalog.json`);
         logger.info(`Inventory saved to: ${outputDir}/artifacts.json`);
         logger.info(`HTML viewer saved to: ${outputDir}/index.html`);
-        logger.info(`\nOpen ${outputDir}/index.html in your browser to explore results`);
+        
+        // Open HTML in browser if requested
+        if (options.open) {
+          const htmlPath = `${outputDir}/index.html`;
+          logger.info(`\nOpening ${htmlPath} in browser...`);
+          
+          const platform = process.platform;
+          const openCommand = 
+            platform === 'darwin' ? 'open' :
+            platform === 'win32' ? 'start' :
+            'xdg-open';  // Linux
+          
+          exec(`${openCommand} "${htmlPath}"`, (error) => {
+            if (error) {
+              logger.warn(`Failed to open browser: ${error.message}`);
+              logger.info(`Please manually open: ${htmlPath}`);
+            }
+          });
+        } else {
+          logger.info(`\nOpen ${outputDir}/index.html in your browser to explore results`);
+        }
 
         // Exit with appropriate code
         const exitCode = determineExitCode(summary.status);

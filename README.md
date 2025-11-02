@@ -65,6 +65,9 @@ npx gh-ci-artifacts 123 --resume
 # Include successful runs (by default, only failures/cancelled are downloaded)
 npx gh-ci-artifacts 123 --include-successes
 
+# Open HTML viewer in browser automatically when complete
+npx gh-ci-artifacts 123 --open
+
 # Enable debug logging
 npx gh-ci-artifacts 123 --debug
 ```
