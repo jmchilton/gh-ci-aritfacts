@@ -2,11 +2,25 @@ import type { ArtifactType } from "../types.js";
 import type { ArtifactTypeCapabilities, ValidationResult } from "./types.js";
 import { validateJestJSON } from "./jest-validator.js";
 import { validatePlaywrightJSON } from "./playwright-validator.js";
-import { validateESLintOutput, validateTSCOutput } from "./linter-validator.js";
+import { validatePlaywrightHTML } from "./playwright-html-validator.js";
+import { validatePytestJSON, validatePytestHTML } from "./pytest-validator.js";
+import { validateJUnitXML } from "./junit-validator.js";
+import {
+  validateESLintOutput,
+  validateTSCOutput,
+  validateFlake8Output,
+} from "./linter-validator.js";
 
 export { validateJestJSON } from "./jest-validator.js";
 export { validatePlaywrightJSON } from "./playwright-validator.js";
-export { validateESLintOutput, validateTSCOutput } from "./linter-validator.js";
+export { validatePlaywrightHTML } from "./playwright-html-validator.js";
+export { validatePytestJSON, validatePytestHTML } from "./pytest-validator.js";
+export { validateJUnitXML } from "./junit-validator.js";
+export {
+  validateESLintOutput,
+  validateTSCOutput,
+  validateFlake8Output,
+} from "./linter-validator.js";
 export type { ValidationResult, ValidatorFunction, ArtifactTypeCapabilities } from "./types.js";
 
 /**
@@ -26,7 +40,7 @@ export const ARTIFACT_TYPE_REGISTRY: Record<ArtifactType, ArtifactTypeCapabiliti
   },
   "playwright-html": {
     supportsAutoDetection: true,
-    validator: null,
+    validator: validatePlaywrightHTML,
   },
   "jest-html": {
     supportsAutoDetection: true,
@@ -34,15 +48,15 @@ export const ARTIFACT_TYPE_REGISTRY: Record<ArtifactType, ArtifactTypeCapabiliti
   },
   "pytest-json": {
     supportsAutoDetection: true,
-    validator: null,
+    validator: validatePytestJSON,
   },
   "pytest-html": {
     supportsAutoDetection: true,
-    validator: null,
+    validator: validatePytestHTML,
   },
   "junit-xml": {
     supportsAutoDetection: true,
-    validator: null,
+    validator: validateJUnitXML,
   },
   "eslint-txt": {
     supportsAutoDetection: false,
@@ -54,7 +68,7 @@ export const ARTIFACT_TYPE_REGISTRY: Record<ArtifactType, ArtifactTypeCapabiliti
   },
   "flake8-txt": {
     supportsAutoDetection: false,
-    validator: null,
+    validator: validateFlake8Output,
   },
   "binary": {
     supportsAutoDetection: true,

@@ -35,3 +35,21 @@ export function validateTSCOutput(content: string): ValidationResult {
     error: "Does not match TypeScript compiler output format",
   };
 }
+
+export function validateFlake8Output(content: string): ValidationResult {
+  // Flake8 output pattern:
+  // path/to/file.py:line:col: CODE message
+  // Example: ./src/main.py:1:1: F401 'os' imported but unused
+
+  const flake8Pattern = /\.py:\d+:\d+:\s+[A-Z]\d+/.test(content);
+
+  if (flake8Pattern) {
+    return { valid: true };
+  }
+
+  return {
+    valid: false,
+    error: "Does not match flake8 output format",
+  };
+}
+

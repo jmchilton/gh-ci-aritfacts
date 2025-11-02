@@ -1,70 +1,90 @@
 import { describe, it, expect } from "vitest";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { readFileSync } from "fs";
 import { detectArtifactType } from "../src/detectors/type-detector.js";
+import { validate, ARTIFACT_TYPE_REGISTRY } from "../src/validators/index.js";
+import type { ArtifactType } from "../src/types.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const FIXTURES_DIR = join(__dirname, "../fixtures");
 
+// Helper to test both detection and validation
+function testArtifact(
+  fixturePath: string,
+  expectedType: ArtifactType,
+  expectedFormat: string,
+) {
+  const result = detectArtifactType(fixturePath);
+  expect(result.detectedType).toBe(expectedType);
+  expect(result.originalFormat).toBe(expectedFormat);
+  expect(result.isBinary).toBe(false);
+
+  // Also run validator if one exists
+  const capabilities = ARTIFACT_TYPE_REGISTRY[expectedType];
+  if (capabilities?.validator) {
+    const content = readFileSync(fixturePath, "utf-8");
+    const validationResult = validate(expectedType, content);
+    expect(validationResult.valid).toBe(true);
+    if (!validationResult.valid) {
+      console.error(`Validation failed: ${validationResult.error}`);
+    }
+  }
+}
+
 describe("detectArtifactType", () => {
   describe("HTML detection", () => {
     it("detects pytest-html by content", () => {
-      const result = detectArtifactType(
+      testArtifact(
         join(FIXTURES_DIR, "html/pytest-html-sample.html"),
+        "pytest-html",
+        "html",
       );
-      expect(result.detectedType).toBe("pytest-html");
-      expect(result.originalFormat).toBe("html");
-      expect(result.isBinary).toBe(false);
     });
 
     it("detects playwright-html by content", () => {
-      const result = detectArtifactType(
+      testArtifact(
         join(FIXTURES_DIR, "html/playwright-html-sample.html"),
+        "playwright-html",
+        "html",
       );
-      expect(result.detectedType).toBe("playwright-html");
-      expect(result.originalFormat).toBe("html");
-      expect(result.isBinary).toBe(false);
     });
   });
 
   describe("JSON detection", () => {
     it("detects playwright JSON by structure", () => {
-      const result = detectArtifactType(
+      testArtifact(
         join(FIXTURES_DIR, "json/playwright-json-sample.json"),
+        "playwright-json",
+        "json",
       );
-      expect(result.detectedType).toBe("playwright-json");
-      expect(result.originalFormat).toBe("json");
-      expect(result.isBinary).toBe(false);
     });
 
     it("detects jest JSON by structure", () => {
-      const result = detectArtifactType(
+      testArtifact(
         join(FIXTURES_DIR, "json/jest-json-sample.json"),
+        "jest-json",
+        "json",
       );
-      expect(result.detectedType).toBe("jest-json");
-      expect(result.originalFormat).toBe("json");
-      expect(result.isBinary).toBe(false);
     });
 
     it("detects pytest JSON by structure", () => {
-      const result = detectArtifactType(
+      testArtifact(
         join(FIXTURES_DIR, "json/pytest-json-sample.json"),
+        "pytest-json",
+        "json",
       );
-      expect(result.detectedType).toBe("pytest-json");
-      expect(result.originalFormat).toBe("json");
-      expect(result.isBinary).toBe(false);
     });
   });
 
   describe("XML detection", () => {
     it("detects JUnit XML by content", () => {
-      const result = detectArtifactType(
+      testArtifact(
         join(FIXTURES_DIR, "xml/junit-sample.xml"),
+        "junit-xml",
+        "xml",
       );
-      expect(result.detectedType).toBe("junit-xml");
-      expect(result.originalFormat).toBe("xml");
-      expect(result.isBinary).toBe(false);
     });
   });
 
@@ -77,15 +97,22 @@ describe("detectArtifactType", () => {
       expect(result.detectedType).toBe("unknown");
       expect(result.originalFormat).toBe("txt");
       expect(result.isBinary).toBe(false);
+
+      // But validator should work
+      const content = readFileSync(
+        join(FIXTURES_DIR, "txt/eslint-sample.txt"),
+        "utf-8",
+      );
+      const validationResult = validate("eslint-txt", content);
+      expect(validationResult.valid).toBe(true);
     });
 
     it("detects flake8 output by pattern", () => {
-      const result = detectArtifactType(
+      testArtifact(
         join(FIXTURES_DIR, "txt/flake8-sample.txt"),
+        "flake8-txt",
+        "txt",
       );
-      expect(result.detectedType).toBe("flake8-txt");
-      expect(result.originalFormat).toBe("txt");
-      expect(result.isBinary).toBe(false);
     });
   });
 
