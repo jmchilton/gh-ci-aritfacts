@@ -10,6 +10,7 @@ import { renderArtifactsJson } from './renderers/artifacts.js';
 export interface FileNode {
   name: string;
   path: string;
+  relativePath?: string;  // Relative path from index.html
   type: 'file' | 'directory';
   size?: number;
   detectedType?: string;
@@ -100,6 +101,7 @@ function buildFileTree(
       const fileNode: FileNode = {
         name: filename,
         path: filePath,
+        relativePath: filename,  // Relative to outputDir (where index.html is)
         type: 'file',
         size: stats.size,
         detectedType: 'json',
@@ -166,6 +168,7 @@ function buildDirectoryNode(
         const fileNode: FileNode = {
           name: entry,
           path: childPath,
+          relativePath: relPath,
           type: 'file',
           size: childStats.size,
           detectedType: catalogEntry?.detectedType,
@@ -312,8 +315,9 @@ function renderTreeNode(node: FileNode, depth: number): string {
     const size = node.size ? formatBytes(node.size) : '';
     const canPreview = node.preview || (node.size && node.size < PREVIEW_SIZE_LAZY);
 
-    // Use file:// protocol for absolute path
-    const fileUrl = 'file://' + node.path;
+    // Use relative path from index.html (stored in node.relativePath)
+    // Fallback to file:// if no relative path available
+    const fileUrl = node.relativePath || ('file://' + node.path);
 
     return `
     <div class="tree-node file ${canPreview ? 'clickable' : ''}" style="padding-left: ${indent}px" ${canPreview ? `data-path="${escapeHtml(node.path)}"` : ''}>
