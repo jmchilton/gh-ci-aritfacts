@@ -1,8 +1,11 @@
-import { readFileSync, mkdirSync, writeFileSync } from 'fs';
-import { join } from 'path';
-import type { Logger } from './utils/logger.js';
-import type { JobLog, LinterOutput } from './types.js';
-import { detectLinterType, extractLinterOutput } from './parsers/linters/extractors.js';
+import { readFileSync, mkdirSync, writeFileSync } from "fs";
+import { join } from "path";
+import type { Logger } from "./utils/logger.js";
+import type { JobLog, LinterOutput } from "./types.js";
+import {
+  detectLinterType,
+  extractLinterOutput,
+} from "./parsers/linters/extractors.js";
 
 export interface LinterCollectionResult {
   linterOutputs: Map<string, LinterOutput[]>; // runId -> LinterOutput[]
@@ -11,7 +14,7 @@ export interface LinterCollectionResult {
 export async function collectLinterOutputs(
   outputDir: string,
   logsByRun: Map<string, JobLog[]>,
-  logger: Logger
+  logger: Logger,
 ): Promise<LinterCollectionResult> {
   const linterOutputs = new Map<string, LinterOutput[]>();
 
@@ -21,12 +24,12 @@ export async function collectLinterOutputs(
     const runLinterOutputs: LinterOutput[] = [];
 
     for (const log of logs) {
-      if (!log.logFile || log.extractionStatus !== 'success') {
+      if (!log.logFile || log.extractionStatus !== "success") {
         continue;
       }
 
       try {
-        const logContent = readFileSync(log.logFile, 'utf-8');
+        const logContent = readFileSync(log.logFile, "utf-8");
         const linterType = detectLinterType(log.jobName, logContent);
 
         if (!linterType) {
@@ -40,7 +43,7 @@ export async function collectLinterOutputs(
 
         if (linterOutput) {
           // Save linter output
-          const lintingDir = join(outputDir, 'linting', runId);
+          const lintingDir = join(outputDir, "linting", runId);
           mkdirSync(lintingDir, { recursive: true });
 
           const fileName = `${sanitizeJobName(log.jobName)}-${linterType}.txt`;
@@ -64,7 +67,7 @@ export async function collectLinterOutputs(
         }
       } catch (error) {
         logger.error(
-          `  Failed to process linter output for ${log.jobName}: ${error instanceof Error ? error.message : String(error)}`
+          `  Failed to process linter output for ${log.jobName}: ${error instanceof Error ? error.message : String(error)}`,
         );
       }
     }
@@ -79,7 +82,7 @@ export async function collectLinterOutputs(
 
 function sanitizeJobName(name: string): string {
   return name
-    .replace(/[^a-zA-Z0-9-_]/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '');
+    .replace(/[^a-zA-Z0-9-_]/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
 }

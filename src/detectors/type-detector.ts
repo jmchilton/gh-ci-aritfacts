@@ -1,5 +1,5 @@
-import { readFileSync, statSync, openSync, readSync, closeSync } from 'fs';
-import type { ArtifactType, OriginalFormat } from '../types.js';
+import { readFileSync, statSync, openSync, readSync, closeSync } from "fs";
+import type { ArtifactType, OriginalFormat } from "../types.js";
 
 export interface DetectionResult {
   detectedType: ArtifactType;
@@ -8,10 +8,23 @@ export interface DetectionResult {
 }
 
 const BINARY_EXTENSIONS = new Set([
-  '.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg',
-  '.mp4', '.webm', '.mov',
-  '.zip', '.tar', '.gz', '.bz2',
-  '.exe', '.dll', '.so', '.dylib',
+  ".png",
+  ".jpg",
+  ".jpeg",
+  ".gif",
+  ".webp",
+  ".svg",
+  ".mp4",
+  ".webm",
+  ".mov",
+  ".zip",
+  ".tar",
+  ".gz",
+  ".bz2",
+  ".exe",
+  ".dll",
+  ".so",
+  ".dylib",
 ]);
 
 // Maximum bytes to read for content inspection
@@ -23,8 +36,8 @@ export function detectArtifactType(filePath: string): DetectionResult {
   // Check for binary files by extension first (no need to read content)
   if (isBinaryFile(fileName)) {
     return {
-      detectedType: 'binary',
-      originalFormat: 'binary',
+      detectedType: "binary",
+      originalFormat: "binary",
       isBinary: true,
     };
   }
@@ -33,7 +46,7 @@ export function detectArtifactType(filePath: string): DetectionResult {
   const originalFormat = getOriginalFormat(fileName);
 
   // For text-based formats, inspect content
-  if (originalFormat !== 'binary') {
+  if (originalFormat !== "binary") {
     try {
       const content = readFileSample(filePath);
       const detectedType = detectByContent(content, originalFormat);
@@ -46,7 +59,7 @@ export function detectArtifactType(filePath: string): DetectionResult {
     } catch (error) {
       // File read error, fall back to unknown
       return {
-        detectedType: 'unknown',
+        detectedType: "unknown",
         originalFormat,
         isBinary: false,
       };
@@ -55,22 +68,22 @@ export function detectArtifactType(filePath: string): DetectionResult {
 
   // Unknown binary
   return {
-    detectedType: 'unknown',
-    originalFormat: 'binary',
+    detectedType: "unknown",
+    originalFormat: "binary",
     isBinary: true,
   };
 }
 
 function isBinaryFile(fileName: string): boolean {
-  return Array.from(BINARY_EXTENSIONS).some(ext => fileName.endsWith(ext));
+  return Array.from(BINARY_EXTENSIONS).some((ext) => fileName.endsWith(ext));
 }
 
 function getOriginalFormat(fileName: string): OriginalFormat {
-  if (fileName.endsWith('.json')) return 'json';
-  if (fileName.endsWith('.xml')) return 'xml';
-  if (fileName.endsWith('.html') || fileName.endsWith('.htm')) return 'html';
-  if (fileName.endsWith('.txt') || fileName.endsWith('.log')) return 'txt';
-  return 'binary';
+  if (fileName.endsWith(".json")) return "json";
+  if (fileName.endsWith(".xml")) return "xml";
+  if (fileName.endsWith(".html") || fileName.endsWith(".htm")) return "html";
+  if (fileName.endsWith(".txt") || fileName.endsWith(".log")) return "txt";
+  return "binary";
 }
 
 function readFileSample(filePath: string): string {
@@ -78,41 +91,46 @@ function readFileSample(filePath: string): string {
   const bytesToRead = Math.min(stats.size, CONTENT_SAMPLE_SIZE);
   const buffer = Buffer.alloc(bytesToRead);
 
-  const fd = openSync(filePath, 'r');
+  const fd = openSync(filePath, "r");
   try {
     readSync(fd, buffer, 0, bytesToRead, 0);
-    return buffer.toString('utf-8');
+    return buffer.toString("utf-8");
   } finally {
     closeSync(fd);
   }
 }
 
-function detectByContent(content: string, format: OriginalFormat): ArtifactType {
+function detectByContent(
+  content: string,
+  format: OriginalFormat,
+): ArtifactType {
   const lowerContent = content.toLowerCase();
 
   switch (format) {
-    case 'html':
+    case "html":
       return detectHtmlType(content, lowerContent);
 
-    case 'json':
+    case "json":
       return detectJsonType(content, lowerContent);
 
-    case 'xml':
+    case "xml":
       return detectXmlType(content, lowerContent);
 
-    case 'txt':
+    case "txt":
       return detectTxtType(content, lowerContent);
 
     default:
-      return 'unknown';
+      return "unknown";
   }
 }
 
 function detectHtmlType(content: string, lowerContent: string): ArtifactType {
   // pytest-html: Look for pytest-html generator meta tag or link
-  if (lowerContent.includes('pytest-html') ||
-      lowerContent.includes('pypi.python.org/pypi/pytest-html')) {
-    return 'pytest-html';
+  if (
+    lowerContent.includes("pytest-html") ||
+    lowerContent.includes("pypi.python.org/pypi/pytest-html")
+  ) {
+    return "pytest-html";
   }
 
   // Playwright HTML reporter: Look for Playwright-specific markers
@@ -120,20 +138,24 @@ function detectHtmlType(content: string, lowerContent: string): ArtifactType {
   // - "playwright-report" class or id
   // - "Playwright Test Report" title
   // - "@playwright/test" or "playwright.dev" references
-  if (lowerContent.includes('playwright test report') ||
-      lowerContent.includes('playwright-report') ||
-      lowerContent.includes('playwright.dev') ||
-      lowerContent.includes('@playwright/test')) {
-    return 'playwright-html';
+  if (
+    lowerContent.includes("playwright test report") ||
+    lowerContent.includes("playwright-report") ||
+    lowerContent.includes("playwright.dev") ||
+    lowerContent.includes("@playwright/test")
+  ) {
+    return "playwright-html";
   }
 
   // Jest HTML reporters often include "jest" in generator or have jest-html classes
-  if (lowerContent.includes('jest-html') ||
-      (lowerContent.includes('jest') && lowerContent.includes('test results'))) {
-    return 'jest-html';
+  if (
+    lowerContent.includes("jest-html") ||
+    (lowerContent.includes("jest") && lowerContent.includes("test results"))
+  ) {
+    return "jest-html";
   }
 
-  return 'unknown';
+  return "unknown";
 }
 
 function detectJsonType(content: string, lowerContent: string): ArtifactType {
@@ -144,59 +166,66 @@ function detectJsonType(content: string, lowerContent: string): ArtifactType {
     // Playwright JSON: Has "config", "suites" with specific structure
     if (data.config && data.suites && Array.isArray(data.suites)) {
       // Check for Playwright-specific fields
-      if (data.config.rootDir !== undefined || data.config.version !== undefined) {
-        return 'playwright-json';
+      if (
+        data.config.rootDir !== undefined ||
+        data.config.version !== undefined
+      ) {
+        return "playwright-json";
       }
     }
 
     // Jest JSON: Has "testResults" array with specific structure
     if (data.testResults && Array.isArray(data.testResults)) {
-      return 'jest-json';
+      return "jest-json";
     }
 
     // pytest JSON: Common format has "tests" array or "report" structure
     if (data.tests && Array.isArray(data.tests)) {
-      return 'pytest-json';
+      return "pytest-json";
     }
 
     // Check content for framework mentions as fallback
-    if (lowerContent.includes('playwright')) {
-      return 'playwright-json';
+    if (lowerContent.includes("playwright")) {
+      return "playwright-json";
     }
-    if (lowerContent.includes('jest')) {
-      return 'jest-json';
+    if (lowerContent.includes("jest")) {
+      return "jest-json";
     }
-    if (lowerContent.includes('pytest')) {
-      return 'pytest-json';
+    if (lowerContent.includes("pytest")) {
+      return "pytest-json";
     }
-
   } catch (e) {
     // Invalid JSON, fall through to unknown
   }
 
-  return 'unknown';
+  return "unknown";
 }
 
 function detectXmlType(content: string, lowerContent: string): ArtifactType {
   // JUnit XML format
-  if (lowerContent.includes('<testsuite') || lowerContent.includes('<testsuites')) {
-    return 'junit-xml';
+  if (
+    lowerContent.includes("<testsuite") ||
+    lowerContent.includes("<testsuites")
+  ) {
+    return "junit-xml";
   }
 
-  return 'unknown';
+  return "unknown";
 }
 
 function detectTxtType(content: string, lowerContent: string): ArtifactType {
   // ESLint output patterns
-  if (lowerContent.includes('eslint') ||
-      /\d+:\d+\s+(error|warning)/.test(content)) {
-    return 'eslint-txt';
+  if (
+    lowerContent.includes("eslint") ||
+    /\d+:\d+\s+(error|warning)/.test(content)
+  ) {
+    return "eslint-txt";
   }
 
   // Flake8 output patterns
   if (/\.py:\d+:\d+:/.test(content)) {
-    return 'flake8-txt';
+    return "flake8-txt";
   }
 
-  return 'unknown';
+  return "unknown";
 }

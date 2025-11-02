@@ -1,37 +1,48 @@
 #!/usr/bin/env node
-import { Command } from 'commander';
-import { existsSync, statSync, renameSync } from 'fs';
-import { exec } from 'child_process';
-import { loadConfig, mergeConfig, getOutputDir } from './config.js';
-import { validateGhSetup, getCurrentRepo } from './utils/gh.js';
-import { Logger } from './utils/logger.js';
-import { downloadArtifacts } from './downloader.js';
-import { extractLogs } from './log-extractor.js';
-import { catalogArtifacts } from './cataloger.js';
-import { collectLinterOutputs } from './linter-collector.js';
-import { generateSummary, determineExitCode } from './summary-generator.js';
+import { Command } from "commander";
+import { existsSync, statSync, renameSync } from "fs";
+import { exec } from "child_process";
+import { loadConfig, mergeConfig, getOutputDir } from "./config.js";
+import { validateGhSetup, getCurrentRepo } from "./utils/gh.js";
+import { Logger } from "./utils/logger.js";
+import { downloadArtifacts } from "./downloader.js";
+import { extractLogs } from "./log-extractor.js";
+import { catalogArtifacts } from "./cataloger.js";
+import { collectLinterOutputs } from "./linter-collector.js";
+import { generateSummary, determineExitCode } from "./summary-generator.js";
 
 const program = new Command();
 
 program
-  .name('gh-ci-artifacts')
-  .description('Download and parse GitHub Actions CI artifacts and logs for LLM analysis')
-  .version('0.1.0')
-  .argument('<pr>', 'Pull request number', parseInt)
-  .option('-r, --repo <owner/repo>', 'Repository in owner/repo format (defaults to current repo)')
-  .option('-o, --output-dir <dir>', 'Output directory')
-  .option('--max-retries <count>', 'Maximum retry attempts', parseInt)
-  .option('--retry-delay <seconds>', 'Retry delay in seconds', parseInt)
-  .option('--resume', 'Resume incomplete/failed downloads (without this, existing artifacts are backed up)')
-  .option('--include-successes', 'Include artifacts from successful runs (by default, only failed/cancelled runs)')
-  .option('--open', 'Open the generated HTML viewer in default browser')
-  .option('--debug', 'Enable debug logging')
-  .option('--dry-run', 'Show what would be downloaded without downloading')
+  .name("gh-ci-artifacts")
+  .description(
+    "Download and parse GitHub Actions CI artifacts and logs for LLM analysis",
+  )
+  .version("0.1.0")
+  .argument("<pr>", "Pull request number", parseInt)
+  .option(
+    "-r, --repo <owner/repo>",
+    "Repository in owner/repo format (defaults to current repo)",
+  )
+  .option("-o, --output-dir <dir>", "Output directory")
+  .option("--max-retries <count>", "Maximum retry attempts", parseInt)
+  .option("--retry-delay <seconds>", "Retry delay in seconds", parseInt)
+  .option(
+    "--resume",
+    "Resume incomplete/failed downloads (without this, existing artifacts are backed up)",
+  )
+  .option(
+    "--include-successes",
+    "Include artifacts from successful runs (by default, only failed/cancelled runs)",
+  )
+  .option("--open", "Open the generated HTML viewer in default browser")
+  .option("--debug", "Enable debug logging")
+  .option("--dry-run", "Show what would be downloaded without downloading")
   .action(async (pr: number, options) => {
     const logger = new Logger(options.debug);
 
     try {
-      logger.info('Validating GitHub CLI setup...');
+      logger.info("Validating GitHub CLI setup...");
       validateGhSetup();
 
       // Use current repo if not specified
@@ -49,10 +60,11 @@ program
       // Handle existing directory
       if (existsSync(outputDir) && !options.resume && !options.dryRun) {
         const stats = statSync(outputDir);
-        const timestamp = stats.birthtime.toISOString()
-          .replace(/[:.]/g, '-')
-          .replace('T', '_')
-          .split('.')[0];
+        const timestamp = stats.birthtime
+          .toISOString()
+          .replace(/[:.]/g, "-")
+          .replace("T", "_")
+          .split(".")[0];
         const backupDir = `${outputDir}-${timestamp}`;
 
         logger.info(`Found existing artifacts for PR #${pr}`);
@@ -67,16 +79,18 @@ program
       logger.info(`Retry delay: ${config.retryDelay}s`);
 
       if (options.resume) {
-        logger.info('Resume mode enabled');
+        logger.info("Resume mode enabled");
       }
 
       if (options.dryRun) {
-        logger.info('Dry-run mode: No files will be downloaded');
+        logger.info("Dry-run mode: No files will be downloaded");
       }
 
-      logger.info('\n=== Downloading artifacts ===');
+      logger.info("\n=== Downloading artifacts ===");
       if (!options.includeSuccesses) {
-        logger.info('Skipping successful runs (use --include-successes to download all)');
+        logger.info(
+          "Skipping successful runs (use --include-successes to download all)",
+        );
       }
       const result = await downloadArtifacts(
         targetRepo,
@@ -86,16 +100,22 @@ program
         logger,
         options.resume,
         options.dryRun,
-        options.includeSuccesses
+        options.includeSuccesses,
       );
 
-      logger.info('\n=== Download complete ===');
+      logger.info("\n=== Download complete ===");
       logger.info(`Head SHA: ${result.headSha}`);
       logger.info(`Total artifacts processed: ${result.inventory.length}`);
 
-      const successCount = result.inventory.filter(a => a.status === 'success').length;
-      const expiredCount = result.inventory.filter(a => a.status === 'expired').length;
-      const failedCount = result.inventory.filter(a => a.status === 'failed').length;
+      const successCount = result.inventory.filter(
+        (a) => a.status === "success",
+      ).length;
+      const expiredCount = result.inventory.filter(
+        (a) => a.status === "expired",
+      ).length;
+      const failedCount = result.inventory.filter(
+        (a) => a.status === "failed",
+      ).length;
 
       logger.info(`  Success: ${successCount}`);
       logger.info(`  Expired: ${expiredCount}`);
@@ -104,32 +124,36 @@ program
       // Extract logs for runs without artifacts
       let logResult;
       if (result.runsWithoutArtifacts.length > 0 && !options.dryRun) {
-        logger.info(`\n=== Extracting logs for ${result.runsWithoutArtifacts.length} runs without artifacts ===`);
+        logger.info(
+          `\n=== Extracting logs for ${result.runsWithoutArtifacts.length} runs without artifacts ===`,
+        );
         logResult = await extractLogs(
           targetRepo,
           result.runsWithoutArtifacts,
           outputDir,
-          logger
+          logger,
         );
 
         let totalLogsExtracted = 0;
-        logResult.logs.forEach(runLogs => {
-          totalLogsExtracted += runLogs.filter(log => log.extractionStatus === 'success').length;
+        logResult.logs.forEach((runLogs) => {
+          totalLogsExtracted += runLogs.filter(
+            (log) => log.extractionStatus === "success",
+          ).length;
         });
 
         logger.info(`\n=== Log extraction complete ===`);
         logger.info(`Total logs extracted: ${totalLogsExtracted}`);
 
         // Collect linter outputs from logs
-        logger.info('\n=== Collecting linter outputs ===');
+        logger.info("\n=== Collecting linter outputs ===");
         const linterResult = await collectLinterOutputs(
           outputDir,
           logResult.logs,
-          logger
+          logger,
         );
 
         let totalLinterOutputs = 0;
-        linterResult.linterOutputs.forEach(outputs => {
+        linterResult.linterOutputs.forEach((outputs) => {
           totalLinterOutputs += outputs.length;
         });
 
@@ -140,20 +164,31 @@ program
       // Catalog artifacts and convert HTML
       let catalogResult;
       if (!options.dryRun) {
-        logger.info('\n=== Cataloging artifacts and converting HTML ===');
+        logger.info("\n=== Cataloging artifacts and converting HTML ===");
         const allRunIds = Array.from(result.runStates.keys());
-        catalogResult = await catalogArtifacts(outputDir, allRunIds, result.inventory, logger);
+        catalogResult = await catalogArtifacts(
+          outputDir,
+          allRunIds,
+          result.inventory,
+          logger,
+        );
 
-        const convertedCount = catalogResult.catalog.filter(c => c.converted).length;
-        const skippedCount = catalogResult.catalog.filter(c => c.skipped).length;
+        const convertedCount = catalogResult.catalog.filter(
+          (c) => c.converted,
+        ).length;
+        const skippedCount = catalogResult.catalog.filter(
+          (c) => c.skipped,
+        ).length;
 
         logger.info(`\n=== Cataloging complete ===`);
-        logger.info(`Total artifacts cataloged: ${catalogResult.catalog.length}`);
+        logger.info(
+          `Total artifacts cataloged: ${catalogResult.catalog.length}`,
+        );
         logger.info(`  HTML converted to JSON: ${convertedCount}`);
         logger.info(`  Binary files skipped: ${skippedCount}`);
 
         // Generate master summary
-        logger.info('\n=== Generating summary ===');
+        logger.info("\n=== Generating summary ===");
         const summary = generateSummary(
           {
             repo: targetRepo,
@@ -166,47 +201,53 @@ program
             validationResults: result.validationResults,
             workflowRuns: result.workflowRuns,
           },
-          outputDir
+          outputDir,
         );
 
         logger.info(`\n=== Complete ===`);
         logger.info(`Status: ${summary.status}`);
-        
+
         // Report validation results if any
         if (summary.validationResults && summary.validationResults.length > 0) {
           const totalRequiredViolations = summary.validationResults.reduce(
             (sum, v) => sum + v.missingRequired.length,
-            0
+            0,
           );
           const totalOptionalViolations = summary.validationResults.reduce(
             (sum, v) => sum + v.missingOptional.length,
-            0
+            0,
           );
-          
+
           if (totalRequiredViolations > 0) {
-            logger.error(`Validation: ${totalRequiredViolations} required artifact(s) missing`);
+            logger.error(
+              `Validation: ${totalRequiredViolations} required artifact(s) missing`,
+            );
           }
           if (totalOptionalViolations > 0) {
-            logger.warn(`Validation: ${totalOptionalViolations} optional artifact(s) missing`);
+            logger.warn(
+              `Validation: ${totalOptionalViolations} optional artifact(s) missing`,
+            );
           }
         }
-        
+
         logger.info(`Summary saved to: ${outputDir}/summary.json`);
         logger.info(`Catalog saved to: ${outputDir}/catalog.json`);
         logger.info(`Inventory saved to: ${outputDir}/artifacts.json`);
         logger.info(`HTML viewer saved to: ${outputDir}/index.html`);
-        
+
         // Open HTML in browser if requested
         if (options.open) {
           const htmlPath = `${outputDir}/index.html`;
           logger.info(`\nOpening ${htmlPath} in browser...`);
-          
+
           const platform = process.platform;
-          const openCommand = 
-            platform === 'darwin' ? 'open' :
-            platform === 'win32' ? 'start' :
-            'xdg-open';  // Linux
-          
+          const openCommand =
+            platform === "darwin"
+              ? "open"
+              : platform === "win32"
+                ? "start"
+                : "xdg-open"; // Linux
+
           exec(`${openCommand} "${htmlPath}"`, (error) => {
             if (error) {
               logger.warn(`Failed to open browser: ${error.message}`);
@@ -214,14 +255,15 @@ program
             }
           });
         } else {
-          logger.info(`\nOpen ${outputDir}/index.html in your browser to explore results`);
+          logger.info(
+            `\nOpen ${outputDir}/index.html in your browser to explore results`,
+          );
         }
 
         // Exit with appropriate code
         const exitCode = determineExitCode(summary.status);
         process.exit(exitCode);
       }
-
     } catch (error) {
       logger.error(error instanceof Error ? error.message : String(error));
       process.exit(1);

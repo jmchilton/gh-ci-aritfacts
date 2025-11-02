@@ -1,12 +1,12 @@
-import { readFileSync, existsSync } from 'fs';
-import { join } from 'path';
-import { parse as parseYAML } from 'yaml';
-import type { Config, SkipPattern } from './types.js';
+import { readFileSync, existsSync } from "fs";
+import { join } from "path";
+import { parse as parseYAML } from "yaml";
+import type { Config, SkipPattern } from "./types.js";
 
 const CONFIG_FILENAMES = [
-  '.gh-ci-artifacts.json',
-  '.gh-ci-artifacts.yml',
-  '.gh-ci-artifacts.yaml',
+  ".gh-ci-artifacts.json",
+  ".gh-ci-artifacts.yml",
+  ".gh-ci-artifacts.yaml",
 ];
 
 function validateSkipPatterns(patterns: SkipPattern[], context: string): void {
@@ -15,7 +15,7 @@ function validateSkipPatterns(patterns: SkipPattern[], context: string): void {
       new RegExp(pattern.pattern);
     } catch (error) {
       throw new Error(
-        `Invalid regex pattern in ${context}: "${pattern.pattern}" - ${error instanceof Error ? error.message : String(error)}`
+        `Invalid regex pattern in ${context}: "${pattern.pattern}" - ${error instanceof Error ? error.message : String(error)}`,
       );
     }
   }
@@ -25,38 +25,38 @@ export function loadConfig(cwd: string = process.cwd()): Config {
   // Check for config files in order of preference
   for (const filename of CONFIG_FILENAMES) {
     const configPath = join(cwd, filename);
-    
+
     if (!existsSync(configPath)) {
       continue;
     }
 
     try {
-      const configContent = readFileSync(configPath, 'utf-8');
-      const isYAML = filename.endsWith('.yml') || filename.endsWith('.yaml');
-      const config = isYAML 
+      const configContent = readFileSync(configPath, "utf-8");
+      const isYAML = filename.endsWith(".yml") || filename.endsWith(".yaml");
+      const config = isYAML
         ? (parseYAML(configContent) as Config)
         : (JSON.parse(configContent) as Config);
-      
+
       // Validate skip patterns
       if (config.skipArtifacts) {
-        validateSkipPatterns(config.skipArtifacts, 'global skipArtifacts');
+        validateSkipPatterns(config.skipArtifacts, "global skipArtifacts");
       }
-      
+
       if (config.workflows) {
         for (const workflow of config.workflows) {
           if (workflow.skipArtifacts) {
             validateSkipPatterns(
               workflow.skipArtifacts,
-              `workflow "${workflow.workflow}" skipArtifacts`
+              `workflow "${workflow.workflow}" skipArtifacts`,
             );
           }
         }
       }
-      
+
       return config;
     } catch (error) {
       throw new Error(
-        `Failed to parse ${filename}: ${error instanceof Error ? error.message : String(error)}`
+        `Failed to parse ${filename}: ${error instanceof Error ? error.message : String(error)}`,
       );
     }
   }
@@ -66,7 +66,7 @@ export function loadConfig(cwd: string = process.cwd()): Config {
 
 export function mergeConfig(
   fileConfig: Config,
-  cliConfig: Partial<Config>
+  cliConfig: Partial<Config>,
 ): Config {
   return {
     outputDir: cliConfig.outputDir ?? fileConfig.outputDir,
@@ -81,8 +81,8 @@ export function mergeConfig(
 export function getOutputDir(
   config: Config,
   prNumber: number,
-  cwd: string = process.cwd()
+  cwd: string = process.cwd(),
 ): string {
-  const baseDir = config.outputDir ?? join(cwd, '.gh-ci-artifacts');
+  const baseDir = config.outputDir ?? join(cwd, ".gh-ci-artifacts");
   return join(baseDir, String(prNumber));
 }

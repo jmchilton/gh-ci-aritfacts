@@ -7,6 +7,7 @@ This project is `gh-ci-artifacts` - a TypeScript CLI tool for downloading and pa
 **Purpose:** Download GitHub Actions artifacts/logs from PRs, detect test framework types, convert HTML reports to JSON, extract linter outputs, and generate comprehensive summaries optimized for Claude consumption.
 
 **Tech Stack:**
+
 - TypeScript with ES modules
 - Node 18+ runtime
 - Vitest for testing
@@ -49,6 +50,7 @@ test/
 ## Development Guidelines
 
 ### Testing
+
 - **Run tests:** `npm test`
 - **Watch mode:** `npm run test:watch`
 - **Coverage:** `npm run test:coverage` (75% threshold)
@@ -57,11 +59,13 @@ test/
 - Create test fixtures in `test/fixtures/` directories
 
 ### Building
+
 - **Build:** `npm run build` (outputs to `dist/`)
 - **Lint:** `npm run lint` (TypeScript type checking)
 - **Dev mode:** `npm run dev -- <args>` (runs via tsx without building)
 
 ### Code Style
+
 - Strict TypeScript mode enabled
 - ES modules (`.js` extensions required in imports)
 - Concise error messages
@@ -71,16 +75,19 @@ test/
 ### Adding Features
 
 **New test framework support:**
+
 1. Add pattern to `src/detectors/type-detector.ts`
 2. Add tests to `test/type-detector.test.ts`
 3. If HTML format, add parser to `src/parsers/html/`
 
 **New linter support:**
+
 1. Add pattern to `src/parsers/linters/extractors.ts` (LINTER_PATTERNS)
 2. Add extraction function (e.g., `extractMyLinterOutput`)
 3. Add case to `extractLinterOutput` switch
 
 **Updating types:**
+
 - All types in `src/types.ts`
 - Update corresponding interfaces when changing data structures
 - Maintain backward compatibility for output schemas
@@ -137,19 +144,23 @@ rm -rf dist && npm run build
 ## Troubleshooting
 
 **"gh CLI not authenticated":**
+
 - Run: `gh auth login`
 
 **Tests timing out:**
+
 - Check fake timer usage in retry tests
 - Use `await vi.runAllTimersAsync()` for async timers
 
 **Type errors after changes:**
+
 - Run `npm run lint` to catch issues early
 - Ensure `.js` extensions in imports
 
 ## Future Extensibility
 
 Potential additions (not in current scope):
+
 - Plugin system for custom parsers
 - Octokit backend as alternative to `gh` CLI
 - GitLab CI / CircleCI support

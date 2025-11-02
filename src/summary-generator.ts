@@ -1,6 +1,6 @@
-import { writeFileSync } from 'fs';
-import { join } from 'path';
-import { generateHtmlViewer } from './html-viewer/index.js';
+import { writeFileSync } from "fs";
+import { join } from "path";
+import { generateHtmlViewer } from "./html-viewer/index.js";
 import type {
   Summary,
   SummaryStatus,
@@ -10,7 +10,7 @@ import type {
   CatalogEntry,
   JobLog,
   ValidationResult,
-} from './types.js';
+} from "./types.js";
 
 export interface SummaryInput {
   repo: string;
@@ -21,38 +21,51 @@ export interface SummaryInput {
   logs: Map<string, JobLog[]>;
   catalog: CatalogEntry[];
   validationResults?: ValidationResult[];
-  workflowRuns: Map<string, { name: string; path: string; run_attempt: number; run_number: number }>;
+  workflowRuns: Map<
+    string,
+    { name: string; path: string; run_attempt: number; run_number: number }
+  >;
 }
 
 export function generateSummary(
   input: SummaryInput,
-  outputDir: string
+  outputDir: string,
 ): Summary {
-  const { repo, pr, headSha, inventory, runStates, logs, catalog, validationResults, workflowRuns } = input;
+  const {
+    repo,
+    pr,
+    headSha,
+    inventory,
+    runStates,
+    logs,
+    catalog,
+    validationResults,
+    workflowRuns,
+  } = input;
 
   // Determine overall status
   const inProgressCount = Array.from(runStates.values()).filter(
-    state => state === 'in_progress'
+    (state) => state === "in_progress",
   ).length;
 
-  const failedArtifacts = inventory.filter(a => a.status === 'failed').length;
+  const failedArtifacts = inventory.filter((a) => a.status === "failed").length;
   const status: SummaryStatus =
     inProgressCount > 0
-      ? 'incomplete'
+      ? "incomplete"
       : failedArtifacts > 0
-      ? 'partial'
-      : 'complete';
+        ? "partial"
+        : "complete";
 
   // Build run summaries
   const runs: RunSummary[] = [];
 
   for (const [runId, conclusion] of runStates.entries()) {
     const runArtifacts = inventory
-      .filter(item => item.runId === runId)
-      .map(item => {
+      .filter((item) => item.runId === runId)
+      .map((item) => {
         // Find catalog entry for this artifact (match by runId and artifactId)
         const catalogEntry = catalog.find(
-          c => c.runId === runId && c.artifactId === item.artifactId
+          (c) => c.runId === runId && c.artifactId === item.artifactId,
         );
 
         return {
@@ -67,17 +80,17 @@ export function generateSummary(
       });
 
     const runLogs = logs.get(runId) || [];
-    
+
     // Find validation result for this run
-    const validationResult = validationResults?.find(v => v.runId === runId);
-    
+    const validationResult = validationResults?.find((v) => v.runId === runId);
+
     // Get workflow info for this run
     const workflowInfo = workflowRuns.get(runId);
 
     runs.push({
       runId,
-      workflowName: workflowInfo?.name || 'Unknown',
-      workflowPath: workflowInfo?.path || '',
+      workflowName: workflowInfo?.name || "Unknown",
+      workflowPath: workflowInfo?.path || "",
       runAttempt: workflowInfo?.run_attempt || 1,
       runNumber: workflowInfo?.run_number || 0,
       conclusion,
@@ -90,14 +103,15 @@ export function generateSummary(
   // Calculate stats
   const stats = {
     totalRuns: runStates.size,
-    artifactsDownloaded: inventory.filter(a => a.status === 'success').length,
-    artifactsFailed: inventory.filter(a => a.status === 'failed').length,
+    artifactsDownloaded: inventory.filter((a) => a.status === "success").length,
+    artifactsFailed: inventory.filter((a) => a.status === "failed").length,
     logsExtracted: Array.from(logs.values()).reduce(
       (total, runLogs) =>
-        total + runLogs.filter(log => log.extractionStatus === 'success').length,
-      0
+        total +
+        runLogs.filter((log) => log.extractionStatus === "success").length,
+      0,
     ),
-    htmlConverted: catalog.filter(c => c.converted).length,
+    htmlConverted: catalog.filter((c) => c.converted).length,
   };
 
   const summary: Summary = {
@@ -108,13 +122,16 @@ export function generateSummary(
     status,
     inProgressRuns: inProgressCount,
     runs,
-    catalogFile: './catalog.json',
-    validationResults: validationResults && validationResults.length > 0 ? validationResults : undefined,
+    catalogFile: "./catalog.json",
+    validationResults:
+      validationResults && validationResults.length > 0
+        ? validationResults
+        : undefined,
     stats,
   };
 
   // Save summary
-  const summaryPath = join(outputDir, 'summary.json');
+  const summaryPath = join(outputDir, "summary.json");
   writeFileSync(summaryPath, JSON.stringify(summary, null, 2));
 
   // Generate HTML viewer
@@ -125,11 +142,11 @@ export function generateSummary(
 
 export function determineExitCode(status: SummaryStatus): number {
   switch (status) {
-    case 'complete':
+    case "complete":
       return 0;
-    case 'partial':
+    case "partial":
       return 1;
-    case 'incomplete':
+    case "incomplete":
       return 2;
     default:
       return 1;

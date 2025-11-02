@@ -7,6 +7,7 @@ Download and parse GitHub Actions CI artifacts and logs for LLM analysis.
 `gh-ci-artifacts` automates the collection and normalization of GitHub Actions CI failures into structured JSON optimized for LLM analysis (particularly Claude). It handles artifact downloads, log extraction, and parsing of common test/linter formats.
 
 **Key Features:**
+
 - Focuses on failures by default (skips successful runs)
 - Zero-config operation with optional configuration file
 - Automatic type detection for Playwright, Jest, pytest, JUnit, ESLint, and more
@@ -19,28 +20,33 @@ Download and parse GitHub Actions CI artifacts and logs for LLM analysis.
 ## Installation
 
 **Option 1: Use with npx from GitHub (no installation required)**
+
 ```bash
 npx github:jmchilton/gh-ci-aritfacts 123
 ```
 
 **Option 2: Install globally from GitHub**
+
 ```bash
 npm install -g github:jmchilton/gh-ci-aritfacts
 gh-ci-artifacts 123
 ```
 
-**Option 3: Use with npx from npm** *(once published)*
+**Option 3: Use with npx from npm** _(once published)_
+
 ```bash
 npx gh-ci-artifacts 123
 ```
 
-**Option 4: Install globally from npm** *(once published)*
+**Option 4: Install globally from npm** _(once published)_
+
 ```bash
 npm install -g gh-ci-artifacts
 gh-ci-artifacts 123
 ```
 
 **Requirements:**
+
 - Node.js 18+
 - [GitHub CLI (`gh`)](https://cli.github.com/) installed and authenticated
 
@@ -74,7 +80,8 @@ npx gh-ci-artifacts 123 --debug
 
 **Note:** If installed globally, you can omit `npx` and use `gh-ci-artifacts` directly.
 
-**Default Behavior:** 
+**Default Behavior:**
+
 - Only failed and cancelled runs are downloaded. Use `--include-successes` to download all runs.
 - **Only the latest retry attempt** for each workflow is processed. If a workflow was retried, earlier failed attempts are automatically skipped to avoid duplicate artifacts/logs.
 
@@ -83,6 +90,7 @@ After downloading, open `.gh-ci-artifacts/<pr-number>/index.html` in your browse
 ### Re-downloading PR Artifacts
 
 When re-running for an existing PR:
+
 - **Without --resume**: Existing artifacts backed up to `.gh-ci-artifacts/<pr>-<timestamp>`, fresh download starts
 - **With --resume**: Uses existing artifacts, retries only failures and incomplete downloads
 
@@ -132,6 +140,7 @@ Create `.gh-ci-artifacts.json` in your project directory:
 ```
 
 **Configuration options:**
+
 - `outputDir` (string): Base output directory (default: `./.gh-ci-artifacts`)
 - `defaultRepo` (string): Default repository to use
 - `maxRetries` (number): Maximum retry attempts for failed downloads (default: 3)
@@ -150,12 +159,14 @@ Create `.gh-ci-artifacts.json` in your project directory:
   - `description` (string, optional): Documentation for this workflow config
 
 **Skip Pattern Matching:**
+
 - Patterns are matched against artifact names using regex
 - Global skip patterns are applied first, then workflow-specific patterns
 - First matching pattern determines the skip reason
 - Invalid regex patterns are caught at config load time
 
 **Artifact Expectations:**
+
 - Validate that expected artifacts are present after download
 - Required expectations (default) will log errors if artifacts are missing
 - Optional expectations will log warnings if artifacts are missing
@@ -163,6 +174,7 @@ Create `.gh-ci-artifacts.json` in your project directory:
 - Useful for ensuring CI workflows produce expected outputs
 
 **Workflow Matching:**
+
 - Workflows are matched by their filename without the `.yml` or `.yaml` extension
 - Example: `.github/workflows/ci.yml` → `"workflow": "ci"`
 - Example: `.github/workflows/e2e-tests.yaml` → `"workflow": "e2e-tests"`
@@ -270,14 +282,22 @@ CLI arguments override config file values.
 ```typescript
 Array<{
   artifactName: string;
-  artifactId: number;  // Unique GitHub artifact ID (used in directory names)
+  artifactId: number; // Unique GitHub artifact ID (used in directory names)
   runId: string;
-  detectedType: "playwright-json" | "jest-json" | "pytest-json" | "junit-xml" | "playwright-html" | "eslint-txt" | "binary" | "unknown";
+  detectedType:
+    | "playwright-json"
+    | "jest-json"
+    | "pytest-json"
+    | "junit-xml"
+    | "playwright-html"
+    | "eslint-txt"
+    | "binary"
+    | "unknown";
   originalFormat: "json" | "xml" | "html" | "txt" | "binary";
   filePath: string;
-  converted?: boolean;  // True if HTML was converted to JSON
-  skipped?: boolean;    // True for binary files
-}>
+  converted?: boolean; // True if HTML was converted to JSON
+  skipped?: boolean; // True for binary files
+}>;
 ```
 
 ## Common Skip Patterns
@@ -285,31 +305,37 @@ Array<{
 Here are some useful skip patterns for common scenarios:
 
 **Skip all screenshots:**
+
 ```json
 { "pattern": ".*-screenshots$" }
 ```
 
 **Skip videos and traces:**
+
 ```json
 { "pattern": ".*(videos|traces).*" }
 ```
 
 **Skip binary artifacts (screenshots, videos, recordings):**
+
 ```json
 { "pattern": "^(screenshots|videos|recordings|traces)-.*" }
 ```
 
 **Skip all Playwright traces:**
+
 ```json
 { "pattern": ".*-trace\\.zip$" }
 ```
 
 **Skip debug/dev builds:**
+
 ```json
 { "pattern": ".*(debug|dev).*" }
 ```
 
 **Skip large HTML reports (when JSON available):**
+
 ```json
 {
   "workflow": "e2e",
@@ -324,6 +350,7 @@ Here are some useful skip patterns for common scenarios:
 Validate that your CI workflows produce expected artifacts:
 
 **Require test results:**
+
 ```json
 {
   "workflow": "ci",
@@ -338,6 +365,7 @@ Validate that your CI workflows produce expected artifacts:
 ```
 
 **Expect coverage (optional):**
+
 ```json
 {
   "workflow": "ci",
@@ -352,6 +380,7 @@ Validate that your CI workflows produce expected artifacts:
 ```
 
 **Multiple expectations:**
+
 ```json
 {
   "workflow": "e2e",
@@ -364,6 +393,7 @@ Validate that your CI workflows produce expected artifacts:
 ```
 
 **Flexible format matching:**
+
 ```json
 {
   "workflow": "build",
@@ -380,6 +410,7 @@ Validate that your CI workflows produce expected artifacts:
 ## Supported Test Frameworks
 
 **Artifact detection:**
+
 - Playwright (JSON and HTML reports)
 - Jest (JSON)
 - pytest (JSON, HTML)
@@ -387,6 +418,7 @@ Validate that your CI workflows produce expected artifacts:
 - Binary files (screenshots, videos)
 
 **Linter detection:**
+
 - ESLint
 - Prettier
 - Ruff
@@ -429,15 +461,15 @@ Options:
 ### Claude Code Integration
 
 ```typescript
-import { execSync } from 'child_process';
-import { readFileSync } from 'fs';
+import { execSync } from "child_process";
+import { readFileSync } from "fs";
 
 // Download artifacts (uses current repo)
-execSync('npx gh-ci-artifacts 123', { stdio: 'inherit' });
+execSync("npx gh-ci-artifacts 123", { stdio: "inherit" });
 
 // Load summary for analysis
 const summary = JSON.parse(
-  readFileSync('.gh-ci-artifacts/123/summary.json', 'utf-8')
+  readFileSync(".gh-ci-artifacts/123/summary.json", "utf-8"),
 );
 
 // Feed to Claude for analysis
@@ -449,14 +481,16 @@ console.log(summary);
 For optimal results, configure your test frameworks to output JSON:
 
 **Playwright:**
+
 ```typescript
 // playwright.config.ts
 export default {
-  reporter: [['json', { outputFile: 'results.json' }]],
+  reporter: [["json", { outputFile: "results.json" }]],
 };
 ```
 
 **Jest:**
+
 ```json
 {
   "reporters": ["default", "jest-json-reporter"]
@@ -486,6 +520,7 @@ This reduces the need for HTML parsing and improves data quality.
 ## Contributing
 
 Contributions welcome! Areas for improvement:
+
 - Additional test framework support
 - More linter patterns
 - HTML parser improvements

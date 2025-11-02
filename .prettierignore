@@ -1,0 +1,7 @@
+# Standard ignores
+**/.git
+**/node_modules
+# Ignore the dist folder
+**/dist
+# We will always defer to package manager for formatting of package.json files.
+**/package.json

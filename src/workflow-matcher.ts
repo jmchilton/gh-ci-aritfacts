@@ -1,6 +1,12 @@
-import { basename, extname } from 'path';
-import type { WorkflowRun } from './github/api.js';
-import type { WorkflowConfig, SkipPattern, ExpectPattern, ExpectationViolation, ValidationResult } from './types.js';
+import { basename, extname } from "path";
+import type { WorkflowRun } from "./github/api.js";
+import type {
+  WorkflowConfig,
+  SkipPattern,
+  ExpectPattern,
+  ExpectationViolation,
+  ValidationResult,
+} from "./types.js";
 
 /**
  * Get workflow name from path (basename without extension)
@@ -17,10 +23,10 @@ export function getWorkflowName(run: WorkflowRun): string {
  */
 export function findWorkflowConfig(
   run: WorkflowRun,
-  configs: WorkflowConfig[]
+  configs: WorkflowConfig[],
 ): WorkflowConfig | undefined {
   const workflowName = getWorkflowName(run);
-  return configs.find(config => config.workflow === workflowName);
+  return configs.find((config) => config.workflow === workflowName);
 }
 
 /**
@@ -29,7 +35,7 @@ export function findWorkflowConfig(
  */
 export function shouldSkipArtifact(
   artifactName: string,
-  skipPatterns: SkipPattern[]
+  skipPatterns: SkipPattern[],
 ): SkipPattern | undefined {
   for (const pattern of skipPatterns) {
     try {
@@ -50,7 +56,7 @@ export function shouldSkipArtifact(
  */
 export function getCombinedSkipPatterns(
   globalPatterns: SkipPattern[] = [],
-  workflowPatterns: SkipPattern[] = []
+  workflowPatterns: SkipPattern[] = [],
 ): SkipPattern[] {
   return [...globalPatterns, ...workflowPatterns];
 }
@@ -58,7 +64,10 @@ export function getCombinedSkipPatterns(
 /**
  * Check if an artifact name matches an expect pattern
  */
-function matchesExpectPattern(artifactName: string, pattern: ExpectPattern): boolean {
+function matchesExpectPattern(
+  artifactName: string,
+  pattern: ExpectPattern,
+): boolean {
   try {
     const regex = new RegExp(pattern.pattern);
     return regex.test(artifactName);
@@ -75,10 +84,13 @@ function matchesExpectPattern(artifactName: string, pattern: ExpectPattern): boo
 export function validateExpectations(
   run: WorkflowRun,
   workflowConfig: WorkflowConfig | undefined,
-  artifactNames: string[]
+  artifactNames: string[],
 ): ValidationResult | undefined {
   // No validation needed if no expectations configured
-  if (!workflowConfig?.expectArtifacts || workflowConfig.expectArtifacts.length === 0) {
+  if (
+    !workflowConfig?.expectArtifacts ||
+    workflowConfig.expectArtifacts.length === 0
+  ) {
     return undefined;
   }
 
@@ -89,7 +101,9 @@ export function validateExpectations(
   // Check each expectation
   for (const expectation of workflowConfig.expectArtifacts) {
     const required = expectation.required !== false; // Default to true
-    const matched = artifactNames.some(name => matchesExpectPattern(name, expectation));
+    const matched = artifactNames.some((name) =>
+      matchesExpectPattern(name, expectation),
+    );
 
     if (!matched) {
       const violation: ExpectationViolation = {

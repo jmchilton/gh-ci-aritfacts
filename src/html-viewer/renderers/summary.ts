@@ -1,4 +1,4 @@
-import type { Summary, ValidationResult } from '../../types.js';
+import type { Summary, ValidationResult } from "../../types.js";
 import {
   renderStatsCards,
   renderStatusBadge,
@@ -7,11 +7,11 @@ import {
   formatBytes,
   escapeHtml,
   type TableColumn,
-} from '../components.js';
+} from "../components.js";
 
 export function renderSummaryJson(data: Summary): string {
   let html = '<div class="rich-view summary-view">';
-  
+
   // Header
   html += `
     <div class="rich-header">
@@ -23,123 +23,153 @@ export function renderSummaryJson(data: Summary): string {
       </div>
     </div>
   `;
-  
+
   // Stats cards
   html += '<div class="stats-grid">';
   html += renderStatsCards([
-    { label: 'Total Runs', value: data.stats.totalRuns },
-    { label: '✓ Downloaded', value: data.stats.artifactsDownloaded, type: 'success' },
-    { label: '✗ Failed', value: data.stats.artifactsFailed, type: data.stats.artifactsFailed > 0 ? 'failure' : '' },
-    { label: '📄 Logs', value: data.stats.logsExtracted },
-    { label: '🔄 Converted', value: data.stats.htmlConverted },
+    { label: "Total Runs", value: data.stats.totalRuns },
+    {
+      label: "✓ Downloaded",
+      value: data.stats.artifactsDownloaded,
+      type: "success",
+    },
+    {
+      label: "✗ Failed",
+      value: data.stats.artifactsFailed,
+      type: data.stats.artifactsFailed > 0 ? "failure" : "",
+    },
+    { label: "📄 Logs", value: data.stats.logsExtracted },
+    { label: "🔄 Converted", value: data.stats.htmlConverted },
   ]);
-  
+
   // Add in-progress runs if any
   if (data.inProgressRuns > 0) {
     html += `<div class="stat stat-incomplete">⏳ In Progress: ${data.inProgressRuns}</div>`;
   }
-  html += '</div>';
-  
+  html += "</div>";
+
   // Validation results
   if (data.validationResults && data.validationResults.length > 0) {
     html += renderValidationSection(data.validationResults);
   }
-  
+
   // Runs table
   html += '<div class="section-divider"></div>';
-  html += '<h3>Workflow Runs</h3>';
+  html += "<h3>Workflow Runs</h3>";
   html += renderRunsTable(data);
-  
-  html += '</div>';
+
+  html += "</div>";
   return html;
 }
 
 function renderValidationSection(results: ValidationResult[]): string {
-  const totalRequired = results.reduce((sum, r) => sum + r.missingRequired.length, 0);
-  const totalOptional = results.reduce((sum, r) => sum + r.missingOptional.length, 0);
-  
+  const totalRequired = results.reduce(
+    (sum, r) => sum + r.missingRequired.length,
+    0,
+  );
+  const totalOptional = results.reduce(
+    (sum, r) => sum + r.missingOptional.length,
+    0,
+  );
+
   let content = '<div class="validation-summary">';
-  
+
   if (totalRequired > 0) {
     content += `<div class="validation-error">✗ ${totalRequired} required artifact(s) missing</div>`;
   }
   if (totalOptional > 0) {
     content += `<div class="validation-warning">⚠ ${totalOptional} optional artifact(s) missing</div>`;
   }
-  
+
   content += '<div class="validation-details">';
-  
-  results.forEach(result => {
+
+  results.forEach((result) => {
     const violations = [...result.missingRequired, ...result.missingOptional];
     if (violations.length === 0) return;
-    
+
     content += `
       <div class="validation-workflow">
         <strong>${escapeHtml(result.workflowName)}</strong> 
         <span class="text-muted">(Run ${result.runId})</span>
         <ul class="validation-list">
     `;
-    
-    result.missingRequired.forEach(v => {
+
+    result.missingRequired.forEach((v) => {
       content += `<li class="validation-item-error">
         <code>${escapeHtml(v.pattern)}</code> (required)
-        ${v.reason ? `<span class="text-muted">- ${escapeHtml(v.reason)}</span>` : ''}
+        ${v.reason ? `<span class="text-muted">- ${escapeHtml(v.reason)}</span>` : ""}
       </li>`;
     });
-    
-    result.missingOptional.forEach(v => {
+
+    result.missingOptional.forEach((v) => {
       content += `<li class="validation-item-warning">
         <code>${escapeHtml(v.pattern)}</code> (optional)
-        ${v.reason ? `<span class="text-muted">- ${escapeHtml(v.reason)}</span>` : ''}
+        ${v.reason ? `<span class="text-muted">- ${escapeHtml(v.reason)}</span>` : ""}
       </li>`;
     });
-    
-    content += '</ul></div>';
+
+    content += "</ul></div>";
   });
-  
-  content += '</div></div>';
-  
-  return renderExpandableSection('validation', 'Validation Results', content, true);
+
+  content += "</div></div>";
+
+  return renderExpandableSection(
+    "validation",
+    "Validation Results",
+    content,
+    true,
+  );
 }
 
 function renderRunsTable(data: Summary): string {
   const columns: TableColumn[] = [
-    { key: 'expand', label: '', sortable: false, render: () => '<span class="row-toggle">▶</span>' },
-    { key: 'workflowName', label: 'Workflow' },
-    { key: 'runId', label: 'Run ID' },
-    { key: 'conclusion', label: 'Status', render: (val) => renderStatusBadge(val) },
-    { key: 'artifactCount', label: 'Artifacts' },
-    { key: 'logCount', label: 'Logs' },
-    { 
-      key: 'hasValidation', 
-      label: 'Validation', 
+    {
+      key: "expand",
+      label: "",
+      sortable: false,
+      render: () => '<span class="row-toggle">▶</span>',
+    },
+    { key: "workflowName", label: "Workflow" },
+    { key: "runId", label: "Run ID" },
+    {
+      key: "conclusion",
+      label: "Status",
+      render: (val) => renderStatusBadge(val),
+    },
+    { key: "artifactCount", label: "Artifacts" },
+    { key: "logCount", label: "Logs" },
+    {
+      key: "hasValidation",
+      label: "Validation",
       render: (val, row) => {
-        if (!row.validationResult) return '';
+        if (!row.validationResult) return "";
         const req = row.validationResult.missingRequired.length;
         const opt = row.validationResult.missingOptional.length;
-        if (req > 0) return `<span class="validation-badge-error">${req} required</span>`;
-        if (opt > 0) return `<span class="validation-badge-warning">${opt} optional</span>`;
-        return '';
-      }
+        if (req > 0)
+          return `<span class="validation-badge-error">${req} required</span>`;
+        if (opt > 0)
+          return `<span class="validation-badge-warning">${opt} optional</span>`;
+        return "";
+      },
     },
   ];
-  
-  const rows = data.runs.map(run => ({
+
+  const rows = data.runs.map((run) => ({
     workflowName: run.workflowName,
     runId: run.runId,
     conclusion: run.conclusion,
     artifactCount: run.artifacts.length,
     logCount: run.logs.length,
-    hasValidation: run.validationResult ? 'yes' : 'no',
+    hasValidation: run.validationResult ? "yes" : "no",
     validationResult: run.validationResult,
     artifacts: run.artifacts,
     logs: run.logs,
   }));
-  
+
   let html = renderTable(columns, rows, {
-    id: 'runs-table',
+    id: "runs-table",
     sortable: true,
   });
-  
+
   return html;
 }

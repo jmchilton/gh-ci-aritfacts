@@ -9,6 +9,7 @@
 **Primary use case:** Galaxy project uses this to power `/summarize_ci` Claude command - download all CI artifacts/logs for a PR, parse into JSON, then let Claude reason about transient vs new failures, generate summaries, post to PRs.
 
 **Key goals:**
+
 - Zero-config operation with optional config for advanced use
 - Robust handling of expired/missing artifacts
 - Convert HTML test reports to JSON where no JSON exists (e.g., playwright-html-reporter, pytest-html)
@@ -26,6 +27,7 @@
 **Test framework:** Vitest (fast, TypeScript-native, Jest-compatible API)
 
 **Unit tests (high coverage target: 80%+):**
+
 - **Config parsing** (`src/config.ts`)
   - Valid/invalid `.gh-ci-artifacts.json` handling
   - CLI arg override behavior
@@ -55,6 +57,7 @@
   - Mock API responses with test doubles
 
 **Integration tests (snapshot-based):**
+
 - **`gh` CLI mocking** (`test/integration/`)
   - Use `execa` mock or fixture-based subprocess stubbing
   - Recorded API response fixtures in `test/fixtures/gh-responses/`
@@ -71,6 +74,7 @@
   - Verify file system layout matches expected structure
 
 **Test utilities:**
+
 - **Fixture factory** (`test/utils/fixtures.ts`)
   - Generate mock GitHub API responses
   - Create sample artifact/log files
@@ -84,6 +88,7 @@
   - Track call history for assertions
 
 **CI setup:**
+
 - GitHub Actions workflow (`.github/workflows/test.yml`)
   - Run on: push, PR
   - Node versions: 18.x, 20.x, 22.x
@@ -92,17 +97,20 @@
 - Fail PR if coverage drops below 75%
 
 **Testing phases:**
+
 - Phase 1: Add unit tests alongside CLI scaffold implementation
 - Phase 2-5: Add unit tests for each parser/detector as implemented
 - Phase 6: Add integration tests for full pipeline
 - Phase 7: Add error scenario tests (network failures, timeouts, invalid responses)
 
 **Out of scope for initial testing:**
+
 - Real GitHub API integration tests (too flaky, requires live repos)
 - Performance/load testing
 - Cross-platform CLI behavior (assume POSIX-compliant shells)
 
 ### Phase 1: Core CLI scaffold ✅ COMPLETE
+
 - ✅ Init TypeScript package (`gh-ci-artifacts`, Node 18+)
 - ✅ CLI entry: `gh-ci-artifacts <owner>/<repo> <pr-number> [--output-dir <dir>]`
 - ✅ Config file support (`.gh-ci-artifacts.json` in current directory only): `outputDir`, `defaultRepo`
@@ -113,6 +121,7 @@
 - ✅ Unit tests for config parsing (10 tests passing)
 
 ### Phase 2: Artifact inventory & download ✅ COMPLETE
+
 - ✅ Fetch PR head SHA (always target latest): `gh pr view <pr> --json headRefOid`
 - ✅ Find all runs for head SHA: `gh api repos/<owner>/<repo>/commits/<sha>/check-runs`
 - ✅ Track run states: `failed`, `in_progress`, `cancelled`, `success`
@@ -122,7 +131,7 @@
 - ✅ **Rate limiting strategy:**
   - Respect `Retry-After` header on 429 responses
   - CLI flags: `--max-retries <count>` (default: 3), `--retry-delay <seconds>` (default: 5)
-  - Exponential backoff: delay *= 2 on each retry
+  - Exponential backoff: delay \*= 2 on each retry
   - Max retry delay cap: 60 seconds
 - ✅ Detect expiry: Check error messages for "expired" or 410 HTTP status
 - ✅ Stream progress: "Downloading artifact 3/7: Playwright results (0.5 MB)..."
@@ -130,6 +139,7 @@
 - ✅ Unit tests for retry logic (13 tests passing)
 
 ### Phase 3: Log extraction for artifact-less runs ✅ COMPLETE
+
 - ✅ For runs with no artifacts, fetch failed jobs: `gh api repos/<owner>/<repo>/actions/runs/<run-id>/jobs`
 - ✅ Extract job logs: `gh api repos/<owner>/<repo>/actions/jobs/<job-id>/logs`
 - ✅ Save raw logs: `<output>/raw/<run-id>/<job-name>.log`
@@ -137,6 +147,7 @@
 - ✅ Filename sanitization for job names
 
 ### Phase 4: Artifact type detection & HTML conversion ✅ COMPLETE
+
 - ✅ Detect artifact type by filename/content patterns:
   - JSON: `*playwright*.json`, `*jest*.json`, `*pytest*.json`
   - XML: `*.xml` (JUnit)
@@ -166,6 +177,7 @@
   ```
 
 ### Phase 5: Linter/build output collectors ✅ COMPLETE
+
 - ✅ Detect linter types from job names/log patterns
 - ✅ For each linter (eslint, prettier, ruff, flake8, isort, black, tsc, mypy, pylint):
   - Extract raw output sections from logs
@@ -176,6 +188,7 @@
 - ✅ Boundary detection for start/end of linter output
 
 ### Phase 6: Master summary generation ✅ COMPLETE
+
 - ✅ Combine all data into `<output>/summary.json`:
   ```typescript
   {
@@ -223,6 +236,7 @@
 - ✅ Calculate comprehensive stats
 
 ### Phase 7: Error handling & polish ✅ COMPLETE
+
 - ✅ Network failure retry logic with configurable `--max-retries` and `--retry-delay`
 - ✅ Timeout handling for large artifacts (via gh CLI)
 - ✅ Validate downloaded files exist via fs operations
@@ -234,6 +248,7 @@
 - ✅ Graceful error messages
 
 ### Phase 8: Documentation & publishing ✅ COMPLETE
+
 - ✅ README: installation, usage examples, config schema, output schema
 - ✅ Comprehensive documentation with TypeScript types
 - ✅ GitHub Actions CI workflow (test.yml)
@@ -247,12 +262,14 @@
 ## Resolved Design Decisions
 
 ### Architecture:
+
 - **Language:** TypeScript
 - **GitHub API:** `gh` CLI (handles auth, battle-tested)
 - **Node version:** 18+ (supports npm 10.9.3)
 - **Package name:** `gh-ci-artifacts`
 
 ### Key Choices:
+
 1. ✅ **HTML fallback:** Extract JSON from HTML for test frameworks when JSON unavailable
 2. ✅ **Schema normalization:** Out of scope - catalog types, don't transform JSON formats
 3. ✅ **Config extensibility:** Include framework detection config (custom artifact name patterns). Research existing NPM tools for pattern matching.
@@ -262,6 +279,7 @@
 7. ✅ **Default output:** `./.gh-ci-artifacts/<pr-number>/` with config override support
 
 ### Output Structure:
+
 ```
 .gh-ci-artifacts/
 └── <pr-number>/

@@ -1,9 +1,11 @@
 # Summary HTML Viewer - Implementation Plan
 
 ## Overview
+
 Generate a single, self-contained HTML file that provides an interactive file tree viewer for exploring downloaded CI artifacts and logs. Auto-generated after each successful run.
 
 ## User Requirements
+
 - **Generation:** Automatic (always generated)
 - **Content:** Hybrid approach - small files inline, large files as links with preview
 - **Failure Highlighting:** Run-level indicators with color coding
@@ -33,26 +35,28 @@ Generate a single, self-contained HTML file that provides an interactive file tr
 ### 1. HTML Generator Module (`src/html-viewer.ts`)
 
 **Responsibilities:**
+
 - Generate self-contained HTML from `summary.json` + file system
 - Embed all CSS/JS inline (no external dependencies)
 - Create collapsible file tree structure
 - Handle inline previews for small files
 
 **Key Functions:**
+
 ```typescript
 export function generateHtmlViewer(
   outputDir: string,
   summary: Summary,
-  catalog: CatalogEntry[]
-): void
+  catalog: CatalogEntry[],
+): void;
 
 interface FileNode {
   name: string;
   path: string;
-  type: 'file' | 'directory';
+  type: "file" | "directory";
   size?: number;
   detectedType?: string;
-  preview?: string;  // For small files
+  preview?: string; // For small files
   children?: FileNode[];
 }
 ```
@@ -60,6 +64,7 @@ interface FileNode {
 ### 2. File Tree Builder
 
 **Logic:**
+
 1. Read `summary.json` to get run metadata
 2. Read `catalog.json` for artifact type info
 3. Scan file system for actual files in `raw/`, `converted/`, `linting/`
@@ -67,6 +72,7 @@ interface FileNode {
 5. Determine preview strategy per file (inline vs. link)
 
 **Preview Size Threshold:**
+
 - Inline: < 50KB and text-based (JSON, TXT, log)
 - Link with preview button: 50KB - 500KB
 - Link only: > 500KB or binary
@@ -76,82 +82,88 @@ interface FileNode {
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-  <title>PR #21227 - CI Artifacts</title>
-  <style>/* Embedded CSS */</style>
-</head>
-<body>
-  <!-- Header -->
-  <header>
-    <h1>PR #21227 - galaxyproject/galaxy</h1>
-    <div class="metadata">
-      <span>Status: ✓ Complete</span>
-      <span>SHA: 98991d85</span>
-      <span>26 runs, 5 artifacts</span>
-    </div>
-  </header>
+  <head>
+    <title>PR #21227 - CI Artifacts</title>
+    <style>
+      /* Embedded CSS */
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <h1>PR #21227 - galaxyproject/galaxy</h1>
+      <div class="metadata">
+        <span>Status: ✓ Complete</span>
+        <span>SHA: 98991d85</span>
+        <span>26 runs, 5 artifacts</span>
+      </div>
+    </header>
 
-  <!-- Summary Stats -->
-  <section class="stats">
-    <div class="stat success">✓ 20 Passed</div>
-    <div class="stat failure">✗ 6 Failed</div>
-    <div class="stat">📦 5 Artifacts</div>
-    <div class="stat">📄 21 Logs</div>
-  </section>
+    <!-- Summary Stats -->
+    <section class="stats">
+      <div class="stat success">✓ 20 Passed</div>
+      <div class="stat failure">✗ 6 Failed</div>
+      <div class="stat">📦 5 Artifacts</div>
+      <div class="stat">📄 21 Logs</div>
+    </section>
 
-  <!-- File Tree -->
-  <section class="tree">
-    <div class="tree-node directory">
-      <span class="toggle">▼</span>
-      <span class="icon">📁</span>
-      <span class="name">raw/</span>
+    <!-- File Tree -->
+    <section class="tree">
+      <div class="tree-node directory">
+        <span class="toggle">▼</span>
+        <span class="icon">📁</span>
+        <span class="name">raw/</span>
 
-      <div class="children">
-        <div class="tree-node directory">
-          <span class="toggle">▶</span>
-          <span class="icon">📁</span>
-          <span class="name">18948753346/</span>
-          <span class="badge failure">FAILED</span>
+        <div class="children">
+          <div class="tree-node directory">
+            <span class="toggle">▶</span>
+            <span class="icon">📁</span>
+            <span class="name">18948753346/</span>
+            <span class="badge failure">FAILED</span>
 
-          <div class="children hidden">
-            <div class="tree-node file">
-              <span class="icon">📄</span>
-              <span class="name">Playwright test results (3.9, 2)</span>
-              <span class="type">playwright-html</span>
-              <span class="size">117.0 KB</span>
-              <button class="preview-btn">Preview</button>
+            <div class="children hidden">
+              <div class="tree-node file">
+                <span class="icon">📄</span>
+                <span class="name">Playwright test results (3.9, 2)</span>
+                <span class="type">playwright-html</span>
+                <span class="size">117.0 KB</span>
+                <button class="preview-btn">Preview</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Preview Panel (bottom) -->
-  <section class="preview-panel hidden">
-    <div class="preview-header">
-      <span class="preview-title"></span>
-      <button class="close-btn">✕</button>
-    </div>
-    <div class="preview-content">
-      <!-- Injected content here -->
-    </div>
-  </section>
+    <!-- Preview Panel (bottom) -->
+    <section class="preview-panel hidden">
+      <div class="preview-header">
+        <span class="preview-title"></span>
+        <button class="close-btn">✕</button>
+      </div>
+      <div class="preview-content">
+        <!-- Injected content here -->
+      </div>
+    </section>
 
-  <script>/* Embedded JavaScript */</script>
-</body>
+    <script>
+      /* Embedded JavaScript */
+    </script>
+  </body>
 </html>
 ```
 
 ### 4. Styling
 
 **Color Coding for Run Status:**
+
 - ✓ Success: Green (#10b981)
 - ✗ Failure: Red (#ef4444)
 - ⚠ Cancelled: Yellow (#f59e0b)
 - ⏳ In Progress: Blue (#3b82f6)
 
 **Tree Styling:**
+
 - Indentation: 20px per level
 - Icons: Unicode emojis (📁 📄 🔧 📊)
 - Collapsible: Click folder name or toggle arrow
@@ -160,6 +172,7 @@ interface FileNode {
 ### 5. JavaScript Interactions
 
 **Features:**
+
 - Toggle folders (expand/collapse)
 - Click file to preview in bottom panel
 - For small files: inline preview with syntax highlighting
@@ -167,14 +180,15 @@ interface FileNode {
 - Persist tree state in localStorage (expanded/collapsed)
 
 **Preview Rendering:**
+
 ```javascript
 function renderPreview(filePath, detectedType) {
-  if (detectedType === 'json' || detectedType.includes('json')) {
+  if (detectedType === "json" || detectedType.includes("json")) {
     // Pretty-print JSON with collapsible objects
     return syntaxHighlightJSON(content);
-  } else if (detectedType === 'xml') {
+  } else if (detectedType === "xml") {
     return syntaxHighlightXML(content);
-  } else if (detectedType.includes('txt') || filePath.endsWith('.log')) {
+  } else if (detectedType.includes("txt") || filePath.endsWith(".log")) {
     // Plain text with ANSI color support
     return renderPlainText(content);
   } else if (isImage(filePath)) {
@@ -204,6 +218,7 @@ function renderPreview(filePath, detectedType) {
    - Show metadata (size, type) in tree
 
 **Benefits:**
+
 - HTML file stays reasonably sized (< 1-2 MB typically)
 - Still works offline for most content
 - Progressive loading for heavy content
@@ -211,6 +226,7 @@ function renderPreview(filePath, detectedType) {
 ## Implementation Steps
 
 ### Phase 1: Core Generator
+
 1. Create `src/html-viewer.ts` module
 2. Implement `buildFileTree()` function
 3. Create HTML template string with embedded CSS
@@ -218,12 +234,14 @@ function renderPreview(filePath, detectedType) {
 5. Write to `index.html` in output directory
 
 ### Phase 2: Run Status Integration
+
 1. Parse `summary.json` for run conclusions
 2. Add status badges to run folders
 3. Color-code run names in tree
 4. Add summary stats section at top
 
 ### Phase 3: Preview System
+
 1. Implement size-based preview logic
 2. Add file reading for small files
 3. Embed data in HTML
@@ -231,18 +249,21 @@ function renderPreview(filePath, detectedType) {
 5. Add JavaScript for preview rendering
 
 ### Phase 4: Interactivity
+
 1. Add folder toggle JavaScript
 2. Implement preview panel open/close
 3. Add localStorage for tree state
 4. Handle file type-specific rendering (JSON, XML, images)
 
 ### Phase 5: Polish
+
 1. Add responsive CSS
 2. Improve syntax highlighting
 3. Add search/filter functionality (optional)
 4. Test with large PR (many runs/artifacts)
 
 ### Phase 6: Integration
+
 1. Call `generateHtmlViewer()` from `summary-generator.ts`
 2. Run after summary.json is written
 3. Log HTML location to user

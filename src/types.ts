@@ -1,22 +1,22 @@
-export type RunConclusion = 'failure' | 'success' | 'cancelled' | 'in_progress';
-export type DownloadStatus = 'success' | 'expired' | 'failed' | 'skipped';
-export type ExtractionStatus = 'success' | 'failed';
-export type SummaryStatus = 'complete' | 'partial' | 'incomplete';
+export type RunConclusion = "failure" | "success" | "cancelled" | "in_progress";
+export type DownloadStatus = "success" | "expired" | "failed" | "skipped";
+export type ExtractionStatus = "success" | "failed";
+export type SummaryStatus = "complete" | "partial" | "incomplete";
 
 export type ArtifactType =
-  | 'playwright-json'
-  | 'playwright-html'
-  | 'jest-json'
-  | 'jest-html'
-  | 'pytest-json'
-  | 'pytest-html'
-  | 'junit-xml'
-  | 'eslint-txt'
-  | 'flake8-txt'
-  | 'binary'
-  | 'unknown';
+  | "playwright-json"
+  | "playwright-html"
+  | "jest-json"
+  | "jest-html"
+  | "pytest-json"
+  | "pytest-html"
+  | "junit-xml"
+  | "eslint-txt"
+  | "flake8-txt"
+  | "binary"
+  | "unknown";
 
-export type OriginalFormat = 'json' | 'xml' | 'html' | 'txt' | 'binary';
+export type OriginalFormat = "json" | "xml" | "html" | "txt" | "binary";
 
 export interface ArtifactInventoryItem {
   runId: string;

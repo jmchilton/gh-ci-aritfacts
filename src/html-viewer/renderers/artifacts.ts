@@ -1,4 +1,4 @@
-import type { ArtifactInventoryItem } from '../../types.js';
+import type { ArtifactInventoryItem } from "../../types.js";
 import {
   renderStatsCards,
   renderTable,
@@ -6,11 +6,11 @@ import {
   formatBytes,
   escapeHtml,
   type TableColumn,
-} from '../components.js';
+} from "../components.js";
 
 export function renderArtifactsJson(data: ArtifactInventoryItem[]): string {
   let html = '<div class="rich-view artifacts-view">';
-  
+
   // Header
   html += `
     <div class="rich-header">
@@ -20,19 +20,19 @@ export function renderArtifactsJson(data: ArtifactInventoryItem[]): string {
       </div>
     </div>
   `;
-  
+
   // Status breakdown
   const statusBreakdown = getStatusBreakdown(data);
-  html += '<h3>Download Status</h3>';
+  html += "<h3>Download Status</h3>";
   html += '<div class="status-grid">';
-  
+
   const statusConfig = [
-    { status: 'success', label: 'Success', icon: '✓' },
-    { status: 'failed', label: 'Failed', icon: '✗' },
-    { status: 'expired', label: 'Expired', icon: '⏰' },
-    { status: 'skipped', label: 'Skipped', icon: '⊘' },
+    { status: "success", label: "Success", icon: "✓" },
+    { status: "failed", label: "Failed", icon: "✗" },
+    { status: "expired", label: "Expired", icon: "⏰" },
+    { status: "skipped", label: "Skipped", icon: "⊘" },
   ];
-  
+
   statusConfig.forEach(({ status, label, icon }) => {
     const count = statusBreakdown[status] || 0;
     html += `
@@ -43,32 +43,39 @@ export function renderArtifactsJson(data: ArtifactInventoryItem[]): string {
       </div>
     `;
   });
-  html += '</div>';
-  
+  html += "</div>";
+
   // Stats
-  const successRate = data.length > 0 
-    ? ((statusBreakdown.success || 0) / data.length * 100).toFixed(1)
-    : '0.0';
-  
+  const successRate =
+    data.length > 0
+      ? (((statusBreakdown.success || 0) / data.length) * 100).toFixed(1)
+      : "0.0";
+
   html += '<div class="stats-grid">';
   html += renderStatsCards([
-    { label: 'Total', value: data.length },
-    { label: 'Success Rate', value: `${successRate}%`, type: parseFloat(successRate) === 100 ? 'success' : '' },
+    { label: "Total", value: data.length },
+    {
+      label: "Success Rate",
+      value: `${successRate}%`,
+      type: parseFloat(successRate) === 100 ? "success" : "",
+    },
   ]);
-  html += '</div>';
-  
+  html += "</div>";
+
   // Table
   html += '<div class="section-divider"></div>';
-  html += '<h3>All Artifacts</h3>';
+  html += "<h3>All Artifacts</h3>";
   html += renderArtifactsTable(data);
-  
-  html += '</div>';
+
+  html += "</div>";
   return html;
 }
 
-function getStatusBreakdown(data: ArtifactInventoryItem[]): Record<string, number> {
+function getStatusBreakdown(
+  data: ArtifactInventoryItem[],
+): Record<string, number> {
   const breakdown: Record<string, number> = {};
-  data.forEach(item => {
+  data.forEach((item) => {
     breakdown[item.status] = (breakdown[item.status] || 0) + 1;
   });
   return breakdown;
@@ -76,33 +83,34 @@ function getStatusBreakdown(data: ArtifactInventoryItem[]): Record<string, numbe
 
 function renderArtifactsTable(data: ArtifactInventoryItem[]): string {
   const columns: TableColumn[] = [
-    { key: 'runId', label: 'Run ID' },
-    { key: 'artifactName', label: 'Artifact Name' },
-    { 
-      key: 'sizeBytes', 
-      label: 'Size',
-      render: (val) => val ? formatBytes(val) : ''
+    { key: "runId", label: "Run ID" },
+    { key: "artifactName", label: "Artifact Name" },
+    {
+      key: "sizeBytes",
+      label: "Size",
+      render: (val) => (val ? formatBytes(val) : ""),
     },
-    { 
-      key: 'status', 
-      label: 'Status',
-      render: (val) => renderStatusBadge(val)
+    {
+      key: "status",
+      label: "Status",
+      render: (val) => renderStatusBadge(val),
     },
-    { 
-      key: 'errorMessage', 
-      label: 'Message',
+    {
+      key: "errorMessage",
+      label: "Message",
       render: (val, row) => {
-        if (row.skipReason) return `<span class="text-muted">${escapeHtml(row.skipReason)}</span>`;
+        if (row.skipReason)
+          return `<span class="text-muted">${escapeHtml(row.skipReason)}</span>`;
         if (val) return `<span class="error-text">${escapeHtml(val)}</span>`;
-        return '';
-      }
+        return "";
+      },
     },
   ];
-  
+
   return renderTable(columns, data, {
-    id: 'artifacts-table',
+    id: "artifacts-table",
     searchable: true,
     sortable: true,
-    filterBy: ['status', 'runId'],
+    filterBy: ["status", "runId"],
   });
 }

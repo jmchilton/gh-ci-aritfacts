@@ -2,11 +2,15 @@
  * Shared UI components for HTML viewer
  */
 
-export function renderStatsCards(stats: Array<{ label: string; value: number | string; type?: string }>): string {
-  return stats.map(stat => {
-    const typeClass = stat.type ? `stat-${stat.type}` : '';
-    return `<div class="stat ${typeClass}">${stat.label}: ${stat.value}</div>`;
-  }).join('\n');
+export function renderStatsCards(
+  stats: Array<{ label: string; value: number | string; type?: string }>,
+): string {
+  return stats
+    .map((stat) => {
+      const typeClass = stat.type ? `stat-${stat.type}` : "";
+      return `<div class="stat ${typeClass}">${stat.label}: ${stat.value}</div>`;
+    })
+    .join("\n");
 }
 
 export function renderStatusBadge(status: string, label?: string): string {
@@ -18,11 +22,11 @@ export function renderExpandableSection(
   id: string,
   title: string,
   content: string,
-  defaultOpen: boolean = false
+  defaultOpen: boolean = false,
 ): string {
-  const openClass = defaultOpen ? '' : 'hidden';
-  const arrow = defaultOpen ? '▼' : '▶';
-  
+  const openClass = defaultOpen ? "" : "hidden";
+  const arrow = defaultOpen ? "▼" : "▶";
+
   return `
     <div class="expandable-section">
       <div class="section-header" data-section="${id}">
@@ -53,16 +57,16 @@ export interface TableOptions {
 export function renderTable(
   columns: TableColumn[],
   rows: any[],
-  options?: TableOptions
+  options?: TableOptions,
 ): string {
-  const tableId = options?.id || 'table';
-  
+  const tableId = options?.id || "table";
+
   let html = '<div class="table-container">';
-  
+
   // Search/filter controls
   if (options?.searchable || options?.filterBy) {
     html += '<div class="table-controls">';
-    
+
     if (options.searchable) {
       html += `
         <input 
@@ -73,73 +77,77 @@ export function renderTable(
         />
       `;
     }
-    
+
     if (options.filterBy) {
       html += '<div class="table-filters">';
-      options.filterBy.forEach(filterKey => {
-        const uniqueValues = [...new Set(rows.map(r => r[filterKey]))].filter(Boolean);
+      options.filterBy.forEach((filterKey) => {
+        const uniqueValues = [...new Set(rows.map((r) => r[filterKey]))].filter(
+          Boolean,
+        );
         if (uniqueValues.length > 0) {
           html += `
             <select class="table-filter" data-table="${tableId}" data-filter="${filterKey}">
               <option value="">All ${filterKey}</option>
-              ${uniqueValues.map(val => `<option value="${escapeHtml(String(val))}">${escapeHtml(String(val))}</option>`).join('')}
+              ${uniqueValues.map((val) => `<option value="${escapeHtml(String(val))}">${escapeHtml(String(val))}</option>`).join("")}
             </select>
           `;
         }
       });
-      html += '</div>';
+      html += "</div>";
     }
-    
-    html += '</div>';
+
+    html += "</div>";
   }
-  
+
   // Table
   html += `<table class="data-table" id="${tableId}">`;
-  
+
   // Header
-  html += '<thead><tr>';
-  columns.forEach(col => {
+  html += "<thead><tr>";
+  columns.forEach((col) => {
     const sortable = col.sortable !== false && options?.sortable !== false;
-    const sortClass = sortable ? 'sortable' : '';
+    const sortClass = sortable ? "sortable" : "";
     html += `<th class="${sortClass}" data-key="${col.key}">${escapeHtml(col.label)}</th>`;
   });
-  html += '</tr></thead>';
-  
+  html += "</tr></thead>";
+
   // Body
-  html += '<tbody>';
-  rows.forEach(row => {
-    const rowData = JSON.stringify(row).replace(/"/g, '&quot;');
+  html += "<tbody>";
+  rows.forEach((row) => {
+    const rowData = JSON.stringify(row).replace(/"/g, "&quot;");
     html += `<tr data-row='${rowData}'>`;
-    columns.forEach(col => {
+    columns.forEach((col) => {
       const value = row[col.key];
-      const rendered = col.render ? col.render(value, row) : escapeHtml(String(value || ''));
+      const rendered = col.render
+        ? col.render(value, row)
+        : escapeHtml(String(value || ""));
       html += `<td>${rendered}</td>`;
     });
-    html += '</tr>';
+    html += "</tr>";
   });
-  html += '</tbody>';
-  
-  html += '</table>';
-  html += '</div>';
-  
+  html += "</tbody>";
+
+  html += "</table>";
+  html += "</div>";
+
   return html;
 }
 
 export function formatBytes(bytes: number): string {
-  if (bytes === 0) return '0 B';
+  if (bytes === 0) return "0 B";
   const k = 1024;
-  const sizes = ['B', 'KB', 'MB', 'GB'];
+  const sizes = ["B", "KB", "MB", "GB"];
   const i = Math.floor(Math.log(bytes) / Math.log(k));
   return `${(bytes / Math.pow(k, i)).toFixed(1)} ${sizes[i]}`;
 }
 
 export function escapeHtml(text: string): string {
   const map: Record<string, string> = {
-    '&': '&amp;',
-    '<': '&lt;',
-    '>': '&gt;',
-    '"': '&quot;',
-    "'": '&#039;',
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;",
   };
-  return text.replace(/[&<>"']/g, m => map[m]);
+  return text.replace(/[&<>"']/g, (m) => map[m]);
 }

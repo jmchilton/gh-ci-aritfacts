@@ -7,22 +7,25 @@ export interface LinterMatch {
 
 // Pattern to detect linter types from job names or log content
 const LINTER_PATTERNS = [
-  { type: 'eslint', patterns: [/eslint/i, /npm run lint/i] },
-  { type: 'prettier', patterns: [/prettier/i, /npm run format/i] },
-  { type: 'ruff', patterns: [/ruff check/i, /ruff\s/i] },
-  { type: 'flake8', patterns: [/flake8/i] },
-  { type: 'isort', patterns: [/isort/i] },
-  { type: 'black', patterns: [/black --check/i, /black\s/i] },
-  { type: 'tsc', patterns: [/tsc --noEmit/i, /npm run type-check/i] },
-  { type: 'mypy', patterns: [/mypy/i] },
-  { type: 'pylint', patterns: [/pylint/i] },
+  { type: "eslint", patterns: [/eslint/i, /npm run lint/i] },
+  { type: "prettier", patterns: [/prettier/i, /npm run format/i] },
+  { type: "ruff", patterns: [/ruff check/i, /ruff\s/i] },
+  { type: "flake8", patterns: [/flake8/i] },
+  { type: "isort", patterns: [/isort/i] },
+  { type: "black", patterns: [/black --check/i, /black\s/i] },
+  { type: "tsc", patterns: [/tsc --noEmit/i, /npm run type-check/i] },
+  { type: "mypy", patterns: [/mypy/i] },
+  { type: "pylint", patterns: [/pylint/i] },
 ];
 
-export function detectLinterType(jobName: string, logContent: string): string | null {
+export function detectLinterType(
+  jobName: string,
+  logContent: string,
+): string | null {
   const combined = `${jobName}\n${logContent.slice(0, 1000)}`; // Check first 1000 chars
 
   for (const { type, patterns } of LINTER_PATTERNS) {
-    if (patterns.some(pattern => pattern.test(combined))) {
+    if (patterns.some((pattern) => pattern.test(combined))) {
       return type;
     }
   }
@@ -32,30 +35,30 @@ export function detectLinterType(jobName: string, logContent: string): string | 
 
 export function extractLinterOutput(
   linterType: string,
-  logContent: string
+  logContent: string,
 ): string | null {
-  const lines = logContent.split('\n');
+  const lines = logContent.split("\n");
 
   switch (linterType) {
-    case 'eslint':
+    case "eslint":
       return extractESLintOutput(lines);
 
-    case 'prettier':
+    case "prettier":
       return extractPrettierOutput(lines);
 
-    case 'ruff':
-    case 'flake8':
-    case 'pylint':
+    case "ruff":
+    case "flake8":
+    case "pylint":
       return extractPythonLinterOutput(lines, linterType);
 
-    case 'tsc':
+    case "tsc":
       return extractTSCOutput(lines);
 
-    case 'isort':
-    case 'black':
+    case "isort":
+    case "black":
       return extractFormatterOutput(lines, linterType);
 
-    case 'mypy':
+    case "mypy":
       return extractMypyOutput(lines);
 
     default:
@@ -69,7 +72,10 @@ function extractESLintOutput(lines: string[]): string | null {
 
   for (const line of lines) {
     // Start of eslint output (usually after command line)
-    if (line.match(/eslint.*\.(js|ts|jsx|tsx)/i) || line.includes('npm run lint')) {
+    if (
+      line.match(/eslint.*\.(js|ts|jsx|tsx)/i) ||
+      line.includes("npm run lint")
+    ) {
       inOutput = true;
       continue;
     }
@@ -88,7 +94,7 @@ function extractESLintOutput(lines: string[]): string | null {
     }
   }
 
-  return outputLines.length > 0 ? outputLines.join('\n') : null;
+  return outputLines.length > 0 ? outputLines.join("\n") : null;
 }
 
 function extractPrettierOutput(lines: string[]): string | null {
@@ -96,7 +102,7 @@ function extractPrettierOutput(lines: string[]): string | null {
   let inOutput = false;
 
   for (const line of lines) {
-    if (line.includes('prettier') || line.includes('npm run format')) {
+    if (line.includes("prettier") || line.includes("npm run format")) {
       inOutput = true;
       continue;
     }
@@ -114,10 +120,13 @@ function extractPrettierOutput(lines: string[]): string | null {
     }
   }
 
-  return outputLines.length > 0 ? outputLines.join('\n') : null;
+  return outputLines.length > 0 ? outputLines.join("\n") : null;
 }
 
-function extractPythonLinterOutput(lines: string[], linterType: string): string | null {
+function extractPythonLinterOutput(
+  lines: string[],
+  linterType: string,
+): string | null {
   const outputLines: string[] = [];
   let inOutput = false;
 
@@ -144,7 +153,7 @@ function extractPythonLinterOutput(lines: string[], linterType: string): string 
     }
   }
 
-  return outputLines.length > 0 ? outputLines.join('\n') : null;
+  return outputLines.length > 0 ? outputLines.join("\n") : null;
 }
 
 function extractTSCOutput(lines: string[]): string | null {
@@ -152,7 +161,7 @@ function extractTSCOutput(lines: string[]): string | null {
   let inOutput = false;
 
   for (const line of lines) {
-    if (line.includes('tsc ') || line.includes('type-check')) {
+    if (line.includes("tsc ") || line.includes("type-check")) {
       inOutput = true;
       continue;
     }
@@ -170,10 +179,13 @@ function extractTSCOutput(lines: string[]): string | null {
     }
   }
 
-  return outputLines.length > 0 ? outputLines.join('\n') : null;
+  return outputLines.length > 0 ? outputLines.join("\n") : null;
 }
 
-function extractFormatterOutput(lines: string[], formatterType: string): string | null {
+function extractFormatterOutput(
+  lines: string[],
+  formatterType: string,
+): string | null {
   const outputLines: string[] = [];
   let inOutput = false;
 
@@ -185,7 +197,10 @@ function extractFormatterOutput(lines: string[], formatterType: string): string 
 
     if (inOutput) {
       // Black/isort usually output "would reformat" or file names
-      if (line.match(/would reformat/i) || line.match(/^[a-zA-Z0-9_\-\/\.]+\.py/)) {
+      if (
+        line.match(/would reformat/i) ||
+        line.match(/^[a-zA-Z0-9_\-\/\.]+\.py/)
+      ) {
         outputLines.push(line);
       }
 
@@ -195,7 +210,7 @@ function extractFormatterOutput(lines: string[], formatterType: string): string 
     }
   }
 
-  return outputLines.length > 0 ? outputLines.join('\n') : null;
+  return outputLines.length > 0 ? outputLines.join("\n") : null;
 }
 
 function extractMypyOutput(lines: string[]): string | null {
@@ -203,7 +218,7 @@ function extractMypyOutput(lines: string[]): string | null {
   let inOutput = false;
 
   for (const line of lines) {
-    if (line.includes('mypy')) {
+    if (line.includes("mypy")) {
       inOutput = true;
       continue;
     }
@@ -219,5 +234,5 @@ function extractMypyOutput(lines: string[]): string | null {
     }
   }
 
-  return outputLines.length > 0 ? outputLines.join('\n') : null;
+  return outputLines.length > 0 ? outputLines.join("\n") : null;
 }

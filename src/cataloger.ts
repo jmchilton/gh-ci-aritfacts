@@ -1,10 +1,10 @@
-import { readdirSync, statSync, mkdirSync, writeFileSync } from 'fs';
-import { join, basename } from 'path';
-import type { Logger } from './utils/logger.js';
-import type { CatalogEntry, ArtifactInventoryItem } from './types.js';
-import { detectArtifactType } from './detectors/type-detector.js';
-import { extractPlaywrightJSON } from './parsers/html/playwright-html.js';
-import { extractPytestJSON } from './parsers/html/pytest-html.js';
+import { readdirSync, statSync, mkdirSync, writeFileSync } from "fs";
+import { join, basename } from "path";
+import type { Logger } from "./utils/logger.js";
+import type { CatalogEntry, ArtifactInventoryItem } from "./types.js";
+import { detectArtifactType } from "./detectors/type-detector.js";
+import { extractPlaywrightJSON } from "./parsers/html/playwright-html.js";
+import { extractPytestJSON } from "./parsers/html/pytest-html.js";
 
 export interface CatalogResult {
   catalog: CatalogEntry[];
@@ -14,11 +14,11 @@ export async function catalogArtifacts(
   outputDir: string,
   runIds: string[],
   inventory: ArtifactInventoryItem[],
-  logger: Logger
+  logger: Logger,
 ): Promise<CatalogResult> {
   const catalog: CatalogEntry[] = [];
-  const rawDir = join(outputDir, 'raw');
-  const convertedDir = join(outputDir, 'converted');
+  const rawDir = join(outputDir, "raw");
+  const convertedDir = join(outputDir, "converted");
 
   for (const runId of runIds) {
     const runDir = join(rawDir, runId);
@@ -35,7 +35,7 @@ export async function catalogArtifacts(
     logger.debug(`Cataloging artifacts in run ${runId}...`);
 
     // Get all artifact directories (now named artifact-<id>)
-    const artifactDirs = readdirSync(runDir).filter(name => {
+    const artifactDirs = readdirSync(runDir).filter((name) => {
       try {
         return statSync(join(runDir, name)).isDirectory();
       } catch {
@@ -50,19 +50,21 @@ export async function catalogArtifacts(
         logger.warn(`Skipping directory with unexpected name: ${dirName}`);
         continue;
       }
-      
+
       const artifactId = parseInt(match[1], 10);
-      
+
       // Find artifact info from inventory
       const artifactInfo = inventory.find(
-        item => item.runId === runId && item.artifactId === artifactId
+        (item) => item.runId === runId && item.artifactId === artifactId,
       );
-      
+
       if (!artifactInfo) {
-        logger.warn(`Could not find inventory entry for artifact ${artifactId} in run ${runId}`);
+        logger.warn(
+          `Could not find inventory entry for artifact ${artifactId} in run ${runId}`,
+        );
         continue;
       }
-      
+
       const artifactName = artifactInfo.artifactName;
       const artifactDir = join(runDir, dirName);
       const files = getAllFiles(artifactDir);
@@ -85,24 +87,34 @@ export async function catalogArtifacts(
         }
 
         // Handle HTML conversion
-        if (detection.originalFormat === 'html' && 
-            (detection.detectedType === 'playwright-html' || detection.detectedType === 'pytest-html')) {
+        if (
+          detection.originalFormat === "html" &&
+          (detection.detectedType === "playwright-html" ||
+            detection.detectedType === "pytest-html")
+        ) {
           logger.debug(`  Converting ${basename(filePath)} to JSON...`);
 
           try {
             // Use appropriate extractor based on detected type
-            const jsonData = detection.detectedType === 'playwright-html'
-              ? extractPlaywrightJSON(filePath)
-              : extractPytestJSON(filePath);
+            const jsonData =
+              detection.detectedType === "playwright-html"
+                ? extractPlaywrightJSON(filePath)
+                : extractPytestJSON(filePath);
 
             if (jsonData) {
               // Save converted JSON
               const convertedRunDir = join(convertedDir, runId);
               mkdirSync(convertedRunDir, { recursive: true });
 
-              const convertedFileName = basename(filePath, '.html') + '.json';
-              const convertedFilePath = join(convertedRunDir, convertedFileName);
-              writeFileSync(convertedFilePath, JSON.stringify(jsonData, null, 2));
+              const convertedFileName = basename(filePath, ".html") + ".json";
+              const convertedFilePath = join(
+                convertedRunDir,
+                convertedFileName,
+              );
+              writeFileSync(
+                convertedFilePath,
+                JSON.stringify(jsonData, null, 2),
+              );
 
               catalog.push({
                 artifactName,
@@ -129,7 +141,7 @@ export async function catalogArtifacts(
             }
           } catch (error) {
             logger.error(
-              `    Failed to convert HTML: ${error instanceof Error ? error.message : String(error)}`
+              `    Failed to convert HTML: ${error instanceof Error ? error.message : String(error)}`,
             );
             catalog.push({
               artifactName,
@@ -156,7 +168,7 @@ export async function catalogArtifacts(
   }
 
   // Save catalog
-  const catalogPath = join(outputDir, 'catalog.json');
+  const catalogPath = join(outputDir, "catalog.json");
   writeFileSync(catalogPath, JSON.stringify(catalog, null, 2));
   logger.info(`Saved catalog to ${catalogPath}`);
 

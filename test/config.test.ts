@@ -1,14 +1,14 @@
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import { mkdirSync, writeFileSync, rmSync, existsSync } from 'fs';
-import { join } from 'path';
-import { loadConfig, mergeConfig, getOutputDir } from '../src/config.js';
-import type { Config } from '../src/types.js';
+import { describe, it, expect, beforeEach, afterEach } from "vitest";
+import { mkdirSync, writeFileSync, rmSync, existsSync } from "fs";
+import { join } from "path";
+import { loadConfig, mergeConfig, getOutputDir } from "../src/config.js";
+import type { Config } from "../src/types.js";
 
-describe('loadConfig', () => {
-  const testDir = join(process.cwd(), 'test-tmp-config');
-  const configPathJson = join(testDir, '.gh-ci-artifacts.json');
-  const configPathYml = join(testDir, '.gh-ci-artifacts.yml');
-  const configPathYaml = join(testDir, '.gh-ci-artifacts.yaml');
+describe("loadConfig", () => {
+  const testDir = join(process.cwd(), "test-tmp-config");
+  const configPathJson = join(testDir, ".gh-ci-artifacts.json");
+  const configPathYml = join(testDir, ".gh-ci-artifacts.yml");
+  const configPathYaml = join(testDir, ".gh-ci-artifacts.yaml");
 
   beforeEach(() => {
     if (existsSync(testDir)) {
@@ -23,15 +23,15 @@ describe('loadConfig', () => {
     }
   });
 
-  it('returns empty config when no config file exists', () => {
+  it("returns empty config when no config file exists", () => {
     const config = loadConfig(testDir);
     expect(config).toEqual({});
   });
 
-  it('loads valid config file', () => {
+  it("loads valid config file", () => {
     const validConfig: Config = {
-      outputDir: '/custom/output',
-      defaultRepo: 'owner/repo',
+      outputDir: "/custom/output",
+      defaultRepo: "owner/repo",
       maxRetries: 5,
       retryDelay: 10,
     };
@@ -41,15 +41,15 @@ describe('loadConfig', () => {
     expect(config).toEqual(validConfig);
   });
 
-  it('throws on invalid JSON', () => {
-    writeFileSync(configPathJson, '{ invalid json }');
+  it("throws on invalid JSON", () => {
+    writeFileSync(configPathJson, "{ invalid json }");
 
-    expect(() => loadConfig(testDir)).toThrow('Failed to parse');
+    expect(() => loadConfig(testDir)).toThrow("Failed to parse");
   });
 
-  it('loads partial config', () => {
+  it("loads partial config", () => {
     const partialConfig: Config = {
-      outputDir: '/custom/output',
+      outputDir: "/custom/output",
     };
     writeFileSync(configPathJson, JSON.stringify(partialConfig));
 
@@ -57,7 +57,7 @@ describe('loadConfig', () => {
     expect(config).toEqual(partialConfig);
   });
 
-  it('loads valid .yml config file', () => {
+  it("loads valid .yml config file", () => {
     const yamlContent = `outputDir: /custom/output
 defaultRepo: owner/repo
 maxRetries: 5
@@ -66,78 +66,78 @@ retryDelay: 10`;
 
     const config = loadConfig(testDir);
     expect(config).toEqual({
-      outputDir: '/custom/output',
-      defaultRepo: 'owner/repo',
+      outputDir: "/custom/output",
+      defaultRepo: "owner/repo",
       maxRetries: 5,
       retryDelay: 10,
     });
   });
 
-  it('loads valid .yaml config file', () => {
+  it("loads valid .yaml config file", () => {
     const yamlContent = `outputDir: /yaml/output
 maxRetries: 7`;
     writeFileSync(configPathYaml, yamlContent);
 
     const config = loadConfig(testDir);
     expect(config).toEqual({
-      outputDir: '/yaml/output',
+      outputDir: "/yaml/output",
       maxRetries: 7,
     });
   });
 
-  it('prefers .json over .yml when both exist', () => {
-    const jsonConfig: Config = { outputDir: '/json/output' };
+  it("prefers .json over .yml when both exist", () => {
+    const jsonConfig: Config = { outputDir: "/json/output" };
     const yamlContent = `outputDir: /yaml/output`;
-    
+
     writeFileSync(configPathJson, JSON.stringify(jsonConfig));
     writeFileSync(configPathYml, yamlContent);
 
     const config = loadConfig(testDir);
-    expect(config.outputDir).toBe('/json/output');
+    expect(config.outputDir).toBe("/json/output");
   });
 
-  it('loads .yml when only .yml exists', () => {
+  it("loads .yml when only .yml exists", () => {
     const yamlContent = `outputDir: /yml/output`;
     writeFileSync(configPathYml, yamlContent);
 
     const config = loadConfig(testDir);
-    expect(config.outputDir).toBe('/yml/output');
+    expect(config.outputDir).toBe("/yml/output");
   });
 
-  it('prefers .yml over .yaml when both exist', () => {
+  it("prefers .yml over .yaml when both exist", () => {
     const ymlContent = `outputDir: /yml/output`;
     const yamlContent = `outputDir: /yaml/output`;
-    
+
     writeFileSync(configPathYml, ymlContent);
     writeFileSync(configPathYaml, yamlContent);
 
     const config = loadConfig(testDir);
-    expect(config.outputDir).toBe('/yml/output');
+    expect(config.outputDir).toBe("/yml/output");
   });
 
-  it('throws on invalid YAML', () => {
-    writeFileSync(configPathYml, 'invalid:\n\t\tyaml: [unclosed');
+  it("throws on invalid YAML", () => {
+    writeFileSync(configPathYml, "invalid:\n\t\tyaml: [unclosed");
 
-    expect(() => loadConfig(testDir)).toThrow('Failed to parse');
+    expect(() => loadConfig(testDir)).toThrow("Failed to parse");
   });
 });
 
-describe('mergeConfig', () => {
-  it('CLI args override file config', () => {
+describe("mergeConfig", () => {
+  it("CLI args override file config", () => {
     const fileConfig: Config = {
-      outputDir: '/file/output',
+      outputDir: "/file/output",
       maxRetries: 3,
     };
     const cliConfig: Partial<Config> = {
-      outputDir: '/cli/output',
+      outputDir: "/cli/output",
     };
 
     const merged = mergeConfig(fileConfig, cliConfig);
-    expect(merged.outputDir).toBe('/cli/output');
+    expect(merged.outputDir).toBe("/cli/output");
     expect(merged.maxRetries).toBe(3);
   });
 
-  it('applies defaults for missing values', () => {
+  it("applies defaults for missing values", () => {
     const fileConfig: Config = {};
     const cliConfig: Partial<Config> = {};
 
@@ -146,49 +146,49 @@ describe('mergeConfig', () => {
     expect(merged.retryDelay).toBe(5);
   });
 
-  it('file config used when CLI not provided', () => {
+  it("file config used when CLI not provided", () => {
     const fileConfig: Config = {
-      defaultRepo: 'owner/repo',
+      defaultRepo: "owner/repo",
       maxRetries: 10,
     };
     const cliConfig: Partial<Config> = {};
 
     const merged = mergeConfig(fileConfig, cliConfig);
-    expect(merged.defaultRepo).toBe('owner/repo');
+    expect(merged.defaultRepo).toBe("owner/repo");
     expect(merged.maxRetries).toBe(10);
   });
 });
 
-describe('getOutputDir', () => {
-  it('uses config outputDir if provided', () => {
+describe("getOutputDir", () => {
+  it("uses config outputDir if provided", () => {
     const config: Config = {
-      outputDir: '/custom/output',
+      outputDir: "/custom/output",
     };
 
-    const outputDir = getOutputDir(config, 123, '/cwd');
-    expect(outputDir).toBe('/custom/output/123');
+    const outputDir = getOutputDir(config, 123, "/cwd");
+    expect(outputDir).toBe("/custom/output/123");
   });
 
-  it('uses default .gh-ci-artifacts when no config', () => {
+  it("uses default .gh-ci-artifacts when no config", () => {
     const config: Config = {};
 
-    const outputDir = getOutputDir(config, 456, '/cwd');
-    expect(outputDir).toBe('/cwd/.gh-ci-artifacts/456');
+    const outputDir = getOutputDir(config, 456, "/cwd");
+    expect(outputDir).toBe("/cwd/.gh-ci-artifacts/456");
   });
 
-  it('appends PR number to output path', () => {
+  it("appends PR number to output path", () => {
     const config: Config = {
-      outputDir: '/base',
+      outputDir: "/base",
     };
 
-    const outputDir = getOutputDir(config, 789, '/cwd');
-    expect(outputDir).toBe('/base/789');
+    const outputDir = getOutputDir(config, 789, "/cwd");
+    expect(outputDir).toBe("/base/789");
   });
 });
 
-describe('loadConfig with skip patterns', () => {
-  const testDir = join(process.cwd(), 'test-tmp-config-skip');
-  const configPath = join(testDir, '.gh-ci-artifacts.json');
+describe("loadConfig with skip patterns", () => {
+  const testDir = join(process.cwd(), "test-tmp-config-skip");
+  const configPath = join(testDir, ".gh-ci-artifacts.json");
 
   beforeEach(() => {
     if (existsSync(testDir)) {
@@ -203,26 +203,24 @@ describe('loadConfig with skip patterns', () => {
     }
   });
 
-  it('loads config with global skip patterns', () => {
+  it("loads config with global skip patterns", () => {
     const configWithSkip: Config = {
-      skipArtifacts: [
-        { pattern: '.*-screenshots$', reason: 'No screenshots' },
-      ],
+      skipArtifacts: [{ pattern: ".*-screenshots$", reason: "No screenshots" }],
     };
     writeFileSync(configPath, JSON.stringify(configWithSkip));
 
     const config = loadConfig(testDir);
     expect(config.skipArtifacts).toBeDefined();
     expect(config.skipArtifacts).toHaveLength(1);
-    expect(config.skipArtifacts![0].pattern).toBe('.*-screenshots$');
+    expect(config.skipArtifacts![0].pattern).toBe(".*-screenshots$");
   });
 
-  it('loads config with workflow configurations', () => {
+  it("loads config with workflow configurations", () => {
     const configWithWorkflows: Config = {
       workflows: [
         {
-          workflow: 'ci',
-          skipArtifacts: [{ pattern: '.*-traces$' }],
+          workflow: "ci",
+          skipArtifacts: [{ pattern: ".*-traces$" }],
         },
       ],
     };
@@ -231,40 +229,40 @@ describe('loadConfig with skip patterns', () => {
     const config = loadConfig(testDir);
     expect(config.workflows).toBeDefined();
     expect(config.workflows).toHaveLength(1);
-    expect(config.workflows![0].workflow).toBe('ci');
+    expect(config.workflows![0].workflow).toBe("ci");
   });
 
-  it('validates regex patterns in global skip', () => {
+  it("validates regex patterns in global skip", () => {
     const invalidConfig = {
-      skipArtifacts: [{ pattern: '[invalid(regex' }],
+      skipArtifacts: [{ pattern: "[invalid(regex" }],
     };
     writeFileSync(configPath, JSON.stringify(invalidConfig));
 
-    expect(() => loadConfig(testDir)).toThrow('Invalid regex pattern');
+    expect(() => loadConfig(testDir)).toThrow("Invalid regex pattern");
   });
 
-  it('validates regex patterns in workflow skip', () => {
+  it("validates regex patterns in workflow skip", () => {
     const invalidConfig = {
       workflows: [
         {
-          workflow: 'ci',
-          skipArtifacts: [{ pattern: '[invalid' }],
+          workflow: "ci",
+          skipArtifacts: [{ pattern: "[invalid" }],
         },
       ],
     };
     writeFileSync(configPath, JSON.stringify(invalidConfig));
 
-    expect(() => loadConfig(testDir)).toThrow('Invalid regex pattern');
+    expect(() => loadConfig(testDir)).toThrow("Invalid regex pattern");
     expect(() => loadConfig(testDir)).toThrow('workflow "ci"');
   });
 
-  it('loads workflow with skip flag', () => {
+  it("loads workflow with skip flag", () => {
     const configWithSkipWorkflow: Config = {
       workflows: [
         {
-          workflow: 'deploy',
+          workflow: "deploy",
           skip: true,
-          description: 'Skip deployment artifacts',
+          description: "Skip deployment artifacts",
         },
       ],
     };
@@ -272,14 +270,14 @@ describe('loadConfig with skip patterns', () => {
 
     const config = loadConfig(testDir);
     expect(config.workflows![0].skip).toBe(true);
-    expect(config.workflows![0].description).toBe('Skip deployment artifacts');
+    expect(config.workflows![0].description).toBe("Skip deployment artifacts");
   });
 });
 
-describe('mergeConfig with skip patterns', () => {
-  it('preserves skip patterns from file config', () => {
+describe("mergeConfig with skip patterns", () => {
+  it("preserves skip patterns from file config", () => {
     const fileConfig: Config = {
-      skipArtifacts: [{ pattern: '.*-screenshots$' }],
+      skipArtifacts: [{ pattern: ".*-screenshots$" }],
     };
     const cliConfig: Partial<Config> = {};
 
@@ -288,9 +286,9 @@ describe('mergeConfig with skip patterns', () => {
     expect(merged.skipArtifacts).toHaveLength(1);
   });
 
-  it('preserves workflow configs from file config', () => {
+  it("preserves workflow configs from file config", () => {
     const fileConfig: Config = {
-      workflows: [{ workflow: 'ci', skip: true }],
+      workflows: [{ workflow: "ci", skip: true }],
     };
     const cliConfig: Partial<Config> = {};
 
@@ -300,9 +298,9 @@ describe('mergeConfig with skip patterns', () => {
   });
 });
 
-describe('loadConfig with expectArtifacts', () => {
-  const testDir = join(process.cwd(), 'test-tmp-config-expect');
-  const configPath = join(testDir, '.gh-ci-artifacts.json');
+describe("loadConfig with expectArtifacts", () => {
+  const testDir = join(process.cwd(), "test-tmp-config-expect");
+  const configPath = join(testDir, ".gh-ci-artifacts.json");
 
   beforeEach(() => {
     if (existsSync(testDir)) {
@@ -317,16 +315,16 @@ describe('loadConfig with expectArtifacts', () => {
     }
   });
 
-  it('loads workflow with expectArtifacts', () => {
+  it("loads workflow with expectArtifacts", () => {
     const configWithExpect: Config = {
       workflows: [
         {
-          workflow: 'ci',
+          workflow: "ci",
           expectArtifacts: [
             {
-              pattern: 'test-results',
+              pattern: "test-results",
               required: true,
-              reason: 'Must have test results',
+              reason: "Must have test results",
             },
           ],
         },
@@ -338,17 +336,19 @@ describe('loadConfig with expectArtifacts', () => {
     expect(config.workflows).toBeDefined();
     expect(config.workflows![0].expectArtifacts).toBeDefined();
     expect(config.workflows![0].expectArtifacts).toHaveLength(1);
-    expect(config.workflows![0].expectArtifacts![0].pattern).toBe('test-results');
+    expect(config.workflows![0].expectArtifacts![0].pattern).toBe(
+      "test-results",
+    );
     expect(config.workflows![0].expectArtifacts![0].required).toBe(true);
   });
 
-  it('loads workflow with both skip and expect patterns', () => {
+  it("loads workflow with both skip and expect patterns", () => {
     const configWithBoth: Config = {
       workflows: [
         {
-          workflow: 'e2e',
-          skipArtifacts: [{ pattern: '.*-videos$' }],
-          expectArtifacts: [{ pattern: 'playwright-report' }],
+          workflow: "e2e",
+          skipArtifacts: [{ pattern: ".*-videos$" }],
+          expectArtifacts: [{ pattern: "playwright-report" }],
         },
       ],
     };
@@ -359,4 +359,3 @@ describe('loadConfig with expectArtifacts', () => {
     expect(config.workflows![0].expectArtifacts).toHaveLength(1);
   });
 });
-

@@ -13,7 +13,7 @@ export interface RetryResult<T> {
 
 export async function withRetry<T>(
   fn: () => Promise<T>,
-  options: RetryOptions
+  options: RetryOptions,
 ): Promise<RetryResult<T>> {
   const { maxRetries, retryDelay, maxDelay = 60 } = options;
   let lastError: Error | undefined;
@@ -28,7 +28,10 @@ export async function withRetry<T>(
 
       if (attempt < maxRetries) {
         // Check for 410 (expired) - no point retrying
-        if (lastError.message.includes('410') || lastError.message.includes('expired')) {
+        if (
+          lastError.message.includes("410") ||
+          lastError.message.includes("expired")
+        ) {
           break;
         }
 
@@ -46,22 +49,23 @@ export async function withRetry<T>(
 
   return {
     success: false,
-    error: lastError ?? new Error('Unknown error'),
-    attempts: maxRetries
+    error: lastError ?? new Error("Unknown error"),
+    attempts: maxRetries,
   };
 }
 
 function sleep(seconds: number): Promise<void> {
-  return new Promise(resolve => setTimeout(resolve, seconds * 1000));
+  return new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 }
 
 export function isRateLimitError(error: Error): boolean {
-  return error.message.includes('429') ||
-         error.message.includes('rate limit') ||
-         error.message.includes('too many requests');
+  return (
+    error.message.includes("429") ||
+    error.message.includes("rate limit") ||
+    error.message.includes("too many requests")
+  );
 }
 
 export function isExpiredError(error: Error): boolean {
-  return error.message.includes('410') ||
-         error.message.includes('expired');
+  return error.message.includes("410") || error.message.includes("expired");
 }

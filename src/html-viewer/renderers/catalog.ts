@@ -1,14 +1,14 @@
-import type { CatalogEntry } from '../../types.js';
+import type { CatalogEntry } from "../../types.js";
 import {
   renderStatsCards,
   renderTable,
   escapeHtml,
   type TableColumn,
-} from '../components.js';
+} from "../components.js";
 
 export function renderCatalogJson(data: CatalogEntry[]): string {
   let html = '<div class="rich-view catalog-view">';
-  
+
   // Header
   html += `
     <div class="rich-header">
@@ -18,10 +18,10 @@ export function renderCatalogJson(data: CatalogEntry[]): string {
       </div>
     </div>
   `;
-  
+
   // Type breakdown
   const typeBreakdown = getTypeBreakdown(data);
-  html += '<h3>Artifact Types</h3>';
+  html += "<h3>Artifact Types</h3>";
   html += '<div class="type-grid">';
   Object.entries(typeBreakdown).forEach(([type, count]) => {
     html += `
@@ -31,32 +31,32 @@ export function renderCatalogJson(data: CatalogEntry[]): string {
       </div>
     `;
   });
-  html += '</div>';
-  
+  html += "</div>";
+
   // Stats
-  const convertedCount = data.filter(d => d.converted).length;
-  const skippedCount = data.filter(d => d.skipped).length;
-  
+  const convertedCount = data.filter((d) => d.converted).length;
+  const skippedCount = data.filter((d) => d.skipped).length;
+
   html += '<div class="stats-grid">';
   html += renderStatsCards([
-    { label: 'Total', value: data.length },
-    { label: 'Converted', value: convertedCount },
-    { label: 'Skipped', value: skippedCount },
+    { label: "Total", value: data.length },
+    { label: "Converted", value: convertedCount },
+    { label: "Skipped", value: skippedCount },
   ]);
-  html += '</div>';
-  
+  html += "</div>";
+
   // Table
   html += '<div class="section-divider"></div>';
-  html += '<h3>All Artifacts</h3>';
+  html += "<h3>All Artifacts</h3>";
   html += renderCatalogTable(data);
-  
-  html += '</div>';
+
+  html += "</div>";
   return html;
 }
 
 function getTypeBreakdown(data: CatalogEntry[]): Record<string, number> {
   const breakdown: Record<string, number> = {};
-  data.forEach(item => {
+  data.forEach((item) => {
     breakdown[item.detectedType] = (breakdown[item.detectedType] || 0) + 1;
   });
   return breakdown;
@@ -64,35 +64,35 @@ function getTypeBreakdown(data: CatalogEntry[]): Record<string, number> {
 
 function renderCatalogTable(data: CatalogEntry[]): string {
   const columns: TableColumn[] = [
-    { key: 'artifactName', label: 'Artifact Name' },
-    { key: 'runId', label: 'Run ID' },
-    { 
-      key: 'detectedType', 
-      label: 'Type',
-      render: (val) => `<span class="type-badge">${escapeHtml(val)}</span>`
+    { key: "artifactName", label: "Artifact Name" },
+    { key: "runId", label: "Run ID" },
+    {
+      key: "detectedType",
+      label: "Type",
+      render: (val) => `<span class="type-badge">${escapeHtml(val)}</span>`,
     },
-    { key: 'originalFormat', label: 'Format' },
-    { 
-      key: 'converted', 
-      label: 'Converted',
-      render: (val) => val ? '✓' : ''
+    { key: "originalFormat", label: "Format" },
+    {
+      key: "converted",
+      label: "Converted",
+      render: (val) => (val ? "✓" : ""),
     },
-    { 
-      key: 'skipped', 
-      label: 'Skipped',
-      render: (val) => val ? '✓' : ''
+    {
+      key: "skipped",
+      label: "Skipped",
+      render: (val) => (val ? "✓" : ""),
     },
-    { 
-      key: 'filePath', 
-      label: 'Path',
-      render: (val) => `<code class="file-path">${escapeHtml(val)}</code>`
+    {
+      key: "filePath",
+      label: "Path",
+      render: (val) => `<code class="file-path">${escapeHtml(val)}</code>`,
     },
   ];
-  
+
   return renderTable(columns, data, {
-    id: 'catalog-table',
+    id: "catalog-table",
     searchable: true,
     sortable: true,
-    filterBy: ['detectedType', 'originalFormat'],
+    filterBy: ["detectedType", "originalFormat"],
   });
 }

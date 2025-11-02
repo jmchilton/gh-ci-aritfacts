@@ -1,12 +1,12 @@
-import { readFileSync } from 'fs';
-import * as cheerio from 'cheerio';
+import { readFileSync } from "fs";
+import * as cheerio from "cheerio";
 
 export interface PytestTest {
   nodeid: string;
   outcome: string;
   duration: number;
-  log?: string;  // Captured output, stack traces, error messages
-  extras?: any[];  // Media attachments (screenshots, videos, etc.)
+  log?: string; // Captured output, stack traces, error messages
+  extras?: any[]; // Media attachments (screenshots, videos, etc.)
   setup?: {
     duration: number;
     outcome: string;
@@ -33,16 +33,16 @@ export interface PytestReport {
 
 export function extractPytestJSON(htmlFilePath: string): PytestReport | null {
   try {
-    const html = readFileSync(htmlFilePath, 'utf-8');
+    const html = readFileSync(htmlFilePath, "utf-8");
     const $ = cheerio.load(html);
 
     // Modern pytest-html (v3.x+) embeds data in various ways
     let jsonData: any = null;
 
     // Method 1: Check for data-jsonblob attribute (most common in modern pytest-html)
-    const dataContainer = $('#data-container');
+    const dataContainer = $("#data-container");
     if (dataContainer.length > 0) {
-      const jsonBlob = dataContainer.attr('data-jsonblob');
+      const jsonBlob = dataContainer.attr("data-jsonblob");
       if (jsonBlob) {
         try {
           // Cheerio automatically decodes HTML entities
@@ -57,12 +57,14 @@ export function extractPytestJSON(htmlFilePath: string): PytestReport | null {
     }
 
     // Method 2: Look for embedded JSON data in script tags
-    $('script').each((_, elem) => {
+    $("script").each((_, elem) => {
       const content = $(elem).html();
       if (!content) return;
 
       // Check for data embedded in script tag
-      const dataVarMatch = content.match(/(?:var\s+data\s*=|window\.data\s*=|const\s+data\s*=)\s*({.*?});?\s*$/s);
+      const dataVarMatch = content.match(
+        /(?:var\s+data\s*=|window\.data\s*=|const\s+data\s*=)\s*({.*?});?\s*$/s,
+      );
       if (dataVarMatch) {
         try {
           jsonData = JSON.parse(dataVarMatch[1]);
@@ -82,7 +84,7 @@ export function extractPytestJSON(htmlFilePath: string): PytestReport | null {
     return parseHtmlTable($);
   } catch (error) {
     throw new Error(
-      `Failed to extract JSON from pytest HTML: ${error instanceof Error ? error.message : String(error)}`
+      `Failed to extract JSON from pytest HTML: ${error instanceof Error ? error.message : String(error)}`,
     );
   }
 }
@@ -93,47 +95,55 @@ function convertEmbeddedData(data: any): PytestReport {
     created: data.created || Date.now(),
     duration: 0,
     exitCode: 0,
-    root: data.root || '',
+    root: data.root || "",
     environment: data.environment || {},
     tests: [],
   };
 
   // Convert test data
   // In modern pytest-html, tests is an object keyed by nodeid, not an array
-  if (data.tests && typeof data.tests === 'object') {
+  if (data.tests && typeof data.tests === "object") {
     let totalDuration = 0;
     let hasFailed = false;
 
     for (const [nodeid, testResults] of Object.entries(data.tests)) {
       // testResults is an array of result objects for this test
       const results = testResults as any[];
-      
+
       if (Array.isArray(results) && results.length > 0) {
         // Take the last result (most recent if retried)
         const lastResult = results[results.length - 1];
-        
+
         // Parse duration (format: "HH:MM:SS" or number)
         let duration = 0;
-        if (typeof lastResult.duration === 'string') {
-          const parts = lastResult.duration.split(':').map(Number);
+        if (typeof lastResult.duration === "string") {
+          const parts = lastResult.duration.split(":").map(Number);
           if (parts.length === 3) {
             duration = parts[0] * 3600 + parts[1] * 60 + parts[2];
           }
-        } else if (typeof lastResult.duration === 'number') {
+        } else if (typeof lastResult.duration === "number") {
           duration = lastResult.duration;
         }
-        
+
         totalDuration += duration;
-        
+
         // Map pytest result to outcome
-        const result = (lastResult.result || lastResult.outcome || '').toLowerCase();
-        const outcome = result.includes('pass') ? 'passed' :
-                       result.includes('fail') ? 'failed' :
-                       result.includes('skip') ? 'skipped' :
-                       result.includes('error') ? 'error' :
-                       result;
-        
-        if (outcome === 'failed' || outcome === 'error') {
+        const result = (
+          lastResult.result ||
+          lastResult.outcome ||
+          ""
+        ).toLowerCase();
+        const outcome = result.includes("pass")
+          ? "passed"
+          : result.includes("fail")
+            ? "failed"
+            : result.includes("skip")
+              ? "skipped"
+              : result.includes("error")
+                ? "error"
+                : result;
+
+        if (outcome === "failed" || outcome === "error") {
           hasFailed = true;
         }
 
@@ -149,7 +159,11 @@ function convertEmbeddedData(data: any): PytestReport {
         }
 
         // Include extras (screenshots, videos, other media)
-        if (lastResult.extras && Array.isArray(lastResult.extras) && lastResult.extras.length > 0) {
+        if (
+          lastResult.extras &&
+          Array.isArray(lastResult.extras) &&
+          lastResult.extras.length > 0
+        ) {
           test.extras = lastResult.extras;
         }
 
@@ -167,14 +181,14 @@ function convertEmbeddedData(data: any): PytestReport {
         report.tests.push(test);
       }
     }
-    
+
     report.duration = totalDuration;
     report.exitCode = hasFailed ? 1 : 0;
   } else if (Array.isArray(data.tests)) {
     // Fallback: handle array format if it exists
     report.tests = data.tests.map((test: any) => ({
-      nodeid: test.nodeid || test.id || 'unknown',
-      outcome: test.outcome || 'unknown',
+      nodeid: test.nodeid || test.id || "unknown",
+      outcome: test.outcome || "unknown",
       duration: test.duration || 0,
       setup: test.setup,
       call: test.call,
@@ -188,20 +202,22 @@ function convertEmbeddedData(data: any): PytestReport {
 function parseHtmlTable($: cheerio.CheerioAPI): PytestReport | null {
   // Parse older pytest-html format with HTML tables
   const tests: PytestTest[] = [];
-  
+
   // Look for results table
-  const resultsTable = $('#results-table, table.results, .results table').first();
+  const resultsTable = $(
+    "#results-table, table.results, .results table",
+  ).first();
   if (resultsTable.length === 0) {
     // Try generic table parsing
-    $('table tbody tr').each((_, row) => {
+    $("table tbody tr").each((_, row) => {
       const $row = $(row);
-      const cells = $row.find('td');
-      
+      const cells = $row.find("td");
+
       if (cells.length >= 2) {
         const testName = cells.eq(0).text().trim();
         const result = cells.eq(1).text().trim().toLowerCase();
         const duration = cells.eq(2) ? parseFloat(cells.eq(2).text()) || 0 : 0;
-        
+
         if (testName && result) {
           tests.push({
             nodeid: testName,
@@ -213,14 +229,14 @@ function parseHtmlTable($: cheerio.CheerioAPI): PytestReport | null {
     });
   } else {
     // Parse structured results table
-    resultsTable.find('tbody tr').each((_, row) => {
+    resultsTable.find("tbody tr").each((_, row) => {
       const $row = $(row);
-      const cells = $row.find('td');
-      
+      const cells = $row.find("td");
+
       const testName = cells.eq(0).text().trim();
       const result = cells.eq(1).text().trim().toLowerCase();
       const duration = cells.eq(2) ? parseFloat(cells.eq(2).text()) || 0 : 0;
-      
+
       if (testName && result) {
         tests.push({
           nodeid: testName,
@@ -241,8 +257,8 @@ function parseHtmlTable($: cheerio.CheerioAPI): PytestReport | null {
   return {
     created: Date.now(),
     duration: totalDuration,
-    exitCode: tests.some(t => t.outcome === 'failed') ? 1 : 0,
-    root: '',
+    exitCode: tests.some((t) => t.outcome === "failed") ? 1 : 0,
+    root: "",
     tests,
   };
 }

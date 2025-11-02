@@ -1,21 +1,26 @@
-import { mkdirSync, writeFileSync, existsSync, readFileSync } from 'fs';
-import { join } from 'path';
-import type { Logger } from './utils/logger.js';
-import type { Config, ArtifactInventoryItem, RunConclusion, ValidationResult } from './types.js';
+import { mkdirSync, writeFileSync, existsSync, readFileSync } from "fs";
+import { join } from "path";
+import type { Logger } from "./utils/logger.js";
+import type {
+  Config,
+  ArtifactInventoryItem,
+  RunConclusion,
+  ValidationResult,
+} from "./types.js";
 import {
   getPRInfo,
   getWorkflowRunsForBranch,
   getArtifactsForRun,
   downloadArtifact,
-} from './github/api.js';
-import { withRetry, isExpiredError } from './utils/retry.js';
+} from "./github/api.js";
+import { withRetry, isExpiredError } from "./utils/retry.js";
 import {
   getWorkflowName,
   findWorkflowConfig,
   shouldSkipArtifact,
   getCombinedSkipPatterns,
   validateExpectations,
-} from './workflow-matcher.js';
+} from "./workflow-matcher.js";
 
 export interface DownloadResult {
   headSha: string;
@@ -23,7 +28,10 @@ export interface DownloadResult {
   runStates: Map<string, RunConclusion>;
   runsWithoutArtifacts: string[];
   validationResults: ValidationResult[];
-  workflowRuns: Map<string, { name: string; path: string; run_attempt: number; run_number: number }>;
+  workflowRuns: Map<
+    string,
+    { name: string; path: string; run_attempt: number; run_number: number }
+  >;
 }
 
 export async function downloadArtifacts(
@@ -34,16 +42,16 @@ export async function downloadArtifacts(
   logger: Logger,
   resume: boolean = false,
   dryRun: boolean = false,
-  includeSuccesses: boolean = false
+  includeSuccesses: boolean = false,
 ): Promise<DownloadResult> {
-  logger.info('Fetching PR information...');
+  logger.info("Fetching PR information...");
   const prInfo = getPRInfo(repo, prNumber);
   const headSha = prInfo.headRefOid;
   const branch = prInfo.headRefName;
   logger.info(`Head SHA: ${headSha}`);
   logger.info(`Branch: ${branch}`);
 
-  logger.info('Finding workflow runs for commit...');
+  logger.info("Finding workflow runs for commit...");
   const runs = getWorkflowRunsForBranch(repo, branch, headSha);
   logger.info(`Found ${runs.length} workflow runs`);
 
@@ -51,14 +59,17 @@ export async function downloadArtifacts(
   const runStates = new Map<string, RunConclusion>();
   const runsWithoutArtifacts: string[] = [];
   const validationResults: ValidationResult[] = [];
-  const workflowRuns = new Map<string, { name: string; path: string; run_attempt: number; run_number: number }>();
+  const workflowRuns = new Map<
+    string,
+    { name: string; path: string; run_attempt: number; run_number: number }
+  >();
 
   // Load existing inventory if resuming
-  const inventoryPath = join(outputDir, 'artifacts.json');
+  const inventoryPath = join(outputDir, "artifacts.json");
   let existingInventory: ArtifactInventoryItem[] = [];
   if (resume && existsSync(inventoryPath)) {
-    logger.info('Resume mode: loading existing inventory...');
-    existingInventory = JSON.parse(readFileSync(inventoryPath, 'utf-8'));
+    logger.info("Resume mode: loading existing inventory...");
+    existingInventory = JSON.parse(readFileSync(inventoryPath, "utf-8"));
     logger.info(`Found ${existingInventory.length} existing entries`);
   }
 
@@ -75,8 +86,8 @@ export async function downloadArtifacts(
     // Map run conclusion to our type
     const conclusion = mapRunConclusion(run.conclusion, run.status);
     runStates.set(runId, conclusion);
-    workflowRuns.set(runId, { 
-      name: run.name, 
+    workflowRuns.set(runId, {
+      name: run.name,
       path: run.path,
       run_attempt: run.run_attempt,
       run_number: run.run_number,
@@ -86,23 +97,25 @@ export async function downloadArtifacts(
     // Check if entire workflow should be skipped
     const workflowConfig = findWorkflowConfig(run, config.workflows || []);
     if (workflowConfig?.skip) {
-      logger.info(`  Skipping entire workflow (configured in .gh-ci-artifacts.json)`);
+      logger.info(
+        `  Skipping entire workflow (configured in .gh-ci-artifacts.json)`,
+      );
       continue;
     }
 
     // Skip successful runs unless explicitly requested
-    if (conclusion === 'success' && !includeSuccesses) {
+    if (conclusion === "success" && !includeSuccesses) {
       logger.debug(`  Skipping successful run`);
       continue;
     }
 
     // Get artifacts for this run
-    logger.info('  Fetching artifacts...');
+    logger.info("  Fetching artifacts...");
     const artifacts = getArtifactsForRun(repo, runId);
     logger.info(`  Found ${artifacts.length} artifacts`);
 
     if (artifacts.length === 0) {
-      logger.info('  No artifacts found, will extract logs instead');
+      logger.info("  No artifacts found, will extract logs instead");
       runsWithoutArtifacts.push(runId);
       continue;
     }
@@ -110,7 +123,7 @@ export async function downloadArtifacts(
     // Build combined skip patterns (global + workflow-specific)
     const skipPatterns = getCombinedSkipPatterns(
       config.skipArtifacts,
-      workflowConfig?.skipArtifacts
+      workflowConfig?.skipArtifacts,
     );
 
     // Download each artifact serially
@@ -119,7 +132,7 @@ export async function downloadArtifacts(
       const artifactNum = j + 1;
 
       logger.progress(
-        `  Downloading artifact ${artifactNum}/${artifacts.length}: ${artifact.name} (${formatBytes(artifact.size_in_bytes)})...`
+        `  Downloading artifact ${artifactNum}/${artifacts.length}: ${artifact.name} (${formatBytes(artifact.size_in_bytes)})...`,
       );
 
       // Check if artifact should be skipped
@@ -132,7 +145,7 @@ export async function downloadArtifacts(
           artifactName: artifact.name,
           artifactId: artifact.id,
           sizeBytes: artifact.size_in_bytes,
-          status: 'skipped',
+          status: "skipped",
           skipReason: reason,
         });
         continue;
@@ -140,41 +153,53 @@ export async function downloadArtifacts(
 
       // Check if already downloaded in resume mode
       const existingEntry = existingInventory.find(
-        item => item.runId === runId && item.artifactId === artifact.id
+        (item) => item.runId === runId && item.artifactId === artifact.id,
       );
 
-      if (resume && existingEntry && existingEntry.status === 'success') {
+      if (resume && existingEntry && existingEntry.status === "success") {
         logger.debug(`    Skipping (already downloaded)`);
         inventory.push(existingEntry);
         continue;
       }
 
       if (dryRun) {
-        logger.info(`    [DRY RUN] Would download to ${outputDir}/raw/${runId}/artifact-${artifact.id}/`);
+        logger.info(
+          `    [DRY RUN] Would download to ${outputDir}/raw/${runId}/artifact-${artifact.id}/`,
+        );
         inventory.push({
           runId: runId,
           artifactName: artifact.name,
           artifactId: artifact.id,
           sizeBytes: artifact.size_in_bytes,
-          status: 'success',
+          status: "success",
         });
         continue;
       }
 
       // Attempt download with retry
       // Use artifact ID in directory name to handle duplicate artifact names
-      const artifactOutputDir = join(outputDir, 'raw', runId, `artifact-${artifact.id}`);
+      const artifactOutputDir = join(
+        outputDir,
+        "raw",
+        runId,
+        `artifact-${artifact.id}`,
+      );
       mkdirSync(artifactOutputDir, { recursive: true });
 
       const result = await withRetry(
         () => {
-          downloadArtifact(runId, artifact.name, artifact.id, artifactOutputDir);
+          downloadArtifact(
+            runId,
+            artifact.name,
+            artifact.id,
+            artifactOutputDir,
+          );
           return Promise.resolve();
         },
         {
           maxRetries: config.maxRetries ?? 3,
           retryDelay: config.retryDelay ?? 5,
-        }
+        },
       );
 
       if (result.success) {
@@ -184,11 +209,11 @@ export async function downloadArtifacts(
           artifactName: artifact.name,
           artifactId: artifact.id,
           sizeBytes: artifact.size_in_bytes,
-          status: 'success',
+          status: "success",
         });
       } else {
         const error = result.error!;
-        const status = isExpiredError(error) ? 'expired' : 'failed';
+        const status = isExpiredError(error) ? "expired" : "failed";
         logger.error(`    Failed: ${error.message}`);
 
         inventory.push({
@@ -203,25 +228,33 @@ export async function downloadArtifacts(
     }
 
     // Validate expectations after processing all artifacts for this run
-    const allArtifactNames = artifacts.map(a => a.name);
-    const validationResult = validateExpectations(run, workflowConfig, allArtifactNames);
-    
+    const allArtifactNames = artifacts.map((a) => a.name);
+    const validationResult = validateExpectations(
+      run,
+      workflowConfig,
+      allArtifactNames,
+    );
+
     if (validationResult) {
       validationResults.push(validationResult);
-      
+
       // Log validation failures
       if (validationResult.missingRequired.length > 0) {
-        logger.error(`  Validation failed: ${validationResult.missingRequired.length} required artifact(s) missing`);
+        logger.error(
+          `  Validation failed: ${validationResult.missingRequired.length} required artifact(s) missing`,
+        );
         for (const violation of validationResult.missingRequired) {
-          const reason = violation.reason ? ` (${violation.reason})` : '';
+          const reason = violation.reason ? ` (${violation.reason})` : "";
           logger.error(`    Missing required: ${violation.pattern}${reason}`);
         }
       }
-      
+
       if (validationResult.missingOptional.length > 0) {
-        logger.warn(`  Warning: ${validationResult.missingOptional.length} optional artifact(s) missing`);
+        logger.warn(
+          `  Warning: ${validationResult.missingOptional.length} optional artifact(s) missing`,
+        );
         for (const violation of validationResult.missingOptional) {
-          const reason = violation.reason ? ` (${violation.reason})` : '';
+          const reason = violation.reason ? ` (${violation.reason})` : "";
           logger.debug(`    Missing optional: ${violation.pattern}${reason}`);
         }
       }
@@ -247,28 +280,28 @@ export async function downloadArtifacts(
 
 function mapRunConclusion(
   conclusion: string | null,
-  status: string
+  status: string,
 ): RunConclusion {
-  if (status === 'in_progress' || status === 'queued' || status === 'pending') {
-    return 'in_progress';
+  if (status === "in_progress" || status === "queued" || status === "pending") {
+    return "in_progress";
   }
 
   switch (conclusion) {
-    case 'success':
-      return 'success';
-    case 'failure':
-      return 'failure';
-    case 'cancelled':
-      return 'cancelled';
+    case "success":
+      return "success";
+    case "failure":
+      return "failure";
+    case "cancelled":
+      return "cancelled";
     default:
-      return 'failure';
+      return "failure";
   }
 }
 
 function formatBytes(bytes: number): string {
-  if (bytes === 0) return '0 B';
+  if (bytes === 0) return "0 B";
   const k = 1024;
-  const sizes = ['B', 'KB', 'MB', 'GB'];
+  const sizes = ["B", "KB", "MB", "GB"];
   const i = Math.floor(Math.log(bytes) / Math.log(k));
   return `${(bytes / Math.pow(k, i)).toFixed(1)} ${sizes[i]}`;
 }
