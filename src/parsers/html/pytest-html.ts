@@ -5,6 +5,8 @@ export interface PytestTest {
   nodeid: string;
   outcome: string;
   duration: number;
+  log?: string;  // Captured output, stack traces, error messages
+  extras?: any[];  // Media attachments (screenshots, videos, etc.)
   setup?: {
     duration: number;
     outcome: string;
@@ -134,12 +136,35 @@ function convertEmbeddedData(data: any): PytestReport {
         if (outcome === 'failed' || outcome === 'error') {
           hasFailed = true;
         }
-        
-        report.tests.push({
+
+        const test: PytestTest = {
           nodeid,
           outcome,
           duration,
-        });
+        };
+
+        // Include log output (stack traces, captured stdout/stderr, etc.)
+        if (lastResult.log) {
+          test.log = lastResult.log;
+        }
+
+        // Include extras (screenshots, videos, other media)
+        if (lastResult.extras && Array.isArray(lastResult.extras) && lastResult.extras.length > 0) {
+          test.extras = lastResult.extras;
+        }
+
+        // Include setup/call/teardown details if present
+        if (lastResult.setup) {
+          test.setup = lastResult.setup;
+        }
+        if (lastResult.call) {
+          test.call = lastResult.call;
+        }
+        if (lastResult.teardown) {
+          test.teardown = lastResult.teardown;
+        }
+
+        report.tests.push(test);
       }
     }
     
