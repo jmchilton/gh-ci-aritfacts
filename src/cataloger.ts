@@ -4,6 +4,7 @@ import type { Logger } from './utils/logger.js';
 import type { CatalogEntry, ArtifactInventoryItem } from './types.js';
 import { detectArtifactType } from './detectors/type-detector.js';
 import { extractPlaywrightJSON } from './parsers/html/playwright-html.js';
+import { extractPytestJSON } from './parsers/html/pytest-html.js';
 
 export interface CatalogResult {
   catalog: CatalogEntry[];
@@ -84,11 +85,15 @@ export async function catalogArtifacts(
         }
 
         // Handle HTML conversion
-        if (detection.originalFormat === 'html' && detection.detectedType === 'playwright-html') {
+        if (detection.originalFormat === 'html' && 
+            (detection.detectedType === 'playwright-html' || detection.detectedType === 'pytest-html')) {
           logger.debug(`  Converting ${basename(filePath)} to JSON...`);
 
           try {
-            const jsonData = extractPlaywrightJSON(filePath);
+            // Use appropriate extractor based on detected type
+            const jsonData = detection.detectedType === 'playwright-html'
+              ? extractPlaywrightJSON(filePath)
+              : extractPytestJSON(filePath);
 
             if (jsonData) {
               // Save converted JSON

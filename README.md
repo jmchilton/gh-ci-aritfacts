@@ -472,7 +472,7 @@ This reduces the need for HTML parsing and improves data quality.
 3. **Download artifacts**: Serially download artifacts (rate-limit friendly)
 4. **Extract logs**: For runs without artifacts, fetch job logs
 5. **Detect types**: Identify test frameworks and linters
-6. **Convert HTML**: Extract JSON from HTML reports where possible
+6. **Convert HTML**: Extract JSON from HTML reports (Playwright, pytest-html)
 7. **Extract linters**: Parse linter outputs from logs
 8. **Generate summary**: Combine everything into a master summary
 
