@@ -1,8 +1,11 @@
 import { describe, it, expect } from "vitest";
-import { join } from "path";
+import { join, dirname } from "path";
+import { fileURLToPath } from "url";
 import { detectArtifactType } from "../src/detectors/type-detector.js";
 
-const FIXTURES_DIR = join(__dirname, "fixtures");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const FIXTURES_DIR = join(__dirname, "../fixtures");
 
 describe("detectArtifactType", () => {
   describe("HTML detection", () => {

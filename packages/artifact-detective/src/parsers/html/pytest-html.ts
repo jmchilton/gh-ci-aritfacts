@@ -1,35 +1,6 @@
 import { readFileSync } from "fs";
 import * as cheerio from "cheerio";
-
-export interface PytestTest {
-  nodeid: string;
-  outcome: string;
-  duration: number;
-  log?: string; // Captured output, stack traces, error messages
-  extras?: any[]; // Media attachments (screenshots, videos, etc.)
-  setup?: {
-    duration: number;
-    outcome: string;
-  };
-  call?: {
-    duration: number;
-    outcome: string;
-    longrepr?: string;
-  };
-  teardown?: {
-    duration: number;
-    outcome: string;
-  };
-}
-
-export interface PytestReport {
-  created: number;
-  duration: number;
-  exitCode: number;
-  root: string;
-  environment?: Record<string, string>;
-  tests: PytestTest[];
-}
+import type { PytestTest, PytestReport } from "../../types.js";
 
 export function extractPytestJSON(htmlFilePath: string): PytestReport | null {
   try {

@@ -1,11 +1,5 @@
 import { readFileSync, statSync, openSync, readSync, closeSync } from "fs";
-import type { ArtifactType, OriginalFormat } from "../types.js";
-
-export interface DetectionResult {
-  detectedType: ArtifactType;
-  originalFormat: OriginalFormat;
-  isBinary: boolean;
-}
+import type { ArtifactType, OriginalFormat, DetectionResult } from "../types.js";
 
 const BINARY_EXTENSIONS = new Set([
   ".png",

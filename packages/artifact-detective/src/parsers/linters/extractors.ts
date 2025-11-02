@@ -6,7 +6,7 @@ export interface LinterMatch {
 }
 
 // Pattern to detect linter types from job names or log content
-const LINTER_PATTERNS = [
+export const LINTER_PATTERNS = [
   { type: "eslint", patterns: [/eslint/i, /npm run lint/i] },
   { type: "prettier", patterns: [/prettier/i, /npm run format/i] },
   { type: "ruff", patterns: [/ruff check/i, /ruff\s/i] },
