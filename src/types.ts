@@ -5,11 +5,14 @@ export type SummaryStatus = 'complete' | 'partial' | 'incomplete';
 
 export type ArtifactType =
   | 'playwright-json'
-  | 'jest-json'
-  | 'pytest-json'
-  | 'junit-xml'
   | 'playwright-html'
+  | 'jest-json'
+  | 'jest-html'
+  | 'pytest-json'
+  | 'pytest-html'
+  | 'junit-xml'
   | 'eslint-txt'
+  | 'flake8-txt'
   | 'binary'
   | 'unknown';
 
