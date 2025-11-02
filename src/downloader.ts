@@ -3,8 +3,8 @@ import { join } from 'path';
 import type { Logger } from './utils/logger.js';
 import type { Config, ArtifactInventoryItem, RunConclusion } from './types.js';
 import {
-  getPRHeadSha,
-  getWorkflowRunsForCommit,
+  getPRInfo,
+  getWorkflowRunsForBranch,
   getArtifactsForRun,
   downloadArtifact,
 } from './github/api.js';
@@ -27,11 +27,14 @@ export async function downloadArtifacts(
   dryRun: boolean = false
 ): Promise<DownloadResult> {
   logger.info('Fetching PR information...');
-  const headSha = getPRHeadSha(repo, prNumber);
+  const prInfo = getPRInfo(repo, prNumber);
+  const headSha = prInfo.headRefOid;
+  const branch = prInfo.headRefName;
   logger.info(`Head SHA: ${headSha}`);
+  logger.info(`Branch: ${branch}`);
 
   logger.info('Finding workflow runs for commit...');
-  const runs = getWorkflowRunsForCommit(repo, headSha);
+  const runs = getWorkflowRunsForBranch(repo, branch, headSha);
   logger.info(`Found ${runs.length} workflow runs`);
 
   const inventory: ArtifactInventoryItem[] = [];

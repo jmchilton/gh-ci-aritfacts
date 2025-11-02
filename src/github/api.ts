@@ -2,6 +2,7 @@ import { execSync } from 'child_process';
 
 export interface PR {
   headRefOid: string;
+  headRefName: string;
 }
 
 export interface CheckRun {
@@ -31,45 +32,56 @@ export interface Job {
   status: string;
 }
 
-export function getPRHeadSha(repo: string, prNumber: number): string {
+export function getPRInfo(repo: string, prNumber: number): PR {
   try {
     const output = execSync(
-      `gh pr view ${prNumber} --repo ${repo} --json headRefOid`,
+      `gh pr view ${prNumber} --repo ${repo} --json headRefOid,headRefName`,
       { encoding: 'utf-8' }
     );
-    const pr = JSON.parse(output) as PR;
-    return pr.headRefOid;
+    return JSON.parse(output) as PR;
   } catch (error) {
     throw new Error(
-      `Failed to fetch PR head SHA: ${error instanceof Error ? error.message : String(error)}`
+      `Failed to fetch PR info: ${error instanceof Error ? error.message : String(error)}`
+    );
+  }
+}
+
+export function getPRHeadSha(repo: string, prNumber: number): string {
+  return getPRInfo(repo, prNumber).headRefOid;
+}
+
+export function getWorkflowRunsForBranch(repo: string, branch: string, sha: string): WorkflowRun[] {
+  try {
+    // Query by branch and PR event first (much faster than paginating all runs)
+    // Then filter by SHA for exact match
+    const runsOutput = execSync(
+      `gh api --paginate 'repos/${repo}/actions/runs?event=pull_request&branch=${branch}' --jq '.workflow_runs[] | select(.head_sha == "${sha}")'`,
+      { encoding: 'utf-8', maxBuffer: 50 * 1024 * 1024 }
+    );
+
+    // Parse NDJSON (newline-delimited JSON)
+    const runs = runsOutput
+      .trim()
+      .split('\n')
+      .filter(line => line.trim())
+      .map(line => JSON.parse(line) as WorkflowRun);
+
+    return runs;
+  } catch (error) {
+    throw new Error(
+      `Failed to fetch workflow runs: ${error instanceof Error ? error.message : String(error)}`
     );
   }
 }
 
 export function getWorkflowRunsForCommit(repo: string, sha: string): WorkflowRun[] {
+  // Fallback for direct SHA queries (slower, but works without branch name)
   try {
-    // Get check runs for commit
-    const output = execSync(
-      `gh api repos/${repo}/commits/${sha}/check-runs --jq '.check_runs'`,
-      { encoding: 'utf-8' }
-    );
-    const checkRuns = JSON.parse(output) as CheckRun[];
-
-    // Extract unique workflow run IDs from check runs
-    const runIds = new Set<string>();
-    checkRuns.forEach(checkRun => {
-      // Extract run ID from check_run URL or use the check run ID
-      // For simplicity, we'll query workflow runs differently
-      runIds.add(checkRun.id);
-    });
-
-    // Alternative: Query workflow runs directly by head SHA
     const runsOutput = execSync(
-      `gh api repos/${repo}/actions/runs --jq '.workflow_runs[] | select(.head_sha == "${sha}")'`,
-      { encoding: 'utf-8', maxBuffer: 10 * 1024 * 1024 }
+      `gh api --paginate repos/${repo}/actions/runs --jq '.workflow_runs[] | select(.head_sha == "${sha}")'`,
+      { encoding: 'utf-8', maxBuffer: 50 * 1024 * 1024 }
     );
 
-    // Parse NDJSON (newline-delimited JSON)
     const runs = runsOutput
       .trim()
       .split('\n')
