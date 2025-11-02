@@ -208,20 +208,10 @@ function detectXmlType(content: string, lowerContent: string): ArtifactType {
 }
 
 function detectTxtType(content: string, lowerContent: string): ArtifactType {
-  // TypeScript compiler output patterns (src/file.ts(line,col): error TS...)
-  if (/\.tsx?\(\d+,\d+\):\s+error\s+TS\d+/.test(content)) {
-    return "tsc-txt";
-  }
+  // Plain text files are too ambiguous for reliable auto-detection.
+  // Use validators instead to verify content matches expected format.
 
-  // ESLint output patterns
-  if (
-    lowerContent.includes("eslint") ||
-    /\d+:\d+\s+(error|warning)/.test(content)
-  ) {
-    return "eslint-txt";
-  }
-
-  // Flake8 output patterns
+  // Only detect flake8 as it has unique Python-specific pattern
   if (/\.py:\d+:\d+:/.test(content)) {
     return "flake8-txt";
   }

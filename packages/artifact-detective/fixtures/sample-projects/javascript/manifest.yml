@@ -15,30 +15,37 @@ artifacts:
     type: jest-json
     format: json
     description: "Jest JSON reporter: 5 pass, 2 fail, 1 skip"
+    supports_auto_detection: true
+    validator: "validateJestJSON"
     parsers: []
-    coverage_target: "type-detector"
+    coverage_target: "validators/jest-validator.ts"
 
   - file: "playwright-results.json"
     type: playwright-json
     format: json
     description: "Playwright JSON: 3 pass, 1 fail"
+    supports_auto_detection: true
+    validator: "validatePlaywrightJSON"
     parsers: []
-    coverage_target: "type-detector"
+    coverage_target: "validators/playwright-validator.ts"
 
   - file: "eslint-output.txt"
     type: eslint-txt
     format: txt
     description: "ESLint output with violations"
-    parsers: ["detectLinterType", "extractLinterOutput"]
-    coverage_target: "linter-collector.ts"
+    supports_auto_detection: false
+    validator: "validateESLintOutput"
+    parsers: ["extractLinterOutput"]
+    coverage_target: "validators/linter-validator.ts"
 
   - file: "tsc-output.txt"
     type: tsc-txt
     format: txt
     description: "TypeScript compiler errors"
-    parsers: ["detectLinterType"]
-    coverage_target: "linter-collector.ts"
-    notes: "extractLinterOutput for tsc requires 'tsc' trigger in content - extractor bug"
+    supports_auto_detection: false
+    validator: "validateTSCOutput"
+    parsers: ["extractLinterOutput"]
+    coverage_target: "validators/linter-validator.ts"
 
 commands:
   generate: "docker-compose up --build"

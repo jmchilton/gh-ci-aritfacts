@@ -69,11 +69,12 @@ describe("detectArtifactType", () => {
   });
 
   describe("Text detection", () => {
-    it("detects eslint output by pattern", () => {
+    it("does not auto-detect eslint output (use validators instead)", () => {
       const result = detectArtifactType(
         join(FIXTURES_DIR, "txt/eslint-sample.txt"),
       );
-      expect(result.detectedType).toBe("eslint-txt");
+      // Plain text files are too ambiguous for reliable auto-detection
+      expect(result.detectedType).toBe("unknown");
       expect(result.originalFormat).toBe("txt");
       expect(result.isBinary).toBe(false);
     });

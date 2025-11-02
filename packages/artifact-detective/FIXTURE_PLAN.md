@@ -63,7 +63,7 @@ fixtures/
 
 ## Manifest Schema
 
-Each `manifest.yml` describes expected artifacts and parsers to test:
+Each `manifest.yml` describes expected artifacts, validators, and parsers to test:
 
 ```yaml
 language: javascript
@@ -83,41 +83,57 @@ artifacts:
     type: jest-json
     format: json
     description: "Jest JSON reporter: 5 pass, 2 fail, 1 skip"
-    parsers: []              # Detection only (no parser exists)
-    coverage_target: "type-detector"
+    supports_auto_detection: true     # JSON structure is reliable
+    validator: "validateJestJSON"
+    parsers: []                       # No parser (direct JSON consumption)
+    coverage_target: "validators/jest-validator.ts"
 
   - file: "playwright-results.json"
     type: playwright-json
     format: json
     description: "Playwright JSON: 3 pass, 1 fail"
+    supports_auto_detection: true
+    validator: "validatePlaywrightJSON"
     parsers: []
-    coverage_target: "type-detector"
-
-  - file: "playwright-report/index.html"
-    type: playwright-html
-    format: html
-    description: "Playwright HTML with embedded JSON"
-    parsers: ["extractPlaywrightJSON"]
-    coverage_target: "playwright-html.ts"
+    coverage_target: "validators/playwright-validator.ts"
 
   - file: "eslint-output.txt"
     type: eslint-txt
     format: txt
-    description: "ESLint output with 8 violations"
-    parsers: ["detectLinterType", "extractLinterOutput"]
-    coverage_target: "linter-collector.ts"
+    description: "ESLint output with violations"
+    supports_auto_detection: false    # Plain text, too ambiguous
+    validator: "validateESLintOutput"
+    parsers: ["extractLinterOutput"]  # Used by linter-collector
+    coverage_target: "validators/linter-validator.ts"
 
   - file: "tsc-output.txt"
     type: tsc-txt
     format: txt
     description: "TypeScript compiler errors"
-    parsers: ["detectLinterType", "extractLinterOutput"]
-    coverage_target: "linter-collector.ts"
+    supports_auto_detection: false
+    validator: "validateTSCOutput"
+    parsers: ["extractLinterOutput"]
+    coverage_target: "validators/linter-validator.ts"
 
 commands:
   generate: "docker-compose up --build"
   clean: "docker-compose down -v && rm -rf ../../generated/javascript"
 ```
+
+**Key Concepts:**
+
+- **supports_auto_detection**: Whether content has reliable markers for auto-detection
+  - `true`: Structured formats (JSON with specific fields, HTML with meta tags)
+  - `false`: Ambiguous formats (plain text without unique identifiers)
+
+- **validator**: Function that validates content matches expected format
+  - Always tested for every artifact
+  - Checks structural correctness, not identity
+
+- **Auto-detection vs. Validation**:
+  - Auto-detection: "Can we identify this file type from content alone?"
+  - Validation: "Does this content match the expected format for this type?"
+  - Tests run validators always, auto-detection only if `supports_auto_detection: true`
 
 ## Docker Pattern
 
@@ -174,7 +190,7 @@ docker-compose down -v
 
 ## Test Integration
 
-Manifest-based validation tests ensure 100% parser coverage:
+Manifest-based validation tests ensure 100% parser coverage. Tests always run validators; auto-detection tested only when supported:
 
 ```typescript
 // test/fixture-validation.test.ts
@@ -182,8 +198,8 @@ import { readFileSync, existsSync } from 'fs'
 import { join } from 'path'
 import { parse as parseYAML } from 'yaml'
 import { detectArtifactType } from '../src/detectors/type-detector.js'
-import { extractPlaywrightJSON } from '../src/parsers/html/playwright-html.js'
-import { detectLinterType, extractLinterOutput } from '../src/parsers/linters/extractors.js'
+import * as validators from '../src/validators/index.js'
+import { extractLinterOutput } from '../src/parsers/linters/extractors.js'
 
 describe('Generated fixture validation', () => {
   const languages = ['javascript'] // Expand to ['javascript', 'python'] later
@@ -201,34 +217,29 @@ describe('Generated fixture validation', () => {
             expect(existsSync(artifactPath)).toBe(true)
           })
 
-          it(`detects as ${artifact.type}`, () => {
-            const result = detectArtifactType(artifactPath)
-            expect(result.detectedType).toBe(artifact.type)
-            expect(result.originalFormat).toBe(artifact.format)
+          // ALWAYS test validator (structural correctness)
+          it('passes validator', () => {
+            const content = readFileSync(artifactPath, 'utf-8')
+            const validator = validators[artifact.validator]
+            expect(validator).toBeDefined()
+            const result = validator(content)
+            expect(result.valid).toBe(true)
           })
 
+          // ONLY test auto-detection if supported
+          if (artifact.supports_auto_detection) {
+            it(`auto-detects as ${artifact.type}`, () => {
+              const result = detectArtifactType(artifactPath)
+              expect(result.detectedType).toBe(artifact.type)
+              expect(result.originalFormat).toBe(artifact.format)
+            })
+          }
+
           // Test parsers if specified
-          if (artifact.parsers?.includes('extractPlaywrightJSON')) {
-            it('parses with extractPlaywrightJSON', () => {
-              const result = extractPlaywrightJSON(artifactPath)
-              expect(result).not.toBeNull()
-              expect(result).toHaveProperty('suites')
-            })
-          }
-
-          if (artifact.parsers?.includes('detectLinterType')) {
-            it('detects linter type from content', () => {
-              const content = readFileSync(artifactPath, 'utf-8')
-              const linterType = detectLinterType('lint', content)
-              expect(linterType).toBeTruthy()
-            })
-          }
-
           if (artifact.parsers?.includes('extractLinterOutput')) {
             it('extracts linter output', () => {
               const content = readFileSync(artifactPath, 'utf-8')
-              const linterType = detectLinterType('lint', content)
-              const output = extractLinterOutput(linterType!, content)
+              const output = extractLinterOutput(artifact.type, content)
               expect(output).toBeTruthy()
               expect(output!.length).toBeGreaterThan(0)
             })

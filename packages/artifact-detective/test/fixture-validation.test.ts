@@ -4,10 +4,8 @@ import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { parse as parseYAML } from "yaml";
 import { detectArtifactType } from "../src/detectors/type-detector.js";
-import {
-  detectLinterType,
-  extractLinterOutput,
-} from "../src/parsers/linters/extractors.js";
+import * as validators from "../src/validators/index.js";
+import { extractLinterOutput } from "../src/parsers/linters/extractors.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -34,32 +32,32 @@ describe("Generated fixture validation", () => {
             expect(existsSync(artifactPath)).toBe(true);
           });
 
-          it(`detects as ${artifact.type}`, () => {
-            const result = detectArtifactType(artifactPath);
-            expect(result.detectedType).toBe(artifact.type);
-            expect(result.originalFormat).toBe(artifact.format);
+          // ALWAYS test validator (structural correctness)
+          it("passes validator", () => {
+            const content = readFileSync(artifactPath, "utf-8");
+            const validator = (validators as any)[artifact.validator];
+            expect(validator).toBeDefined();
+            const result = validator(content);
+            expect(result.valid).toBe(true);
+            if (!result.valid) {
+              console.error(`Validation error: ${result.error}`);
+            }
           });
 
-          // Test parsers if specified
-          if (artifact.parsers?.includes("detectLinterType")) {
-            it("detects linter type from content", () => {
-              const content = readFileSync(artifactPath, "utf-8");
-              // Use appropriate job name based on artifact type
-              const jobName = artifact.type.includes("tsc") ? "typecheck" : "lint";
-              const linterType = detectLinterType(jobName, content);
-              expect(linterType).toBeTruthy();
+          // ONLY test auto-detection if supported
+          if (artifact.supports_auto_detection) {
+            it(`auto-detects as ${artifact.type}`, () => {
+              const result = detectArtifactType(artifactPath);
+              expect(result.detectedType).toBe(artifact.type);
+              expect(result.originalFormat).toBe(artifact.format);
             });
           }
 
+          // Test parsers if specified
           if (artifact.parsers?.includes("extractLinterOutput")) {
             it("extracts linter output", () => {
               const content = readFileSync(artifactPath, "utf-8");
-              // Use appropriate job name based on artifact type
-              const jobName = artifact.type.includes("tsc") ? "typecheck" : "lint";
-              const linterType = detectLinterType(jobName, content);
-              expect(linterType).toBeTruthy();
-
-              const output = extractLinterOutput(linterType!, content);
+              const output = extractLinterOutput(artifact.type, content);
               expect(output).toBeTruthy();
               expect(output!.length).toBeGreaterThan(0);
             });

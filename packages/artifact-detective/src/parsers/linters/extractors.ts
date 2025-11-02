@@ -37,9 +37,12 @@ export function extractLinterOutput(
   linterType: string,
   logContent: string,
 ): string | null {
+  // Map artifact types to linter types (eslint-txt -> eslint, tsc-txt -> tsc)
+  const normalizedType = linterType.replace(/-txt$/, "").replace(/-json$/, "");
+
   const lines = logContent.split("\n");
 
-  switch (linterType) {
+  switch (normalizedType) {
     case "eslint":
       return extractESLintOutput(lines);
 
@@ -49,14 +52,14 @@ export function extractLinterOutput(
     case "ruff":
     case "flake8":
     case "pylint":
-      return extractPythonLinterOutput(lines, linterType);
+      return extractPythonLinterOutput(lines, normalizedType);
 
     case "tsc":
       return extractTSCOutput(lines);
 
     case "isort":
     case "black":
-      return extractFormatterOutput(lines, linterType);
+      return extractFormatterOutput(lines, normalizedType);
 
     case "mypy":
       return extractMypyOutput(lines);
@@ -67,6 +70,17 @@ export function extractLinterOutput(
 }
 
 function extractESLintOutput(lines: string[]): string | null {
+  // If this looks like raw ESLint output (not embedded in logs), return as-is
+  const hasEslintPattern = lines.some(
+    (line) =>
+      /\d+:\d+\s+(error|warning)/.test(line) || /\d+\s+problem/.test(line),
+  );
+
+  if (hasEslintPattern) {
+    return lines.join("\n").trim();
+  }
+
+  // Otherwise, extract from CI logs
   const outputLines: string[] = [];
   let inOutput = false;
 
@@ -157,6 +171,16 @@ function extractPythonLinterOutput(
 }
 
 function extractTSCOutput(lines: string[]): string | null {
+  // If this looks like raw TSC output (not embedded in logs), return as-is
+  const hasTSCPattern = lines.some((line) =>
+    /\.tsx?\(\d+,\d+\):\s+error\s+TS\d+/.test(line),
+  );
+
+  if (hasTSCPattern) {
+    return lines.join("\n").trim();
+  }
+
+  // Otherwise, extract from CI logs
   const outputLines: string[] = [];
   let inOutput = false;
 
