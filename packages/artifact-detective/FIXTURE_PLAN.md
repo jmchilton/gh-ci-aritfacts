@@ -63,7 +63,7 @@ fixtures/
 
 ## Manifest Schema
 
-Each `manifest.yml` describes expected artifacts, validators, and parsers to test:
+Each `manifest.yml` describes expected artifacts and parsers to test:
 
 ```yaml
 language: javascript
@@ -83,8 +83,6 @@ artifacts:
     type: jest-json
     format: json
     description: "Jest JSON reporter: 5 pass, 2 fail, 1 skip"
-    supports_auto_detection: true     # JSON structure is reliable
-    validator: "validateJestJSON"
     parsers: []                       # No parser (direct JSON consumption)
     coverage_target: "validators/jest-validator.ts"
 
@@ -92,8 +90,6 @@ artifacts:
     type: playwright-json
     format: json
     description: "Playwright JSON: 3 pass, 1 fail"
-    supports_auto_detection: true
-    validator: "validatePlaywrightJSON"
     parsers: []
     coverage_target: "validators/playwright-validator.ts"
 
@@ -101,8 +97,6 @@ artifacts:
     type: eslint-txt
     format: txt
     description: "ESLint output with violations"
-    supports_auto_detection: false    # Plain text, too ambiguous
-    validator: "validateESLintOutput"
     parsers: ["extractLinterOutput"]  # Used by linter-collector
     coverage_target: "validators/linter-validator.ts"
 
@@ -110,8 +104,6 @@ artifacts:
     type: tsc-txt
     format: txt
     description: "TypeScript compiler errors"
-    supports_auto_detection: false
-    validator: "validateTSCOutput"
     parsers: ["extractLinterOutput"]
     coverage_target: "validators/linter-validator.ts"
 
@@ -122,18 +114,26 @@ commands:
 
 **Key Concepts:**
 
-- **supports_auto_detection**: Whether content has reliable markers for auto-detection
+- **type**: Artifact type from the `ArtifactType` union (defined in `src/types.ts`)
+- **format**: Original file format (json, xml, html, txt, binary)
+- **description**: Human-readable summary of artifact contents
+- **parsers**: List of parser functions to test (e.g., `extractPlaywrightJSON`, `extractLinterOutput`)
+- **coverage_target**: Source file that should be covered by this fixture
+
+**Type Capabilities** (defined in `src/validators/index.ts`):
+
+Type system capabilities are now tracked in code via `ARTIFACT_TYPE_REGISTRY`, not in the manifest:
+
+- **supportsAutoDetection**: Whether content has reliable markers for auto-detection
   - `true`: Structured formats (JSON with specific fields, HTML with meta tags)
-  - `false`: Ambiguous formats (plain text without unique identifiers)
+  - `false`: Ambiguous formats (plain text linter output)
+- **validator**: Function that validates content structure (or null if none exists)
+  - Tests run validators automatically if one exists for the type
+  - Auto-detection tests only run if `supportsAutoDetection: true`
 
-- **validator**: Function that validates content matches expected format
-  - Always tested for every artifact
-  - Checks structural correctness, not identity
-
-- **Auto-detection vs. Validation**:
-  - Auto-detection: "Can we identify this file type from content alone?"
-  - Validation: "Does this content match the expected format for this type?"
-  - Tests run validators always, auto-detection only if `supports_auto_detection: true`
+This separation means:
+- Manifest describes **test data** (what files exist, what they contain)
+- Code defines **type system** (what types support, how to validate them)
 
 ## Docker Pattern
 
