@@ -13,7 +13,7 @@ export interface CheckRun {
 }
 
 export interface WorkflowRun {
-  id: string;
+  id: number;
   name: string;
   conclusion: string | null;
   status: string;

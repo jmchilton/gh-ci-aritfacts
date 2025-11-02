@@ -54,22 +54,23 @@ export async function downloadArtifacts(
   for (let i = 0; i < runs.length; i++) {
     const run = runs[i];
     const runNum = i + 1;
+    const runId = String(run.id);
 
-    logger.info(`\nRun ${runNum}/${runs.length}: ${run.name} (${run.id})`);
+    logger.info(`\nRun ${runNum}/${runs.length}: ${run.name} (${runId})`);
 
     // Map run conclusion to our type
     const conclusion = mapRunConclusion(run.conclusion, run.status);
-    runStates.set(run.id, conclusion);
+    runStates.set(runId, conclusion);
     logger.info(`  Status: ${conclusion}`);
 
     // Get artifacts for this run
     logger.info('  Fetching artifacts...');
-    const artifacts = getArtifactsForRun(repo, run.id);
+    const artifacts = getArtifactsForRun(repo, runId);
     logger.info(`  Found ${artifacts.length} artifacts`);
 
     if (artifacts.length === 0) {
       logger.info('  No artifacts found, will extract logs instead');
-      runsWithoutArtifacts.push(run.id);
+      runsWithoutArtifacts.push(runId);
       continue;
     }
 
@@ -84,7 +85,7 @@ export async function downloadArtifacts(
 
       // Check if already downloaded in resume mode
       const existingEntry = existingInventory.find(
-        item => item.runId === run.id && item.artifactName === artifact.name
+        item => item.runId === runId && item.artifactName === artifact.name
       );
 
       if (resume && existingEntry && existingEntry.status === 'success') {
@@ -94,9 +95,9 @@ export async function downloadArtifacts(
       }
 
       if (dryRun) {
-        logger.info(`    [DRY RUN] Would download to ${outputDir}/raw/${run.id}/`);
+        logger.info(`    [DRY RUN] Would download to ${outputDir}/raw/${runId}/`);
         inventory.push({
-          runId: run.id,
+          runId: runId,
           artifactName: artifact.name,
           sizeBytes: artifact.size_in_bytes,
           status: 'success',
@@ -105,12 +106,12 @@ export async function downloadArtifacts(
       }
 
       // Attempt download with retry
-      const artifactOutputDir = join(outputDir, 'raw', run.id);
+      const artifactOutputDir = join(outputDir, 'raw', runId);
       mkdirSync(artifactOutputDir, { recursive: true });
 
       const result = await withRetry(
         () => {
-          downloadArtifact(run.id, artifactOutputDir);
+          downloadArtifact(runId, artifactOutputDir);
           return Promise.resolve();
         },
         {
@@ -122,7 +123,7 @@ export async function downloadArtifacts(
       if (result.success) {
         logger.debug(`    Downloaded successfully`);
         inventory.push({
-          runId: run.id,
+          runId: runId,
           artifactName: artifact.name,
           sizeBytes: artifact.size_in_bytes,
           status: 'success',
@@ -133,7 +134,7 @@ export async function downloadArtifacts(
         logger.error(`    Failed: ${error.message}`);
 
         inventory.push({
-          runId: run.id,
+          runId: runId,
           artifactName: artifact.name,
           sizeBytes: artifact.size_in_bytes,
           status,
