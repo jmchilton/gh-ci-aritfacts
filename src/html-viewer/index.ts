@@ -1,6 +1,11 @@
 import { readdirSync, statSync, readFileSync, writeFileSync } from 'fs';
 import { join, relative, extname, basename } from 'path';
-import type { Summary, CatalogEntry, RunConclusion } from './types.js';
+import type { Summary, CatalogEntry, RunConclusion, ArtifactInventoryItem } from '../types.js';
+import { getStyles } from './styles.js';
+import { getScripts } from './scripts.js';
+import { renderSummaryJson } from './renderers/summary.js';
+import { renderCatalogJson } from './renderers/catalog.js';
+import { renderArtifactsJson } from './renderers/artifacts.js';
 
 export interface FileNode {
   name: string;
@@ -25,12 +30,27 @@ export function generateHtmlViewer(
   // Build file tree
   const tree = buildFileTree(outputDir, summary, catalog);
 
+  // Load special JSON files for rich rendering
+  const summaryData = summary;
+  const catalogData = catalog;
+  const artifactsData = loadArtifactsData(outputDir);
+
   // Generate HTML
-  const html = generateHtml(summary, tree);
+  const html = generateHtml(summary, tree, summaryData, catalogData, artifactsData);
 
   // Write to index.html
   const htmlPath = join(outputDir, 'index.html');
   writeFileSync(htmlPath, html);
+}
+
+function loadArtifactsData(outputDir: string): ArtifactInventoryItem[] {
+  try {
+    const artifactsPath = join(outputDir, 'artifacts.json');
+    const content = readFileSync(artifactsPath, 'utf-8');
+    return JSON.parse(content);
+  } catch (e) {
+    return [];
+  }
 }
 
 function buildFileTree(
@@ -184,9 +204,20 @@ function shouldInlinePreview(size: number, path: string): boolean {
   return textExts.includes(ext);
 }
 
-function generateHtml(summary: Summary, tree: FileNode): string {
+function generateHtml(
+  summary: Summary,
+  tree: FileNode,
+  summaryData: Summary,
+  catalogData: CatalogEntry[],
+  artifactsData: ArtifactInventoryItem[]
+): string {
   // Embed file data
   const embeddedData = collectEmbeddedData(tree);
+
+  // Pre-render rich views (as strings that will be embedded)
+  const summaryRichHtml = renderSummaryJson(summaryData);
+  const catalogRichHtml = renderCatalogJson(catalogData);
+  const artifactsRichHtml = renderArtifactsJson(artifactsData);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -228,6 +259,12 @@ function generateHtml(summary: Summary, tree: FileNode): string {
 
   <script>
     window.fileData = ${JSON.stringify(embeddedData)};
+    
+    // Embed pre-rendered rich views
+    window.__summaryRenderer = ${JSON.stringify(summaryRichHtml)};
+    window.__catalogRenderer = ${JSON.stringify(catalogRichHtml)};
+    window.__artifactsRenderer = ${JSON.stringify(artifactsRichHtml)};
+    
     ${getScripts()}
   </script>
 </body>
@@ -322,392 +359,4 @@ function escapeHtml(text: string): string {
     "'": '&#039;',
   };
   return text.replace(/[&<>"']/g, m => map[m]);
-}
-
-function getStyles(): string {
-  return `
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background: #f5f5f5;
-}
-
-header {
-  background: white;
-  padding: 20px;
-  border-bottom: 1px solid #ddd;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-header h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.metadata {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  font-size: 14px;
-  color: #666;
-}
-
-.status-badge {
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-weight: 500;
-}
-
-.status-complete {
-  background: #d1fae5;
-  color: #065f46;
-}
-
-.status-partial {
-  background: #fed7aa;
-  color: #92400e;
-}
-
-.status-incomplete {
-  background: #dbeafe;
-  color: #1e40af;
-}
-
-.stats {
-  display: flex;
-  gap: 20px;
-  padding: 20px;
-  background: white;
-  margin: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.stat {
-  padding: 10px 15px;
-  border-radius: 6px;
-  background: #f9fafb;
-  font-weight: 500;
-}
-
-.stat-success {
-  background: #d1fae5;
-  color: #065f46;
-}
-
-.stat-failure {
-  background: #fee2e2;
-  color: #991b1b;
-}
-
-.tree {
-  background: white;
-  margin: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  padding: 20px;
-  max-height: calc(100vh - 400px);
-  overflow-y: auto;
-}
-
-.tree-node {
-  padding: 8px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-radius: 4px;
-  transition: background 0.2s;
-}
-
-.tree-node:hover {
-  background: #f9fafb;
-}
-
-.tree-node .toggle {
-  cursor: pointer;
-  user-select: none;
-  width: 16px;
-  font-size: 12px;
-}
-
-.tree-node.file .toggle {
-  display: none;
-}
-
-.tree-node.file.clickable {
-  cursor: pointer;
-}
-
-.tree-node.file.clickable:hover {
-  background: #e5e7eb;
-}
-
-.tree-node .icon {
-  font-size: 16px;
-}
-
-.tree-node .name {
-  flex: 1;
-  font-size: 14px;
-  min-width: 150px;
-}
-
-.file-actions {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  margin-left: auto;
-}
-
-.action-link {
-  padding: 4px 8px;
-  border-radius: 3px;
-  font-size: 11px;
-  color: #3b82f6;
-  text-decoration: none;
-  border: 1px solid #3b82f6;
-  transition: all 0.2s;
-}
-
-.action-link:hover {
-  background: #3b82f6;
-  color: white;
-}
-
-.copy-path-btn {
-  padding: 4px 8px;
-  border-radius: 3px;
-  font-size: 11px;
-  border: 1px solid #6b7280;
-  background: white;
-  color: #6b7280;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.copy-path-btn:hover {
-  background: #6b7280;
-  color: white;
-}
-
-.copy-path-btn.copied {
-  background: #10b981;
-  border-color: #10b981;
-  color: white;
-}
-
-.tree-node .children {
-  width: 100%;
-}
-
-.tree-node .children.hidden {
-  display: none;
-}
-
-.badge {
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.badge-success {
-  background: #d1fae5;
-  color: #065f46;
-}
-
-.badge-failure {
-  background: #fee2e2;
-  color: #991b1b;
-}
-
-.badge-cancelled {
-  background: #fed7aa;
-  color: #92400e;
-}
-
-.badge-in_progress {
-  background: #dbeafe;
-  color: #1e40af;
-}
-
-.type-badge {
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-size: 11px;
-  background: #e5e7eb;
-  color: #374151;
-}
-
-.size {
-  font-size: 12px;
-  color: #6b7280;
-}
-
-.preview-btn {
-  padding: 4px 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 4px;
-  background: white;
-  cursor: pointer;
-  font-size: 12px;
-  transition: all 0.2s;
-}
-
-.preview-btn:hover {
-  background: #f9fafb;
-  border-color: #9ca3af;
-}
-
-.preview-panel {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 50vh;
-  background: white;
-  border-top: 2px solid #ddd;
-  box-shadow: 0 -4px 8px rgba(0,0,0,0.1);
-  display: flex;
-  flex-direction: column;
-  z-index: 1000;
-}
-
-.preview-panel.hidden {
-  display: none;
-}
-
-.preview-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 20px;
-  border-bottom: 1px solid #ddd;
-  background: #f9fafb;
-}
-
-.preview-title {
-  font-weight: 500;
-  font-size: 14px;
-}
-
-.close-btn {
-  background: none;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-  color: #666;
-  padding: 0;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-}
-
-.close-btn:hover {
-  background: #e5e7eb;
-}
-
-.preview-content {
-  flex: 1;
-  overflow: auto;
-  padding: 20px;
-  font-family: 'Monaco', 'Menlo', monospace;
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-.preview-content pre {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-`;
-}
-
-function getScripts(): string {
-  return `
-// Toggle directory expansion
-document.addEventListener('click', (e) => {
-  const toggle = e.target.closest('.toggle');
-  if (toggle) {
-    const node = toggle.closest('.tree-node');
-    const children = node.querySelector('.children');
-    if (children) {
-      children.classList.toggle('hidden');
-      toggle.textContent = children.classList.contains('hidden') ? '▶' : '▼';
-    }
-  }
-});
-
-// Preview file - click on file row
-document.addEventListener('click', (e) => {
-  const fileNode = e.target.closest('.tree-node.file.clickable');
-  if (fileNode) {
-    const path = fileNode.dataset.path;
-    const content = window.fileData[path];
-    const panel = document.querySelector('.preview-panel');
-    const title = document.querySelector('.preview-title');
-    const contentDiv = document.querySelector('.preview-content');
-
-    title.textContent = path.split('/').pop();
-
-    if (content) {
-      // Render preview
-      if (path.endsWith('.json')) {
-        try {
-          const parsed = JSON.parse(content);
-          contentDiv.innerHTML = '<pre>' + JSON.stringify(parsed, null, 2) + '</pre>';
-        } catch (e) {
-          contentDiv.innerHTML = '<pre>' + content + '</pre>';
-        }
-      } else {
-        contentDiv.innerHTML = '<pre>' + content + '</pre>';
-      }
-    } else {
-      contentDiv.innerHTML = '<p>Preview not available. File too large or not embedded.</p>';
-    }
-
-    panel.classList.remove('hidden');
-  }
-});
-
-// Close preview
-document.querySelector('.close-btn').addEventListener('click', () => {
-  document.querySelector('.preview-panel').classList.add('hidden');
-});
-
-// Prevent action buttons from triggering file preview
-document.addEventListener('click', (e) => {
-  if (e.target.closest('.file-actions')) {
-    e.stopPropagation();
-  }
-});
-
-// Copy path to clipboard
-document.addEventListener('click', (e) => {
-  const btn = e.target.closest('.copy-path-btn');
-  if (btn) {
-    const path = btn.dataset.path;
-    navigator.clipboard.writeText(path).then(() => {
-      const originalText = btn.textContent;
-      btn.textContent = 'Copied!';
-      btn.classList.add('copied');
-      setTimeout(() => {
-        btn.textContent = originalText;
-        btn.classList.remove('copied');
-      }, 2000);
-    });
-  }
-});
-`;
 }

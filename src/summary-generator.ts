@@ -1,6 +1,6 @@
 import { writeFileSync } from 'fs';
 import { join } from 'path';
-import { generateHtmlViewer } from './html-viewer.js';
+import { generateHtmlViewer } from './html-viewer/index.js';
 import type {
   Summary,
   SummaryStatus,
