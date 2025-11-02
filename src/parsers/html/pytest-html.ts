@@ -34,10 +34,27 @@ export function extractPytestJSON(htmlFilePath: string): PytestReport | null {
     const html = readFileSync(htmlFilePath, 'utf-8');
     const $ = cheerio.load(html);
 
-    // Modern pytest-html (v3.x+) embeds data in a script tag
+    // Modern pytest-html (v3.x+) embeds data in various ways
     let jsonData: any = null;
 
-    // Look for embedded JSON data (pytest-html v3+)
+    // Method 1: Check for data-jsonblob attribute (most common in modern pytest-html)
+    const dataContainer = $('#data-container');
+    if (dataContainer.length > 0) {
+      const jsonBlob = dataContainer.attr('data-jsonblob');
+      if (jsonBlob) {
+        try {
+          // Cheerio automatically decodes HTML entities
+          jsonData = JSON.parse(jsonBlob);
+          if (jsonData) {
+            return convertEmbeddedData(jsonData);
+          }
+        } catch {
+          // Not valid JSON
+        }
+      }
+    }
+
+    // Method 2: Look for embedded JSON data in script tags
     $('script').each((_, elem) => {
       const content = $(elem).html();
       if (!content) return;
@@ -72,15 +89,64 @@ function convertEmbeddedData(data: any): PytestReport {
   // Modern pytest-html embeds a full report structure
   const report: PytestReport = {
     created: data.created || Date.now(),
-    duration: data.duration || 0,
-    exitCode: data.exitCode || 0,
+    duration: 0,
+    exitCode: 0,
     root: data.root || '',
     environment: data.environment || {},
     tests: [],
   };
 
   // Convert test data
-  if (data.tests && Array.isArray(data.tests)) {
+  // In modern pytest-html, tests is an object keyed by nodeid, not an array
+  if (data.tests && typeof data.tests === 'object') {
+    let totalDuration = 0;
+    let hasFailed = false;
+
+    for (const [nodeid, testResults] of Object.entries(data.tests)) {
+      // testResults is an array of result objects for this test
+      const results = testResults as any[];
+      
+      if (Array.isArray(results) && results.length > 0) {
+        // Take the last result (most recent if retried)
+        const lastResult = results[results.length - 1];
+        
+        // Parse duration (format: "HH:MM:SS" or number)
+        let duration = 0;
+        if (typeof lastResult.duration === 'string') {
+          const parts = lastResult.duration.split(':').map(Number);
+          if (parts.length === 3) {
+            duration = parts[0] * 3600 + parts[1] * 60 + parts[2];
+          }
+        } else if (typeof lastResult.duration === 'number') {
+          duration = lastResult.duration;
+        }
+        
+        totalDuration += duration;
+        
+        // Map pytest result to outcome
+        const result = (lastResult.result || lastResult.outcome || '').toLowerCase();
+        const outcome = result.includes('pass') ? 'passed' :
+                       result.includes('fail') ? 'failed' :
+                       result.includes('skip') ? 'skipped' :
+                       result.includes('error') ? 'error' :
+                       result;
+        
+        if (outcome === 'failed' || outcome === 'error') {
+          hasFailed = true;
+        }
+        
+        report.tests.push({
+          nodeid,
+          outcome,
+          duration,
+        });
+      }
+    }
+    
+    report.duration = totalDuration;
+    report.exitCode = hasFailed ? 1 : 0;
+  } else if (Array.isArray(data.tests)) {
+    // Fallback: handle array format if it exists
     report.tests = data.tests.map((test: any) => ({
       nodeid: test.nodeid || test.id || 'unknown',
       outcome: test.outcome || 'unknown',
