@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.0.0...v1.1.0) (2025-11-03)
+
+
+### Features
+
+* add GitHub Actions links to HTML summary output ([7dec501](https://github.com/jmchilton/gh-ci-artifacts/commit/7dec50184feaa47bc8a08eca3fdda9adfad84ab9))
+
 # 1.0.0 (2025-11-03)
 
 
