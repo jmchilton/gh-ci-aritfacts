@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/gh-ci-artifacts.svg?style=flat-square)](https://www.npmjs.com/package/gh-ci-artifacts)
 [![CI Status](https://img.shields.io/github/actions/workflow/status/jmchilton/gh-ci-artifacts/ci.yml?branch=main&style=flat-square)](https://github.com/jmchilton/gh-ci-artifacts/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://opensource.org/licenses/MIT)
-[![Node 18+](https://img.shields.io/badge/Node-18%2B-brightgreen.svg?style=flat-square)](https://nodejs.org/)
+[![Node 20+](https://img.shields.io/badge/Node-20%2B-brightgreen.svg?style=flat-square)](https://nodejs.org/)
 
 Download and parse GitHub Actions CI artifacts and logs for LLM analysis.
 
@@ -24,26 +24,13 @@ Download and parse GitHub Actions CI artifacts and logs for LLM analysis.
 
 ## Installation
 
-**Option 1: Use with npx from GitHub (no installation required)**
-
-```bash
-npx github:jmchilton/gh-ci-artifacts 123
-```
-
-**Option 2: Install globally from GitHub**
-
-```bash
-npm install -g github:jmchilton/gh-ci-artifacts
-gh-ci-artifacts 123
-```
-
-**Option 3: Use with npx from npm** _(once published)_
+**Option 1: Use with npx (no installation required)**
 
 ```bash
 npx gh-ci-artifacts 123
 ```
 
-**Option 4: Install globally from npm** _(once published)_
+**Option 2: Install globally**
 
 ```bash
 npm install -g gh-ci-artifacts
@@ -52,7 +39,7 @@ gh-ci-artifacts 123
 
 **Requirements:**
 
-- Node.js 18+
+- Node.js 20+
 - [GitHub CLI (`gh`)](https://cli.github.com/) installed and authenticated
 
 ## Quick Start
