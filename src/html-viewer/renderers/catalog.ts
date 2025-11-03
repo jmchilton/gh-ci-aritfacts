@@ -5,8 +5,9 @@ import {
   escapeHtml,
   type TableColumn,
 } from "../components.js";
+import { join } from "path";
 
-export function renderCatalogJson(data: CatalogEntry[]): string {
+export function renderCatalogJson(data: CatalogEntry[], outputDir?: string): string {
   let html = '<div class="rich-view catalog-view">';
 
   // Header
@@ -48,7 +49,7 @@ export function renderCatalogJson(data: CatalogEntry[]): string {
   // Table
   html += '<div class="section-divider"></div>';
   html += "<h3>All Artifacts</h3>";
-  html += renderCatalogTable(data);
+  html += renderCatalogTable(data, outputDir);
 
   html += "</div>";
   return html;
@@ -62,7 +63,7 @@ function getTypeBreakdown(data: CatalogEntry[]): Record<string, number> {
   return breakdown;
 }
 
-function renderCatalogTable(data: CatalogEntry[]): string {
+function renderCatalogTable(data: CatalogEntry[], outputDir?: string): string {
   const columns: TableColumn[] = [
     { key: "artifactName", label: "Artifact Name" },
     { key: "runId", label: "Run ID" },
@@ -93,8 +94,7 @@ function renderCatalogTable(data: CatalogEntry[]): string {
       sortable: false,
       render: (val, row) => {
         if (!row.filePath) return "";
-        // Extract relative path from absolute path (everything after the last occurrence of /pr_reviews/NNN/)
-        // or just use the last path segments (converted/, linting/, raw/)
+        // Extract relative path for Open link
         const pathParts = row.filePath.split("/");
         const dirIndex = pathParts.lastIndexOf("converted") !== -1
           ? pathParts.lastIndexOf("converted")
@@ -103,10 +103,13 @@ function renderCatalogTable(data: CatalogEntry[]): string {
           : pathParts.lastIndexOf("raw");
         const relativePath = dirIndex !== -1 ? pathParts.slice(dirIndex).join("/") : row.filePath;
 
+        // Construct absolute path for Copy button
+        const absolutePath = outputDir ? join(outputDir, row.filePath) : row.filePath;
+
         return `
           <div class="catalog-actions">
             <a href="${escapeHtml(relativePath)}" target="_blank" class="action-link" title="Open artifact file">Open</a>
-            <button class="copy-path-btn" data-path="${escapeHtml(relativePath)}" title="Copy file path">Copy Path</button>
+            <button class="copy-path-btn" data-path="${escapeHtml(absolutePath)}" title="Copy file path">Copy Path</button>
           </div>
         `;
       },

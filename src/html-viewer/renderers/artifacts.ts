@@ -7,8 +7,9 @@ import {
   escapeHtml,
   type TableColumn,
 } from "../components.js";
+import { join } from "path";
 
-export function renderArtifactsJson(data: ArtifactInventoryItem[]): string {
+export function renderArtifactsJson(data: ArtifactInventoryItem[], outputDir?: string): string {
   let html = '<div class="rich-view artifacts-view">';
 
   // Header
@@ -65,7 +66,7 @@ export function renderArtifactsJson(data: ArtifactInventoryItem[]): string {
   // Table
   html += '<div class="section-divider"></div>';
   html += "<h3>All Artifacts</h3>";
-  html += renderArtifactsTable(data);
+  html += renderArtifactsTable(data, outputDir);
 
   html += "</div>";
   return html;
@@ -81,7 +82,7 @@ function getStatusBreakdown(
   return breakdown;
 }
 
-function renderArtifactsTable(data: ArtifactInventoryItem[]): string {
+function renderArtifactsTable(data: ArtifactInventoryItem[], outputDir?: string): string {
   const columns: TableColumn[] = [
     { key: "runId", label: "Run ID" },
     { key: "artifactName", label: "Artifact Name" },
@@ -110,10 +111,11 @@ function renderArtifactsTable(data: ArtifactInventoryItem[]): string {
       label: "Actions",
       sortable: false,
       render: (val, row) => {
-        const artifactPath = `raw/${row.runId}/artifact-${row.artifactId}`;
+        const relativePath = `raw/${row.runId}/artifact-${row.artifactId}`;
+        const absolutePath = outputDir ? join(outputDir, relativePath) : relativePath;
         return `
           <div class="artifact-actions">
-            <button class="copy-path-btn" data-path="${escapeHtml(artifactPath)}" title="Copy artifact path">Copy Path</button>
+            <button class="copy-path-btn" data-path="${escapeHtml(absolutePath)}" title="Copy artifact path">Copy Path</button>
           </div>
         `;
       },

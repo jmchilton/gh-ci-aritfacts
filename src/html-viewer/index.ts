@@ -48,6 +48,7 @@ export function generateHtmlViewer(
     summaryData,
     catalogData,
     artifactsData,
+    outputDir,
   );
 
   // Write to index.html
@@ -248,14 +249,15 @@ function generateHtml(
   summaryData: Summary,
   catalogData: CatalogEntry[],
   artifactsData: ArtifactInventoryItem[],
+  outputDir: string,
 ): string {
   // Embed file data
   const embeddedData = collectEmbeddedData(tree);
 
   // Pre-render rich views (as strings that will be embedded)
   const summaryRichHtml = renderSummaryJson(summaryData);
-  const catalogRichHtml = renderCatalogJson(catalogData);
-  const artifactsRichHtml = renderArtifactsJson(artifactsData);
+  const catalogRichHtml = renderCatalogJson(catalogData, outputDir);
+  const artifactsRichHtml = renderArtifactsJson(artifactsData, outputDir);
 
   return `<!DOCTYPE html>
 <html lang="en">
