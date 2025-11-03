@@ -1,0 +1,16 @@
+{
+  "testResults": [
+    {
+      "name": "example.test.js",
+      "status": "passed",
+      "assertionResults": [
+        {
+          "title": "should work",
+          "status": "passed"
+        }
+      ]
+    }
+  ],
+  "numTotalTests": 1,
+  "numPassedTests": 1
+}

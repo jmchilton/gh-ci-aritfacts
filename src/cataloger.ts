@@ -1,10 +1,13 @@
 import { readdirSync, statSync, mkdirSync, writeFileSync } from "fs";
 import { join, basename } from "path";
 import type { Logger } from "./utils/logger.js";
-import type { CatalogEntry, ArtifactInventoryItem } from "./types.js";
-import { detectArtifactType } from "./detectors/type-detector.js";
-import { extractPlaywrightJSON } from "./parsers/html/playwright-html.js";
-import { extractPytestJSON } from "./parsers/html/pytest-html.js";
+import type { ArtifactInventoryItem } from "./types.js";
+import {
+  detectArtifactType,
+  extractPlaywrightJSON,
+  extractPytestJSON,
+  type CatalogEntry,
+} from "artifact-detective";
 
 export interface CatalogResult {
   catalog: CatalogEntry[];

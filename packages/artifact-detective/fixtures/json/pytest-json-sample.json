@@ -1,0 +1,13 @@
+{
+  "tests": [
+    {
+      "nodeid": "test_example.py::test_function",
+      "outcome": "passed",
+      "duration": 0.001
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 0
+  }
+}

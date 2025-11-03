@@ -1,11 +1,5 @@
 import { readFileSync, statSync, openSync, readSync, closeSync } from "fs";
-import type { ArtifactType, OriginalFormat } from "../types.js";
-
-export interface DetectionResult {
-  detectedType: ArtifactType;
-  originalFormat: OriginalFormat;
-  isBinary: boolean;
-}
+import type { ArtifactType, OriginalFormat, DetectionResult } from "../types.js";
 
 const BINARY_EXTENSIONS = new Set([
   ".png",
@@ -160,6 +154,27 @@ function detectHtmlType(content: string, lowerContent: string): ArtifactType {
 
 function detectJsonType(content: string, lowerContent: string): ArtifactType {
   try {
+    // Clippy JSON: newline-delimited JSON with "reason" field
+    // Check lines for clippy pattern (compiler-message, compiler-artifact, build-finished)
+    const lines = content.split("\n");
+    for (const line of lines) {
+      if (!line.trim().startsWith("{")) continue; // Skip non-JSON lines
+      try {
+        const obj = JSON.parse(line);
+        if (
+          obj.reason &&
+          ["compiler-message", "compiler-artifact", "build-finished"].includes(
+            obj.reason,
+          )
+        ) {
+          return "clippy-json";
+        }
+      } catch {
+        // Line isn't valid JSON, continue
+        continue;
+      }
+    }
+
     // Try to parse JSON to inspect structure
     const data = JSON.parse(content);
 
@@ -214,15 +229,10 @@ function detectXmlType(content: string, lowerContent: string): ArtifactType {
 }
 
 function detectTxtType(content: string, lowerContent: string): ArtifactType {
-  // ESLint output patterns
-  if (
-    lowerContent.includes("eslint") ||
-    /\d+:\d+\s+(error|warning)/.test(content)
-  ) {
-    return "eslint-txt";
-  }
+  // Plain text files are too ambiguous for reliable auto-detection.
+  // Use validators instead to verify content matches expected format.
 
-  // Flake8 output patterns
+  // Only detect flake8 as it has unique Python-specific pattern
   if (/\.py:\d+:\d+:/.test(content)) {
     return "flake8-txt";
   }

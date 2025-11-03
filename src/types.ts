@@ -1,22 +1,15 @@
+// Re-export types from artifact-detective for convenience
+export type {
+  ArtifactType,
+  OriginalFormat,
+  CatalogEntry,
+  LinterOutput,
+} from "artifact-detective";
+
 export type RunConclusion = "failure" | "success" | "cancelled" | "in_progress";
 export type DownloadStatus = "success" | "expired" | "failed" | "skipped";
 export type ExtractionStatus = "success" | "failed";
 export type SummaryStatus = "complete" | "partial" | "incomplete";
-
-export type ArtifactType =
-  | "playwright-json"
-  | "playwright-html"
-  | "jest-json"
-  | "jest-html"
-  | "pytest-json"
-  | "pytest-html"
-  | "junit-xml"
-  | "eslint-txt"
-  | "flake8-txt"
-  | "binary"
-  | "unknown";
-
-export type OriginalFormat = "json" | "xml" | "html" | "txt" | "binary";
 
 export interface ArtifactInventoryItem {
   runId: string;
@@ -26,22 +19,6 @@ export interface ArtifactInventoryItem {
   status: DownloadStatus;
   errorMessage?: string;
   skipReason?: string;
-}
-
-export interface CatalogEntry {
-  artifactName: string;
-  artifactId: number;
-  runId: string;
-  detectedType: ArtifactType;
-  originalFormat: OriginalFormat;
-  filePath: string;
-  converted?: boolean;
-  skipped?: boolean;
-}
-
-export interface LinterOutput {
-  detectedType: string;
-  filePath: string;
 }
 
 export interface JobLog {
@@ -131,6 +108,8 @@ export interface Config {
   defaultRepo?: string;
   maxRetries?: number;
   retryDelay?: number;
+  pollInterval?: number;  // Seconds between polls when waiting (default: 1800 = 30 min)
+  maxWaitTime?: number;   // Maximum seconds to wait for completion (default: 21600 = 6 hours)
   skipArtifacts?: SkipPattern[];
   workflows?: WorkflowConfig[];
 }

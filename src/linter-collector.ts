@@ -1,11 +1,12 @@
 import { readFileSync, mkdirSync, writeFileSync } from "fs";
 import { join } from "path";
 import type { Logger } from "./utils/logger.js";
-import type { JobLog, LinterOutput } from "./types.js";
+import type { JobLog } from "./types.js";
 import {
   detectLinterType,
   extractLinterOutput,
-} from "./parsers/linters/extractors.js";
+  type LinterOutput,
+} from "artifact-detective";
 
 export interface LinterCollectionResult {
   linterOutputs: Map<string, LinterOutput[]>; // runId -> LinterOutput[]

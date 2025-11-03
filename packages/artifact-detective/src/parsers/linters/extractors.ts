@@ -6,7 +6,7 @@ export interface LinterMatch {
 }
 
 // Pattern to detect linter types from job names or log content
-const LINTER_PATTERNS = [
+export const LINTER_PATTERNS = [
   { type: "eslint", patterns: [/eslint/i, /npm run lint/i] },
   { type: "prettier", patterns: [/prettier/i, /npm run format/i] },
   { type: "ruff", patterns: [/ruff check/i, /ruff\s/i] },
@@ -37,9 +37,12 @@ export function extractLinterOutput(
   linterType: string,
   logContent: string,
 ): string | null {
+  // Map artifact types to linter types (eslint-txt -> eslint, tsc-txt -> tsc)
+  const normalizedType = linterType.replace(/-txt$/, "").replace(/-json$/, "");
+
   const lines = logContent.split("\n");
 
-  switch (linterType) {
+  switch (normalizedType) {
     case "eslint":
       return extractESLintOutput(lines);
 
@@ -49,17 +52,25 @@ export function extractLinterOutput(
     case "ruff":
     case "flake8":
     case "pylint":
-      return extractPythonLinterOutput(lines, linterType);
+      return extractPythonLinterOutput(lines, normalizedType);
 
     case "tsc":
       return extractTSCOutput(lines);
 
     case "isort":
     case "black":
-      return extractFormatterOutput(lines, linterType);
+      return extractFormatterOutput(lines, normalizedType);
 
     case "mypy":
       return extractMypyOutput(lines);
+
+    case "clippy":
+      return extractClippyOutput(lines);
+
+    case "cargo-test":
+    case "rustfmt":
+      // Raw output files, no extraction needed
+      return lines.join("\n").trim();
 
     default:
       return null;
@@ -67,6 +78,17 @@ export function extractLinterOutput(
 }
 
 function extractESLintOutput(lines: string[]): string | null {
+  // If this looks like raw ESLint output (not embedded in logs), return as-is
+  const hasEslintPattern = lines.some(
+    (line) =>
+      /\d+:\d+\s+(error|warning)/.test(line) || /\d+\s+problem/.test(line),
+  );
+
+  if (hasEslintPattern) {
+    return lines.join("\n").trim();
+  }
+
+  // Otherwise, extract from CI logs
   const outputLines: string[] = [];
   let inOutput = false;
 
@@ -127,6 +149,16 @@ function extractPythonLinterOutput(
   lines: string[],
   linterType: string,
 ): string | null {
+  // If this looks like raw linter output (not embedded in logs), return as-is
+  const hasLinterPattern = lines.some((line) =>
+    /^[a-zA-Z0-9_\-\/\.]+\.py:\d+/.test(line),
+  );
+
+  if (hasLinterPattern) {
+    return lines.join("\n").trim();
+  }
+
+  // Otherwise, extract from CI logs
   const outputLines: string[] = [];
   let inOutput = false;
 
@@ -157,6 +189,16 @@ function extractPythonLinterOutput(
 }
 
 function extractTSCOutput(lines: string[]): string | null {
+  // If this looks like raw TSC output (not embedded in logs), return as-is
+  const hasTSCPattern = lines.some((line) =>
+    /\.tsx?\(\d+,\d+\):\s+error\s+TS\d+/.test(line),
+  );
+
+  if (hasTSCPattern) {
+    return lines.join("\n").trim();
+  }
+
+  // Otherwise, extract from CI logs
   const outputLines: string[] = [];
   let inOutput = false;
 
@@ -214,6 +256,16 @@ function extractFormatterOutput(
 }
 
 function extractMypyOutput(lines: string[]): string | null {
+  // If this looks like raw mypy output (not embedded in logs), return as-is
+  const hasMypyPattern = lines.some((line) =>
+    /^[a-zA-Z0-9_\-\/\.]+\.py:\d+:\s*(error|warning|note):/.test(line),
+  );
+
+  if (hasMypyPattern) {
+    return lines.join("\n").trim();
+  }
+
+  // Otherwise, extract from CI logs
   const outputLines: string[] = [];
   let inOutput = false;
 
@@ -228,6 +280,43 @@ function extractMypyOutput(lines: string[]): string | null {
       if (line.match(/^[a-zA-Z0-9_\-\/\.]+\.py:\d+:\s*(error|warning):/)) {
         outputLines.push(line);
       } else if (line.match(/Found \d+ error/)) {
+        outputLines.push(line);
+        break;
+      }
+    }
+  }
+
+  return outputLines.length > 0 ? outputLines.join("\n") : null;
+}
+
+function extractClippyOutput(lines: string[]): string | null {
+  // If this looks like raw clippy output (not embedded in logs), return as-is
+  const hasClippyPattern = lines.some((line) =>
+    /^(warning|error):\s/.test(line) || /-->\s+\S+\.rs:\d+:\d+/.test(line),
+  );
+
+  if (hasClippyPattern) {
+    return lines.join("\n").trim();
+  }
+
+  // Otherwise, extract from CI logs
+  const outputLines: string[] = [];
+  let inOutput = false;
+
+  for (const line of lines) {
+    if (line.includes("clippy")) {
+      inOutput = true;
+      continue;
+    }
+
+    if (inOutput) {
+      // Clippy warnings start with "warning:" or "error:"
+      if (
+        line.match(/^(warning|error):/) ||
+        line.match(/-->\s+\S+\.rs:\d+:\d+/)
+      ) {
+        outputLines.push(line);
+      } else if (line.match(/\d+\s+warnings?\s+emitted/)) {
         outputLines.push(line);
         break;
       }
