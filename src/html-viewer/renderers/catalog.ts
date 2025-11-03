@@ -87,6 +87,20 @@ function renderCatalogTable(data: CatalogEntry[]): string {
       label: "Path",
       render: (val) => `<code class="file-path">${escapeHtml(val)}</code>`,
     },
+    {
+      key: "actions",
+      label: "Actions",
+      sortable: false,
+      render: (val, row) => {
+        if (!row.filePath) return "";
+        return `
+          <div class="catalog-actions">
+            <a href="${escapeHtml(row.filePath)}" target="_blank" class="action-link" title="Open artifact file">Open</a>
+            <button class="copy-path-btn" data-path="${escapeHtml(row.filePath)}" title="Copy file path">Copy Path</button>
+          </div>
+        `;
+      },
+    },
   ];
 
   return renderTable(columns, data, {

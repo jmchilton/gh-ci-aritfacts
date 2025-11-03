@@ -161,7 +161,8 @@ function getTreeStyles(): string {
 }
 
 .file-actions,
-.artifact-actions {
+.artifact-actions,
+.catalog-actions {
   display: flex;
   gap: 8px;
   align-items: center;
