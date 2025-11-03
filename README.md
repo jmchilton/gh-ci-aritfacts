@@ -464,7 +464,67 @@ Options:
 
 ## Use Cases
 
-### Claude Code Integration
+### Claude Integration
+
+#### Using with Claude Code
+
+After downloading artifacts, you can create a custom Claude command to analyze the failures. Add this context block to your `.claude/commands/analyze-ci.md` file (or include it in any command prompt):
+
+````markdown
+# Analyze CI Failures
+
+Analyze the CI failures for PR {pr_number} and provide recommendations.
+
+## gh-ci-artifacts Output Guide
+
+When analyzing CI failures from gh-ci-artifacts, the tool downloads and organizes GitHub Actions artifacts/logs into `.gh-ci-artifacts/<pr-number>/`:
+
+### Key Files (in priority order)
+
+1. **`summary.json`** - Master overview with all metadata, download status, validation results, and statistics
+2. **`catalog.json`** - Type detection results for all artifacts (playwright-json, jest-json, pytest-json, junit-xml, eslint-txt, etc.)
+3. **`artifacts.json`** - Download inventory with artifact metadata
+
+### Directory Structure
+
+- **`converted/`** - HTML reports converted to JSON (PREFER THESE over originals)
+  - Playwright HTML → JSON with test results, failures, traces
+  - pytest-html → JSON with test outcomes, errors, durations
+- **`raw/`** - Original downloaded artifacts organized by `<run-id>/artifact-<id>/`
+- **`linting/`** - Extracted linter outputs (ESLint, Prettier, Ruff, flake8, mypy, tsc, etc.) organized by `<run-id>/<job-name>-<linter>.txt`
+
+### Important Context
+
+- **By default, ONLY FAILURES are included** - all artifacts/logs represent failed or cancelled runs
+- **Always check `converted/` first** - more structured and easier to parse than HTML/raw formats
+- **Artifact IDs in paths** - `artifact-<id>` directories handle duplicate names from matrix builds
+- **Latest retry only** - if workflows were retried, only the most recent attempt is included
+- **Check `summary.json` for download status** - expired/failed artifacts noted in `downloadStatus` field
+
+### Analyzing Failures
+
+1. Start with `summary.json` to understand which workflows/jobs failed
+2. Check `catalog.json` to find detected test framework types
+3. Look in `converted/` for structured JSON reports (preferred)
+4. Check `linting/` for linter/compiler errors
+5. Fall back to `raw/` only if converted versions unavailable
+
+### Common Patterns
+
+- Test failures: Check `converted/*.json` for test names, error messages, stack traces
+- Linter errors: Check `linting/<run-id>/<job>-eslint.txt`, etc.
+- Type errors: Check `linting/<run-id>/<job>-tsc.txt` or `<job>-mypy.txt`
+- Build failures: Look in `raw/` for build logs if no linter output extracted
+````
+
+Then run the command after downloading artifacts:
+
+```bash
+npx gh-ci-artifacts 123
+claude analyze-ci --pr_number=123
+```
+
+#### Programmatic Usage
 
 ```typescript
 import { execSync } from "child_process";
