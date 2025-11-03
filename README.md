@@ -22,13 +22,13 @@ Download and parse GitHub Actions CI artifacts and logs for LLM analysis.
 **Option 1: Use with npx from GitHub (no installation required)**
 
 ```bash
-npx github:jmchilton/gh-ci-aritfacts 123
+npx github:jmchilton/gh-ci-artifacts 123
 ```
 
 **Option 2: Install globally from GitHub**
 
 ```bash
-npm install -g github:jmchilton/gh-ci-aritfacts
+npm install -g github:jmchilton/gh-ci-artifacts
 gh-ci-artifacts 123
 ```
 

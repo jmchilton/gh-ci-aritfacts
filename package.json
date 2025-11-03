@@ -39,12 +39,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jmchilton/gh-ci-aritfacts.git"
+    "url": "git+https://github.com/jmchilton/gh-ci-artifacts.git"
   },
   "bugs": {
-    "url": "https://github.com/jmchilton/gh-ci-aritfacts/issues"
+    "url": "https://github.com/jmchilton/gh-ci-artifacts/issues"
   },
-  "homepage": "https://github.com/jmchilton/gh-ci-aritfacts#readme",
+  "homepage": "https://github.com/jmchilton/gh-ci-artifacts#readme",
   "engines": {
     "node": ">=18.0.0"
   },
