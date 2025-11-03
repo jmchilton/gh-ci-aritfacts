@@ -56,7 +56,7 @@ chore: upgrade commander.js to 14.0.2
 
 ## Project Standards
 
-- Node.js >= 18.0.0
+- Node.js >= 20.0.0
 - TypeScript with strict mode
 - Full test coverage expected (75% threshold)
 - Prettier for code formatting
