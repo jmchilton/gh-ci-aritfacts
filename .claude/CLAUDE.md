@@ -14,26 +14,24 @@ This project uses [Conventional Commits](https://www.conventionalcommits.org/) w
 <footer>
 ```
 
-### Types (0.x.y versioning)
+### Types
 
-- **feat**: New feature (triggers 0.minor.0 bump)
-- **fix**: Bug fix (triggers 0.x.patch bump)
-- **perf**: Performance improvement (triggers 0.x.patch bump)
+- **feat**: New feature (triggers minor version bump)
+- **fix**: Bug fix (triggers patch version bump)
+- **perf**: Performance improvement (triggers patch version bump)
 - **docs**: Documentation only (no release)
 - **style**: Code style changes (no release)
 - **refactor**: Code refactoring (no release)
 - **test**: Adding/updating tests (no release)
 - **chore**: Build/tooling changes (no release)
 
-### Breaking Changes (0.x versioning)
+### Breaking Changes
 
-In 0.x releases, breaking changes trigger minor bump (0.minor.0):
+Add `!` after type or `BREAKING CHANGE:` in footer for major version bump:
 ```
-feat!: redesign artifact download API → 0.2.0
-BREAKING CHANGE: Download method signature changed → 0.2.0
+feat!: change API signature → major bump
+BREAKING CHANGE: API redesign → major bump
 ```
-
-Once ready for stable 1.0.0, update .releaserc.json release rules.
 
 ### Examples
 
@@ -66,18 +64,16 @@ chore: upgrade commander.js to 14.0.2
 
 ## Release Process
 
-Automated via semantic-release (0.x versioning):
+Automated via semantic-release:
 1. Push conventional commits to main
 2. CI runs tests/lint
 3. semantic-release analyzes commits
-4. Version bumped (feat→0.minor.0, fix→0.x.patch)
+4. Version bumped (feat→minor, fix→patch, breaking→major)
 5. CHANGELOG updated automatically
 6. Published to npm automatically
 7. GitHub release created
 
 No manual `npm version` or `npm publish` needed.
-
-First release was 0.1.0, subsequent features bump minor (0.2.0, 0.3.0, etc).
 
 ## Development Guidelines
 
