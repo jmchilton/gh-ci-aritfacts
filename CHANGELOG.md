@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.2.0...v1.2.1) (2025-11-03)
+
+
+### Bug Fixes
+
+* remove Open button from artifacts table (directories only) ([88564a6](https://github.com/jmchilton/gh-ci-artifacts/commit/88564a63630c8584151d556c8baa6b7bfb0cb2d3))
+
 # [1.2.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.1.1...v1.2.0) (2025-11-03)
 
 
