@@ -25,6 +25,7 @@ export interface ArtifactInventoryItem {
 
 export interface JobLog {
   jobName: string;
+  jobId?: string;
   extractionStatus: ExtractionStatus;
   logFile?: string;
   linterOutputs?: LinterOutput[];

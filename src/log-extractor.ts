@@ -52,6 +52,7 @@ export async function extractLogs(
 
           runLogs.push({
             jobName: job.name,
+            jobId: String(job.id),
             extractionStatus: "success",
             logFile: logFilePath,
           });
@@ -62,6 +63,7 @@ export async function extractLogs(
 
           runLogs.push({
             jobName: job.name,
+            jobId: String(job.id),
             extractionStatus: "failed",
           });
         }

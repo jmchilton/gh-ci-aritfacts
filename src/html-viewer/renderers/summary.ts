@@ -130,7 +130,14 @@ function renderRunsTable(data: Summary): string {
       render: () => '<span class="row-toggle">▶</span>',
     },
     { key: "workflowName", label: "Workflow" },
-    { key: "runId", label: "Run ID" },
+    {
+      key: "runId",
+      label: "Run ID",
+      render: (val, row) => {
+        const runUrl = `https://github.com/${data.repo}/actions/runs/${val}`;
+        return `<a href="${runUrl}" target="_blank" rel="noopener noreferrer">${val}</a>`;
+      },
+    },
     {
       key: "conclusion",
       label: "Status",
@@ -164,6 +171,7 @@ function renderRunsTable(data: Summary): string {
     validationResult: run.validationResult,
     artifacts: run.artifacts,
     logs: run.logs,
+    repo: data.repo,
   }));
 
   let html = renderTable(columns, rows, {
