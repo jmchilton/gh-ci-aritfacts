@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.1.1...v1.2.0) (2025-11-03)
+
+
+### Features
+
+* add Open and Copy Path buttons to All Artifacts table ([ee3bae2](https://github.com/jmchilton/gh-ci-artifacts/commit/ee3bae2370e538200b3944bb3511940260b316db))
+
 ## [1.1.1](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.1.0...v1.1.1) (2025-11-03)
 
 
