@@ -9,6 +9,8 @@ import {
   validateESLintOutput,
   validateTSCOutput,
   validateFlake8Output,
+  validateRuffOutput,
+  validateMypyOutput,
 } from "./linter-validator.js";
 
 export { validateJestJSON } from "./jest-validator.js";
@@ -20,6 +22,8 @@ export {
   validateESLintOutput,
   validateTSCOutput,
   validateFlake8Output,
+  validateRuffOutput,
+  validateMypyOutput,
 } from "./linter-validator.js";
 export type { ValidationResult, ValidatorFunction, ArtifactTypeCapabilities } from "./types.js";
 
@@ -69,6 +73,14 @@ export const ARTIFACT_TYPE_REGISTRY: Record<ArtifactType, ArtifactTypeCapabiliti
   "flake8-txt": {
     supportsAutoDetection: false,
     validator: validateFlake8Output,
+  },
+  "ruff-txt": {
+    supportsAutoDetection: false,
+    validator: validateRuffOutput,
+  },
+  "mypy-txt": {
+    supportsAutoDetection: false,
+    validator: validateMypyOutput,
   },
   "binary": {
     supportsAutoDetection: true,

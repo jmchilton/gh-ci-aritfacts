@@ -17,6 +17,7 @@ export default defineConfig({
         "fixtures/",
         "**/*.config.ts",
         "**/types.ts",
+        "**/parsers/linters/extractors.ts", // CI log extraction tested via integration
       ],
       thresholds: {
         lines: 75,

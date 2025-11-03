@@ -360,11 +360,11 @@ Goal: 100% coverage of all parsing and conversion logic.
 - **eslint-txt**: Detection + linter extraction ✓ src/parsers/linters/extractors.ts
 - **tsc-txt**: Detection + linter extraction ✓ src/parsers/linters/extractors.ts
 
-### Phase 2: Python (FUTURE)
-- **pytest-json**: Detection only
+### Phase 2: Python (✅ COMPLETED)
+- **pytest-json**: Detection only ✓ test/fixture-validation.test.ts
 - **pytest-html**: Detection + extractPytestJSON parser ✓ src/parsers/html/pytest-html.ts
-- **ruff-txt**: Detection + linter extraction
-- **mypy-txt**: Detection + linter extraction
+- **ruff-txt**: Validation + linter extraction ✓ src/parsers/linters/extractors.ts
+- **mypy-txt**: Validation + linter extraction ✓ src/parsers/linters/extractors.ts
 
 ### Deferred (Not currently supported)
 - **Java**: JUnit XML
@@ -420,12 +420,43 @@ Goal: 100% coverage of all parsing and conversion logic.
 - `eslint-output.txt` (650 B)
 - `tsc-output.txt` (451 B)
 
-### Phase 2: Python Fixtures (LATER)
+### Phase 2: Python Fixtures (✅ COMPLETED)
 
-1. Create `fixtures/sample-projects/python/` with Docker
-2. Generate pytest-html, pytest-json, ruff, mypy artifacts
-3. Extend fixture-validation.test.ts for Python
-4. Cover pytest-html parser
+**Status**: Successfully implemented. Generated 4 artifacts, 34/34 tests passing.
+
+**Completed Tasks**:
+1. ✅ Setup sample project structure
+   - Created `fixtures/sample-projects/python/`
+   - Added Dockerfile with pinned Python 3.11.7
+   - Added docker-compose.yml for artifact generation
+   - Added pyproject.toml with tool configs
+   - Added manifest.yml with artifact specifications
+
+2. ✅ Create minimal test code
+   - `tests/test_sample.py`: 4 pass, 2 fail, 1 skip (pytest)
+   - `src/sample.py`: 6 ruff violations, 6 mypy type errors
+
+3. ✅ Generate artifacts via Docker
+   - Generated 4 artifacts in `fixtures/generated/python/`
+   - Committed generated artifacts to git
+
+4. ✅ Add validation tests
+   - Extended fixture-validation.test.ts for Python
+   - Added ruff-txt and mypy-txt to type system
+   - Created validateRuffOutput and validateMypyOutput validators
+   - Fixed linter extractors to handle raw output (not just CI logs)
+   - All 34 tests passing (10 type-detector + 24 fixture-validation)
+
+5. ✅ Verify coverage goal
+   - pytest-html parser covered (extractPytestJSON)
+   - ruff/mypy extractors covered via extractLinterOutput
+   - All Python artifacts have validators
+
+**Artifacts Generated**:
+- `pytest-results.json` (4.8 KB)
+- `pytest-report.html` (35 KB)
+- `ruff-output.txt` (510 B)
+- `mypy-output.txt` (859 B)
 
 ### Phase 3: CI Integration (FUTURE)
 
@@ -458,4 +489,3 @@ Goal: 100% coverage of all parsing and conversion logic.
 - **Snapshot testing**: Auto-detect when tool output format changes
 - **Parser benchmarks**: Performance testing with real artifacts
 - **Corpus expansion**: Accept community-contributed sample projects
-- **pytest-html parser**: Currently exists but not covered by generated fixtures

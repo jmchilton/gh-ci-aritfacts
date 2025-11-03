@@ -141,6 +141,16 @@ function extractPythonLinterOutput(
   lines: string[],
   linterType: string,
 ): string | null {
+  // If this looks like raw linter output (not embedded in logs), return as-is
+  const hasLinterPattern = lines.some((line) =>
+    /^[a-zA-Z0-9_\-\/\.]+\.py:\d+/.test(line),
+  );
+
+  if (hasLinterPattern) {
+    return lines.join("\n").trim();
+  }
+
+  // Otherwise, extract from CI logs
   const outputLines: string[] = [];
   let inOutput = false;
 
@@ -238,6 +248,16 @@ function extractFormatterOutput(
 }
 
 function extractMypyOutput(lines: string[]): string | null {
+  // If this looks like raw mypy output (not embedded in logs), return as-is
+  const hasMypyPattern = lines.some((line) =>
+    /^[a-zA-Z0-9_\-\/\.]+\.py:\d+:\s*(error|warning|note):/.test(line),
+  );
+
+  if (hasMypyPattern) {
+    return lines.join("\n").trim();
+  }
+
+  // Otherwise, extract from CI logs
   const outputLines: string[] = [];
   let inOutput = false;
 

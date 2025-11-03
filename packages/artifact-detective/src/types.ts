@@ -9,6 +9,8 @@ export type ArtifactType =
   | "junit-xml"
   | "eslint-txt"
   | "tsc-txt"
+  | "ruff-txt"
+  | "mypy-txt"
   | "flake8-txt"
   | "binary"
   | "unknown";

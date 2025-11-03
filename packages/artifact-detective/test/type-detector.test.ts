@@ -76,6 +76,15 @@ describe("detectArtifactType", () => {
         "json",
       );
     });
+
+    it("returns unknown for generic JSON without test framework markers", () => {
+      const result = detectArtifactType(
+        join(FIXTURES_DIR, "json/generic-data.json"),
+      );
+      expect(result.detectedType).toBe("unknown");
+      expect(result.originalFormat).toBe("json");
+      expect(result.isBinary).toBe(false);
+    });
   });
 
   describe("XML detection", () => {
@@ -129,6 +138,26 @@ describe("detectArtifactType", () => {
       expect(result.detectedType).toBe("binary");
       expect(result.originalFormat).toBe("binary");
       expect(result.isBinary).toBe(true);
+    });
+  });
+
+  describe("Edge cases", () => {
+    it("handles file read errors (returns unknown with correct format)", () => {
+      // Non-existent file should return unknown but detect format by extension
+      const result = detectArtifactType("/nonexistent/file.json");
+      expect(result.detectedType).toBe("unknown");
+      expect(result.originalFormat).toBe("json");
+      expect(result.isBinary).toBe(false);
+    });
+
+    it("detects format by extension for unreadable files", () => {
+      const xmlResult = detectArtifactType("/nonexistent/file.xml");
+      expect(xmlResult.originalFormat).toBe("xml");
+      expect(xmlResult.detectedType).toBe("unknown");
+
+      const htmlResult = detectArtifactType("/nonexistent/file.html");
+      expect(htmlResult.originalFormat).toBe("html");
+      expect(htmlResult.detectedType).toBe("unknown");
     });
   });
 });

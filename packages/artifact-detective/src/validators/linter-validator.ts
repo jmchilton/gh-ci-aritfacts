@@ -53,3 +53,41 @@ export function validateFlake8Output(content: string): ValidationResult {
   };
 }
 
+export function validateRuffOutput(content: string): ValidationResult {
+  // Ruff output pattern:
+  // path/to/file.py:line:col: CODE [*] message
+  // Example: src/sample.py:2:8: F401 [*] `os` imported but unused
+  // Summary: Found N errors.
+
+  const ruffPattern = /\.py:\d+:\d+:\s+[A-Z]\d+/.test(content);
+  const ruffSummary = /Found\s+\d+\s+error/.test(content);
+
+  if (ruffPattern || ruffSummary) {
+    return { valid: true };
+  }
+
+  return {
+    valid: false,
+    error: "Does not match ruff output format",
+  };
+}
+
+export function validateMypyOutput(content: string): ValidationResult {
+  // Mypy output pattern:
+  // path/to/file.py:line: error: message  [error-code]
+  // Example: src/sample.py:8: error: Function is missing a return type annotation  [no-untyped-def]
+  // Summary: Found N errors in N files (checked N source files)
+
+  const mypyPattern = /\.py:\d+:\s+error:/.test(content);
+  const mypySummary = /Found\s+\d+\s+error/.test(content);
+
+  if (mypyPattern || mypySummary) {
+    return { valid: true };
+  }
+
+  return {
+    valid: false,
+    error: "Does not match mypy output format",
+  };
+}
+
