@@ -3,8 +3,10 @@ export type {
   ArtifactType,
   OriginalFormat,
   CatalogEntry,
-  LinterOutput,
 } from "artifact-detective";
+
+import type { LinterOutput } from "artifact-detective";
+export type { LinterOutput };
 
 export type RunConclusion = "failure" | "success" | "cancelled" | "in_progress";
 export type DownloadStatus = "success" | "expired" | "failed" | "skipped";

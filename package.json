@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "description": "Download and parse GitHub Actions CI artifacts and logs for LLM analysis",
   "type": "module",
-  "workspaces": [
-    "packages/*"
-  ],
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
@@ -20,7 +17,7 @@
     "build": "tsc",
     "dev": "tsx src/cli.ts",
     "format": "prettier --write .",
-    "check-format": "prettier --check .", 
+    "check-format": "prettier --check .",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
@@ -58,7 +55,7 @@
     "vitest": "^4.0.6"
   },
   "dependencies": {
-    "artifact-detective": "workspace:*",
+    "artifact-detective": "file:../artifact-detective",
     "@types/node": "^24.9.2",
     "cheerio": "^1.1.2",
     "commander": "^14.0.2",
