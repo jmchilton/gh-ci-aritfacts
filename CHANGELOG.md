@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.4.0...v1.4.1) (2025-11-03)
+
+
+### Bug Fixes
+
+* use absolute paths for Copy Path buttons ([929ac64](https://github.com/jmchilton/gh-ci-artifacts/commit/929ac641f0d1259d927515d3d582ff279a363b20))
+
 # [1.4.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.3.1...v1.4.0) (2025-11-03)
 
 
