@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.1.0...v1.1.1) (2025-11-03)
+
+
+### Bug Fixes
+
+* resolve undefined data reference in GitHub Actions links ([c94d5c5](https://github.com/jmchilton/gh-ci-artifacts/commit/c94d5c5fd90176922c484370d19a0a5e9ee4a806))
+
 # [1.1.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.0.0...v1.1.0) (2025-11-03)
 
 
