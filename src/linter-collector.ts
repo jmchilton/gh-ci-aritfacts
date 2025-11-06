@@ -1,28 +1,35 @@
 import { readFileSync, mkdirSync, writeFileSync } from "fs";
 import { join } from "path";
 import type { Logger } from "./utils/logger.js";
-import type { JobLog } from "./types.js";
+import type { JobLog, ArtifactExtractionConfig } from "./types.js";
 import {
-  detectLinterType,
-  extractLinterOutput,
+  extractArtifactFromLog,
+  extractArtifactToJson,
   type LinterOutput,
 } from "artifact-detective";
 
-export interface LinterCollectionResult {
-  linterOutputs: Map<string, LinterOutput[]>; // runId -> LinterOutput[]
+export interface ArtifactCollectionResult {
+  artifactOutputs: Map<string, LinterOutput[]>; // runId -> LinerOutput[]
 }
 
-export async function collectLinterOutputs(
+export async function collectArtifactsFromLogs(
   outputDir: string,
   logsByRun: Map<string, JobLog[]>,
+  extractionConfigs: ArtifactExtractionConfig[] | undefined,
   logger: Logger,
-): Promise<LinterCollectionResult> {
-  const linterOutputs = new Map<string, LinterOutput[]>();
+): Promise<ArtifactCollectionResult> {
+  const artifactOutputs = new Map<string, LinterOutput[]>();
+
+  // If no types specified, skip extraction
+  if (!extractionConfigs || extractionConfigs.length === 0) {
+    logger.debug("No artifact types configured for extraction from logs");
+    return { artifactOutputs };
+  }
 
   for (const [runId, logs] of logsByRun.entries()) {
-    logger.debug(`\nProcessing linter outputs for run ${runId}...`);
+    logger.debug(`\nProcessing artifacts for run ${runId}...`);
 
-    const runLinterOutputs: LinterOutput[] = [];
+    const runArtifactOutputs: LinterOutput[] = [];
 
     for (const log of logs) {
       if (!log.logFile || log.extractionStatus !== "success") {
@@ -31,54 +38,90 @@ export async function collectLinterOutputs(
 
       try {
         const logContent = readFileSync(log.logFile, "utf-8");
-        const linterType = detectLinterType(log.jobName, logContent);
 
-        if (!linterType) {
-          logger.debug(`  No linter detected in job: ${log.jobName}`);
-          continue;
+        // Try each configured artifact type
+        let foundMatch = false;
+        for (const config of extractionConfigs) {
+          // Compile regex patterns from strings
+          const extractorConfig = config.extractorConfig
+            ? {
+                startMarker: config.extractorConfig.startMarker
+                  ? new RegExp(config.extractorConfig.startMarker)
+                  : undefined,
+                endMarker: config.extractorConfig.endMarker
+                  ? new RegExp(config.extractorConfig.endMarker)
+                  : undefined,
+                includeEndMarker: config.extractorConfig.includeEndMarker,
+              }
+            : undefined;
+
+          let artifactOutput: string | null = null;
+
+          if (config.toJson) {
+            // Use extractArtifactToJson for normalized JSON output
+            const result = extractArtifactToJson(config.type, logContent);
+            artifactOutput = result ? JSON.stringify(result, null, 2) : null;
+          } else {
+            // Use extractArtifactFromLog for raw extraction
+            artifactOutput = extractArtifactFromLog(
+              config.type,
+              logContent,
+              extractorConfig,
+            );
+          }
+
+          if (artifactOutput) {
+            logger.debug(
+              `  Detected ${config.type} in job: ${log.jobName}${config.toJson ? " (normalized JSON)" : ""}`,
+            );
+
+            // Save artifact output
+            const artifactDir = join(outputDir, "artifacts", runId);
+            mkdirSync(artifactDir, { recursive: true });
+
+            const ext = config.toJson ? "json" : "txt";
+            const fileName = `${sanitizeJobName(log.jobName)}-${config.type}.${ext}`;
+            const filePath = join(artifactDir, fileName);
+
+            writeFileSync(filePath, artifactOutput);
+
+            runArtifactOutputs.push({
+              detectedType: `${config.type}-${ext}`,
+              filePath,
+            });
+
+            logger.debug(`    Saved artifact output to ${filePath}`);
+
+            // Update job log with artifact outputs
+            log.linterOutputs = log.linterOutputs || [];
+            log.linterOutputs.push({
+              detectedType: `${config.type}-${ext}`,
+              filePath,
+            });
+
+            foundMatch = true;
+            break; // Stop after first match for this log
+          }
         }
 
-        logger.debug(`  Detected ${linterType} in job: ${log.jobName}`);
-
-        const linterOutput = extractLinterOutput(linterType, logContent);
-
-        if (linterOutput) {
-          // Save linter output
-          const lintingDir = join(outputDir, "linting", runId);
-          mkdirSync(lintingDir, { recursive: true });
-
-          const fileName = `${sanitizeJobName(log.jobName)}-${linterType}.txt`;
-          const filePath = join(lintingDir, fileName);
-
-          writeFileSync(filePath, linterOutput);
-
-          runLinterOutputs.push({
-            detectedType: `${linterType}-txt`,
-            filePath,
-          });
-
-          logger.debug(`    Saved linter output to ${filePath}`);
-
-          // Update job log with linter outputs
-          log.linterOutputs = log.linterOutputs || [];
-          log.linterOutputs.push({
-            detectedType: `${linterType}-txt`,
-            filePath,
-          });
+        if (!foundMatch) {
+          logger.debug(
+            `  No configured artifact types detected in job: ${log.jobName}`,
+          );
         }
       } catch (error) {
         logger.error(
-          `  Failed to process linter output for ${log.jobName}: ${error instanceof Error ? error.message : String(error)}`,
+          `  Failed to process artifact for ${log.jobName}: ${error instanceof Error ? error.message : String(error)}`,
         );
       }
     }
 
-    if (runLinterOutputs.length > 0) {
-      linterOutputs.set(runId, runLinterOutputs);
+    if (runArtifactOutputs.length > 0) {
+      artifactOutputs.set(runId, runArtifactOutputs);
     }
   }
 
-  return { linterOutputs };
+  return { artifactOutputs };
 }
 
 function sanitizeJobName(name: string): string {

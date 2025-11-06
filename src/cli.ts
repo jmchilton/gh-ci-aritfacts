@@ -8,8 +8,13 @@ import { Logger } from "./utils/logger.js";
 import { downloadArtifacts } from "./downloader.js";
 import { extractLogs } from "./log-extractor.js";
 import { catalogArtifacts } from "./cataloger.js";
-import { collectLinterOutputs } from "./linter-collector.js";
+import { collectArtifactsFromLogs } from "./linter-collector.js";
 import { generateSummary, determineExitCode } from "./summary-generator.js";
+import type {
+  Config,
+  JobLog,
+  ArtifactExtractionConfig,
+} from "./types.js";
 
 const program = new Command();
 
@@ -161,21 +166,30 @@ program
         logger.info(`\n=== Log extraction complete ===`);
         logger.info(`Total logs extracted: ${totalLogsExtracted}`);
 
-        // Collect linter outputs from logs
-        logger.info("\n=== Collecting linter outputs ===");
-        const linterResult = await collectLinterOutputs(
+        // Collect artifacts from logs
+        logger.info("\n=== Collecting artifacts from logs ===");
+
+        // Merge global and workflow-specific extraction configs
+        const extractionConfig = getExtractionConfig(
+          config,
+          result.workflowRuns,
+          logResult.logs,
+        );
+
+        const artifactResult = await collectArtifactsFromLogs(
           outputDir,
           logResult.logs,
+          extractionConfig,
           logger,
         );
 
-        let totalLinterOutputs = 0;
-        linterResult.linterOutputs.forEach((outputs) => {
-          totalLinterOutputs += outputs.length;
+        let totalArtifactOutputs = 0;
+        artifactResult.artifactOutputs.forEach((outputs) => {
+          totalArtifactOutputs += outputs.length;
         });
 
-        logger.info(`\n=== Linter collection complete ===`);
-        logger.info(`Total linter outputs extracted: ${totalLinterOutputs}`);
+        logger.info(`\n=== Artifact collection complete ===`);
+        logger.info(`Total artifacts extracted: ${totalArtifactOutputs}`);
       }
 
       // Catalog artifacts and convert HTML
@@ -286,5 +300,61 @@ program
       process.exit(1);
     }
   });
+
+/**
+ * Get artifact extraction configuration, merging global and workflow-specific configs.
+ * Returns the appropriate extraction config based on the workflows of the runs being processed.
+ */
+function getExtractionConfig(
+  config: Config,
+  workflowRuns: Map<
+    string,
+    { name: string; path: string; run_attempt: number; run_number: number }
+  >,
+  logsByRun: Map<string, JobLog[]>,
+): ArtifactExtractionConfig[] | undefined {
+  // If there are no workflow-specific configs, use global config
+  if (!config.workflows || config.workflows.length === 0) {
+    return config.extractArtifactTypesFromLogs;
+  }
+
+  // Map from runId to workflow name
+  const runToWorkflow = new Map<string, string>();
+  for (const [runId, workflowInfo] of workflowRuns) {
+    runToWorkflow.set(runId, workflowInfo.name);
+  }
+
+  // Collect all extraction configs from runs being processed
+  const extractionConfigs = new Map<string, ArtifactExtractionConfig>();
+
+  // Add global defaults first
+  if (config.extractArtifactTypesFromLogs) {
+    for (const extractConfig of config.extractArtifactTypesFromLogs) {
+      extractionConfigs.set(extractConfig.type, extractConfig);
+    }
+  }
+
+  // Override with workflow-specific configs for runs that match
+  for (const runId of logsByRun.keys()) {
+    const workflowName = runToWorkflow.get(runId);
+    if (!workflowName) continue;
+
+    const matchingWorkflow = config.workflows.find(
+      (w) => w.workflow === workflowName,
+    );
+    if (
+      matchingWorkflow &&
+      matchingWorkflow.extractArtifactTypesFromLogs
+    ) {
+      for (const extractConfig of matchingWorkflow.extractArtifactTypesFromLogs) {
+        extractionConfigs.set(extractConfig.type, extractConfig);
+      }
+    }
+  }
+
+  return extractionConfigs.size > 0
+    ? Array.from(extractionConfigs.values())
+    : undefined;
+}
 
 program.parse();

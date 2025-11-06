@@ -76,6 +76,9 @@ export function mergeConfig(
     pollInterval: cliConfig.pollInterval ?? fileConfig.pollInterval ?? 1800, // 30 minutes
     maxWaitTime: cliConfig.maxWaitTime ?? fileConfig.maxWaitTime ?? 21600, // 6 hours
     skipArtifacts: cliConfig.skipArtifacts ?? fileConfig.skipArtifacts,
+    extractArtifactTypesFromLogs:
+      cliConfig.extractArtifactTypesFromLogs ??
+      fileConfig.extractArtifactTypesFromLogs,
     workflows: cliConfig.workflows ?? fileConfig.workflows,
   };
 }

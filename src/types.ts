@@ -5,7 +5,7 @@ export type {
   CatalogEntry,
 } from "artifact-detective";
 
-import type { LinterOutput } from "artifact-detective";
+import type { LinterOutput, ArtifactType } from "artifact-detective";
 export type { LinterOutput };
 
 export type RunConclusion = "failure" | "success" | "cancelled" | "in_progress";
@@ -98,10 +98,21 @@ export interface ExpectPattern {
   reason?: string;
 }
 
+export interface ArtifactExtractionConfig {
+  type: ArtifactType;
+  toJson?: boolean; // If true, use extractArtifactToJson for normalized JSON output
+  extractorConfig?: {
+    startMarker?: string; // Regex pattern as string (will be compiled to RegExp)
+    endMarker?: string; // Regex pattern as string (will be compiled to RegExp)
+    includeEndMarker?: boolean;
+  };
+}
+
 export interface WorkflowConfig {
   workflow: string;
   skipArtifacts?: SkipPattern[];
   expectArtifacts?: ExpectPattern[];
+  extractArtifactTypesFromLogs?: ArtifactExtractionConfig[]; // Per-workflow artifact extraction
   skip?: boolean;
   description?: string;
 }
@@ -114,5 +125,6 @@ export interface Config {
   pollInterval?: number; // Seconds between polls when waiting (default: 1800 = 30 min)
   maxWaitTime?: number; // Maximum seconds to wait for completion (default: 21600 = 6 hours)
   skipArtifacts?: SkipPattern[];
+  extractArtifactTypesFromLogs?: ArtifactExtractionConfig[]; // Default artifact extraction config
   workflows?: WorkflowConfig[];
 }
