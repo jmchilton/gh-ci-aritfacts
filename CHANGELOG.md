@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.7.0...v1.8.0) (2025-11-07)
+
+
+### Features
+
+* add validation info to catalog rich display ([d9b5d51](https://github.com/jmchilton/gh-ci-artifacts/commit/d9b5d51a56e88892b6565a0a63dd0f3b99f7a7be))
+
 # [1.7.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.6.0...v1.7.0) (2025-11-07)
 
 
