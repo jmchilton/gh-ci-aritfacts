@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.12.0...v1.13.0) (2025-11-07)
+
+
+### Features
+
+* add GitHub links and PR branch tracking with strong types ([759e530](https://github.com/jmchilton/gh-ci-artifacts/commit/759e530a99eb7132cdbcba46a03fd13fdc4d5c31))
+
 # [1.12.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.11.0...v1.12.0) (2025-11-07)
 
 
