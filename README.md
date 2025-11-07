@@ -9,7 +9,7 @@ Download and parse GitHub Actions CI artifacts and logs for LLM analysis.
 
 ## Overview
 
-`gh-ci-artifacts` automates the collection and normalization of GitHub Actions CI failures into structured JSON optimized for LLM analysis. It handles artifact downloads, log extraction, and parsing of common test/linter formats.
+`gh-ci-artifacts` automates the collection and normalization of GitHub Actions CI failures into structured JSON optimized for LLM analysis. It handles artifact downloads, log extraction, and parsing of common test/linter formats. Artifact type detection and validation is powered by [artifact-detective](https://jmchilton.github.io/artifact-detective/), which identifies and validates 20+ test framework and linter output formats.
 
 **Key Features:**
 
@@ -89,16 +89,16 @@ npx gh-ci-artifacts 123 --debug
 - Only failed and cancelled runs are downloaded. Use `--include-successes` to download all runs.
 - **Only the latest retry attempt** for each workflow is processed. If a workflow was retried, earlier failed attempts are automatically skipped to avoid duplicate artifacts/logs.
 
-After downloading, open `.gh-ci-artifacts/<pr-number>/index.html` in your browser for an interactive file tree viewer.
+After downloading, open `.gh-ci-artifacts/<ref>/index.html` in your browser for an interactive file tree viewer (where `<ref>` is `pr-<number>` for PRs or `branch-<remote>-<name>` for branches).
 
-### Re-downloading PR Artifacts
+### Re-downloading Artifacts
 
-When re-running for an existing PR:
+When re-running for an existing PR or branch:
 
-- **Without --resume**: Existing artifacts backed up to `.gh-ci-artifacts/<pr>-<timestamp>`, fresh download starts
+- **Without --resume**: Existing artifacts backed up to `.gh-ci-artifacts/<ref>-<timestamp>`, fresh download starts
 - **With --resume**: Uses existing artifacts, retries only failures and incomplete downloads
 
-This allows tracking PR evolution over time while preserving historical snapshots.
+This allows tracking evolution over time (PR updates or branch commits) while preserving historical snapshots.
 
 ## Configuration
 
@@ -535,27 +535,15 @@ Validate that your CI workflows produce expected artifacts:
 }
 ```
 
-## Supported Test Frameworks
+## Supported CI Artifact Types
 
-**Artifact detection:**
+For a comprehensive list of all supported artifact types, see the [artifact-detective documentation](https://jmchilton.github.io/artifact-detective/#/artifact-types/). This includes:
 
-- Playwright (JSON and HTML reports)
-- Jest (JSON)
-- pytest (JSON, HTML)
-- JUnit (XML)
-- Binary files (screenshots, videos)
+- **[Test Frameworks](https://jmchilton.github.io/artifact-detective/#/artifact-types/test-frameworks)** - Playwright, Jest, pytest, JUnit, and more
+- **[Linters & Formatters](https://jmchilton.github.io/artifact-detective/#/artifact-types/linters)** - ESLint, Prettier, Ruff, flake8, isort, black, TypeScript (`tsc`), mypy, pylint
+- **Binary artifacts** - Screenshots, videos, and other non-text artifacts
 
-**Linter detection:**
-
-- ESLint
-- Prettier
-- Ruff
-- flake8
-- isort
-- black
-- TypeScript (`tsc`)
-- mypy
-- pylint
+Artifact type detection and validation is handled by [artifact-detective](https://jmchilton.github.io/artifact-detective/), the source of truth for artifact format specifications.
 
 ## Exit Codes
 
@@ -731,10 +719,12 @@ This reduces the need for HTML parsing and improves data quality.
 
 Contributions welcome! Areas for improvement:
 
-- Additional test framework support
-- More linter patterns
-- HTML parser improvements
-- Performance optimizations
+- **Artifact type support** (test frameworks, linters, formatters) - Contribute to [artifact-detective](https://github.com/jmchilton/artifact-detective) for artifact detection and validation improvements
+- **HTML parser improvements** - Also contribute to [artifact-detective](https://github.com/jmchilton/artifact-detective) for HTML-to-JSON conversion
+- **Performance optimizations** - Improve download speed, API efficiency, or artifact processing
+- **Documentation and examples** - Help document use cases and best practices
+
+**Note:** Artifact type detection, validation, and conversion is primarily handled by [artifact-detective](https://jmchilton.github.io/artifact-detective/). For new test framework support, linter patterns, or HTML parser improvements, please contribute directly to that project.
 
 ## License
 
