@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.11.0...v1.12.0) (2025-11-07)
+
+
+### Features
+
+* add branch mode support with smart argument detection ([939328f](https://github.com/jmchilton/gh-ci-artifacts/commit/939328fef26542e0bb94293c94d8be418464da28))
+
 # [1.11.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.10.0...v1.11.0) (2025-11-07)
 
 
