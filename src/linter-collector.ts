@@ -60,14 +60,14 @@ export async function collectArtifactsFromLogs(
           if (result) {
             const { content: artifactOutput, artifact } = result;
             logger.debug(
-              `  Detected ${config.type} in job: ${log.jobName}${config.toJson ? " (normalized to " + (artifact.isJSON ? "JSON" : "text") + ")" : ""}`,
+              `  Detected ${config.type} in job: ${log.jobName}${config.toJson ? " (normalized)" : ""}`,
             );
 
             // Save artifact output
             const artifactDir = join(outputDir, "artifacts", runId);
             mkdirSync(artifactDir, { recursive: true });
 
-            const ext = artifact.isJSON ? "json" : "txt";
+            const ext = artifact.fileExtension || "txt";
             const fileName = `${sanitizeJobName(log.jobName)}-${config.type}.${ext}`;
             const filePath = join(artifactDir, fileName);
 
