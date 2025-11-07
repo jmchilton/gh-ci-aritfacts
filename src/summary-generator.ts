@@ -76,6 +76,8 @@ export function generateSummary(
           detectedType: catalogEntry?.detectedType,
           filePath: catalogEntry?.filePath,
           converted: catalogEntry?.converted,
+          artifact: catalogEntry?.artifact,
+          validation: catalogEntry?.validation,
         };
       });
 
@@ -112,6 +114,18 @@ export function generateSummary(
       0,
     ),
     htmlConverted: catalog.filter((c) => c.converted).length,
+    artifactsValidated: catalog.filter((c) => c.validation !== undefined).length,
+    artifactsInvalid: catalog.filter((c) => c.validation && !c.validation.valid)
+      .length,
+    linterOutputsExtracted: Array.from(logs.values()).reduce(
+      (total, runLogs) =>
+        total +
+        runLogs.reduce(
+          (sum, log) => sum + (log.linterOutputs?.length || 0),
+          0,
+        ),
+      0,
+    ),
   };
 
   const summary: Summary = {

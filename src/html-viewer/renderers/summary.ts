@@ -40,6 +40,21 @@ export function renderSummaryJson(data: Summary): string {
     },
     { label: "📄 Logs", value: data.stats.logsExtracted },
     { label: "🔄 Converted", value: data.stats.htmlConverted },
+    {
+      label: "✓ Validated",
+      value: data.stats.artifactsValidated,
+      type: "success",
+    },
+    {
+      label: "✗ Invalid",
+      value: data.stats.artifactsInvalid,
+      type: data.stats.artifactsInvalid > 0 ? "warning" : "",
+    },
+    {
+      label: "🔍 Linters",
+      value: data.stats.linterOutputsExtracted,
+      type: "info",
+    },
   ]);
 
   // Add in-progress runs if any

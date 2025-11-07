@@ -1,13 +1,12 @@
 import { readdirSync, statSync, mkdirSync, writeFileSync } from "fs";
 import { join, basename, extname } from "path";
 import type { Logger } from "./utils/logger.js";
-import type { ArtifactInventoryItem } from "./types.js";
+import type { ArtifactInventoryItem, CatalogEntry } from "./types.js";
 import {
   canConvertToJSON,
   convertToJSON,
   detectArtifactType,
   isJSON,
-  type CatalogEntry,
 } from "artifact-detective";
 
 export interface CatalogResult {
@@ -74,7 +73,7 @@ export async function catalogArtifacts(
       const files = getAllFiles(artifactDir);
 
       for (const filePath of files) {
-        const detection = detectArtifactType(filePath);
+        const detection = detectArtifactType(filePath, { validate: true });
 
         if (detection.isBinary) {
           // Skip binary files
@@ -88,6 +87,26 @@ export async function catalogArtifacts(
             skipped: true,
           });
           continue;
+        }
+
+        // Log artifact descriptor and validation info
+        if (detection.artifact) {
+          logger.debug(
+            `  ${basename(filePath)}: ${detection.artifact.shortDescription}`,
+          );
+          if (detection.artifact.toolUrl) {
+            logger.debug(`    Tool: ${detection.artifact.toolUrl}`);
+          }
+        }
+
+        if (detection.validationResult) {
+          if (detection.validationResult.valid) {
+            logger.debug(`    Validation: ✓ valid`);
+          } else {
+            logger.warn(
+              `    Validation: ✗ INVALID - ${detection.validationResult.error}`,
+            );
+          }
         }
 
         // Handle HTML conversion
@@ -122,6 +141,8 @@ export async function catalogArtifacts(
                 originalFormat: detection.originalFormat,
                 filePath: convertedFilePath,
                 converted: true,
+                artifact: detection.artifact,
+                validation: detection.validationResult,
               });
 
               logger.debug(`    Saved to ${convertedFilePath}`);
@@ -135,6 +156,8 @@ export async function catalogArtifacts(
                 detectedType: detection.detectedType,
                 originalFormat: detection.originalFormat,
                 filePath,
+                artifact: detection.artifact,
+                validation: detection.validationResult,
               });
             }
           } catch (error) {
@@ -148,6 +171,8 @@ export async function catalogArtifacts(
               detectedType: detection.detectedType,
               originalFormat: detection.originalFormat,
               filePath,
+              artifact: detection.artifact,
+              validation: detection.validationResult,
             });
           }
         } else {
@@ -159,6 +184,8 @@ export async function catalogArtifacts(
             detectedType: detection.detectedType,
             originalFormat: detection.originalFormat,
             filePath,
+            artifact: detection.artifact,
+            validation: detection.validationResult,
           });
         }
       }

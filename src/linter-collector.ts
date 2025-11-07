@@ -1,8 +1,8 @@
 import { readFileSync, mkdirSync, writeFileSync } from "fs";
 import { join } from "path";
 import type { Logger } from "./utils/logger.js";
-import type { JobLog, ArtifactExtractionConfig } from "./types.js";
-import { extract, type LinterOutput } from "artifact-detective";
+import type { JobLog, ArtifactExtractionConfig, LinterOutput } from "./types.js";
+import { extract } from "artifact-detective";
 
 export interface ArtifactCollectionResult {
   artifactOutputs: Map<string, LinterOutput[]>; // runId -> LinerOutput[]
@@ -58,10 +58,27 @@ export async function collectArtifactsFromLogs(
           });
 
           if (result) {
-            const { content: artifactOutput, artifact } = result;
+            const { content: artifactOutput, artifact, validationResult } = result;
             logger.debug(
               `  Detected ${config.type} in job: ${log.jobName}${config.toJson ? " (normalized)" : ""}`,
             );
+            if (artifact) {
+              logger.debug(
+                `    ${artifact.shortDescription} (${artifact.fileExtension || "txt"})`,
+              );
+              if (artifact.toolUrl) {
+                logger.debug(`    Tool: ${artifact.toolUrl}`);
+              }
+            }
+            if (validationResult) {
+              if (validationResult.valid) {
+                logger.debug(`    Validation: ✓ valid`);
+              } else {
+                logger.warn(
+                  `    Validation: ✗ INVALID - ${validationResult.error}`,
+                );
+              }
+            }
 
             // Save artifact output
             const artifactDir = join(outputDir, "artifacts", runId);
@@ -76,6 +93,8 @@ export async function collectArtifactsFromLogs(
             runArtifactOutputs.push({
               detectedType: `${config.type}-${ext}`,
               filePath,
+              artifact,
+              validation: validationResult,
             });
 
             logger.debug(`    Saved artifact output to ${filePath}`);
@@ -85,6 +104,8 @@ export async function collectArtifactsFromLogs(
             log.linterOutputs.push({
               detectedType: `${config.type}-${ext}`,
               filePath,
+              artifact,
+              validation: validationResult,
             });
 
             foundMatch = true;

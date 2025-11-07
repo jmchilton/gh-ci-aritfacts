@@ -11,6 +11,7 @@ import { getScripts } from "./scripts.js";
 import { renderSummaryJson } from "./renderers/summary.js";
 import { renderCatalogJson } from "./renderers/catalog.js";
 import { renderArtifactsJson } from "./renderers/artifacts.js";
+import { renderArtifactReference } from "./renderers/artifact-reference.js";
 
 export interface FileNode {
   name: string;
@@ -247,7 +248,7 @@ function generateHtml(
   summary: Summary,
   tree: FileNode,
   summaryData: Summary,
-  catalogData: CatalogEntry[],
+  catalog: CatalogEntry[],
   artifactsData: ArtifactInventoryItem[],
   outputDir: string,
 ): string {
@@ -256,7 +257,7 @@ function generateHtml(
 
   // Pre-render rich views (as strings that will be embedded)
   const summaryRichHtml = renderSummaryJson(summaryData);
-  const catalogRichHtml = renderCatalogJson(catalogData, outputDir);
+  const catalogRichHtml = renderCatalogJson(catalog, outputDir);
   const artifactsRichHtml = renderArtifactsJson(artifactsData, outputDir);
 
   return `<!DOCTYPE html>
@@ -304,6 +305,8 @@ function generateHtml(
       ${tree.children?.map((child) => renderTreeNode(child, 0)).join("") || ""}
     </div>
   </section>
+
+  ${renderArtifactReference(catalog)}
 
   <section class="preview-panel hidden">
     <div class="preview-header">

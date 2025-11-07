@@ -2,11 +2,29 @@
 export type {
   ArtifactType,
   OriginalFormat,
-  CatalogEntry,
+  ArtifactDescriptor,
 } from "artifact-detective";
 
-import type { LinterOutput, ArtifactType } from "artifact-detective";
-export type { LinterOutput };
+import type {
+  LinterOutput as LinterOutputBase,
+  ArtifactType,
+  ArtifactDescriptor,
+  ValidationResult as ArtifactValidationResult,
+  CatalogEntry as CatalogEntryBase,
+} from "artifact-detective";
+export type { ArtifactValidationResult };
+
+// Extend CatalogEntry to include artifact descriptor and validation
+export interface CatalogEntry extends CatalogEntryBase {
+  artifact?: ArtifactDescriptor;
+  validation?: ArtifactValidationResult;
+}
+
+// Extend LinterOutput to include artifact descriptor and validation
+export interface LinterOutput extends LinterOutputBase {
+  artifact?: ArtifactDescriptor;
+  validation?: ArtifactValidationResult;
+}
 
 export type RunConclusion = "failure" | "success" | "cancelled" | "in_progress";
 export type DownloadStatus = "success" | "expired" | "failed" | "skipped";
@@ -39,6 +57,8 @@ export interface RunArtifact {
   detectedType?: string;
   filePath?: string;
   converted?: boolean;
+  artifact?: ArtifactDescriptor;
+  validation?: ArtifactValidationResult;
 }
 
 export interface ExpectationViolation {
@@ -84,6 +104,9 @@ export interface Summary {
     artifactsFailed: number;
     logsExtracted: number;
     htmlConverted: number;
+    artifactsValidated: number;
+    artifactsInvalid: number;
+    linterOutputsExtracted: number;
   };
 }
 
