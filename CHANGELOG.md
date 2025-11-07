@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.9.0...v1.10.0) (2025-11-07)
+
+
+### Features
+
+* add rich tooltips to catalog table columns ([fbe2cbb](https://github.com/jmchilton/gh-ci-artifacts/commit/fbe2cbb3407b4286ac56271773c157b85a65a253))
+
 # [1.9.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.8.0...v1.9.0) (2025-11-07)
 
 
