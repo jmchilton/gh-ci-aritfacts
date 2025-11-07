@@ -715,6 +715,37 @@ This reduces the need for HTML parsing and improves data quality.
 - Some HTML formats may not be parseable (cataloged as-is)
 - **Branch mode**: Only queries `push` event workflows - misses manually triggered (`workflow_dispatch`) or scheduled workflows running on that branch
 
+## Development & Testing
+
+### Running Tests
+
+```bash
+# Unit tests (Vitest)
+npm test
+npm run test:watch    # Watch mode
+npm run test:coverage # Coverage report
+
+# E2E tests (Playwright)
+npm run test:e2e       # Run E2E tests
+npm run test:e2e:ui    # Interactive UI mode
+```
+
+### E2E Test Fixtures
+
+The E2E test suite includes fixtures for testing the HTML viewer in different modes (PR vs branch). To generate test fixtures:
+
+1. Run `gh-ci-artifacts` against a real PR or branch
+2. Copy the output directory to `test/e2e/fixtures/`
+3. Tests will use these fixtures for screenshot validation and UI testing
+
+### Building & Type Checking
+
+```bash
+npm run build  # Compile TypeScript
+npm run lint   # Type checking
+npm run format # Code formatting
+```
+
 ## Contributing
 
 Contributions welcome! Areas for improvement:
