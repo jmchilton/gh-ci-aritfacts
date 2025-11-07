@@ -9,7 +9,7 @@ Download and parse GitHub Actions CI artifacts and logs for LLM analysis.
 
 ## Overview
 
-`gh-ci-artifacts` automates the collection and normalization of GitHub Actions CI failures into structured JSON optimized for LLM analysis (particularly Claude). It handles artifact downloads, log extraction, and parsing of common test/linter formats.
+`gh-ci-artifacts` automates the collection and normalization of GitHub Actions CI failures into structured JSON optimized for LLM analysis. It handles artifact downloads, log extraction, and parsing of common test/linter formats.
 
 **Key Features:**
 
