@@ -2,11 +2,7 @@ import { readFileSync, mkdirSync, writeFileSync } from "fs";
 import { join } from "path";
 import type { Logger } from "./utils/logger.js";
 import type { JobLog, ArtifactExtractionConfig } from "./types.js";
-import {
-  extractArtifactFromLog,
-  extractArtifactToJson,
-  type LinterOutput,
-} from "artifact-detective";
+import { extract, type LinterOutput } from "artifact-detective";
 
 export interface ArtifactCollectionResult {
   artifactOutputs: Map<string, LinterOutput[]>; // runId -> LinerOutput[]
@@ -42,7 +38,7 @@ export async function collectArtifactsFromLogs(
         // Try each configured artifact type
         let foundMatch = false;
         for (const config of extractionConfigs) {
-          // Compile regex patterns from strings
+          // Compile regex patterns from strings if provided
           const extractorConfig = config.extractorConfig
             ? {
                 startMarker: config.extractorConfig.startMarker
@@ -55,31 +51,23 @@ export async function collectArtifactsFromLogs(
               }
             : undefined;
 
-          let artifactOutput: string | null = null;
+          // Use new unified extract() API
+          const result = extract(config.type, logContent, {
+            config: extractorConfig,
+            normalize: config.toJson,
+          });
 
-          if (config.toJson) {
-            // Use extractArtifactToJson for normalized JSON output
-            const result = extractArtifactToJson(config.type, logContent);
-            artifactOutput = result ? JSON.stringify(result, null, 2) : null;
-          } else {
-            // Use extractArtifactFromLog for raw extraction
-            artifactOutput = extractArtifactFromLog(
-              config.type,
-              logContent,
-              extractorConfig,
-            );
-          }
-
-          if (artifactOutput) {
+          if (result) {
+            const { content: artifactOutput, artifact } = result;
             logger.debug(
-              `  Detected ${config.type} in job: ${log.jobName}${config.toJson ? " (normalized JSON)" : ""}`,
+              `  Detected ${config.type} in job: ${log.jobName}${config.toJson ? " (normalized to " + (artifact.isJSON ? "JSON" : "text") + ")" : ""}`,
             );
 
             // Save artifact output
             const artifactDir = join(outputDir, "artifacts", runId);
             mkdirSync(artifactDir, { recursive: true });
 
-            const ext = config.toJson ? "json" : "txt";
+            const ext = artifact.isJSON ? "json" : "txt";
             const fileName = `${sanitizeJobName(log.jobName)}-${config.type}.${ext}`;
             const filePath = join(artifactDir, fileName);
 
