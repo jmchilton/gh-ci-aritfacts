@@ -1,0 +1,127 @@
+{
+  "mode": "pr",
+  "pr": 17,
+  "prBranch": "feat/lint-and-playwright-failures",
+  "repo": "jmchilton/gh-ci-artifacts-example-full-stack-fastapi",
+  "headSha": "d35dbd2f350f6f215d76b458785b12305c6473c5",
+  "analyzedAt": "2025-11-08T17:12:53.395Z",
+  "status": "complete",
+  "inProgressRuns": 0,
+  "runs": [
+    {
+      "runId": "19186134146",
+      "workflowName": "Test Backend",
+      "workflowPath": ".github/workflows/test-backend.yml",
+      "runAttempt": 1,
+      "runNumber": 17,
+      "conclusion": "failure",
+      "artifacts": [],
+      "logs": [
+        {
+          "jobName": "test-backend",
+          "jobId": "54852951151",
+          "extractionStatus": "success",
+          "logFile": "/tmp/example-pr-artifacts/pr-17/raw/19186134146/test-backend.log"
+        }
+      ]
+    },
+    {
+      "runId": "19186134160",
+      "workflowName": "Lint Backend",
+      "workflowPath": ".github/workflows/lint-backend.yml",
+      "runAttempt": 1,
+      "runNumber": 17,
+      "conclusion": "failure",
+      "artifacts": [],
+      "logs": [
+        {
+          "jobName": "lint-backend",
+          "jobId": "54852951171",
+          "extractionStatus": "success",
+          "logFile": "/tmp/example-pr-artifacts/pr-17/raw/19186134160/lint-backend.log"
+        }
+      ]
+    },
+    {
+      "runId": "19186134149",
+      "workflowName": "Test Docker Compose",
+      "workflowPath": ".github/workflows/test-docker-compose.yml",
+      "runAttempt": 1,
+      "runNumber": 17,
+      "conclusion": "failure",
+      "artifacts": [],
+      "logs": [
+        {
+          "jobName": "test-docker-compose",
+          "jobId": "54852951166",
+          "extractionStatus": "success",
+          "logFile": "/tmp/example-pr-artifacts/pr-17/raw/19186134149/test-docker-compose.log"
+        }
+      ]
+    },
+    {
+      "runId": "19186134153",
+      "workflowName": "Playwright Tests",
+      "workflowPath": ".github/workflows/playwright.yml",
+      "runAttempt": 1,
+      "runNumber": 17,
+      "conclusion": "failure",
+      "artifacts": [],
+      "logs": [
+        {
+          "jobName": "changes",
+          "jobId": "54852951167",
+          "extractionStatus": "success",
+          "logFile": "/tmp/example-pr-artifacts/pr-17/raw/19186134153/changes.log"
+        },
+        {
+          "jobName": "test-playwright (1, 4)",
+          "jobId": "54852954631",
+          "extractionStatus": "success",
+          "logFile": "/tmp/example-pr-artifacts/pr-17/raw/19186134153/test-playwright-1-4.log"
+        },
+        {
+          "jobName": "test-playwright (2, 4)",
+          "jobId": "54852954632",
+          "extractionStatus": "success",
+          "logFile": "/tmp/example-pr-artifacts/pr-17/raw/19186134153/test-playwright-2-4.log"
+        },
+        {
+          "jobName": "test-playwright (3, 4)",
+          "jobId": "54852954633",
+          "extractionStatus": "success",
+          "logFile": "/tmp/example-pr-artifacts/pr-17/raw/19186134153/test-playwright-3-4.log"
+        },
+        {
+          "jobName": "test-playwright (4, 4)",
+          "jobId": "54852954636",
+          "extractionStatus": "success",
+          "logFile": "/tmp/example-pr-artifacts/pr-17/raw/19186134153/test-playwright-4-4.log"
+        },
+        {
+          "jobName": "merge-playwright-reports",
+          "jobId": "54853015357",
+          "extractionStatus": "success",
+          "logFile": "/tmp/example-pr-artifacts/pr-17/raw/19186134153/merge-playwright-reports.log"
+        },
+        {
+          "jobName": "alls-green-playwright",
+          "jobId": "54853015363",
+          "extractionStatus": "success",
+          "logFile": "/tmp/example-pr-artifacts/pr-17/raw/19186134153/alls-green-playwright.log"
+        }
+      ]
+    }
+  ],
+  "catalogFile": "./catalog.json",
+  "stats": {
+    "totalRuns": 4,
+    "artifactsDownloaded": 0,
+    "artifactsFailed": 0,
+    "logsExtracted": 10,
+    "htmlConverted": 0,
+    "artifactsValidated": 0,
+    "artifactsInvalid": 0,
+    "linterOutputsExtracted": 0
+  }
+}
