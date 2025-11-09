@@ -1,0 +1,6200 @@
+{
+	"schemaVersion": "2.0",
+	"id": 0,
+	"name": "gh-ci-artifacts API",
+	"variant": "project",
+	"kind": 1,
+	"flags": {},
+	"children": [
+		{
+			"id": 178,
+			"name": "Logger",
+			"variant": "declaration",
+			"kind": 128,
+			"flags": {},
+			"children": [
+				{
+					"id": 179,
+					"name": "constructor",
+					"variant": "declaration",
+					"kind": 512,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/utils/logger.ts",
+							"line": 4,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/utils/logger.ts#L4"
+						}
+					],
+					"signatures": [
+						{
+							"id": 180,
+							"name": "Logger",
+							"variant": "signature",
+							"kind": 16384,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/utils/logger.ts",
+									"line": 4,
+									"character": 2,
+									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/utils/logger.ts#L4"
+								}
+							],
+							"parameters": [
+								{
+									"id": 181,
+									"name": "debugMode",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									},
+									"defaultValue": "false"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"target": 178,
+								"name": "Logger",
+								"package": "gh-ci-artifacts"
+							}
+						}
+					]
+				},
+				{
+					"id": 186,
+					"name": "debug",
+					"variant": "declaration",
+					"kind": 2048,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/utils/logger.ts",
+							"line": 12,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/utils/logger.ts#L12"
+						}
+					],
+					"signatures": [
+						{
+							"id": 187,
+							"name": "debug",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/utils/logger.ts",
+									"line": 12,
+									"character": 2,
+									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/utils/logger.ts#L12"
+								}
+							],
+							"parameters": [
+								{
+									"id": 188,
+									"name": "message",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				},
+				{
+					"id": 192,
+					"name": "error",
+					"variant": "declaration",
+					"kind": 2048,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/utils/logger.ts",
+							"line": 22,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/utils/logger.ts#L22"
+						}
+					],
+					"signatures": [
+						{
+							"id": 193,
+							"name": "error",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/utils/logger.ts",
+									"line": 22,
+									"character": 2,
+									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/utils/logger.ts#L22"
+								}
+							],
+							"parameters": [
+								{
+									"id": 194,
+									"name": "message",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				},
+				{
+					"id": 183,
+					"name": "info",
+					"variant": "declaration",
+					"kind": 2048,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/utils/logger.ts",
+							"line": 8,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/utils/logger.ts#L8"
+						}
+					],
+					"signatures": [
+						{
+							"id": 184,
+							"name": "info",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/utils/logger.ts",
+									"line": 8,
+									"character": 2,
+									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/utils/logger.ts#L8"
+								}
+							],
+							"parameters": [
+								{
+									"id": 185,
+									"name": "message",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				},
+				{
+					"id": 195,
+					"name": "progress",
+					"variant": "declaration",
+					"kind": 2048,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/utils/logger.ts",
+							"line": 26,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/utils/logger.ts#L26"
+						}
+					],
+					"signatures": [
+						{
+							"id": 196,
+							"name": "progress",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/utils/logger.ts",
+									"line": 26,
+									"character": 2,
+									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/utils/logger.ts#L26"
+								}
+							],
+							"parameters": [
+								{
+									"id": 197,
+									"name": "message",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				},
+				{
+					"id": 189,
+					"name": "warn",
+					"variant": "declaration",
+					"kind": 2048,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/utils/logger.ts",
+							"line": 18,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/utils/logger.ts#L18"
+						}
+					],
+					"signatures": [
+						{
+							"id": 190,
+							"name": "warn",
+							"variant": "signature",
+							"kind": 4096,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/utils/logger.ts",
+									"line": 18,
+									"character": 2,
+									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/utils/logger.ts#L18"
+								}
+							],
+							"parameters": [
+								{
+									"id": 191,
+									"name": "message",
+									"variant": "param",
+									"kind": 32768,
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Constructors",
+					"children": [
+						179
+					]
+				},
+				{
+					"title": "Methods",
+					"children": [
+						186,
+						192,
+						183,
+						195,
+						189
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/utils/logger.ts",
+					"line": 1,
+					"character": 13,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/utils/logger.ts#L1"
+				}
+			]
+		},
+		{
+			"id": 205,
+			"name": "ArtifactDescriptor",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {
+				"isExternal": true
+			},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Flattened descriptor containing all metadata about an artifact type"
+					}
+				]
+			},
+			"children": [
+				{
+					"id": 206,
+					"name": "artifactType",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/validators/types.d.ts",
+							"line": 37,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 203,
+						"name": "ArtifactType",
+						"package": "artifact-detective"
+					}
+				},
+				{
+					"id": 207,
+					"name": "fileExtension",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true,
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/validators/types.d.ts",
+							"line": 38,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 210,
+					"name": "formatUrl",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true,
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/validators/types.d.ts",
+							"line": 41,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 212,
+					"name": "isJSON",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/validators/types.d.ts",
+							"line": 43,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 213,
+					"name": "normalizedFrom",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true,
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/validators/types.d.ts",
+							"line": 44,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 203,
+						"name": "ArtifactType",
+						"package": "artifact-detective"
+					}
+				},
+				{
+					"id": 211,
+					"name": "parsingGuide",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/validators/types.d.ts",
+							"line": 42,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 208,
+					"name": "shortDescription",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/validators/types.d.ts",
+							"line": 39,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 209,
+					"name": "toolUrl",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true,
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/validators/types.d.ts",
+							"line": 40,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						206,
+						207,
+						210,
+						212,
+						213,
+						211,
+						208,
+						209
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "node_modules/artifact-detective/dist/validators/types.d.ts",
+					"line": 36,
+					"character": 17
+				}
+			]
+		},
+		{
+			"id": 130,
+			"name": "ArtifactExtractionConfig",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 133,
+					"name": "extractorConfig",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 162,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L162"
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 134,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 136,
+									"name": "endMarker",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"sources": [
+										{
+											"fileName": "src/types.ts",
+											"line": 164,
+											"character": 4,
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L164"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 137,
+									"name": "includeEndMarker",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"sources": [
+										{
+											"fileName": "src/types.ts",
+											"line": 165,
+											"character": 4,
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L165"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								},
+								{
+									"id": 135,
+									"name": "startMarker",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {
+										"isOptional": true
+									},
+									"sources": [
+										{
+											"fileName": "src/types.ts",
+											"line": 163,
+											"character": 4,
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L163"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										136,
+										137,
+										135
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "src/types.ts",
+									"line": 162,
+									"character": 20,
+									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L162"
+								}
+							]
+						}
+					}
+				},
+				{
+					"id": 139,
+					"name": "matchJobName",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 168,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L168"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 140,
+					"name": "reason",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 169,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L169"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 138,
+					"name": "required",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 167,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L167"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 132,
+					"name": "toJson",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 161,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L161"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 131,
+					"name": "type",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 160,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L160"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 203,
+						"name": "ArtifactType",
+						"package": "artifact-detective"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						133,
+						139,
+						140,
+						138,
+						132,
+						131
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 159,
+					"character": 17,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L159"
+				}
+			]
+		},
+		{
+			"id": 30,
+			"name": "ArtifactInventoryItem",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 33,
+					"name": "artifactId",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 53,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L53"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 32,
+					"name": "artifactName",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 52,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L52"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 36,
+					"name": "errorMessage",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 56,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L56"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 31,
+					"name": "runId",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 51,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L51"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 34,
+					"name": "sizeBytes",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 54,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L54"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 37,
+					"name": "skipReason",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 57,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L57"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 35,
+					"name": "status",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 55,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L55"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 18,
+						"name": "DownloadStatus",
+						"package": "gh-ci-artifacts"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						33,
+						32,
+						36,
+						31,
+						34,
+						37,
+						35
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 50,
+					"character": 17,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L50"
+				}
+			]
+		},
+		{
+			"id": 126,
+			"name": "ArtifactTypeMapping",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 127,
+					"name": "pattern",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 154,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L154"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 129,
+					"name": "reason",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 156,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L156"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 128,
+					"name": "type",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 155,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L155"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 203,
+						"name": "ArtifactType",
+						"package": "artifact-detective"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						127,
+						129,
+						128
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 153,
+					"character": 17,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L153"
+				}
+			]
+		},
+		{
+			"id": 214,
+			"name": "ArtifactValidationResult",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {
+				"isExternal": true
+			},
+			"children": [
+				{
+					"id": 217,
+					"name": "artifact",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true,
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/validators/types.d.ts",
+							"line": 16,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 205,
+						"name": "ArtifactDescriptor",
+						"package": "artifact-detective"
+					}
+				},
+				{
+					"id": 216,
+					"name": "error",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true,
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/validators/types.d.ts",
+							"line": 15,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 215,
+					"name": "valid",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/validators/types.d.ts",
+							"line": 14,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						217,
+						216,
+						215
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "node_modules/artifact-detective/dist/validators/types.d.ts",
+					"line": 13,
+					"character": 17
+				}
+			]
+		},
+		{
+			"id": 25,
+			"name": "BranchRef",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 27,
+					"name": "branch",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 44,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L44"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 28,
+					"name": "remote",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 45,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L45"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 26,
+					"name": "type",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 43,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L43"
+						}
+					],
+					"type": {
+						"type": "literal",
+						"value": "branch"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						27,
+						28,
+						26
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 42,
+					"character": 17,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L42"
+				}
+			]
+		},
+		{
+			"id": 97,
+			"name": "BranchSummary",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 102,
+					"name": "analyzedAt",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 111,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L111"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "BaseSummary.analyzedAt"
+					}
+				},
+				{
+					"id": 99,
+					"name": "branch",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 137,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L137"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 106,
+					"name": "catalogFile",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 115,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L115"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "BaseSummary.catalogFile"
+					}
+				},
+				{
+					"id": 101,
+					"name": "headSha",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 110,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L110"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "BaseSummary.headSha"
+					}
+				},
+				{
+					"id": 104,
+					"name": "inProgressRuns",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 113,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L113"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "BaseSummary.inProgressRuns"
+					}
+				},
+				{
+					"id": 98,
+					"name": "mode",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 136,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L136"
+						}
+					],
+					"type": {
+						"type": "literal",
+						"value": "branch"
+					}
+				},
+				{
+					"id": 100,
+					"name": "repo",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 109,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L109"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "BaseSummary.repo"
+					}
+				},
+				{
+					"id": 105,
+					"name": "runs",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 114,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L114"
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": 65,
+							"name": "RunSummary",
+							"package": "gh-ci-artifacts"
+						}
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "BaseSummary.runs"
+					}
+				},
+				{
+					"id": 108,
+					"name": "stats",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 117,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L117"
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 109,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 111,
+									"name": "artifactsDownloaded",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/types.ts",
+											"line": 119,
+											"character": 4,
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L119"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 112,
+									"name": "artifactsFailed",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/types.ts",
+											"line": 120,
+											"character": 4,
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L120"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 116,
+									"name": "artifactsInvalid",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/types.ts",
+											"line": 124,
+											"character": 4,
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L124"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 115,
+									"name": "artifactsValidated",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/types.ts",
+											"line": 123,
+											"character": 4,
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L123"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 114,
+									"name": "htmlConverted",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/types.ts",
+											"line": 122,
+											"character": 4,
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L122"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 117,
+									"name": "linterOutputsExtracted",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/types.ts",
+											"line": 125,
+											"character": 4,
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L125"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 113,
+									"name": "logsExtracted",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/types.ts",
+											"line": 121,
+											"character": 4,
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L121"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 110,
+									"name": "totalRuns",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/types.ts",
+											"line": 118,
+											"character": 4,
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L118"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										111,
+										112,
+										116,
+										115,
+										114,
+										117,
+										113,
+										110
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "src/types.ts",
+									"line": 117,
+									"character": 9,
+									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L117"
+								}
+							]
+						}
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "BaseSummary.stats"
+					}
+				},
+				{
+					"id": 103,
+					"name": "status",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 112,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L112"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 20,
+						"name": "SummaryStatus",
+						"package": "gh-ci-artifacts"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "BaseSummary.status"
+					}
+				},
+				{
+					"id": 107,
+					"name": "validationResults",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 116,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L116"
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": 58,
+							"name": "ValidationResult",
+							"package": "gh-ci-artifacts"
+						}
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "BaseSummary.validationResults"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						102,
+						99,
+						106,
+						101,
+						104,
+						98,
+						100,
+						105,
+						108,
+						103,
+						107
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 135,
+					"character": 17,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L135"
+				}
+			],
+			"extendedTypes": [
+				{
+					"type": "reference",
+					"target": {
+						"packageName": "gh-ci-artifacts",
+						"packagePath": "src/types.ts",
+						"qualifiedName": "BaseSummary"
+					},
+					"name": "BaseSummary",
+					"package": "gh-ci-artifacts"
+				}
+			]
+		},
+		{
+			"id": 1,
+			"name": "CatalogEntry",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 2,
+					"name": "artifact",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 19,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L19"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 205,
+						"name": "ArtifactDescriptor",
+						"package": "artifact-detective"
+					}
+				},
+				{
+					"id": 5,
+					"name": "artifactId",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true,
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/types.d.ts",
+							"line": 12,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "CatalogEntryBase.artifactId"
+					}
+				},
+				{
+					"id": 4,
+					"name": "artifactName",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true,
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/types.d.ts",
+							"line": 11,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "CatalogEntryBase.artifactName"
+					}
+				},
+				{
+					"id": 10,
+					"name": "converted",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true,
+						"isOptional": true,
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/types.d.ts",
+							"line": 17,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "CatalogEntryBase.converted"
+					}
+				},
+				{
+					"id": 7,
+					"name": "detectedType",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true,
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/types.d.ts",
+							"line": 14,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 203,
+						"name": "ArtifactType",
+						"package": "artifact-detective"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "CatalogEntryBase.detectedType"
+					}
+				},
+				{
+					"id": 9,
+					"name": "filePath",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true,
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/types.d.ts",
+							"line": 16,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "CatalogEntryBase.filePath"
+					}
+				},
+				{
+					"id": 8,
+					"name": "originalFormat",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true,
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/types.d.ts",
+							"line": 15,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 204,
+						"name": "OriginalFormat",
+						"package": "artifact-detective"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "CatalogEntryBase.originalFormat"
+					}
+				},
+				{
+					"id": 6,
+					"name": "runId",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true,
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/types.d.ts",
+							"line": 13,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "CatalogEntryBase.runId"
+					}
+				},
+				{
+					"id": 11,
+					"name": "skipped",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true,
+						"isOptional": true,
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/types.d.ts",
+							"line": 18,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "CatalogEntryBase.skipped"
+					}
+				},
+				{
+					"id": 3,
+					"name": "validation",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 20,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L20"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 214,
+						"name": "ValidationResult",
+						"package": "artifact-detective"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						2,
+						5,
+						4,
+						10,
+						7,
+						9,
+						8,
+						6,
+						11,
+						3
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 18,
+					"character": 17,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L18"
+				}
+			],
+			"extendedTypes": [
+				{
+					"type": "reference",
+					"target": {
+						"packageName": "artifact-detective",
+						"packagePath": "src/types.ts",
+						"qualifiedName": "CatalogEntry"
+					},
+					"name": "CatalogEntry",
+					"package": "artifact-detective"
+				}
+			]
+		},
+		{
+			"id": 149,
+			"name": "Config",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 157,
+					"name": "customArtifactTypes",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 190,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L190"
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": 126,
+							"name": "ArtifactTypeMapping",
+							"package": "gh-ci-artifacts"
+						}
+					}
+				},
+				{
+					"id": 151,
+					"name": "defaultRepo",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 184,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L184"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 158,
+					"name": "extractArtifactTypesFromLogs",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 191,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L191"
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": 130,
+							"name": "ArtifactExtractionConfig",
+							"package": "gh-ci-artifacts"
+						}
+					}
+				},
+				{
+					"id": 152,
+					"name": "maxRetries",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 185,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L185"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 155,
+					"name": "maxWaitTime",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 188,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L188"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 150,
+					"name": "outputDir",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 183,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L183"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 154,
+					"name": "pollInterval",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 187,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L187"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 153,
+					"name": "retryDelay",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 186,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L186"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 156,
+					"name": "skipArtifacts",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 189,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L189"
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": 119,
+							"name": "SkipPattern",
+							"package": "gh-ci-artifacts"
+						}
+					}
+				},
+				{
+					"id": 159,
+					"name": "workflows",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 192,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L192"
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": 141,
+							"name": "WorkflowConfig",
+							"package": "gh-ci-artifacts"
+						}
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						157,
+						151,
+						158,
+						152,
+						155,
+						150,
+						154,
+						153,
+						156,
+						159
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 182,
+					"character": 17,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L182"
+				}
+			]
+		},
+		{
+			"id": 54,
+			"name": "ExpectationViolation",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 55,
+					"name": "pattern",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 81,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L81"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 57,
+					"name": "reason",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 83,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L83"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 56,
+					"name": "required",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 82,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L82"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						55,
+						57,
+						56
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 80,
+					"character": 17,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L80"
+				}
+			]
+		},
+		{
+			"id": 122,
+			"name": "ExpectPattern",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 123,
+					"name": "pattern",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 148,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L148"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 125,
+					"name": "reason",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 150,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L150"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 124,
+					"name": "required",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 149,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L149"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						123,
+						125,
+						124
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 147,
+					"character": 17,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L147"
+				}
+			]
+		},
+		{
+			"id": 38,
+			"name": "JobLog",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 41,
+					"name": "extractionStatus",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 63,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L63"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 19,
+						"name": "ExtractionStatus",
+						"package": "gh-ci-artifacts"
+					}
+				},
+				{
+					"id": 40,
+					"name": "jobId",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 62,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L62"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 39,
+					"name": "jobName",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 61,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L61"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 43,
+					"name": "linterOutputs",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 65,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L65"
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": 12,
+							"name": "LinterOutput",
+							"package": "gh-ci-artifacts"
+						}
+					}
+				},
+				{
+					"id": 42,
+					"name": "logFile",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 64,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L64"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						41,
+						40,
+						39,
+						43,
+						42
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 60,
+					"character": 17,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L60"
+				}
+			]
+		},
+		{
+			"id": 12,
+			"name": "LinterOutput",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 13,
+					"name": "artifact",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 25,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L25"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 205,
+						"name": "ArtifactDescriptor",
+						"package": "artifact-detective"
+					}
+				},
+				{
+					"id": 15,
+					"name": "detectedType",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true,
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/types.d.ts",
+							"line": 21,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "LinterOutputBase.detectedType"
+					}
+				},
+				{
+					"id": 16,
+					"name": "filePath",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isExternal": true,
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "node_modules/artifact-detective/dist/types.d.ts",
+							"line": 22,
+							"character": 4
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "LinterOutputBase.filePath"
+					}
+				},
+				{
+					"id": 14,
+					"name": "validation",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 26,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L26"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 214,
+						"name": "ValidationResult",
+						"package": "artifact-detective"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						13,
+						15,
+						16,
+						14
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 24,
+					"character": 17,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L24"
+				}
+			],
+			"extendedTypes": [
+				{
+					"type": "reference",
+					"target": {
+						"packageName": "artifact-detective",
+						"packagePath": "src/types.ts",
+						"qualifiedName": "LinterOutput"
+					},
+					"name": "LinterOutput",
+					"package": "artifact-detective"
+				}
+			]
+		},
+		{
+			"id": 22,
+			"name": "PRRef",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 24,
+					"name": "prNumber",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 39,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L39"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 23,
+					"name": "type",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 38,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L38"
+						}
+					],
+					"type": {
+						"type": "literal",
+						"value": "pr"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						24,
+						23
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 37,
+					"character": 17,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L37"
+				}
+			]
+		},
+		{
+			"id": 75,
+			"name": "PRSummary",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 81,
+					"name": "analyzedAt",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 111,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L111"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "BaseSummary.analyzedAt"
+					}
+				},
+				{
+					"id": 85,
+					"name": "catalogFile",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 115,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L115"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "BaseSummary.catalogFile"
+					}
+				},
+				{
+					"id": 80,
+					"name": "headSha",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 110,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L110"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "BaseSummary.headSha"
+					}
+				},
+				{
+					"id": 83,
+					"name": "inProgressRuns",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 113,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L113"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "BaseSummary.inProgressRuns"
+					}
+				},
+				{
+					"id": 76,
+					"name": "mode",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 130,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L130"
+						}
+					],
+					"type": {
+						"type": "literal",
+						"value": "pr"
+					}
+				},
+				{
+					"id": 77,
+					"name": "pr",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 131,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L131"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 78,
+					"name": "prBranch",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 132,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L132"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 79,
+					"name": "repo",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 109,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L109"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "BaseSummary.repo"
+					}
+				},
+				{
+					"id": 84,
+					"name": "runs",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 114,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L114"
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": 65,
+							"name": "RunSummary",
+							"package": "gh-ci-artifacts"
+						}
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "BaseSummary.runs"
+					}
+				},
+				{
+					"id": 87,
+					"name": "stats",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 117,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L117"
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 88,
+							"name": "__type",
+							"variant": "declaration",
+							"kind": 65536,
+							"flags": {},
+							"children": [
+								{
+									"id": 90,
+									"name": "artifactsDownloaded",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/types.ts",
+											"line": 119,
+											"character": 4,
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L119"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 91,
+									"name": "artifactsFailed",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/types.ts",
+											"line": 120,
+											"character": 4,
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L120"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 95,
+									"name": "artifactsInvalid",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/types.ts",
+											"line": 124,
+											"character": 4,
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L124"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 94,
+									"name": "artifactsValidated",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/types.ts",
+											"line": 123,
+											"character": 4,
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L123"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 93,
+									"name": "htmlConverted",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/types.ts",
+											"line": 122,
+											"character": 4,
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L122"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 96,
+									"name": "linterOutputsExtracted",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/types.ts",
+											"line": 125,
+											"character": 4,
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L125"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 92,
+									"name": "logsExtracted",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/types.ts",
+											"line": 121,
+											"character": 4,
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L121"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 89,
+									"name": "totalRuns",
+									"variant": "declaration",
+									"kind": 1024,
+									"flags": {},
+									"sources": [
+										{
+											"fileName": "src/types.ts",
+											"line": 118,
+											"character": 4,
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L118"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"groups": [
+								{
+									"title": "Properties",
+									"children": [
+										90,
+										91,
+										95,
+										94,
+										93,
+										96,
+										92,
+										89
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "src/types.ts",
+									"line": 117,
+									"character": 9,
+									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L117"
+								}
+							]
+						}
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "BaseSummary.stats"
+					}
+				},
+				{
+					"id": 82,
+					"name": "status",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 112,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L112"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 20,
+						"name": "SummaryStatus",
+						"package": "gh-ci-artifacts"
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "BaseSummary.status"
+					}
+				},
+				{
+					"id": 86,
+					"name": "validationResults",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true,
+						"isInherited": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 116,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L116"
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": 58,
+							"name": "ValidationResult",
+							"package": "gh-ci-artifacts"
+						}
+					},
+					"inheritedFrom": {
+						"type": "reference",
+						"target": -1,
+						"name": "BaseSummary.validationResults"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						81,
+						85,
+						80,
+						83,
+						76,
+						77,
+						78,
+						79,
+						84,
+						87,
+						82,
+						86
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 129,
+					"character": 17,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L129"
+				}
+			],
+			"extendedTypes": [
+				{
+					"type": "reference",
+					"target": {
+						"packageName": "gh-ci-artifacts",
+						"packagePath": "src/types.ts",
+						"qualifiedName": "BaseSummary"
+					},
+					"name": "BaseSummary",
+					"package": "gh-ci-artifacts"
+				}
+			]
+		},
+		{
+			"id": 44,
+			"name": "RunArtifact",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 52,
+					"name": "artifact",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 76,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L76"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 205,
+						"name": "ArtifactDescriptor",
+						"package": "artifact-detective"
+					}
+				},
+				{
+					"id": 51,
+					"name": "converted",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 75,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L75"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 49,
+					"name": "detectedType",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 73,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L73"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 47,
+					"name": "downloadStatus",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 71,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L71"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 18,
+						"name": "DownloadStatus",
+						"package": "gh-ci-artifacts"
+					}
+				},
+				{
+					"id": 48,
+					"name": "errorMessage",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 72,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L72"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 50,
+					"name": "filePath",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 74,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L74"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 45,
+					"name": "name",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 69,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L69"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 46,
+					"name": "sizeBytes",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 70,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L70"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 53,
+					"name": "validation",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 77,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L77"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 214,
+						"name": "ValidationResult",
+						"package": "artifact-detective"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						52,
+						51,
+						49,
+						47,
+						48,
+						50,
+						45,
+						46,
+						53
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 68,
+					"character": 17,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L68"
+				}
+			]
+		},
+		{
+			"id": 65,
+			"name": "RunSummary",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 72,
+					"name": "artifacts",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 102,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L102"
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": 44,
+							"name": "RunArtifact",
+							"package": "gh-ci-artifacts"
+						}
+					}
+				},
+				{
+					"id": 71,
+					"name": "conclusion",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 101,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L101"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 17,
+						"name": "RunConclusion",
+						"package": "gh-ci-artifacts"
+					}
+				},
+				{
+					"id": 73,
+					"name": "logs",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 103,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L103"
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": 38,
+							"name": "JobLog",
+							"package": "gh-ci-artifacts"
+						}
+					}
+				},
+				{
+					"id": 69,
+					"name": "runAttempt",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 99,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L99"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 66,
+					"name": "runId",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 96,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L96"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 70,
+					"name": "runNumber",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 100,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L100"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "number"
+					}
+				},
+				{
+					"id": 74,
+					"name": "validationResult",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 104,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L104"
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 58,
+						"name": "ValidationResult",
+						"package": "gh-ci-artifacts"
+					}
+				},
+				{
+					"id": 67,
+					"name": "workflowName",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 97,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L97"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 68,
+					"name": "workflowPath",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 98,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L98"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						72,
+						71,
+						73,
+						69,
+						66,
+						70,
+						74,
+						67,
+						68
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 95,
+					"character": 17,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L95"
+				}
+			]
+		},
+		{
+			"id": 119,
+			"name": "SkipPattern",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 120,
+					"name": "pattern",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 143,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L143"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 121,
+					"name": "reason",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 144,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L144"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						120,
+						121
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 142,
+					"character": 17,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L142"
+				}
+			]
+		},
+		{
+			"id": 58,
+			"name": "ValidationResult",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 64,
+					"name": "missingOptional",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 92,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L92"
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": 54,
+							"name": "ExpectationViolation",
+							"package": "gh-ci-artifacts"
+						}
+					}
+				},
+				{
+					"id": 63,
+					"name": "missingRequired",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 91,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L91"
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": 54,
+							"name": "ExpectationViolation",
+							"package": "gh-ci-artifacts"
+						}
+					}
+				},
+				{
+					"id": 61,
+					"name": "runId",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 89,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L89"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 62,
+					"name": "runName",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 90,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L90"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 59,
+					"name": "workflowName",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 87,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L87"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 60,
+					"name": "workflowPath",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 88,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L88"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						64,
+						63,
+						61,
+						62,
+						59,
+						60
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 86,
+					"character": 17,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L86"
+				}
+			]
+		},
+		{
+			"id": 141,
+			"name": "WorkflowConfig",
+			"variant": "declaration",
+			"kind": 256,
+			"flags": {},
+			"children": [
+				{
+					"id": 145,
+					"name": "customArtifactTypes",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 176,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L176"
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": 126,
+							"name": "ArtifactTypeMapping",
+							"package": "gh-ci-artifacts"
+						}
+					}
+				},
+				{
+					"id": 148,
+					"name": "description",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 179,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L179"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				},
+				{
+					"id": 144,
+					"name": "expectArtifacts",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 175,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L175"
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": 122,
+							"name": "ExpectPattern",
+							"package": "gh-ci-artifacts"
+						}
+					}
+				},
+				{
+					"id": 146,
+					"name": "extractArtifactTypesFromLogs",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 177,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L177"
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": 130,
+							"name": "ArtifactExtractionConfig",
+							"package": "gh-ci-artifacts"
+						}
+					}
+				},
+				{
+					"id": 147,
+					"name": "skip",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 178,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L178"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "boolean"
+					}
+				},
+				{
+					"id": 143,
+					"name": "skipArtifacts",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {
+						"isOptional": true
+					},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 174,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L174"
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"target": 119,
+							"name": "SkipPattern",
+							"package": "gh-ci-artifacts"
+						}
+					}
+				},
+				{
+					"id": 142,
+					"name": "workflow",
+					"variant": "declaration",
+					"kind": 1024,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/types.ts",
+							"line": 173,
+							"character": 2,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L173"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Properties",
+					"children": [
+						145,
+						148,
+						144,
+						146,
+						147,
+						143,
+						142
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 172,
+					"character": 17,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L172"
+				}
+			]
+		},
+		{
+			"id": 203,
+			"name": "ArtifactType",
+			"variant": "declaration",
+			"kind": 2097152,
+			"flags": {
+				"isExternal": true
+			},
+			"sources": [
+				{
+					"fileName": "node_modules/artifact-detective/dist/types.d.ts",
+					"line": 1,
+					"character": 12
+				}
+			],
+			"type": {
+				"type": "union",
+				"types": [
+					{
+						"type": "literal",
+						"value": "playwright-json"
+					},
+					{
+						"type": "literal",
+						"value": "jest-json"
+					},
+					{
+						"type": "literal",
+						"value": "jest-html"
+					},
+					{
+						"type": "literal",
+						"value": "pytest-json"
+					},
+					{
+						"type": "literal",
+						"value": "pytest-html"
+					},
+					{
+						"type": "literal",
+						"value": "junit-xml"
+					},
+					{
+						"type": "literal",
+						"value": "checkstyle-xml"
+					},
+					{
+						"type": "literal",
+						"value": "checkstyle-sarif-json"
+					},
+					{
+						"type": "literal",
+						"value": "spotbugs-xml"
+					},
+					{
+						"type": "literal",
+						"value": "surefire-html"
+					},
+					{
+						"type": "literal",
+						"value": "eslint-json"
+					},
+					{
+						"type": "literal",
+						"value": "mypy-ndjson"
+					},
+					{
+						"type": "literal",
+						"value": "mypy-json"
+					},
+					{
+						"type": "literal",
+						"value": "eslint-txt"
+					},
+					{
+						"type": "literal",
+						"value": "tsc-txt"
+					},
+					{
+						"type": "literal",
+						"value": "ruff-txt"
+					},
+					{
+						"type": "literal",
+						"value": "mypy-txt"
+					},
+					{
+						"type": "literal",
+						"value": "flake8-txt"
+					},
+					{
+						"type": "literal",
+						"value": "cargo-test-txt"
+					},
+					{
+						"type": "literal",
+						"value": "clippy-ndjson"
+					},
+					{
+						"type": "literal",
+						"value": "clippy-json"
+					},
+					{
+						"type": "literal",
+						"value": "clippy-txt"
+					},
+					{
+						"type": "literal",
+						"value": "rustfmt-txt"
+					},
+					{
+						"type": "literal",
+						"value": "gofmt-txt"
+					},
+					{
+						"type": "literal",
+						"value": "go-test-ndjson"
+					},
+					{
+						"type": "literal",
+						"value": "go-test-json"
+					},
+					{
+						"type": "literal",
+						"value": "golangci-lint-json"
+					},
+					{
+						"type": "literal",
+						"value": "isort-txt"
+					},
+					{
+						"type": "literal",
+						"value": "black-txt"
+					},
+					{
+						"type": "literal",
+						"value": "rspec-json"
+					},
+					{
+						"type": "literal",
+						"value": "rspec-html"
+					},
+					{
+						"type": "literal",
+						"value": "binary"
+					},
+					{
+						"type": "literal",
+						"value": "unknown"
+					}
+				]
+			}
+		},
+		{
+			"id": 18,
+			"name": "DownloadStatus",
+			"variant": "declaration",
+			"kind": 2097152,
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 30,
+					"character": 12,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L30"
+				}
+			],
+			"type": {
+				"type": "union",
+				"types": [
+					{
+						"type": "literal",
+						"value": "success"
+					},
+					{
+						"type": "literal",
+						"value": "expired"
+					},
+					{
+						"type": "literal",
+						"value": "failed"
+					},
+					{
+						"type": "literal",
+						"value": "skipped"
+					}
+				]
+			}
+		},
+		{
+			"id": 19,
+			"name": "ExtractionStatus",
+			"variant": "declaration",
+			"kind": 2097152,
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 31,
+					"character": 12,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L31"
+				}
+			],
+			"type": {
+				"type": "union",
+				"types": [
+					{
+						"type": "literal",
+						"value": "success"
+					},
+					{
+						"type": "literal",
+						"value": "failed"
+					}
+				]
+			}
+		},
+		{
+			"id": 204,
+			"name": "OriginalFormat",
+			"variant": "declaration",
+			"kind": 2097152,
+			"flags": {
+				"isExternal": true
+			},
+			"sources": [
+				{
+					"fileName": "node_modules/artifact-detective/dist/types.d.ts",
+					"line": 2,
+					"character": 12
+				}
+			],
+			"type": {
+				"type": "union",
+				"types": [
+					{
+						"type": "literal",
+						"value": "json"
+					},
+					{
+						"type": "literal",
+						"value": "xml"
+					},
+					{
+						"type": "literal",
+						"value": "html"
+					},
+					{
+						"type": "literal",
+						"value": "txt"
+					},
+					{
+						"type": "literal",
+						"value": "binary"
+					}
+				]
+			}
+		},
+		{
+			"id": 29,
+			"name": "Ref",
+			"variant": "declaration",
+			"kind": 2097152,
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 48,
+					"character": 12,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L48"
+				}
+			],
+			"type": {
+				"type": "union",
+				"types": [
+					{
+						"type": "reference",
+						"target": 22,
+						"name": "PRRef",
+						"package": "gh-ci-artifacts"
+					},
+					{
+						"type": "reference",
+						"target": 25,
+						"name": "BranchRef",
+						"package": "gh-ci-artifacts"
+					}
+				]
+			}
+		},
+		{
+			"id": 21,
+			"name": "RefType",
+			"variant": "declaration",
+			"kind": 2097152,
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 35,
+					"character": 12,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L35"
+				}
+			],
+			"type": {
+				"type": "union",
+				"types": [
+					{
+						"type": "literal",
+						"value": "pr"
+					},
+					{
+						"type": "literal",
+						"value": "branch"
+					}
+				]
+			}
+		},
+		{
+			"id": 17,
+			"name": "RunConclusion",
+			"variant": "declaration",
+			"kind": 2097152,
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 29,
+					"character": 12,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L29"
+				}
+			],
+			"type": {
+				"type": "union",
+				"types": [
+					{
+						"type": "literal",
+						"value": "failure"
+					},
+					{
+						"type": "literal",
+						"value": "success"
+					},
+					{
+						"type": "literal",
+						"value": "cancelled"
+					},
+					{
+						"type": "literal",
+						"value": "in_progress"
+					}
+				]
+			}
+		},
+		{
+			"id": 118,
+			"name": "Summary",
+			"variant": "declaration",
+			"kind": 2097152,
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 140,
+					"character": 12,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L140"
+				}
+			],
+			"type": {
+				"type": "union",
+				"types": [
+					{
+						"type": "reference",
+						"target": 75,
+						"name": "PRSummary",
+						"package": "gh-ci-artifacts"
+					},
+					{
+						"type": "reference",
+						"target": 97,
+						"name": "BranchSummary",
+						"package": "gh-ci-artifacts"
+					}
+				]
+			}
+		},
+		{
+			"id": 20,
+			"name": "SummaryStatus",
+			"variant": "declaration",
+			"kind": 2097152,
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "src/types.ts",
+					"line": 32,
+					"character": 12,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/types.ts#L32"
+				}
+			],
+			"type": {
+				"type": "union",
+				"types": [
+					{
+						"type": "literal",
+						"value": "complete"
+					},
+					{
+						"type": "literal",
+						"value": "partial"
+					},
+					{
+						"type": "literal",
+						"value": "incomplete"
+					}
+				]
+			}
+		},
+		{
+			"id": 198,
+			"name": "generateHtmlViewer",
+			"variant": "declaration",
+			"kind": 64,
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "src/html-viewer/index.ts",
+					"line": 32,
+					"character": 16,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/html-viewer/index.ts#L32"
+				}
+			],
+			"signatures": [
+				{
+					"id": 199,
+					"name": "generateHtmlViewer",
+					"variant": "signature",
+					"kind": 4096,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/html-viewer/index.ts",
+							"line": 32,
+							"character": 16,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/html-viewer/index.ts#L32"
+						}
+					],
+					"parameters": [
+						{
+							"id": 200,
+							"name": "outputDir",
+							"variant": "param",
+							"kind": 32768,
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 201,
+							"name": "summary",
+							"variant": "param",
+							"kind": 32768,
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"target": 118,
+								"name": "Summary",
+								"package": "gh-ci-artifacts"
+							}
+						},
+						{
+							"id": 202,
+							"name": "catalog",
+							"variant": "param",
+							"kind": 32768,
+							"flags": {},
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"target": 1,
+									"name": "CatalogEntry",
+									"package": "gh-ci-artifacts"
+								}
+							}
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "void"
+					}
+				}
+			]
+		},
+		{
+			"id": 167,
+			"name": "getOutputDir",
+			"variant": "declaration",
+			"kind": 64,
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "src/config.ts",
+					"line": 126,
+					"character": 16,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/config.ts#L126"
+				}
+			],
+			"signatures": [
+				{
+					"id": 168,
+					"name": "getOutputDir",
+					"variant": "signature",
+					"kind": 4096,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/config.ts",
+							"line": 126,
+							"character": 16,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/config.ts#L126"
+						}
+					],
+					"parameters": [
+						{
+							"id": 169,
+							"name": "config",
+							"variant": "param",
+							"kind": 32768,
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"target": 149,
+								"name": "Config",
+								"package": "gh-ci-artifacts"
+							}
+						},
+						{
+							"id": 170,
+							"name": "ref",
+							"variant": "param",
+							"kind": 32768,
+							"flags": {},
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 171,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"children": [
+										{
+											"id": 173,
+											"name": "branch",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {
+												"isOptional": true
+											},
+											"sources": [
+												{
+													"fileName": "src/config.ts",
+													"line": 128,
+													"character": 22,
+													"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/config.ts#L128"
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										},
+										{
+											"id": 172,
+											"name": "pr",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {
+												"isOptional": true
+											},
+											"sources": [
+												{
+													"fileName": "src/config.ts",
+													"line": 128,
+													"character": 9,
+													"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/config.ts#L128"
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										},
+										{
+											"id": 174,
+											"name": "remote",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {
+												"isOptional": true
+											},
+											"sources": [
+												{
+													"fileName": "src/config.ts",
+													"line": 128,
+													"character": 39,
+													"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/config.ts#L128"
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"groups": [
+										{
+											"title": "Properties",
+											"children": [
+												173,
+												172,
+												174
+											]
+										}
+									],
+									"sources": [
+										{
+											"fileName": "src/config.ts",
+											"line": 128,
+											"character": 7,
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/config.ts#L128"
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 175,
+							"name": "cwd",
+							"variant": "param",
+							"kind": 32768,
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"defaultValue": "..."
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "string"
+					}
+				}
+			]
+		},
+		{
+			"id": 160,
+			"name": "loadConfig",
+			"variant": "declaration",
+			"kind": 64,
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "src/config.ts",
+					"line": 39,
+					"character": 16,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/config.ts#L39"
+				}
+			],
+			"signatures": [
+				{
+					"id": 161,
+					"name": "loadConfig",
+					"variant": "signature",
+					"kind": 4096,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/config.ts",
+							"line": 39,
+							"character": 16,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/config.ts#L39"
+						}
+					],
+					"parameters": [
+						{
+							"id": 162,
+							"name": "cwd",
+							"variant": "param",
+							"kind": 32768,
+							"flags": {},
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"defaultValue": "..."
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 149,
+						"name": "Config",
+						"package": "gh-ci-artifacts"
+					}
+				}
+			]
+		},
+		{
+			"id": 163,
+			"name": "mergeConfig",
+			"variant": "declaration",
+			"kind": 64,
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "src/config.ts",
+					"line": 97,
+					"character": 16,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/config.ts#L97"
+				}
+			],
+			"signatures": [
+				{
+					"id": 164,
+					"name": "mergeConfig",
+					"variant": "signature",
+					"kind": 4096,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/config.ts",
+							"line": 97,
+							"character": 16,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/config.ts#L97"
+						}
+					],
+					"parameters": [
+						{
+							"id": 165,
+							"name": "fileConfig",
+							"variant": "param",
+							"kind": 32768,
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"target": 149,
+								"name": "Config",
+								"package": "gh-ci-artifacts"
+							}
+						},
+						{
+							"id": 166,
+							"name": "cliConfig",
+							"variant": "param",
+							"kind": 32768,
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"target": {
+									"packageName": "typescript",
+									"packagePath": "lib/lib.es5.d.ts",
+									"qualifiedName": "Partial"
+								},
+								"typeArguments": [
+									{
+										"type": "reference",
+										"target": 149,
+										"name": "Config",
+										"package": "gh-ci-artifacts"
+									}
+								],
+								"name": "Partial",
+								"package": "typescript"
+							}
+						}
+					],
+					"type": {
+						"type": "reference",
+						"target": 149,
+						"name": "Config",
+						"package": "gh-ci-artifacts"
+					}
+				}
+			]
+		},
+		{
+			"id": 176,
+			"name": "validateGhSetup",
+			"variant": "declaration",
+			"kind": 64,
+			"flags": {},
+			"sources": [
+				{
+					"fileName": "src/utils/gh.ts",
+					"line": 38,
+					"character": 16,
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/utils/gh.ts#L38"
+				}
+			],
+			"signatures": [
+				{
+					"id": 177,
+					"name": "validateGhSetup",
+					"variant": "signature",
+					"kind": 4096,
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "src/utils/gh.ts",
+							"line": 38,
+							"character": 16,
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/4967064eb463ce0da46a71954f1a18d162309fea/src/utils/gh.ts#L38"
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "void"
+					}
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "Classes",
+			"children": [
+				178
+			]
+		},
+		{
+			"title": "Interfaces",
+			"children": [
+				205,
+				130,
+				30,
+				126,
+				214,
+				25,
+				97,
+				1,
+				149,
+				54,
+				122,
+				38,
+				12,
+				22,
+				75,
+				44,
+				65,
+				119,
+				58,
+				141
+			]
+		},
+		{
+			"title": "Type Aliases",
+			"children": [
+				203,
+				18,
+				19,
+				204,
+				29,
+				21,
+				17,
+				118,
+				20
+			]
+		},
+		{
+			"title": "Functions",
+			"children": [
+				198,
+				167,
+				160,
+				163,
+				176
+			]
+		}
+	],
+	"packageName": "gh-ci-artifacts",
+	"packageVersion": "1.14.0",
+	"symbolIdMap": {
+		"0": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/index.ts",
+			"qualifiedName": ""
+		},
+		"1": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "CatalogEntry"
+		},
+		"2": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "CatalogEntry.artifact"
+		},
+		"3": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "CatalogEntry.validation"
+		},
+		"4": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "CatalogEntry.artifactName"
+		},
+		"5": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "CatalogEntry.artifactId"
+		},
+		"6": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "CatalogEntry.runId"
+		},
+		"7": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "CatalogEntry.detectedType"
+		},
+		"8": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "CatalogEntry.originalFormat"
+		},
+		"9": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "CatalogEntry.filePath"
+		},
+		"10": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "CatalogEntry.converted"
+		},
+		"11": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "CatalogEntry.skipped"
+		},
+		"12": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "LinterOutput"
+		},
+		"13": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "LinterOutput.artifact"
+		},
+		"14": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "LinterOutput.validation"
+		},
+		"15": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "LinterOutput.detectedType"
+		},
+		"16": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "LinterOutput.filePath"
+		},
+		"17": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunConclusion"
+		},
+		"18": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "DownloadStatus"
+		},
+		"19": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ExtractionStatus"
+		},
+		"20": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "SummaryStatus"
+		},
+		"21": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RefType"
+		},
+		"22": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "PRRef"
+		},
+		"23": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "PRRef.type"
+		},
+		"24": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "PRRef.prNumber"
+		},
+		"25": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BranchRef"
+		},
+		"26": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BranchRef.type"
+		},
+		"27": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BranchRef.branch"
+		},
+		"28": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BranchRef.remote"
+		},
+		"29": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "Ref"
+		},
+		"30": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ArtifactInventoryItem"
+		},
+		"31": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ArtifactInventoryItem.runId"
+		},
+		"32": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ArtifactInventoryItem.artifactName"
+		},
+		"33": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ArtifactInventoryItem.artifactId"
+		},
+		"34": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ArtifactInventoryItem.sizeBytes"
+		},
+		"35": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ArtifactInventoryItem.status"
+		},
+		"36": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ArtifactInventoryItem.errorMessage"
+		},
+		"37": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ArtifactInventoryItem.skipReason"
+		},
+		"38": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "JobLog"
+		},
+		"39": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "JobLog.jobName"
+		},
+		"40": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "JobLog.jobId"
+		},
+		"41": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "JobLog.extractionStatus"
+		},
+		"42": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "JobLog.logFile"
+		},
+		"43": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "JobLog.linterOutputs"
+		},
+		"44": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunArtifact"
+		},
+		"45": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunArtifact.name"
+		},
+		"46": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunArtifact.sizeBytes"
+		},
+		"47": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunArtifact.downloadStatus"
+		},
+		"48": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunArtifact.errorMessage"
+		},
+		"49": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunArtifact.detectedType"
+		},
+		"50": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunArtifact.filePath"
+		},
+		"51": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunArtifact.converted"
+		},
+		"52": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunArtifact.artifact"
+		},
+		"53": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunArtifact.validation"
+		},
+		"54": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ExpectationViolation"
+		},
+		"55": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ExpectationViolation.pattern"
+		},
+		"56": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ExpectationViolation.required"
+		},
+		"57": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ExpectationViolation.reason"
+		},
+		"58": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ValidationResult"
+		},
+		"59": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ValidationResult.workflowName"
+		},
+		"60": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ValidationResult.workflowPath"
+		},
+		"61": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ValidationResult.runId"
+		},
+		"62": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ValidationResult.runName"
+		},
+		"63": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ValidationResult.missingRequired"
+		},
+		"64": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ValidationResult.missingOptional"
+		},
+		"65": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunSummary"
+		},
+		"66": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunSummary.runId"
+		},
+		"67": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunSummary.workflowName"
+		},
+		"68": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunSummary.workflowPath"
+		},
+		"69": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunSummary.runAttempt"
+		},
+		"70": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunSummary.runNumber"
+		},
+		"71": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunSummary.conclusion"
+		},
+		"72": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunSummary.artifacts"
+		},
+		"73": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunSummary.logs"
+		},
+		"74": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "RunSummary.validationResult"
+		},
+		"75": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "PRSummary"
+		},
+		"76": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "PRSummary.mode"
+		},
+		"77": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "PRSummary.pr"
+		},
+		"78": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "PRSummary.prBranch"
+		},
+		"79": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BaseSummary.repo"
+		},
+		"80": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BaseSummary.headSha"
+		},
+		"81": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BaseSummary.analyzedAt"
+		},
+		"82": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BaseSummary.status"
+		},
+		"83": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BaseSummary.inProgressRuns"
+		},
+		"84": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BaseSummary.runs"
+		},
+		"85": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BaseSummary.catalogFile"
+		},
+		"86": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BaseSummary.validationResults"
+		},
+		"87": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BaseSummary.stats"
+		},
+		"88": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type"
+		},
+		"89": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type.totalRuns"
+		},
+		"90": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type.artifactsDownloaded"
+		},
+		"91": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type.artifactsFailed"
+		},
+		"92": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type.logsExtracted"
+		},
+		"93": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type.htmlConverted"
+		},
+		"94": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type.artifactsValidated"
+		},
+		"95": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type.artifactsInvalid"
+		},
+		"96": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type.linterOutputsExtracted"
+		},
+		"97": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BranchSummary"
+		},
+		"98": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BranchSummary.mode"
+		},
+		"99": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BranchSummary.branch"
+		},
+		"100": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BaseSummary.repo"
+		},
+		"101": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BaseSummary.headSha"
+		},
+		"102": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BaseSummary.analyzedAt"
+		},
+		"103": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BaseSummary.status"
+		},
+		"104": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BaseSummary.inProgressRuns"
+		},
+		"105": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BaseSummary.runs"
+		},
+		"106": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BaseSummary.catalogFile"
+		},
+		"107": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BaseSummary.validationResults"
+		},
+		"108": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "BaseSummary.stats"
+		},
+		"109": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type"
+		},
+		"110": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type.totalRuns"
+		},
+		"111": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type.artifactsDownloaded"
+		},
+		"112": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type.artifactsFailed"
+		},
+		"113": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type.logsExtracted"
+		},
+		"114": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type.htmlConverted"
+		},
+		"115": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type.artifactsValidated"
+		},
+		"116": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type.artifactsInvalid"
+		},
+		"117": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type.linterOutputsExtracted"
+		},
+		"118": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "Summary"
+		},
+		"119": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "SkipPattern"
+		},
+		"120": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "SkipPattern.pattern"
+		},
+		"121": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "SkipPattern.reason"
+		},
+		"122": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ExpectPattern"
+		},
+		"123": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ExpectPattern.pattern"
+		},
+		"124": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ExpectPattern.required"
+		},
+		"125": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ExpectPattern.reason"
+		},
+		"126": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ArtifactTypeMapping"
+		},
+		"127": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ArtifactTypeMapping.pattern"
+		},
+		"128": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ArtifactTypeMapping.type"
+		},
+		"129": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ArtifactTypeMapping.reason"
+		},
+		"130": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ArtifactExtractionConfig"
+		},
+		"131": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ArtifactExtractionConfig.type"
+		},
+		"132": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ArtifactExtractionConfig.toJson"
+		},
+		"133": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ArtifactExtractionConfig.extractorConfig"
+		},
+		"134": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type"
+		},
+		"135": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type.startMarker"
+		},
+		"136": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type.endMarker"
+		},
+		"137": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "__type.includeEndMarker"
+		},
+		"138": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ArtifactExtractionConfig.required"
+		},
+		"139": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ArtifactExtractionConfig.matchJobName"
+		},
+		"140": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ArtifactExtractionConfig.reason"
+		},
+		"141": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "WorkflowConfig"
+		},
+		"142": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "WorkflowConfig.workflow"
+		},
+		"143": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "WorkflowConfig.skipArtifacts"
+		},
+		"144": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "WorkflowConfig.expectArtifacts"
+		},
+		"145": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "WorkflowConfig.customArtifactTypes"
+		},
+		"146": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "WorkflowConfig.extractArtifactTypesFromLogs"
+		},
+		"147": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "WorkflowConfig.skip"
+		},
+		"148": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "WorkflowConfig.description"
+		},
+		"149": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "Config"
+		},
+		"150": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "Config.outputDir"
+		},
+		"151": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "Config.defaultRepo"
+		},
+		"152": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "Config.maxRetries"
+		},
+		"153": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "Config.retryDelay"
+		},
+		"154": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "Config.pollInterval"
+		},
+		"155": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "Config.maxWaitTime"
+		},
+		"156": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "Config.skipArtifacts"
+		},
+		"157": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "Config.customArtifactTypes"
+		},
+		"158": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "Config.extractArtifactTypesFromLogs"
+		},
+		"159": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "Config.workflows"
+		},
+		"160": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/config.ts",
+			"qualifiedName": "loadConfig"
+		},
+		"161": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/config.ts",
+			"qualifiedName": "loadConfig"
+		},
+		"162": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/config.ts",
+			"qualifiedName": "cwd"
+		},
+		"163": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/config.ts",
+			"qualifiedName": "mergeConfig"
+		},
+		"164": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/config.ts",
+			"qualifiedName": "mergeConfig"
+		},
+		"165": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/config.ts",
+			"qualifiedName": "fileConfig"
+		},
+		"166": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/config.ts",
+			"qualifiedName": "cliConfig"
+		},
+		"167": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/config.ts",
+			"qualifiedName": "getOutputDir"
+		},
+		"168": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/config.ts",
+			"qualifiedName": "getOutputDir"
+		},
+		"169": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/config.ts",
+			"qualifiedName": "config"
+		},
+		"170": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/config.ts",
+			"qualifiedName": "ref"
+		},
+		"171": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/config.ts",
+			"qualifiedName": "__type"
+		},
+		"172": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/config.ts",
+			"qualifiedName": "__type.pr"
+		},
+		"173": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/config.ts",
+			"qualifiedName": "__type.branch"
+		},
+		"174": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/config.ts",
+			"qualifiedName": "__type.remote"
+		},
+		"175": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/config.ts",
+			"qualifiedName": "cwd"
+		},
+		"176": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/gh.ts",
+			"qualifiedName": "validateGhSetup"
+		},
+		"177": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/gh.ts",
+			"qualifiedName": "validateGhSetup"
+		},
+		"178": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/logger.ts",
+			"qualifiedName": "Logger"
+		},
+		"179": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/logger.ts",
+			"qualifiedName": "Logger.__constructor"
+		},
+		"180": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/logger.ts",
+			"qualifiedName": "Logger"
+		},
+		"181": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/logger.ts",
+			"qualifiedName": "debugMode"
+		},
+		"183": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/logger.ts",
+			"qualifiedName": "Logger.info"
+		},
+		"184": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/logger.ts",
+			"qualifiedName": "Logger.info"
+		},
+		"185": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/logger.ts",
+			"qualifiedName": "message"
+		},
+		"186": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/logger.ts",
+			"qualifiedName": "Logger.debug"
+		},
+		"187": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/logger.ts",
+			"qualifiedName": "Logger.debug"
+		},
+		"188": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/logger.ts",
+			"qualifiedName": "message"
+		},
+		"189": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/logger.ts",
+			"qualifiedName": "Logger.warn"
+		},
+		"190": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/logger.ts",
+			"qualifiedName": "Logger.warn"
+		},
+		"191": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/logger.ts",
+			"qualifiedName": "message"
+		},
+		"192": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/logger.ts",
+			"qualifiedName": "Logger.error"
+		},
+		"193": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/logger.ts",
+			"qualifiedName": "Logger.error"
+		},
+		"194": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/logger.ts",
+			"qualifiedName": "message"
+		},
+		"195": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/logger.ts",
+			"qualifiedName": "Logger.progress"
+		},
+		"196": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/logger.ts",
+			"qualifiedName": "Logger.progress"
+		},
+		"197": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/utils/logger.ts",
+			"qualifiedName": "message"
+		},
+		"198": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/html-viewer/index.ts",
+			"qualifiedName": "generateHtmlViewer"
+		},
+		"199": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/html-viewer/index.ts",
+			"qualifiedName": "generateHtmlViewer"
+		},
+		"200": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/html-viewer/index.ts",
+			"qualifiedName": "outputDir"
+		},
+		"201": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/html-viewer/index.ts",
+			"qualifiedName": "summary"
+		},
+		"202": {
+			"packageName": "gh-ci-artifacts",
+			"packagePath": "src/html-viewer/index.ts",
+			"qualifiedName": "catalog"
+		},
+		"203": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "ArtifactType"
+		},
+		"204": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/types.ts",
+			"qualifiedName": "OriginalFormat"
+		},
+		"205": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/validators/types.ts",
+			"qualifiedName": "ArtifactDescriptor"
+		},
+		"206": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/validators/types.ts",
+			"qualifiedName": "ArtifactDescriptor.artifactType"
+		},
+		"207": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/validators/types.ts",
+			"qualifiedName": "ArtifactDescriptor.fileExtension"
+		},
+		"208": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/validators/types.ts",
+			"qualifiedName": "ArtifactDescriptor.shortDescription"
+		},
+		"209": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/validators/types.ts",
+			"qualifiedName": "ArtifactDescriptor.toolUrl"
+		},
+		"210": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/validators/types.ts",
+			"qualifiedName": "ArtifactDescriptor.formatUrl"
+		},
+		"211": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/validators/types.ts",
+			"qualifiedName": "ArtifactDescriptor.parsingGuide"
+		},
+		"212": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/validators/types.ts",
+			"qualifiedName": "ArtifactDescriptor.isJSON"
+		},
+		"213": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/validators/types.ts",
+			"qualifiedName": "ArtifactDescriptor.normalizedFrom"
+		},
+		"214": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/validators/types.ts",
+			"qualifiedName": "ValidationResult"
+		},
+		"215": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/validators/types.ts",
+			"qualifiedName": "ValidationResult.valid"
+		},
+		"216": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/validators/types.ts",
+			"qualifiedName": "ValidationResult.error"
+		},
+		"217": {
+			"packageName": "artifact-detective",
+			"packagePath": "src/validators/types.ts",
+			"qualifiedName": "ValidationResult.artifact"
+		}
+	},
+	"files": {
+		"entries": {
+			"1": "src/index.ts"
+		},
+		"reflections": {
+			"1": 0
+		}
+	}
+}
