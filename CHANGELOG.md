@@ -1,3 +1,16 @@
+# [1.14.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.13.0...v1.14.0) (2025-11-09)
+
+
+### Bug Fixes
+
+* exclude e2e tests from vitest configuration ([f454106](https://github.com/jmchilton/gh-ci-artifacts/commit/f4541068dac53def15fad68a8dfccfe0a9eb2a31))
+* update typedoc configuration for v0.28.x compatibility ([2e9263e](https://github.com/jmchilton/gh-ci-artifacts/commit/2e9263e5b7ebf6413fe3c7ce6cf9f694a00c32de))
+
+
+### Features
+
+* add Playwright E2E testing infrastructure for HTML viewer ([d3ea72b](https://github.com/jmchilton/gh-ci-artifacts/commit/d3ea72bc946ac00072ecbb79b858eead5db7a713))
+
 # [1.13.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.12.0...v1.13.0) (2025-11-07)
 
 
