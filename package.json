@@ -6,7 +6,8 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "bin": {
-    "gh-ci-artifacts": "./dist/cli.js"
+    "gh-ci-artifacts": "./dist/cli.js",
+    "gh-ci-artifacts-config-lint": "./dist/config-lint.js"
   },
   "files": [
     "dist",
@@ -16,6 +17,7 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsx src/cli.ts",
+    "dev:config-lint": "tsx src/config-lint.ts",
     "format": "prettier --write .",
     "check-format": "prettier --check .",
     "test": "vitest run",
@@ -73,6 +75,7 @@
     "commander": "^14.0.2",
     "junit-xml-parser": "^0.0.3",
     "typescript": "^5.9.3",
-    "yaml": "^2.8.1"
+    "yaml": "^2.8.1",
+    "zod": "^4.1.12"
   }
 }

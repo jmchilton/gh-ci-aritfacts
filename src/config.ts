@@ -3,7 +3,7 @@ import { join } from "path";
 import { parse as parseYAML } from "yaml";
 import type { Config, SkipPattern, ArtifactTypeMapping } from "./types.js";
 
-const CONFIG_FILENAMES = [
+export const CONFIG_FILENAMES = [
   ".gh-ci-artifacts.json",
   ".gh-ci-artifacts.yml",
   ".gh-ci-artifacts.yaml",
@@ -143,4 +143,70 @@ export function getOutputDir(
   }
 
   return join(baseDir, dirName);
+}
+
+/**
+ * Find and load a config file, returning the path, format, and raw parsed content.
+ * This is useful for tools that need to validate the config before using it.
+ *
+ * @param explicitPath - Optional explicit path to config file
+ * @param cwd - Working directory to search for config files (defaults to process.cwd())
+ * @returns Object with path, format, and parsed content
+ * @throws Error if config file not found or cannot be parsed
+ */
+export function findAndLoadConfigFile(
+  explicitPath?: string,
+  cwd: string = process.cwd(),
+): { path: string; format: "json" | "yaml"; content: unknown } {
+  // If explicit path provided, use it
+  if (explicitPath) {
+    if (!existsSync(explicitPath)) {
+      throw new Error(`Config file not found: ${explicitPath}`);
+    }
+
+    const configContent = readFileSync(explicitPath, "utf-8");
+    const format: "json" | "yaml" =
+      explicitPath.endsWith(".yaml") || explicitPath.endsWith(".yml")
+        ? "yaml"
+        : "json";
+
+    try {
+      const content =
+        format === "yaml" ? parseYAML(configContent) : JSON.parse(configContent);
+      return { path: explicitPath, format, content };
+    } catch (error) {
+      throw new Error(
+        `Failed to parse config file: ${error instanceof Error ? error.message : String(error)}`,
+      );
+    }
+  }
+
+  // Search for config files in order of preference
+  for (const filename of CONFIG_FILENAMES) {
+    const configPath = join(cwd, filename);
+
+    if (!existsSync(configPath)) {
+      continue;
+    }
+
+    try {
+      const configContent = readFileSync(configPath, "utf-8");
+      const format: "json" | "yaml" =
+        filename.endsWith(".yml") || filename.endsWith(".yaml")
+          ? "yaml"
+          : "json";
+
+      const content =
+        format === "yaml" ? parseYAML(configContent) : JSON.parse(configContent);
+      return { path: configPath, format, content };
+    } catch (error) {
+      throw new Error(
+        `Failed to parse ${filename}: ${error instanceof Error ? error.message : String(error)}`,
+      );
+    }
+  }
+
+  throw new Error(
+    `No config file found. Searched for: ${CONFIG_FILENAMES.join(", ")}`,
+  );
 }
