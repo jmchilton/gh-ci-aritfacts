@@ -47,7 +47,7 @@ Text formats are parsed using pattern matching to extract structured data.
 The tool automatically detects which artifacts can be normalized:
 
 1. **Type Detection** - Uses artifact-detective to identify artifact type
-2. **Capability Check** - Checks if the type supports normalization (`canConvertToJSON()`)
+2. **Capability Check** - Checks if the type supports normalization ([`canConvertToJSON()`](https://jmchilton.github.io/artifact-detective/#/api/functions/canConvertToJSON))
 3. **Format Check** - Skips artifacts already in JSON format
 4. **Normalization** - Converts to JSON using appropriate parser
 
@@ -55,8 +55,8 @@ The tool automatically detects which artifacts can be normalized:
 
 ```typescript
 // Simplified process
-if (!isJSON(detection) && canConvertToJSON(detection)) {
-  const jsonData = convertToJSON(detection, filePath);
+if (!isJSON(detection) && [`canConvertToJSON()`](https://jmchilton.github.io/artifact-detective/#/api/functions/canConvertToJSON)(detection)) {
+  const jsonData = [`convertToJSON()`](https://jmchilton.github.io/artifact-detective/#/api/functions/convertToJSON)(detection, filePath);
   // Save normalized JSON to converted/ directory
 }
 ```
@@ -218,11 +218,11 @@ Common failure reasons:
 
 Normalization uses [artifact-detective](https://github.com/jmchilton/artifact-detective)'s normalization functions:
 
-- **`canConvertToJSON()`** - Checks if format supports normalization
-- **`convertToJSON()`** - Performs the actual normalization
+- **[`canConvertToJSON()`](https://jmchilton.github.io/artifact-detective/#/api/functions/canConvertToJSON)** - Checks if format supports normalization
+- **[`convertToJSON()`](https://jmchilton.github.io/artifact-detective/#/api/functions/convertToJSON)** - Performs the actual normalization
 - **Format-specific parsers** - Each format has its own parser
 
-The normalization registry (`ARTIFACT_TYPE_REGISTRY`) determines which formats can be normalized and what they normalize to.
+The normalization registry ([`ARTIFACT_TYPE_REGISTRY`](https://jmchilton.github.io/artifact-detective/#/api/variables/ARTIFACT_TYPE_REGISTRY)) determines which formats can be normalized and what they normalize to.
 
 ## Statistics
 

@@ -16,7 +16,7 @@ When artifacts are downloaded from GitHub Actions, each file is analyzed to dete
 
 ### Automatic Detection
 
-The tool uses `detectArtifactType()` from artifact-detective, which:
+The tool uses [`detectArtifactType()`](https://jmchilton.github.io/artifact-detective/#/api/functions/detectArtifactType) from artifact-detective, which:
 
 - **Analyzes file content** - Reads actual file contents, not just filenames
 - **Identifies structural markers** - Looks for unique patterns like JSON schemas, HTML structure, XML namespaces
@@ -24,7 +24,7 @@ The tool uses `detectArtifactType()` from artifact-detective, which:
 - **Validates content** - When `validate: true` is used, verifies content matches expected format
 
 ```typescript
-const detection = detectArtifactType(filePath, { validate: true });
+const detection = [`detectArtifactType()`](https://jmchilton.github.io/artifact-detective/#/api/functions/detectArtifactType)(filePath, { validate: true });
 // Returns:
 // {
 //   detectedType: "jest-json" | "playwright-html" | "eslint-txt" | "unknown" | ...
@@ -110,7 +110,7 @@ When artifact-detective can't identify an artifact type (detected as `"unknown"`
 
 ## Validation
 
-When `validate: true` is passed to `detectArtifactType()`, the tool:
+When `validate: true` is passed to [`detectArtifactType()`](https://jmchilton.github.io/artifact-detective/#/api/functions/detectArtifactType), the tool:
 
 - **Validates content structure** - Ensures content matches the detected type's expected format
 - **Provides validation results** - Returns `validationResult` with success/failure status
@@ -153,7 +153,7 @@ This information is stored in `catalog.json` and displayed in the HTML viewer.
 
 ## Integration with artifact-detective
 
-gh-ci-artifacts uses artifact-detective as its detection engine. The artifact type registry is dynamically loaded from `ARTIFACT_TYPE_REGISTRY`, ensuring:
+gh-ci-artifacts uses artifact-detective as its detection engine. The artifact type registry is dynamically loaded from [`ARTIFACT_TYPE_REGISTRY`](https://jmchilton.github.io/artifact-detective/#/api/variables/ARTIFACT_TYPE_REGISTRY), ensuring:
 
 - **Automatic updates**: New artifact types in artifact-detective are automatically available
 - **Type safety**: TypeScript types stay in sync with runtime validation

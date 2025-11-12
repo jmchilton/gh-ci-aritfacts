@@ -18,7 +18,7 @@
   - [Resume Mode](features/resume-mode.md)
 
 - **Architecture**
-  - [Overview](architecture/)
+  - [Overview](architecture/index.md)
   - [Artifact Detection](architecture/detection.md)
   - [Normalization](architecture/normalization.md)
   - [Data Flow](architecture/data-flow.md)

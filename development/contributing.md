@@ -67,10 +67,6 @@ npm run test:watch
 npm run test:coverage
 ```
 
-**Test CLI locally:**
-```bash
-npm run dev -- 123 --repo owner/repo --debug
-```
 
 ### Code Style
 

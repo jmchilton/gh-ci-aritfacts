@@ -175,17 +175,6 @@ done
 0 2 * * * cd /path/to/repo && gh-ci-artifacts main --output-dir ./ci-history/$(date +\%Y\%m\%d)
 ```
 
-### Analyze in CI/CD
-
-```bash
-# GitHub Actions
-- name: Download artifacts
-  run: npx gh-ci-artifacts ${{ github.event.pull_request.number }} --repo ${{ github.repository }}
-
-- name: Analyze
-  run: cat .gh-ci-artifacts/pr-${{ github.event.pull_request.number }}/summary.json
-```
-
 ## Common Issues
 
 ### "gh CLI not authenticated"
