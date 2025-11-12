@@ -11,7 +11,7 @@ File → Content Analysis → Type Detection → Custom Mapping → Final Type
 
 ### Stage 1: Content Analysis
 
-**Component:** `artifact-detective.detectArtifactType()`
+**Component:** [`detectArtifactType()`](https://jmchilton.github.io/artifact-detective/#/api/functions/detectArtifactType) from artifact-detective
 
 **Process:**
 1. **Read file content** - Loads file into memory
@@ -58,11 +58,11 @@ File → Content Analysis → Type Detection → Custom Mapping → Final Type
 2. **Content validation** - Checks content matches expected schema/structure
 3. **Error reporting** - Returns validation errors if invalid
 
-**Enabled by:** `detectArtifactType(filePath, { validate: true })`
+**Enabled by:** [`detectArtifactType()`](https://jmchilton.github.io/artifact-detective/#/api/functions/detectArtifactType)(filePath, { validate: true })
 
 ## Detection Registry
 
-The detection system uses `ARTIFACT_TYPE_REGISTRY` from artifact-detective, which provides:
+The detection system uses [`ARTIFACT_TYPE_REGISTRY`](https://jmchilton.github.io/artifact-detective/#/api/variables/ARTIFACT_TYPE_REGISTRY) from artifact-detective, which provides:
 
 - **Type capabilities** - What each type supports (detection, validation, normalization)
 - **Validator functions** - Type-specific validation logic
@@ -117,7 +117,7 @@ This allows users to handle:
 
 ```typescript
 // For each file in artifact directory
-const detection = detectArtifactType(filePath, { validate: true });
+const detection = [`detectArtifactType()`](https://jmchilton.github.io/artifact-detective/#/api/functions/detectArtifactType)(filePath, { validate: true });
 
 // Apply custom mapping if unknown
 const finalType = applyCustomArtifactType(
@@ -234,10 +234,10 @@ Binary artifacts are:
 
 ### With artifact-detective
 
-- **Detection** - Uses `detectArtifactType()` for all detection
+- **Detection** - Uses [`detectArtifactType()`](https://jmchilton.github.io/artifact-detective/#/api/functions/detectArtifactType) for all detection
 - **Validation** - Uses type-specific validators from registry
 - **Metadata** - Uses `ArtifactDescriptor` for type information
-- **Registry** - Dynamically loads `ARTIFACT_TYPE_REGISTRY`
+- **Registry** - Dynamically loads [`ARTIFACT_TYPE_REGISTRY`](https://jmchilton.github.io/artifact-detective/#/api/variables/ARTIFACT_TYPE_REGISTRY)
 
 ### With Configuration System
 

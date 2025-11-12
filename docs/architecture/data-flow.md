@@ -266,7 +266,7 @@ For each artifact directory:
    - Skip directories
 
 2. **Detect artifact type:**
-   - Use `artifact-detective.detectArtifactType()`
+   - Use [`detectArtifactType()`](https://jmchilton.github.io/artifact-detective/#/api/functions/detectArtifactType) from artifact-detective
    - Analyze file content (not just filename)
    - Apply custom type mappings if detected as "unknown"
    - Validate content (if enabled)
@@ -293,7 +293,7 @@ For each artifact directory:
 
 **Components:**
 - `src/cataloger.ts` - `catalogArtifacts()`
-- `artifact-detective` - `detectArtifactType()`
+- `artifact-detective` - [`detectArtifactType()`](https://jmchilton.github.io/artifact-detective/#/api/functions/detectArtifactType)
 
 **Data Flow:**
 ```

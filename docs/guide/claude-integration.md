@@ -69,24 +69,6 @@ npx gh-ci-artifacts 123
 claude analyze-ci --pr_number=123
 ```
 
-## Programmatic Usage
-
-```typescript
-import { execSync } from "child_process";
-import { readFileSync } from "fs";
-
-// Download artifacts (uses current repo)
-execSync("npx gh-ci-artifacts 123", { stdio: "inherit" });
-
-// Load summary for analysis
-const summary = JSON.parse(
-  readFileSync(".gh-ci-artifacts/123/summary.json", "utf-8"),
-);
-
-// Feed to Claude for analysis
-console.log(summary);
-```
-
 ## Recommended Test Reporter Setup
 
 For optimal results, configure your test frameworks to output JSON:

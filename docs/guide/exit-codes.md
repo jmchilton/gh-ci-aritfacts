@@ -30,23 +30,6 @@ case $? in
 esac
 ```
 
-### CI/CD Pipeline
-
-```yaml
-# GitHub Actions
-- name: Download CI Artifacts
-  run: npx gh-ci-artifacts 123 --repo owner/repo
-  continue-on-error: true
-
-- name: Check results
-  if: ${{ job.status == 'success' }}
-  run: echo "Artifacts complete"
-
-- name: Partial results
-  if: ${{ job.status == 'failure' }}
-  run: echo "Some artifacts failed"
-```
-
 ## Interpreting Results
 
 ### Exit Code 0: Complete

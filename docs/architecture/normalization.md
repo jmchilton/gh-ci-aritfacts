@@ -30,10 +30,10 @@ Detected Artifact → Check Format → Check Capability → Normalize → Save J
 
 ### Stage 2: Capability Check
 
-**Component:** `canConvertToJSON()` from artifact-detective
+**Component:** [`canConvertToJSON()`](https://jmchilton.github.io/artifact-detective/#/api/functions/canConvertToJSON) from artifact-detective
 
 **Process:**
-1. Query `ARTIFACT_TYPE_REGISTRY` for detected type
+1. Query [`ARTIFACT_TYPE_REGISTRY`](https://jmchilton.github.io/artifact-detective/#/api/variables/ARTIFACT_TYPE_REGISTRY) for detected type
 2. Check if type has normalization function registered
 3. Verify normalization target type exists
 
@@ -41,7 +41,7 @@ Detected Artifact → Check Format → Check Capability → Normalize → Save J
 
 ### Stage 3: Normalization
 
-**Component:** `convertToJSON()` from artifact-detective
+**Component:** [`convertToJSON()`](https://jmchilton.github.io/artifact-detective/#/api/functions/convertToJSON) from artifact-detective
 
 **Process:**
 1. **Load normalization function** - Get type-specific normalizer from registry
@@ -213,10 +213,10 @@ src/file2.py:5: error: Missing return type
 
 ### Registry Lookup
 
-Normalization uses `ARTIFACT_TYPE_REGISTRY` from artifact-detective:
+Normalization uses [`ARTIFACT_TYPE_REGISTRY`](https://jmchilton.github.io/artifact-detective/#/api/variables/ARTIFACT_TYPE_REGISTRY) from artifact-detective:
 
 ```typescript
-const registryEntry = ARTIFACT_TYPE_REGISTRY[detectedType];
+const registryEntry = [`ARTIFACT_TYPE_REGISTRY`](https://jmchilton.github.io/artifact-detective/#/api/variables/ARTIFACT_TYPE_REGISTRY)[detectedType];
 if (registryEntry?.normalize) {
   // Type supports normalization
   const jsonData = registryEntry.normalize(fileContent);
@@ -256,7 +256,7 @@ The registry is dynamically loaded, so:
 **Code:**
 ```typescript
 try {
-  const jsonData = convertToJSON(detection, filePath);
+  const jsonData = [`convertToJSON()`](https://jmchilton.github.io/artifact-detective/#/api/functions/convertToJSON)(detection, filePath);
   if (jsonData) {
     // Save normalized JSON
   } else {
