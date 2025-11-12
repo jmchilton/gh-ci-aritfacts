@@ -151,6 +151,7 @@ program
         options.dryRun,
         options.includeSuccesses,
         options.wait,
+        !!options.repo,
       );
 
       logger.info("\n=== Download complete ===");

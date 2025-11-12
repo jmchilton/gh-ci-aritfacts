@@ -49,6 +49,7 @@ export async function downloadArtifacts(
   dryRun: boolean = false,
   includeSuccesses: boolean = false,
   wait: boolean = false,
+  repoExplicitlyProvided: boolean = false,
 ): Promise<DownloadResult> {
   // Polling setup for --wait mode
   const startTime = Date.now();
@@ -232,10 +233,12 @@ export async function downloadArtifacts(
         const result = await withRetry(
           () => {
             downloadArtifact(
+              repo,
               runId,
               artifact.name,
               artifact.id,
               artifactOutputDir,
+              repoExplicitlyProvided,
             );
             return Promise.resolve();
           },

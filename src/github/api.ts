@@ -223,14 +223,17 @@ export function getJobsForRun(repo: string, runId: string): Job[] {
 }
 
 export function downloadArtifact(
+  repo: string,
   runId: string,
   artifactName: string,
   artifactId: number,
   outputDir: string,
+  repoExplicitlyProvided: boolean = false,
 ): void {
   try {
+    const repoFlag = repoExplicitlyProvided ? `--repo ${repo}` : "";
     execSync(
-      `gh run download ${runId} --name "${artifactName}" --dir "${outputDir}"`,
+      `gh run download ${runId} ${repoFlag} --name "${artifactName}" --dir "${outputDir}"`.trim(),
       {
         encoding: "utf-8",
         stdio: "pipe",
