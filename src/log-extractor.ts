@@ -24,16 +24,35 @@ export async function extractLogs(
 
     try {
       const jobs = getJobsForRun(repo, runId);
-      const failedJobs = jobs.filter(
+
+      // Separate jobs into three categories
+      const skippedJobs = jobs.filter(
+        (job) => job.conclusion === "skipped" || job.started_at === null,
+      );
+      const jobsToProcess = jobs.filter(
+        (job) => job.conclusion !== "skipped" && job.started_at !== null,
+      );
+      const failedJobs = jobsToProcess.filter(
         (job) => job.conclusion === "failure" || job.status === "completed",
       );
 
       logger.info(
-        `  Found ${jobs.length} jobs, ${failedJobs.length} failed/completed`,
+        `  Found ${jobs.length} jobs, ${failedJobs.length} failed/completed, ${skippedJobs.length} skipped`,
       );
 
       const runLogs: JobLog[] = [];
 
+      // Add skipped jobs to the log list
+      for (const job of skippedJobs) {
+        runLogs.push({
+          jobName: job.name,
+          jobId: String(job.id),
+          extractionStatus: "skipped",
+          skipReason: "Job was skipped (never ran)",
+        });
+      }
+
+      // Process jobs that actually ran
       for (const job of failedJobs) {
         try {
           logger.debug(`  Fetching logs for job: ${job.name}`);

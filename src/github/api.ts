@@ -76,6 +76,7 @@ export interface Job {
   name: string;
   conclusion: string | null;
   status: string;
+  started_at: string | null;
 }
 
 export function getPRInfo(repo: string, prNumber: number): PR {
@@ -211,10 +212,18 @@ export function getArtifactsForRun(repo: string, runId: string): Artifact[] {
 export function getJobsForRun(repo: string, runId: string): Job[] {
   try {
     const output = execSync(
-      `gh api repos/${repo}/actions/runs/${runId}/jobs --jq '.jobs'`,
+      `gh api repos/${repo}/actions/runs/${runId}/jobs --jq '.jobs[] | {id, name, conclusion, status, started_at}'`,
       { encoding: "utf-8" },
     );
-    return JSON.parse(output) as Job[];
+
+    // Parse NDJSON (newline-delimited JSON)
+    const jobs = output
+      .trim()
+      .split("\n")
+      .filter((line) => line.trim())
+      .map((line) => JSON.parse(line) as Job);
+
+    return jobs;
   } catch (error) {
     throw new Error(
       `Failed to fetch jobs for run ${runId}: ${error instanceof Error ? error.message : String(error)}`,

@@ -28,7 +28,7 @@ export interface LinterOutput extends LinterOutputBase {
 
 export type RunConclusion = "failure" | "success" | "cancelled" | "in_progress";
 export type DownloadStatus = "success" | "expired" | "failed" | "skipped";
-export type ExtractionStatus = "success" | "failed";
+export type ExtractionStatus = "success" | "failed" | "skipped";
 export type SummaryStatus = "complete" | "partial" | "incomplete";
 
 // Reference types for PR vs branch mode
@@ -62,6 +62,7 @@ export interface JobLog {
   jobId?: string;
   extractionStatus: ExtractionStatus;
   logFile?: string;
+  skipReason?: string;
   linterOutputs?: LinterOutput[];
 }
 
