@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.15.0...v1.16.0) (2025-11-12)
+
+
+### Features
+
+* add --config CLI option for custom config paths ([7ca934e](https://github.com/jmchilton/gh-ci-artifacts/commit/7ca934ed9dfea861520970053adb82116b3185f6))
+
 # [1.15.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.14.0...v1.15.0) (2025-11-11)
 
 
