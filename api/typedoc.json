@@ -24,7 +24,7 @@
 							"fileName": "src/utils/logger.ts",
 							"line": 4,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/utils/logger.ts#L4"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/utils/logger.ts#L4"
 						}
 					],
 					"signatures": [
@@ -39,7 +39,7 @@
 									"fileName": "src/utils/logger.ts",
 									"line": 4,
 									"character": 2,
-									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/utils/logger.ts#L4"
+									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/utils/logger.ts#L4"
 								}
 							],
 							"parameters": [
@@ -76,7 +76,7 @@
 							"fileName": "src/utils/logger.ts",
 							"line": 12,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/utils/logger.ts#L12"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/utils/logger.ts#L12"
 						}
 					],
 					"signatures": [
@@ -91,7 +91,7 @@
 									"fileName": "src/utils/logger.ts",
 									"line": 12,
 									"character": 2,
-									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/utils/logger.ts#L12"
+									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/utils/logger.ts#L12"
 								}
 							],
 							"parameters": [
@@ -125,7 +125,7 @@
 							"fileName": "src/utils/logger.ts",
 							"line": 22,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/utils/logger.ts#L22"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/utils/logger.ts#L22"
 						}
 					],
 					"signatures": [
@@ -140,7 +140,7 @@
 									"fileName": "src/utils/logger.ts",
 									"line": 22,
 									"character": 2,
-									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/utils/logger.ts#L22"
+									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/utils/logger.ts#L22"
 								}
 							],
 							"parameters": [
@@ -174,7 +174,7 @@
 							"fileName": "src/utils/logger.ts",
 							"line": 8,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/utils/logger.ts#L8"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/utils/logger.ts#L8"
 						}
 					],
 					"signatures": [
@@ -189,7 +189,7 @@
 									"fileName": "src/utils/logger.ts",
 									"line": 8,
 									"character": 2,
-									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/utils/logger.ts#L8"
+									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/utils/logger.ts#L8"
 								}
 							],
 							"parameters": [
@@ -223,7 +223,7 @@
 							"fileName": "src/utils/logger.ts",
 							"line": 26,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/utils/logger.ts#L26"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/utils/logger.ts#L26"
 						}
 					],
 					"signatures": [
@@ -238,7 +238,7 @@
 									"fileName": "src/utils/logger.ts",
 									"line": 26,
 									"character": 2,
-									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/utils/logger.ts#L26"
+									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/utils/logger.ts#L26"
 								}
 							],
 							"parameters": [
@@ -272,7 +272,7 @@
 							"fileName": "src/utils/logger.ts",
 							"line": 18,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/utils/logger.ts#L18"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/utils/logger.ts#L18"
 						}
 					],
 					"signatures": [
@@ -287,7 +287,7 @@
 									"fileName": "src/utils/logger.ts",
 									"line": 18,
 									"character": 2,
-									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/utils/logger.ts#L18"
+									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/utils/logger.ts#L18"
 								}
 							],
 							"parameters": [
@@ -334,7 +334,7 @@
 					"fileName": "src/utils/logger.ts",
 					"line": 1,
 					"character": 13,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/utils/logger.ts#L1"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/utils/logger.ts#L1"
 				}
 			]
 		},
@@ -358,7 +358,7 @@
 							"fileName": "src/action.ts",
 							"line": 16,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/action.ts#L16"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/action.ts#L16"
 						}
 					],
 					"type": {
@@ -379,7 +379,7 @@
 							"fileName": "src/action.ts",
 							"line": 17,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/action.ts#L17"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/action.ts#L17"
 						}
 					],
 					"type": {
@@ -400,7 +400,7 @@
 							"fileName": "src/action.ts",
 							"line": 19,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/action.ts#L19"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/action.ts#L19"
 						}
 					],
 					"type": {
@@ -421,7 +421,7 @@
 							"fileName": "src/action.ts",
 							"line": 15,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/action.ts#L15"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/action.ts#L15"
 						}
 					],
 					"type": {
@@ -442,7 +442,7 @@
 							"fileName": "src/action.ts",
 							"line": 18,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/action.ts#L18"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/action.ts#L18"
 						}
 					],
 					"type": {
@@ -468,7 +468,7 @@
 					"fileName": "src/action.ts",
 					"line": 14,
 					"character": 17,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/action.ts#L14"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/action.ts#L14"
 				}
 			]
 		},
@@ -490,7 +490,7 @@
 							"fileName": "src/action.ts",
 							"line": 24,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/action.ts#L24"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/action.ts#L24"
 						}
 					],
 					"type": {
@@ -509,7 +509,7 @@
 							"fileName": "src/action.ts",
 							"line": 23,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/action.ts#L23"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/action.ts#L23"
 						}
 					],
 					"type": {
@@ -534,7 +534,7 @@
 					"fileName": "src/action.ts",
 					"line": 22,
 					"character": 17,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/action.ts#L22"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/action.ts#L22"
 				}
 			]
 		},
@@ -767,7 +767,7 @@
 							"fileName": "src/types.ts",
 							"line": 163,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L163"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L163"
 						}
 					],
 					"type": {
@@ -792,7 +792,7 @@
 											"fileName": "src/types.ts",
 											"line": 165,
 											"character": 4,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L165"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L165"
 										}
 									],
 									"type": {
@@ -813,7 +813,7 @@
 											"fileName": "src/types.ts",
 											"line": 166,
 											"character": 4,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L166"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L166"
 										}
 									],
 									"type": {
@@ -834,7 +834,7 @@
 											"fileName": "src/types.ts",
 											"line": 164,
 											"character": 4,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L164"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L164"
 										}
 									],
 									"type": {
@@ -858,7 +858,7 @@
 									"fileName": "src/types.ts",
 									"line": 163,
 									"character": 20,
-									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L163"
+									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L163"
 								}
 							]
 						}
@@ -877,7 +877,7 @@
 							"fileName": "src/types.ts",
 							"line": 169,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L169"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L169"
 						}
 					],
 					"type": {
@@ -898,7 +898,7 @@
 							"fileName": "src/types.ts",
 							"line": 170,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L170"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L170"
 						}
 					],
 					"type": {
@@ -919,7 +919,7 @@
 							"fileName": "src/types.ts",
 							"line": 168,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L168"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L168"
 						}
 					],
 					"type": {
@@ -940,7 +940,7 @@
 							"fileName": "src/types.ts",
 							"line": 162,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L162"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L162"
 						}
 					],
 					"type": {
@@ -959,7 +959,7 @@
 							"fileName": "src/types.ts",
 							"line": 161,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L161"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L161"
 						}
 					],
 					"type": {
@@ -988,7 +988,7 @@
 					"fileName": "src/types.ts",
 					"line": 160,
 					"character": 17,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L160"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L160"
 				}
 			]
 		},
@@ -1010,7 +1010,7 @@
 							"fileName": "src/types.ts",
 							"line": 53,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L53"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L53"
 						}
 					],
 					"type": {
@@ -1029,7 +1029,7 @@
 							"fileName": "src/types.ts",
 							"line": 52,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L52"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L52"
 						}
 					],
 					"type": {
@@ -1050,7 +1050,7 @@
 							"fileName": "src/types.ts",
 							"line": 56,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L56"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L56"
 						}
 					],
 					"type": {
@@ -1069,7 +1069,7 @@
 							"fileName": "src/types.ts",
 							"line": 51,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L51"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L51"
 						}
 					],
 					"type": {
@@ -1088,7 +1088,7 @@
 							"fileName": "src/types.ts",
 							"line": 54,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L54"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L54"
 						}
 					],
 					"type": {
@@ -1109,7 +1109,7 @@
 							"fileName": "src/types.ts",
 							"line": 57,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L57"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L57"
 						}
 					],
 					"type": {
@@ -1128,7 +1128,7 @@
 							"fileName": "src/types.ts",
 							"line": 55,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L55"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L55"
 						}
 					],
 					"type": {
@@ -1158,7 +1158,7 @@
 					"fileName": "src/types.ts",
 					"line": 50,
 					"character": 17,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L50"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L50"
 				}
 			]
 		},
@@ -1180,7 +1180,7 @@
 							"fileName": "src/types.ts",
 							"line": 155,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L155"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L155"
 						}
 					],
 					"type": {
@@ -1201,7 +1201,7 @@
 							"fileName": "src/types.ts",
 							"line": 157,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L157"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L157"
 						}
 					],
 					"type": {
@@ -1220,7 +1220,7 @@
 							"fileName": "src/types.ts",
 							"line": 156,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L156"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L156"
 						}
 					],
 					"type": {
@@ -1246,7 +1246,7 @@
 					"fileName": "src/types.ts",
 					"line": 154,
 					"character": 17,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L154"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L154"
 				}
 			]
 		},
@@ -1360,7 +1360,7 @@
 							"fileName": "src/types.ts",
 							"line": 44,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L44"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L44"
 						}
 					],
 					"type": {
@@ -1379,7 +1379,7 @@
 							"fileName": "src/types.ts",
 							"line": 45,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L45"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L45"
 						}
 					],
 					"type": {
@@ -1398,7 +1398,7 @@
 							"fileName": "src/types.ts",
 							"line": 43,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L43"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L43"
 						}
 					],
 					"type": {
@@ -1422,7 +1422,7 @@
 					"fileName": "src/types.ts",
 					"line": 42,
 					"character": 17,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L42"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L42"
 				}
 			]
 		},
@@ -1446,7 +1446,7 @@
 							"fileName": "src/types.ts",
 							"line": 112,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L112"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L112"
 						}
 					],
 					"type": {
@@ -1470,7 +1470,7 @@
 							"fileName": "src/types.ts",
 							"line": 138,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L138"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L138"
 						}
 					],
 					"type": {
@@ -1491,7 +1491,7 @@
 							"fileName": "src/types.ts",
 							"line": 116,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L116"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L116"
 						}
 					],
 					"type": {
@@ -1517,7 +1517,7 @@
 							"fileName": "src/types.ts",
 							"line": 111,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L111"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L111"
 						}
 					],
 					"type": {
@@ -1543,7 +1543,7 @@
 							"fileName": "src/types.ts",
 							"line": 114,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L114"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L114"
 						}
 					],
 					"type": {
@@ -1567,7 +1567,7 @@
 							"fileName": "src/types.ts",
 							"line": 137,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L137"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L137"
 						}
 					],
 					"type": {
@@ -1588,7 +1588,7 @@
 							"fileName": "src/types.ts",
 							"line": 110,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L110"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L110"
 						}
 					],
 					"type": {
@@ -1614,7 +1614,7 @@
 							"fileName": "src/types.ts",
 							"line": 115,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L115"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L115"
 						}
 					],
 					"type": {
@@ -1645,7 +1645,7 @@
 							"fileName": "src/types.ts",
 							"line": 118,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L118"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L118"
 						}
 					],
 					"type": {
@@ -1668,7 +1668,7 @@
 											"fileName": "src/types.ts",
 											"line": 120,
 											"character": 4,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L120"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L120"
 										}
 									],
 									"type": {
@@ -1687,7 +1687,7 @@
 											"fileName": "src/types.ts",
 											"line": 121,
 											"character": 4,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L121"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L121"
 										}
 									],
 									"type": {
@@ -1706,7 +1706,7 @@
 											"fileName": "src/types.ts",
 											"line": 125,
 											"character": 4,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L125"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L125"
 										}
 									],
 									"type": {
@@ -1725,7 +1725,7 @@
 											"fileName": "src/types.ts",
 											"line": 124,
 											"character": 4,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L124"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L124"
 										}
 									],
 									"type": {
@@ -1744,7 +1744,7 @@
 											"fileName": "src/types.ts",
 											"line": 123,
 											"character": 4,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L123"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L123"
 										}
 									],
 									"type": {
@@ -1763,7 +1763,7 @@
 											"fileName": "src/types.ts",
 											"line": 126,
 											"character": 4,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L126"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L126"
 										}
 									],
 									"type": {
@@ -1782,7 +1782,7 @@
 											"fileName": "src/types.ts",
 											"line": 122,
 											"character": 4,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L122"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L122"
 										}
 									],
 									"type": {
@@ -1801,7 +1801,7 @@
 											"fileName": "src/types.ts",
 											"line": 119,
 											"character": 4,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L119"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L119"
 										}
 									],
 									"type": {
@@ -1830,7 +1830,7 @@
 									"fileName": "src/types.ts",
 									"line": 118,
 									"character": 9,
-									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L118"
+									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L118"
 								}
 							]
 						}
@@ -1854,7 +1854,7 @@
 							"fileName": "src/types.ts",
 							"line": 113,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L113"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L113"
 						}
 					],
 					"type": {
@@ -1883,7 +1883,7 @@
 							"fileName": "src/types.ts",
 							"line": 117,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L117"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L117"
 						}
 					],
 					"type": {
@@ -1925,7 +1925,7 @@
 					"fileName": "src/types.ts",
 					"line": 136,
 					"character": 17,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L136"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L136"
 				}
 			],
 			"extendedTypes": [
@@ -1961,7 +1961,7 @@
 							"fileName": "src/types.ts",
 							"line": 19,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L19"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L19"
 						}
 					],
 					"type": {
@@ -2198,7 +2198,7 @@
 							"fileName": "src/types.ts",
 							"line": 20,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L20"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L20"
 						}
 					],
 					"type": {
@@ -2231,7 +2231,7 @@
 					"fileName": "src/types.ts",
 					"line": 18,
 					"character": 17,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L18"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L18"
 				}
 			],
 			"extendedTypes": [
@@ -2267,7 +2267,7 @@
 							"fileName": "src/types.ts",
 							"line": 191,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L191"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L191"
 						}
 					],
 					"type": {
@@ -2293,7 +2293,7 @@
 							"fileName": "src/types.ts",
 							"line": 185,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L185"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L185"
 						}
 					],
 					"type": {
@@ -2314,7 +2314,7 @@
 							"fileName": "src/types.ts",
 							"line": 192,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L192"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L192"
 						}
 					],
 					"type": {
@@ -2340,7 +2340,7 @@
 							"fileName": "src/types.ts",
 							"line": 186,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L186"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L186"
 						}
 					],
 					"type": {
@@ -2361,7 +2361,7 @@
 							"fileName": "src/types.ts",
 							"line": 189,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L189"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L189"
 						}
 					],
 					"type": {
@@ -2382,7 +2382,7 @@
 							"fileName": "src/types.ts",
 							"line": 184,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L184"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L184"
 						}
 					],
 					"type": {
@@ -2403,7 +2403,7 @@
 							"fileName": "src/types.ts",
 							"line": 188,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L188"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L188"
 						}
 					],
 					"type": {
@@ -2424,7 +2424,7 @@
 							"fileName": "src/types.ts",
 							"line": 187,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L187"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L187"
 						}
 					],
 					"type": {
@@ -2445,7 +2445,7 @@
 							"fileName": "src/types.ts",
 							"line": 190,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L190"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L190"
 						}
 					],
 					"type": {
@@ -2471,7 +2471,7 @@
 							"fileName": "src/types.ts",
 							"line": 193,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L193"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L193"
 						}
 					],
 					"type": {
@@ -2507,7 +2507,7 @@
 					"fileName": "src/types.ts",
 					"line": 183,
 					"character": 17,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L183"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L183"
 				}
 			]
 		},
@@ -2529,7 +2529,7 @@
 							"fileName": "src/types.ts",
 							"line": 82,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L82"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L82"
 						}
 					],
 					"type": {
@@ -2550,7 +2550,7 @@
 							"fileName": "src/types.ts",
 							"line": 84,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L84"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L84"
 						}
 					],
 					"type": {
@@ -2569,7 +2569,7 @@
 							"fileName": "src/types.ts",
 							"line": 83,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L83"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L83"
 						}
 					],
 					"type": {
@@ -2593,7 +2593,7 @@
 					"fileName": "src/types.ts",
 					"line": 81,
 					"character": 17,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L81"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L81"
 				}
 			]
 		},
@@ -2615,7 +2615,7 @@
 							"fileName": "src/types.ts",
 							"line": 149,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L149"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L149"
 						}
 					],
 					"type": {
@@ -2636,7 +2636,7 @@
 							"fileName": "src/types.ts",
 							"line": 151,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L151"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L151"
 						}
 					],
 					"type": {
@@ -2657,7 +2657,7 @@
 							"fileName": "src/types.ts",
 							"line": 150,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L150"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L150"
 						}
 					],
 					"type": {
@@ -2681,7 +2681,7 @@
 					"fileName": "src/types.ts",
 					"line": 148,
 					"character": 17,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L148"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L148"
 				}
 			]
 		},
@@ -2703,7 +2703,7 @@
 							"fileName": "src/types.ts",
 							"line": 63,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L63"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L63"
 						}
 					],
 					"type": {
@@ -2726,7 +2726,7 @@
 							"fileName": "src/types.ts",
 							"line": 62,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L62"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L62"
 						}
 					],
 					"type": {
@@ -2745,7 +2745,7 @@
 							"fileName": "src/types.ts",
 							"line": 61,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L61"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L61"
 						}
 					],
 					"type": {
@@ -2766,7 +2766,7 @@
 							"fileName": "src/types.ts",
 							"line": 66,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L66"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L66"
 						}
 					],
 					"type": {
@@ -2792,7 +2792,7 @@
 							"fileName": "src/types.ts",
 							"line": 64,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L64"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L64"
 						}
 					],
 					"type": {
@@ -2813,7 +2813,7 @@
 							"fileName": "src/types.ts",
 							"line": 65,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L65"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L65"
 						}
 					],
 					"type": {
@@ -2840,7 +2840,7 @@
 					"fileName": "src/types.ts",
 					"line": 60,
 					"character": 17,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L60"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L60"
 				}
 			]
 		},
@@ -2864,7 +2864,7 @@
 							"fileName": "src/types.ts",
 							"line": 25,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L25"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L25"
 						}
 					],
 					"type": {
@@ -2939,7 +2939,7 @@
 							"fileName": "src/types.ts",
 							"line": 26,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L26"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L26"
 						}
 					],
 					"type": {
@@ -2966,7 +2966,7 @@
 					"fileName": "src/types.ts",
 					"line": 24,
 					"character": 17,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L24"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L24"
 				}
 			],
 			"extendedTypes": [
@@ -3000,7 +3000,7 @@
 							"fileName": "src/types.ts",
 							"line": 39,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L39"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L39"
 						}
 					],
 					"type": {
@@ -3019,7 +3019,7 @@
 							"fileName": "src/types.ts",
 							"line": 38,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L38"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L38"
 						}
 					],
 					"type": {
@@ -3042,7 +3042,7 @@
 					"fileName": "src/types.ts",
 					"line": 37,
 					"character": 17,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L37"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L37"
 				}
 			]
 		},
@@ -3066,7 +3066,7 @@
 							"fileName": "src/types.ts",
 							"line": 112,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L112"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L112"
 						}
 					],
 					"type": {
@@ -3092,7 +3092,7 @@
 							"fileName": "src/types.ts",
 							"line": 116,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L116"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L116"
 						}
 					],
 					"type": {
@@ -3118,7 +3118,7 @@
 							"fileName": "src/types.ts",
 							"line": 111,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L111"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L111"
 						}
 					],
 					"type": {
@@ -3144,7 +3144,7 @@
 							"fileName": "src/types.ts",
 							"line": 114,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L114"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L114"
 						}
 					],
 					"type": {
@@ -3168,7 +3168,7 @@
 							"fileName": "src/types.ts",
 							"line": 131,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L131"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L131"
 						}
 					],
 					"type": {
@@ -3187,7 +3187,7 @@
 							"fileName": "src/types.ts",
 							"line": 132,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L132"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L132"
 						}
 					],
 					"type": {
@@ -3206,7 +3206,7 @@
 							"fileName": "src/types.ts",
 							"line": 133,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L133"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L133"
 						}
 					],
 					"type": {
@@ -3227,7 +3227,7 @@
 							"fileName": "src/types.ts",
 							"line": 110,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L110"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L110"
 						}
 					],
 					"type": {
@@ -3253,7 +3253,7 @@
 							"fileName": "src/types.ts",
 							"line": 115,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L115"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L115"
 						}
 					],
 					"type": {
@@ -3284,7 +3284,7 @@
 							"fileName": "src/types.ts",
 							"line": 118,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L118"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L118"
 						}
 					],
 					"type": {
@@ -3307,7 +3307,7 @@
 											"fileName": "src/types.ts",
 											"line": 120,
 											"character": 4,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L120"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L120"
 										}
 									],
 									"type": {
@@ -3326,7 +3326,7 @@
 											"fileName": "src/types.ts",
 											"line": 121,
 											"character": 4,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L121"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L121"
 										}
 									],
 									"type": {
@@ -3345,7 +3345,7 @@
 											"fileName": "src/types.ts",
 											"line": 125,
 											"character": 4,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L125"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L125"
 										}
 									],
 									"type": {
@@ -3364,7 +3364,7 @@
 											"fileName": "src/types.ts",
 											"line": 124,
 											"character": 4,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L124"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L124"
 										}
 									],
 									"type": {
@@ -3383,7 +3383,7 @@
 											"fileName": "src/types.ts",
 											"line": 123,
 											"character": 4,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L123"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L123"
 										}
 									],
 									"type": {
@@ -3402,7 +3402,7 @@
 											"fileName": "src/types.ts",
 											"line": 126,
 											"character": 4,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L126"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L126"
 										}
 									],
 									"type": {
@@ -3421,7 +3421,7 @@
 											"fileName": "src/types.ts",
 											"line": 122,
 											"character": 4,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L122"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L122"
 										}
 									],
 									"type": {
@@ -3440,7 +3440,7 @@
 											"fileName": "src/types.ts",
 											"line": 119,
 											"character": 4,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L119"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L119"
 										}
 									],
 									"type": {
@@ -3469,7 +3469,7 @@
 									"fileName": "src/types.ts",
 									"line": 118,
 									"character": 9,
-									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L118"
+									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L118"
 								}
 							]
 						}
@@ -3493,7 +3493,7 @@
 							"fileName": "src/types.ts",
 							"line": 113,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L113"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L113"
 						}
 					],
 					"type": {
@@ -3522,7 +3522,7 @@
 							"fileName": "src/types.ts",
 							"line": 117,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L117"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L117"
 						}
 					],
 					"type": {
@@ -3565,7 +3565,7 @@
 					"fileName": "src/types.ts",
 					"line": 130,
 					"character": 17,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L130"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L130"
 				}
 			],
 			"extendedTypes": [
@@ -3601,7 +3601,7 @@
 							"fileName": "src/types.ts",
 							"line": 77,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L77"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L77"
 						}
 					],
 					"type": {
@@ -3624,7 +3624,7 @@
 							"fileName": "src/types.ts",
 							"line": 76,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L76"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L76"
 						}
 					],
 					"type": {
@@ -3645,7 +3645,7 @@
 							"fileName": "src/types.ts",
 							"line": 74,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L74"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L74"
 						}
 					],
 					"type": {
@@ -3664,7 +3664,7 @@
 							"fileName": "src/types.ts",
 							"line": 72,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L72"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L72"
 						}
 					],
 					"type": {
@@ -3687,7 +3687,7 @@
 							"fileName": "src/types.ts",
 							"line": 73,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L73"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L73"
 						}
 					],
 					"type": {
@@ -3708,7 +3708,7 @@
 							"fileName": "src/types.ts",
 							"line": 75,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L75"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L75"
 						}
 					],
 					"type": {
@@ -3727,7 +3727,7 @@
 							"fileName": "src/types.ts",
 							"line": 70,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L70"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L70"
 						}
 					],
 					"type": {
@@ -3746,7 +3746,7 @@
 							"fileName": "src/types.ts",
 							"line": 71,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L71"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L71"
 						}
 					],
 					"type": {
@@ -3767,7 +3767,7 @@
 							"fileName": "src/types.ts",
 							"line": 78,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L78"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L78"
 						}
 					],
 					"type": {
@@ -3799,7 +3799,7 @@
 					"fileName": "src/types.ts",
 					"line": 69,
 					"character": 17,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L69"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L69"
 				}
 			]
 		},
@@ -3821,7 +3821,7 @@
 							"fileName": "src/types.ts",
 							"line": 103,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L103"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L103"
 						}
 					],
 					"type": {
@@ -3845,7 +3845,7 @@
 							"fileName": "src/types.ts",
 							"line": 102,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L102"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L102"
 						}
 					],
 					"type": {
@@ -3866,7 +3866,7 @@
 							"fileName": "src/types.ts",
 							"line": 104,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L104"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L104"
 						}
 					],
 					"type": {
@@ -3890,7 +3890,7 @@
 							"fileName": "src/types.ts",
 							"line": 100,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L100"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L100"
 						}
 					],
 					"type": {
@@ -3909,7 +3909,7 @@
 							"fileName": "src/types.ts",
 							"line": 97,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L97"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L97"
 						}
 					],
 					"type": {
@@ -3928,7 +3928,7 @@
 							"fileName": "src/types.ts",
 							"line": 101,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L101"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L101"
 						}
 					],
 					"type": {
@@ -3949,7 +3949,7 @@
 							"fileName": "src/types.ts",
 							"line": 105,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L105"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L105"
 						}
 					],
 					"type": {
@@ -3970,7 +3970,7 @@
 							"fileName": "src/types.ts",
 							"line": 98,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L98"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L98"
 						}
 					],
 					"type": {
@@ -3989,7 +3989,7 @@
 							"fileName": "src/types.ts",
 							"line": 99,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L99"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L99"
 						}
 					],
 					"type": {
@@ -4019,7 +4019,7 @@
 					"fileName": "src/types.ts",
 					"line": 96,
 					"character": 17,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L96"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L96"
 				}
 			]
 		},
@@ -4041,7 +4041,7 @@
 							"fileName": "src/types.ts",
 							"line": 144,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L144"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L144"
 						}
 					],
 					"type": {
@@ -4062,7 +4062,7 @@
 							"fileName": "src/types.ts",
 							"line": 145,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L145"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L145"
 						}
 					],
 					"type": {
@@ -4085,7 +4085,7 @@
 					"fileName": "src/types.ts",
 					"line": 143,
 					"character": 17,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L143"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L143"
 				}
 			]
 		},
@@ -4107,7 +4107,7 @@
 							"fileName": "src/types.ts",
 							"line": 93,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L93"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L93"
 						}
 					],
 					"type": {
@@ -4131,7 +4131,7 @@
 							"fileName": "src/types.ts",
 							"line": 92,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L92"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L92"
 						}
 					],
 					"type": {
@@ -4155,7 +4155,7 @@
 							"fileName": "src/types.ts",
 							"line": 90,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L90"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L90"
 						}
 					],
 					"type": {
@@ -4174,7 +4174,7 @@
 							"fileName": "src/types.ts",
 							"line": 91,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L91"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L91"
 						}
 					],
 					"type": {
@@ -4193,7 +4193,7 @@
 							"fileName": "src/types.ts",
 							"line": 88,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L88"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L88"
 						}
 					],
 					"type": {
@@ -4212,7 +4212,7 @@
 							"fileName": "src/types.ts",
 							"line": 89,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L89"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L89"
 						}
 					],
 					"type": {
@@ -4239,7 +4239,7 @@
 					"fileName": "src/types.ts",
 					"line": 87,
 					"character": 17,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L87"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L87"
 				}
 			]
 		},
@@ -4263,7 +4263,7 @@
 							"fileName": "src/types.ts",
 							"line": 177,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L177"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L177"
 						}
 					],
 					"type": {
@@ -4289,7 +4289,7 @@
 							"fileName": "src/types.ts",
 							"line": 180,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L180"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L180"
 						}
 					],
 					"type": {
@@ -4310,7 +4310,7 @@
 							"fileName": "src/types.ts",
 							"line": 176,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L176"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L176"
 						}
 					],
 					"type": {
@@ -4336,7 +4336,7 @@
 							"fileName": "src/types.ts",
 							"line": 178,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L178"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L178"
 						}
 					],
 					"type": {
@@ -4362,7 +4362,7 @@
 							"fileName": "src/types.ts",
 							"line": 179,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L179"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L179"
 						}
 					],
 					"type": {
@@ -4383,7 +4383,7 @@
 							"fileName": "src/types.ts",
 							"line": 175,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L175"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L175"
 						}
 					],
 					"type": {
@@ -4407,7 +4407,7 @@
 							"fileName": "src/types.ts",
 							"line": 174,
 							"character": 2,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L174"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L174"
 						}
 					],
 					"type": {
@@ -4435,7 +4435,7 @@
 					"fileName": "src/types.ts",
 					"line": 173,
 					"character": 17,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L173"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L173"
 				}
 			]
 		},
@@ -4603,7 +4603,7 @@
 					"fileName": "src/types.ts",
 					"line": 30,
 					"character": 12,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L30"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L30"
 				}
 			],
 			"type": {
@@ -4639,7 +4639,7 @@
 					"fileName": "src/types.ts",
 					"line": 31,
 					"character": 12,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L31"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L31"
 				}
 			],
 			"type": {
@@ -4712,7 +4712,7 @@
 					"fileName": "src/types.ts",
 					"line": 48,
 					"character": 12,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L48"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L48"
 				}
 			],
 			"type": {
@@ -4744,7 +4744,7 @@
 					"fileName": "src/types.ts",
 					"line": 35,
 					"character": 12,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L35"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L35"
 				}
 			],
 			"type": {
@@ -4772,7 +4772,7 @@
 					"fileName": "src/types.ts",
 					"line": 29,
 					"character": 12,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L29"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L29"
 				}
 			],
 			"type": {
@@ -4808,7 +4808,7 @@
 					"fileName": "src/types.ts",
 					"line": 141,
 					"character": 12,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L141"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L141"
 				}
 			],
 			"type": {
@@ -4840,7 +4840,7 @@
 					"fileName": "src/types.ts",
 					"line": 32,
 					"character": 12,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/types.ts#L32"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/types.ts#L32"
 				}
 			],
 			"type": {
@@ -4874,7 +4874,7 @@
 					"fileName": "src/config.ts",
 					"line": 6,
 					"character": 13,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config.ts#L6"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config.ts#L6"
 				}
 			],
 			"type": {
@@ -4899,7 +4899,7 @@
 					"fileName": "src/config-schema.ts",
 					"line": 88,
 					"character": 13,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L88"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L88"
 				}
 			],
 			"type": {
@@ -4930,7 +4930,7 @@
 											"fileName": "src/config-schema.ts",
 											"line": 96,
 											"character": 2,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L96"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L96"
 										}
 									],
 									"type": {
@@ -4977,7 +4977,7 @@
 																					"fileName": "src/config-schema.ts",
 																					"line": 55,
 																					"character": 2,
-																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L55"
+																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L55"
 																				}
 																			],
 																			"type": {
@@ -5003,7 +5003,7 @@
 																					"fileName": "src/config-schema.ts",
 																					"line": 57,
 																					"character": 2,
-																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L57"
+																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L57"
 																				}
 																			],
 																			"type": {
@@ -5041,7 +5041,7 @@
 																					"fileName": "src/config-schema.ts",
 																					"line": 56,
 																					"character": 2,
-																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L56"
+																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L56"
 																				}
 																			],
 																			"type": {
@@ -5111,7 +5111,7 @@
 											"fileName": "src/config-schema.ts",
 											"line": 90,
 											"character": 2,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L90"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L90"
 										}
 									],
 									"type": {
@@ -5149,7 +5149,7 @@
 											"fileName": "src/config-schema.ts",
 											"line": 97,
 											"character": 2,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L97"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L97"
 										}
 									],
 									"type": {
@@ -5196,7 +5196,7 @@
 																					"fileName": "src/config-schema.ts",
 																					"line": 64,
 																					"character": 2,
-																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L64"
+																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L64"
 																				}
 																			],
 																			"type": {
@@ -5235,7 +5235,7 @@
 																													"fileName": "src/config-schema.ts",
 																													"line": 67,
 																													"character": 6,
-																													"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L67"
+																													"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L67"
 																												}
 																											],
 																											"type": {
@@ -5273,7 +5273,7 @@
 																													"fileName": "src/config-schema.ts",
 																													"line": 68,
 																													"character": 6,
-																													"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L68"
+																													"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L68"
 																												}
 																											],
 																											"type": {
@@ -5311,7 +5311,7 @@
 																													"fileName": "src/config-schema.ts",
 																													"line": 66,
 																													"character": 6,
-																													"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L66"
+																													"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L66"
 																												}
 																											],
 																											"type": {
@@ -5389,7 +5389,7 @@
 																					"fileName": "src/config-schema.ts",
 																					"line": 72,
 																					"character": 2,
-																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L72"
+																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L72"
 																				}
 																			],
 																			"type": {
@@ -5427,7 +5427,7 @@
 																					"fileName": "src/config-schema.ts",
 																					"line": 73,
 																					"character": 2,
-																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L73"
+																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L73"
 																				}
 																			],
 																			"type": {
@@ -5465,7 +5465,7 @@
 																					"fileName": "src/config-schema.ts",
 																					"line": 71,
 																					"character": 2,
-																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L71"
+																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L71"
 																				}
 																			],
 																			"type": {
@@ -5503,7 +5503,7 @@
 																					"fileName": "src/config-schema.ts",
 																					"line": 63,
 																					"character": 2,
-																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L63"
+																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L63"
 																				}
 																			],
 																			"type": {
@@ -5541,7 +5541,7 @@
 																					"fileName": "src/config-schema.ts",
 																					"line": 62,
 																					"character": 2,
-																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L62"
+																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L62"
 																				}
 																			],
 																			"type": {
@@ -5614,7 +5614,7 @@
 											"fileName": "src/config-schema.ts",
 											"line": 91,
 											"character": 2,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L91"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L91"
 										}
 									],
 									"type": {
@@ -5652,7 +5652,7 @@
 											"fileName": "src/config-schema.ts",
 											"line": 94,
 											"character": 2,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L94"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L94"
 										}
 									],
 									"type": {
@@ -5690,7 +5690,7 @@
 											"fileName": "src/config-schema.ts",
 											"line": 89,
 											"character": 2,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L89"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L89"
 										}
 									],
 									"type": {
@@ -5728,7 +5728,7 @@
 											"fileName": "src/config-schema.ts",
 											"line": 93,
 											"character": 2,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L93"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L93"
 										}
 									],
 									"type": {
@@ -5766,7 +5766,7 @@
 											"fileName": "src/config-schema.ts",
 											"line": 92,
 											"character": 2,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L92"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L92"
 										}
 									],
 									"type": {
@@ -5804,7 +5804,7 @@
 											"fileName": "src/config-schema.ts",
 											"line": 95,
 											"character": 2,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L95"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L95"
 										}
 									],
 									"type": {
@@ -5851,7 +5851,7 @@
 																					"fileName": "src/config-schema.ts",
 																					"line": 42,
 																					"character": 2,
-																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L42"
+																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L42"
 																				}
 																			],
 																			"type": {
@@ -5877,7 +5877,7 @@
 																					"fileName": "src/config-schema.ts",
 																					"line": 43,
 																					"character": 2,
-																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L43"
+																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L43"
 																				}
 																			],
 																			"type": {
@@ -5958,7 +5958,7 @@
 											"fileName": "src/config-schema.ts",
 											"line": 98,
 											"character": 2,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L98"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L98"
 										}
 									],
 									"type": {
@@ -6005,7 +6005,7 @@
 																					"fileName": "src/config-schema.ts",
 																					"line": 81,
 																					"character": 2,
-																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L81"
+																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L81"
 																				}
 																			],
 																			"type": {
@@ -6052,7 +6052,7 @@
 																															"fileName": "src/config-schema.ts",
 																															"line": 55,
 																															"character": 2,
-																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L55"
+																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L55"
 																														}
 																													],
 																													"type": {
@@ -6078,7 +6078,7 @@
 																															"fileName": "src/config-schema.ts",
 																															"line": 57,
 																															"character": 2,
-																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L57"
+																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L57"
 																														}
 																													],
 																													"type": {
@@ -6110,7 +6110,7 @@
 																															"fileName": "src/config-schema.ts",
 																															"line": 56,
 																															"character": 2,
-																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L56"
+																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L56"
 																														}
 																													],
 																													"type": {
@@ -6180,7 +6180,7 @@
 																					"fileName": "src/config-schema.ts",
 																					"line": 84,
 																					"character": 2,
-																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L84"
+																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L84"
 																				}
 																			],
 																			"type": {
@@ -6218,7 +6218,7 @@
 																					"fileName": "src/config-schema.ts",
 																					"line": 80,
 																					"character": 2,
-																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L80"
+																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L80"
 																				}
 																			],
 																			"type": {
@@ -6265,7 +6265,7 @@
 																															"fileName": "src/config-schema.ts",
 																															"line": 48,
 																															"character": 2,
-																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L48"
+																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L48"
 																														}
 																													],
 																													"type": {
@@ -6291,7 +6291,7 @@
 																															"fileName": "src/config-schema.ts",
 																															"line": 50,
 																															"character": 2,
-																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L50"
+																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L50"
 																														}
 																													],
 																													"type": {
@@ -6323,7 +6323,7 @@
 																															"fileName": "src/config-schema.ts",
 																															"line": 49,
 																															"character": 2,
-																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L49"
+																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L49"
 																														}
 																													],
 																													"type": {
@@ -6399,7 +6399,7 @@
 																					"fileName": "src/config-schema.ts",
 																					"line": 82,
 																					"character": 2,
-																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L82"
+																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L82"
 																				}
 																			],
 																			"type": {
@@ -6446,7 +6446,7 @@
 																															"fileName": "src/config-schema.ts",
 																															"line": 64,
 																															"character": 2,
-																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L64"
+																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L64"
 																														}
 																													],
 																													"type": {
@@ -6478,7 +6478,7 @@
 																															"fileName": "src/config-schema.ts",
 																															"line": 72,
 																															"character": 2,
-																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L72"
+																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L72"
 																														}
 																													],
 																													"type": {
@@ -6510,7 +6510,7 @@
 																															"fileName": "src/config-schema.ts",
 																															"line": 73,
 																															"character": 2,
-																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L73"
+																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L73"
 																														}
 																													],
 																													"type": {
@@ -6542,7 +6542,7 @@
 																															"fileName": "src/config-schema.ts",
 																															"line": 71,
 																															"character": 2,
-																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L71"
+																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L71"
 																														}
 																													],
 																													"type": {
@@ -6574,7 +6574,7 @@
 																															"fileName": "src/config-schema.ts",
 																															"line": 63,
 																															"character": 2,
-																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L63"
+																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L63"
 																														}
 																													],
 																													"type": {
@@ -6606,7 +6606,7 @@
 																															"fileName": "src/config-schema.ts",
 																															"line": 62,
 																															"character": 2,
-																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L62"
+																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L62"
 																														}
 																													],
 																													"type": {
@@ -6679,7 +6679,7 @@
 																					"fileName": "src/config-schema.ts",
 																					"line": 83,
 																					"character": 2,
-																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L83"
+																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L83"
 																				}
 																			],
 																			"type": {
@@ -6717,7 +6717,7 @@
 																					"fileName": "src/config-schema.ts",
 																					"line": 79,
 																					"character": 2,
-																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L79"
+																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L79"
 																				}
 																			],
 																			"type": {
@@ -6764,7 +6764,7 @@
 																															"fileName": "src/config-schema.ts",
 																															"line": 42,
 																															"character": 2,
-																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L42"
+																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L42"
 																														}
 																													],
 																													"type": {
@@ -6790,7 +6790,7 @@
 																															"fileName": "src/config-schema.ts",
 																															"line": 43,
 																															"character": 2,
-																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L43"
+																															"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L43"
 																														}
 																													],
 																													"type": {
@@ -6865,7 +6865,7 @@
 																					"fileName": "src/config-schema.ts",
 																					"line": 78,
 																					"character": 2,
-																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config-schema.ts#L78"
+																					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config-schema.ts#L78"
 																				}
 																			],
 																			"type": {
@@ -6982,7 +6982,7 @@
 					"fileName": "src/config.ts",
 					"line": 191,
 					"character": 16,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config.ts#L191"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config.ts#L191"
 				}
 			],
 			"signatures": [
@@ -7025,7 +7025,7 @@
 							"fileName": "src/config.ts",
 							"line": 191,
 							"character": 16,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config.ts#L191"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config.ts#L191"
 						}
 					],
 					"parameters": [
@@ -7091,7 +7091,7 @@
 											"fileName": "src/config.ts",
 											"line": 194,
 											"character": 44,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config.ts#L194"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config.ts#L194"
 										}
 									],
 									"type": {
@@ -7110,7 +7110,7 @@
 											"fileName": "src/config.ts",
 											"line": 194,
 											"character": 19,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config.ts#L194"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config.ts#L194"
 										}
 									],
 									"type": {
@@ -7138,7 +7138,7 @@
 											"fileName": "src/config.ts",
 											"line": 194,
 											"character": 5,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config.ts#L194"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config.ts#L194"
 										}
 									],
 									"type": {
@@ -7162,7 +7162,7 @@
 									"fileName": "src/config.ts",
 									"line": 194,
 									"character": 3,
-									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config.ts#L194"
+									"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config.ts#L194"
 								}
 							]
 						}
@@ -7181,7 +7181,7 @@
 					"fileName": "src/html-viewer/index.ts",
 					"line": 32,
 					"character": 16,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/html-viewer/index.ts#L32"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/html-viewer/index.ts#L32"
 				}
 			],
 			"signatures": [
@@ -7196,7 +7196,7 @@
 							"fileName": "src/html-viewer/index.ts",
 							"line": 32,
 							"character": 16,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/html-viewer/index.ts#L32"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/html-viewer/index.ts#L32"
 						}
 					],
 					"parameters": [
@@ -7259,7 +7259,7 @@
 					"fileName": "src/config.ts",
 					"line": 160,
 					"character": 16,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config.ts#L160"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config.ts#L160"
 				}
 			],
 			"signatures": [
@@ -7274,7 +7274,7 @@
 							"fileName": "src/config.ts",
 							"line": 160,
 							"character": 16,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config.ts#L160"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config.ts#L160"
 						}
 					],
 					"parameters": [
@@ -7319,7 +7319,7 @@
 													"fileName": "src/config.ts",
 													"line": 162,
 													"character": 22,
-													"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config.ts#L162"
+													"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config.ts#L162"
 												}
 											],
 											"type": {
@@ -7340,7 +7340,7 @@
 													"fileName": "src/config.ts",
 													"line": 162,
 													"character": 9,
-													"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config.ts#L162"
+													"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config.ts#L162"
 												}
 											],
 											"type": {
@@ -7361,7 +7361,7 @@
 													"fileName": "src/config.ts",
 													"line": 162,
 													"character": 39,
-													"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config.ts#L162"
+													"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config.ts#L162"
 												}
 											],
 											"type": {
@@ -7385,7 +7385,7 @@
 											"fileName": "src/config.ts",
 											"line": 162,
 											"character": 7,
-											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config.ts#L162"
+											"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config.ts#L162"
 										}
 									]
 								}
@@ -7422,7 +7422,7 @@
 					"fileName": "src/config.ts",
 					"line": 39,
 					"character": 16,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config.ts#L39"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config.ts#L39"
 				}
 			],
 			"signatures": [
@@ -7437,7 +7437,7 @@
 							"fileName": "src/config.ts",
 							"line": 39,
 							"character": 16,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config.ts#L39"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config.ts#L39"
 						}
 					],
 					"parameters": [
@@ -7487,7 +7487,7 @@
 					"fileName": "src/config.ts",
 					"line": 131,
 					"character": 16,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config.ts#L131"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config.ts#L131"
 				}
 			],
 			"signatures": [
@@ -7502,7 +7502,7 @@
 							"fileName": "src/config.ts",
 							"line": 131,
 							"character": 16,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/config.ts#L131"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/config.ts#L131"
 						}
 					],
 					"parameters": [
@@ -7565,7 +7565,7 @@
 					"fileName": "src/action.ts",
 					"line": 112,
 					"character": 22,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/action.ts#L112"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/action.ts#L112"
 				}
 			],
 			"signatures": [
@@ -7588,7 +7588,7 @@
 							"fileName": "src/action.ts",
 							"line": 112,
 							"character": 22,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/action.ts#L112"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/action.ts#L112"
 						}
 					],
 					"parameters": [
@@ -7738,7 +7738,7 @@
 					"fileName": "src/utils/gh.ts",
 					"line": 38,
 					"character": 16,
-					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/utils/gh.ts#L38"
+					"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/utils/gh.ts#L38"
 				}
 			],
 			"signatures": [
@@ -7753,7 +7753,7 @@
 							"fileName": "src/utils/gh.ts",
 							"line": 38,
 							"character": 16,
-							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/33550ef98537632bff0e563183dc1992ebc5a7e0/src/utils/gh.ts#L38"
+							"url": "https://github.com/jmchilton/gh-ci-artifacts/blob/c51f3306a861392de4b629513dc4406987b8f93d/src/utils/gh.ts#L38"
 						}
 					],
 					"type": {
@@ -7833,7 +7833,7 @@
 		}
 	],
 	"packageName": "gh-ci-artifacts",
-	"packageVersion": "1.17.0",
+	"packageVersion": "1.17.1",
 	"symbolIdMap": {
 		"0": {
 			"packageName": "gh-ci-artifacts",
