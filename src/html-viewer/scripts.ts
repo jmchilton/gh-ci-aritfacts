@@ -400,7 +400,7 @@ function renderRunDetails(run) {
   if (run.logs && run.logs.length > 0) {
     html += '<h4>Logs</h4>';
     html += '<table class="detail-table"><thead><tr>';
-    html += '<th>Job Name</th><th>Job Status</th><th>Download Status</th><th>Artifacts Extracted</th><th>GitHub Actions</th></tr></thead><tbody>';
+    html += '<th>Job Name</th><th>Job Status</th><th>Download Status</th><th>Artifacts Extracted</th><th>Local Log</th><th>GitHub Actions</th></tr></thead><tbody>';
     run.logs.forEach(l => {
       let jobStatusBadge = '';
       if (l.jobStatus) {
@@ -412,12 +412,23 @@ function renderRunDetails(run) {
       }
       statusBadge += '>' + l.extractionStatus + '</span>';
       const artifacts = l.linterOutputs ? l.linterOutputs.length : 0;
+
+      // Local log actions (only show if log was successfully downloaded)
+      let localLogActions = '';
+      if (l.logFile && l.extractionStatus === 'success') {
+        const logPath = l.logFile;
+        localLogActions = '<div class="log-actions">' +
+          '<a href="file://' + logPath + '" target="_blank" rel="noopener noreferrer" title="Open log file" class="action-btn open-btn">📖 Open</a> ' +
+          '<button class="copy-path-btn action-btn" data-path="' + logPath + '" title="Copy path to clipboard">📋 Copy</button>' +
+          '</div>';
+      }
+
       let jobLink = '';
       if (l.jobId && run.repo && run.runId) {
         const jobUrl = 'https://github.com/' + run.repo + '/actions/runs/' + run.runId + '/job/' + l.jobId;
         jobLink = '<a href="' + jobUrl + '" target="_blank" rel="noopener noreferrer">View Logs</a>';
       }
-      html += '<tr><td>' + l.jobName + '</td><td>' + jobStatusBadge + '</td><td>' + statusBadge + '</td><td>' + artifacts + '</td><td>' + jobLink + '</td></tr>';
+      html += '<tr><td>' + l.jobName + '</td><td>' + jobStatusBadge + '</td><td>' + statusBadge + '</td><td>' + artifacts + '</td><td>' + localLogActions + '</td><td>' + jobLink + '</td></tr>';
     });
     html += '</tbody></table>';
   }
