@@ -1,3 +1,10 @@
+## [1.21.1](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.21.0...v1.21.1) (2025-12-07)
+
+
+### Bug Fixes
+
+* upgrade artifact-detective to 1.16.0 ([c8d1f1d](https://github.com/jmchilton/gh-ci-artifacts/commit/c8d1f1d18c422e8684002312e199714aa6fc6e10))
+
 # [1.21.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.20.0...v1.21.0) (2025-12-07)
 
 
