@@ -1,3 +1,10 @@
+# [1.21.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.20.0...v1.21.0) (2025-12-07)
+
+
+### Features
+
+* validate expected log artifacts from extractArtifactTypesFromLogs config ([106f52d](https://github.com/jmchilton/gh-ci-artifacts/commit/106f52dd4edb44886eafb0401e247c809b57b8bf)), closes [#2](https://github.com/jmchilton/gh-ci-artifacts/issues/2) [#2](https://github.com/jmchilton/gh-ci-artifacts/issues/2)
+
 # [1.20.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.19.0...v1.20.0) (2025-11-13)
 
 
