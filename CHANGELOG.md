@@ -1,3 +1,21 @@
+# [2.0.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.22.0...v2.0.0) (2025-12-07)
+
+
+* feat!: upgrade artifact-detective to 2.0.0 ([d8a1ab9](https://github.com/jmchilton/gh-ci-artifacts/commit/d8a1ab962893074fb8cbecda017a3c468833bd95))
+
+
+### BREAKING CHANGES
+
+* Requires artifact-detective 2.0.0+ which changed
+ConversionResult.description to ConversionResult.artifact
+
+- Use conversionResult.artifact instead of .description
+- Fix double-stringify bug: json field is already a string
+
+🤖 Generated with [Claude Code](https://claude.com/claude-code)
+
+Co-Authored-By: Claude <noreply@anthropic.com>
+
 # [1.22.0](https://github.com/jmchilton/gh-ci-artifacts/compare/v1.21.1...v1.22.0) (2025-12-07)
 
 
