@@ -127,9 +127,9 @@ export async function catalogArtifacts(
 
           try {
             // Use appropriate extractor based on detected type
-            const jsonData = convertToJSON(detection, filePath);
+            const conversionResult = convertToJSON(detection, filePath);
 
-            if (jsonData) {
+            if (conversionResult) {
               // Save converted JSON
               const convertedRunDir = join(convertedDir, runId);
               mkdirSync(convertedRunDir, { recursive: true });
@@ -140,10 +140,8 @@ export async function catalogArtifacts(
                 convertedRunDir,
                 convertedFileName,
               );
-              writeFileSync(
-                convertedFilePath,
-                JSON.stringify(jsonData, null, 2),
-              );
+              // conversionResult.json is already a JSON string
+              writeFileSync(convertedFilePath, conversionResult.json);
 
               catalog.push({
                 artifactName,
@@ -153,7 +151,8 @@ export async function catalogArtifacts(
                 originalFormat: detection.originalFormat,
                 filePath: convertedFilePath,
                 converted: true,
-                artifact: detection.artifact,
+                // Use converted type's artifact descriptor (has correct parsingGuide)
+                artifact: conversionResult.artifact,
                 validation: detection.validationResult,
               });
 
